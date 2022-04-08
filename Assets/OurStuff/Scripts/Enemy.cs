@@ -6,10 +6,12 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
+    public GameObject Player;
+
     float OriginalSpeed;
     float OriginalDetectionRange;
     NavMeshAgent NMA;
-    GameObject Player;
+   // GameObject Player;
     float dist;
     public float DetectionRange;
     float alert;
@@ -22,11 +24,11 @@ public class Enemy : MonoBehaviour
     public float RandomSoundMaxCooldown = 5;
     float SoundCoolDown;
 
-   // EnemyAttackSystem eas;
-   // EnemyHealth hp;
-    Animator anim;
+    EnemyAttackSystem eas;
+    EnemyHealth hp;
+   // Animator anim;
     SkinnedMeshRenderer MR;
-  //  AudioManager Audio;
+    AudioManager Audio;
     ParticleSystem Particle;
     ParticleSystemRenderer PR;
 
@@ -35,25 +37,24 @@ public class Enemy : MonoBehaviour
 
     Transform TheEnemy;
 
-    // Start is called before the first frame update
+     
     void Awake()
     {
         TheEnemy = transform.GetChild(0);
         NMA = TheEnemy.GetComponent<NavMeshAgent>();
-      //  eas = TheEnemy.GetComponent<EnemyAttackSystem>();
-      //  hp = TheEnemy.GetComponent<EnemyHealth>();
-       // Audio = TheEnemy.GetComponent<AudioManager>();
+        eas = TheEnemy.GetComponent<EnemyAttackSystem>();
+        hp = TheEnemy.GetComponent<EnemyHealth>();
+        Audio = TheEnemy.GetComponent<AudioManager>();
         Particle = TheEnemy.GetComponent<ParticleSystem>();
         PR = TheEnemy.GetComponent<ParticleSystemRenderer>();
-        anim = TheEnemy.GetChild(0).GetComponent<Animator>();
-        MR = anim.transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>();
+      //  anim = TheEnemy.GetChild(0).GetComponent<Animator>();
+       // MR = anim.transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>();
 
     }
 
     void Start()
     {
         
-       // Player = GameManager.Player.transform.Find("ThePlayer").gameObject;
         OriginalSpeed = NMA.speed;
         OriginalDetectionRange = DetectionRange;
     }
@@ -85,7 +86,7 @@ public class Enemy : MonoBehaviour
         {
             DetectionRange = OriginalDetectionRange * 1.5f;
             NMA.speed = OriginalSpeed * 1.5f;
-            /*
+            
             if (CheckBravery())
             {
                 ChasePlayer();
@@ -93,7 +94,7 @@ public class Enemy : MonoBehaviour
             else
             {
                 RunningAway();
-            }*/
+            }
 
 
         }
@@ -104,7 +105,7 @@ public class Enemy : MonoBehaviour
             Wonder();
         }
 
-       // if (eas.Stamina < eas.Tired) { NMA.speed = OriginalSpeed * 0.5f; }
+        if (eas.Stamina < eas.Tired) { NMA.speed = OriginalSpeed * 0.5f; }
     }
 
     void PlayRandomSound()
@@ -112,12 +113,12 @@ public class Enemy : MonoBehaviour
         if (SoundCoolDown <= 0)
         {
             SoundCoolDown = Random.Range(3, 3 + SoundCoolDown);
-           // Audio.PlaySound(Sound.Activation.Custom, "Boo");
+          //  Audio.PlaySound(Sound.Activation.Custom, "Boo");
         }
         else { SoundCoolDown -= Time.deltaTime; }
     }
 
-   /* bool CheckBravery()
+   bool CheckBravery()
     {
         float maxBrave = hp.MaxHp + eas.MaxStamina;
         float currentBravery = hp.Hp + eas.Stamina;
@@ -130,7 +131,7 @@ public class Enemy : MonoBehaviour
         {
             return false;
         }
-    } */
+    } 
 
     void RunningAway()
     {
@@ -143,7 +144,7 @@ public class Enemy : MonoBehaviour
         if (dist <= NMA.stoppingDistance)
         {
             RotateTowards(Player.transform);
-       //     eas.Attack();
+            eas.Attack();
         }
     }
 
@@ -191,7 +192,7 @@ public class Enemy : MonoBehaviour
     {
         Particle.Emit(5);
         //Audio.PlaySound(Sound.Activation.Custom, "Ah");
-        anim.SetTrigger("Ouch");
+      //  anim.SetTrigger("Ouch");
         alert += 2;
     }
 
