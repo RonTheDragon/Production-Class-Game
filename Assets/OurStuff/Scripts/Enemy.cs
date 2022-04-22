@@ -6,12 +6,13 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    public GameObject Player;
+    
 
     float OriginalSpeed;
     float OriginalDetectionRange;
     NavMeshAgent NMA;
-   // GameObject Player;
+    GameObject Player;
+    GameObject TheWall;
     float dist;
     public float DetectionRange;
     float alert;
@@ -40,6 +41,7 @@ public class Enemy : MonoBehaviour
      
     void Awake()
     {
+
         TheEnemy = transform.GetChild(0);
         NMA = TheEnemy.GetComponent<NavMeshAgent>();
         eas = TheEnemy.GetComponent<EnemyAttackSystem>();
@@ -54,7 +56,8 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        
+        Player=GameManager.instance.Player;
+        TheWall = GameManager.instance.Wall;
         OriginalSpeed = NMA.speed;
         OriginalDetectionRange = DetectionRange;
     }
@@ -98,11 +101,15 @@ public class Enemy : MonoBehaviour
 
 
         }
+
+       
+
         else
         {
             DetectionRange = OriginalDetectionRange;
             NMA.speed = OriginalSpeed;
-            Wonder();
+            //Wander();
+            AttackWall();
         }
 
         if (eas.Stamina < eas.Tired) { NMA.speed = OriginalSpeed * 0.5f; }
@@ -133,6 +140,8 @@ public class Enemy : MonoBehaviour
         }
     } 
 
+   
+
     void RunningAway()
     {
         NMA.SetDestination(TheEnemy.position + ((TheEnemy.position - Player.transform.position).normalized * 5));
@@ -148,9 +157,20 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    void AttackWall()
+    {
+        Vector3 MoveTo = new Vector3(TheEnemy.position.x, TheEnemy.position.y, TheWall.transform.position.z);
+        NMA.SetDestination(MoveTo);
+        float distance = Vector3.Distance(TheEnemy.transform.position, MoveTo);
+        if (distance <= NMA.stoppingDistance)
+        {
+            RotateTowards(TheWall.transform);
+            eas.Attack();
+        }
+    }
 
-
-    void Wonder()
+    //Not Used Currently
+    void Wander()
     {
         if (roamCooldown > 0) { roamCooldown -= Time.deltaTime; }
         else
@@ -186,7 +206,7 @@ public class Enemy : MonoBehaviour
             else return false;
         }
         else return false;
-    }
+    } 
 
     public void GotHit()
     {
