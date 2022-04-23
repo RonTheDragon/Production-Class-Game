@@ -12,7 +12,7 @@ public class EnemyAttackSystem : AttackSystem
     {
         base.Start();
         Audio = GetComponent<AudioManager>();
-        Anim = transform.GetChild(0).GetComponent<Animator>();
+        Anim = transform.GetChild(0).GetChild(0).GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -26,7 +26,7 @@ public class EnemyAttackSystem : AttackSystem
         if (CanAttack())
         {
             Acooldown = AttackCooldown;
-            Audio.PlaySound(Sound.Activation.Custom, "Attack");
+           // Audio.PlaySound(Sound.Activation.Custom, "Attack");
             Anim.SetTrigger("Attack1");
         }
     }

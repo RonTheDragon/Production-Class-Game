@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
 
     EnemyAttackSystem eas;
     EnemyHealth hp;
-   // Animator anim;
+    Animator anim;
     SkinnedMeshRenderer MR;
     AudioManager Audio;
     ParticleSystem Particle;
@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
         Audio = TheEnemy.GetComponent<AudioManager>();
         Particle = TheEnemy.GetComponent<ParticleSystem>();
         PR = TheEnemy.GetComponent<ParticleSystemRenderer>();
-      //  anim = TheEnemy.GetChild(0).GetComponent<Animator>();
+        anim = TheEnemy.GetChild(0).GetChild(0).GetComponent<Animator>();
        // MR = anim.transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>();
 
     }
@@ -151,8 +151,8 @@ public class Enemy : MonoBehaviour
     {
         NMA.SetDestination(Player.transform.position);
         if (dist <= NMA.stoppingDistance)
-        {
-            RotateTowards(Player.transform);
+        {          
+            RotateTowards(Player.transform.position);        
             eas.Attack();
         }
     }
@@ -162,9 +162,9 @@ public class Enemy : MonoBehaviour
         Vector3 MoveTo = new Vector3(TheEnemy.position.x, TheEnemy.position.y, TheWall.transform.position.z);
         NMA.SetDestination(MoveTo);
         float distance = Vector3.Distance(TheEnemy.transform.position, MoveTo);
-        if (distance <= NMA.stoppingDistance)
+        if (distance <= NMA.stoppingDistance+1)
         {
-            RotateTowards(TheWall.transform);
+            RotateTowards(MoveTo);
             eas.Attack();
         }
     }
@@ -216,12 +216,15 @@ public class Enemy : MonoBehaviour
         alert += 2;
     }
 
-    private void RotateTowards(Transform target)
+    private void RotateTowards(Vector3 target)
     {
-        Vector3 targetlocation = new Vector3(target.transform.position.x, TheEnemy.position.y, target.transform.position.z);
+        Vector3 targetlocation = new Vector3(target.x, TheEnemy.position.y, target.z);
         Vector3 direction = (targetlocation - TheEnemy.position).normalized;
-        Quaternion lookRotation = Quaternion.LookRotation(direction);
-        TheEnemy.rotation = Quaternion.Slerp(TheEnemy.rotation, lookRotation, Time.deltaTime * NMA.angularSpeed);
+        if (direction != Vector3.zero)
+        {
+            Quaternion lookRotation = Quaternion.LookRotation(direction);
+            TheEnemy.rotation = Quaternion.Slerp(TheEnemy.rotation, lookRotation, Time.deltaTime * NMA.angularSpeed);
+        }
     }
 
     
