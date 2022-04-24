@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7062bcf649430b649bfab5fdcffff923, type: 3}
-  m_Name: ParticleAttack
+  m_Name: ParticleAttack 2
   m_EditorClassIdentifier: 
-  Name: ShootParticle Red
+  Name: ShootParticle Blue
   AnimationTrigger: Attack3
   Damage: 10
   Knockback: 10000
@@ -24,7 +24,7 @@ MonoBehaviour:
   AttackMethod:
     m_PersistentCalls:
       m_Calls: []
-  particleSystem: {fileID: 2011320512540257276, guid: cf5cb6016dfe0134582859705b468893, type: 3}
+  particleSystem: {fileID: 2011320512540257276, guid: 392a7048511c7ca47a19602da90e6c40, type: 3}
   Emit: 1
-  Hold: 1
+  Hold: 0
   DamagingCooldown: 0.2

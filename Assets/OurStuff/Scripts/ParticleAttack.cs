@@ -14,6 +14,8 @@ public class ParticleAttack : Attack
     public float AttackCooldown;
     [HideInInspector]
     public float cooldown;
+    [HideInInspector]
+    public ParticleCollision pc;
 
     void Awake()
     {
@@ -57,11 +59,18 @@ public class ParticleAttack : Attack
         particle.Emit(ParticleAmount);
     }
 
-    public void CreateParticleSystem(ParticleSystem p)
+    public void CreateParticleSystem(ParticleSystem p,string ParticleName)
     {
         particle = Instantiate(p, transform.position, transform.rotation, transform);
-        ParticleCollision pc = particle.gameObject.AddComponent<ParticleCollision>();
+        pc = particle.gameObject.AddComponent<ParticleCollision>();
         pc.p = this;
+        pc.pName = ParticleName;
+    }
+
+    public void ReplaceParticleSystem(ParticleSystem p, string ParticleName)
+    {
+        Destroy(pc.gameObject);
+        CreateParticleSystem(p, ParticleName);
     }
 
 }

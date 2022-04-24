@@ -61,11 +61,13 @@ public class EnemyAttackSystem : AttackSystem
                 if (Attacks[N] is SOparticleAttack && particleAttack != null)
                 {
                     SOparticleAttack SOP = (SOparticleAttack)Attacks[N];
-                    if (particleAttack.particle == null) { particleAttack.CreateParticleSystem(SOP.particleSystem); }
+                    if (particleAttack.particle == null) { particleAttack.CreateParticleSystem(SOP.particleSystem,SOP.Name); }
+                    else if (particleAttack.pc.pName != SOP.Name) { particleAttack.ReplaceParticleSystem(SOP.particleSystem, SOP.Name); }
                     particleAttack.Damage = SOP.Damage * DamageMultiplier;
                     particleAttack.Knock = SOP.Knockback;
                     particleAttack.Hold = SOP.Hold;
                     particleAttack.ParticleAmount = SOP.Emit;
+                    particleAttack.AttackCooldown = SOP.DamagingCooldown;
                 }
 
                 StaminaCost = Attacks[N].StaminaCost;

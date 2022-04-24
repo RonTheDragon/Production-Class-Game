@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ParticleCollision : MonoBehaviour
 {
+    public string pName;
     public ParticleAttack p;
     
     private void OnParticleCollision(GameObject other)
