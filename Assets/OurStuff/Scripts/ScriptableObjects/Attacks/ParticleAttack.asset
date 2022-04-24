@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5640c261f1e55fe449404fdbaf8911d7, type: 3}
-  m_Name: RangeAttack
+  m_Script: {fileID: 11500000, guid: 7062bcf649430b649bfab5fdcffff923, type: 3}
+  m_Name: ParticleAttack
   m_EditorClassIdentifier: 
-  Name: ShootArrow
-  AnimationTrigger: Attack2
+  Name: ShootParticle
+  AnimationTrigger: Attack3
   Damage: 10
   Knockback: 10000
   StaminaCost: 10
@@ -24,5 +24,7 @@ MonoBehaviour:
   AttackMethod:
     m_PersistentCalls:
       m_Calls: []
-  Projectile: test
-  ProjectileSpeed: 10
+  particleSystem: {fileID: 2011320512540257276, guid: cf5cb6016dfe0134582859705b468893, type: 3}
+  Emit: 1
+  Hold: 0
+  DamagingCooldown: 0.2

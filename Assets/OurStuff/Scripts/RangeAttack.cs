@@ -6,7 +6,7 @@ public class RangeAttack : Attack
 {
     public bool AnimationTrigger;
     [HideInInspector]
-    public GameObject Bullet;
+    public string Bullet;
     [HideInInspector]
     public float ProjectileSpeed;
     bool _alreadyON;
@@ -32,7 +32,8 @@ public class RangeAttack : Attack
 
     public void Shoot()
     {
-        GameObject TheBullet = Instantiate(Bullet, transform.position, transform.rotation);
+        //GameObject TheBullet = Instantiate(Bullet, transform.position, transform.rotation);
+        GameObject TheBullet = ObjectPooler.Instance.SpawnFromPool(Bullet, transform.position, transform.rotation);
         Projectile p = TheBullet.GetComponent<Projectile>();
         if (p != null)
         {

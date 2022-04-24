@@ -38,6 +38,8 @@ public class Enemy : MonoBehaviour
 
     Transform TheEnemy;
 
+    float StoppingDistance;
+
      
     void Awake()
     {
@@ -60,6 +62,7 @@ public class Enemy : MonoBehaviour
         TheWall = GameManager.instance.Wall;
         OriginalSpeed = NMA.speed;
         OriginalDetectionRange = DetectionRange;
+        StoppingDistance = NMA.stoppingDistance;
     }
 
     // Update is called once per frame
@@ -91,6 +94,7 @@ public class Enemy : MonoBehaviour
             if (eas.Acooldown <= 0)
             {
                 NMA.speed = OriginalSpeed * 1.5f;
+                NMA.stoppingDistance = StoppingDistance;
             }
             else
             {
@@ -117,6 +121,7 @@ public class Enemy : MonoBehaviour
             if (eas.Acooldown <= 0)
             {
                 NMA.speed = OriginalSpeed;
+                NMA.stoppingDistance = StoppingDistance-2;
             }
             else
             {

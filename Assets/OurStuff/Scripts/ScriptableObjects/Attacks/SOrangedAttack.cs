@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "RangeAttack", menuName = "Attacks/Ranged Attack")]
 public class SOrangedAttack : SOattack
 {
-    public GameObject Projectile;
+    public string Projectile;
     public float ProjectileSpeed;
 }
 

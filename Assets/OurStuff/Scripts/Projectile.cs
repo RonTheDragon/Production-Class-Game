@@ -32,12 +32,14 @@ public class Projectile : Attack
             if (TargetHp != null)
             {
                 TargetHp.TakeDamage(Damage, Knock, transform.position);
-                Destroy(gameObject);
+                gameObject.SetActive(false);
+                //Destroy(gameObject);
             }
         }
         else
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+            //Destroy(gameObject);
         }
     }
 }

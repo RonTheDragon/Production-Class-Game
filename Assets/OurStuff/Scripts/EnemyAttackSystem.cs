@@ -8,9 +8,11 @@ public class EnemyAttackSystem : AttackSystem
     AudioManager Audio;
     public MeleeAttack meleeAttack;
     public RangeAttack rangeAttack;
+    public ParticleAttack particleAttack;
     public List<SOattack> Attacks = new List<SOattack>();
     public float TryToAttackEvery = 0.2f;
     float TryAttack;
+    public float DamageMultiplier = 1;
 
     // Start is called before the first frame update
     new void Start()
@@ -44,17 +46,26 @@ public class EnemyAttackSystem : AttackSystem
                 if (Attacks[N] is SOmeleeAttack && meleeAttack != null)
                 {
                     SOmeleeAttack SOM = (SOmeleeAttack)Attacks[N];
-                    meleeAttack.Damage = SOM.Damage;
+                    meleeAttack.Damage = SOM.Damage * DamageMultiplier;
                     meleeAttack.Knock = SOM.Knockback;
                     meleeAttack.AttackCooldown = SOM.DamagingCooldown;
                 }
                 if (Attacks[N] is SOrangedAttack && rangeAttack != null)
                 {
                     SOrangedAttack SOR = (SOrangedAttack)Attacks[N];
-                    rangeAttack.Damage = SOR.Damage;
+                    rangeAttack.Damage = SOR.Damage * DamageMultiplier;
                     rangeAttack.Knock = SOR.Knockback;
                     rangeAttack.Bullet = SOR.Projectile;
                     rangeAttack.ProjectileSpeed = SOR.ProjectileSpeed;
+                }
+                if (Attacks[N] is SOparticleAttack && particleAttack != null)
+                {
+                    SOparticleAttack SOP = (SOparticleAttack)Attacks[N];
+                    if (particleAttack.particle == null) { particleAttack.CreateParticleSystem(SOP.particleSystem); }
+                    particleAttack.Damage = SOP.Damage * DamageMultiplier;
+                    particleAttack.Knock = SOP.Knockback;
+                    particleAttack.Hold = SOP.Hold;
+                    particleAttack.ParticleAmount = SOP.Emit;
                 }
 
                 StaminaCost = Attacks[N].StaminaCost;

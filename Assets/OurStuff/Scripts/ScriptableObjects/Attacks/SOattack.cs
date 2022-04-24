@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName = "Attack",menuName ="Attacks/Attack")]
-public class SOattack : ScriptableObject
+public abstract class SOattack : ScriptableObject
 {
     public string Name;
     public string AnimationTrigger;
