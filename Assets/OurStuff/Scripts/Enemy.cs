@@ -88,7 +88,14 @@ public class Enemy : MonoBehaviour
         if (chasingPlayer)
         {
             DetectionRange = OriginalDetectionRange * 1.5f;
-            NMA.speed = OriginalSpeed * 1.5f;
+            if (eas.Acooldown <= 0)
+            {
+                NMA.speed = OriginalSpeed * 1.5f;
+            }
+            else
+            {
+                NMA.speed = 0;
+            }
             
             if (CheckBravery())
             {
@@ -107,7 +114,14 @@ public class Enemy : MonoBehaviour
         else
         {
             DetectionRange = OriginalDetectionRange;
-            NMA.speed = OriginalSpeed;
+            if (eas.Acooldown <= 0)
+            {
+                NMA.speed = OriginalSpeed;
+            }
+            else
+            {
+                NMA.speed = 0;
+            }
             //Wander();
             AttackWall();
         }
@@ -148,13 +162,13 @@ public class Enemy : MonoBehaviour
     }
 
     void ChasePlayer()
-    {
+    {      
         NMA.SetDestination(Player.transform.position);
-        if (dist <= NMA.stoppingDistance)
+        if (dist <= NMA.stoppingDistance || NMA.speed ==0)
         {          
-            RotateTowards(Player.transform.position);        
-            eas.Attack();
+            RotateTowards(Player.transform.position);              
         }
+        eas.Attack(Player.transform.position);
     }
 
     void AttackWall()
@@ -162,11 +176,11 @@ public class Enemy : MonoBehaviour
         Vector3 MoveTo = new Vector3(TheEnemy.position.x, TheEnemy.position.y, TheWall.transform.position.z);
         NMA.SetDestination(MoveTo);
         float distance = Vector3.Distance(TheEnemy.transform.position, MoveTo);
-        if (distance <= NMA.stoppingDistance+1)
+        if (distance <= NMA.stoppingDistance + 1 || NMA.speed == 0)
         {
             RotateTowards(MoveTo);
-            eas.Attack();
         }
+        eas.Attack(MoveTo);
     }
 
     //Not Used Currently

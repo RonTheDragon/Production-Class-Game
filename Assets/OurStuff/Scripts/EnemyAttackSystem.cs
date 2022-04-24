@@ -6,6 +6,11 @@ public class EnemyAttackSystem : AttackSystem
 {
     Animator Anim;
     AudioManager Audio;
+    public MeleeAttack meleeAttack;
+    public RangeAttack rangeAttack;
+    public List<SOattack> Attacks = new List<SOattack>();
+    public float TryToAttackEvery = 0.2f;
+    float TryAttack;
 
     // Start is called before the first frame update
     new void Start()
@@ -19,15 +24,52 @@ public class EnemyAttackSystem : AttackSystem
     new void Update()
     {
         base.Update();
-
     }
-    public void Attack()
+    public void Attack(Vector3 Target)
     {
-        if (CanAttack())
+        if (TryAttack <= 0)
         {
-            Acooldown = AttackCooldown;
-           // Audio.PlaySound(Sound.Activation.Custom, "Attack");
-            Anim.SetTrigger("Attack1");
+            TryAttack = TryToAttackEvery;
+
+            int N = Random.Range(0, Attacks.Count);
+            bool TheChance = true;
+            if (Attacks[N].Chance != 100)
+            {
+                float R = Random.Range(0f, 100f);
+                if (R > Attacks[N].Chance) TheChance = false;
+            }
+            float dist = Vector3.Distance(transform.position, Target);
+            if (dist > Attacks[N].MinRange && dist < Attacks[N].MaxRange && TheChance)
+            {
+                if (Attacks[N] is SOmeleeAttack && meleeAttack != null)
+                {
+                    SOmeleeAttack SOM = (SOmeleeAttack)Attacks[N];
+                    meleeAttack.Damage = SOM.Damage;
+                    meleeAttack.Knock = SOM.Knockback;
+                    meleeAttack.AttackCooldown = SOM.DamagingCooldown;
+                }
+                if (Attacks[N] is SOrangedAttack && rangeAttack != null)
+                {
+                    SOrangedAttack SOR = (SOrangedAttack)Attacks[N];
+                    rangeAttack.Damage = SOR.Damage;
+                    rangeAttack.Knock = SOR.Knockback;
+                    rangeAttack.Bullet = SOR.Projectile;
+                    rangeAttack.ProjectileSpeed = SOR.ProjectileSpeed;
+                }
+
+                StaminaCost = Attacks[N].StaminaCost;
+                if (CanAttack())
+                {
+                    Acooldown = Attacks[N].AttackCooldown;
+                    // Audio.PlaySound(Sound.Activation.Custom, "Attack");
+                    Anim.SetTrigger(Attacks[N].AnimationTrigger);
+                    Attacks[N].AttackMethod.Invoke();
+                }
+            }
+        }
+        else
+        {
+            TryAttack -= Time.deltaTime;
         }
     }
 }

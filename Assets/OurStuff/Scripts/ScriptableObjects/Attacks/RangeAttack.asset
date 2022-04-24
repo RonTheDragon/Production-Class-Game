@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5640c261f1e55fe449404fdbaf8911d7, type: 3}
+  m_Name: RangeAttack
+  m_EditorClassIdentifier: 
+  Name: ShootArrow
+  AnimationTrigger: Attack2
+  Damage: 10
+  Knockback: 10000
+  StaminaCost: 10
+  AttackCooldown: 4
+  MinRange: 3
+  MaxRange: 10
+  Chance: 10
+  AttackMethod:
+    m_PersistentCalls:
+      m_Calls: []
+  Projectile: {fileID: 8441075466056421742, guid: 9647f1c62dbe74b49874db704861a1b7, type: 3}
+  ProjectileSpeed: 10

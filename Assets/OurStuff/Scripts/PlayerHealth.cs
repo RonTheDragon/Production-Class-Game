@@ -34,7 +34,9 @@ public class PlayerHealth : Health
         {
             TheKnockback -= TheKnockback * Time.deltaTime * 2;
             //CC.Move((transform.position - TheImpactLocation).normalized * TheKnockback * Time.deltaTime);
-            RB.AddForce((transform.position - TheImpactLocation).normalized * TheKnockback * Time.deltaTime);
+            Vector3 Knock = (transform.position - TheImpactLocation).normalized * TheKnockback *Time.deltaTime;
+            Knock.y = 0;
+            RB.AddForce(Knock);
 
         }
     }

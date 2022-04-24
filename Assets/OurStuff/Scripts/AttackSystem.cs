@@ -8,9 +8,10 @@ public abstract class AttackSystem : MonoBehaviour
     [HideInInspector]
     public float Stamina;
     public float StaminaRegan = 30;
+    [HideInInspector]
     public float StaminaCost = 30;
     public float Tired = 30;
-
+    [HideInInspector]
     public float AttackCooldown;
     [HideInInspector]
     public float Acooldown;
