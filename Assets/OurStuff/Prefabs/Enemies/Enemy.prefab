@@ -181,6 +181,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 567de1d183ef6464ca817f5cde21648d, type: 2}
   - {fileID: 11400000, guid: f5f473570cd558e4882b4e91049ca6aa, type: 2}
   - {fileID: 11400000, guid: ace4a139be5122e47aec043e02751526, type: 2}
+  - {fileID: 11400000, guid: e4b0e2e733c2a4b44a8ca04038cd203e, type: 2}
   TryToAttackEvery: 0.2
   DamageMultiplier: 1
 --- !u!114 &429841490
@@ -364,6 +365,7 @@ MonoBehaviour:
   ParticleAmount: 1
   AttackCooldown: 0
   cooldown: 0
+  pc: {fileID: 0}
 --- !u!1001 &66258702224646575
 PrefabInstance:
   m_ObjectHideFlags: 0
