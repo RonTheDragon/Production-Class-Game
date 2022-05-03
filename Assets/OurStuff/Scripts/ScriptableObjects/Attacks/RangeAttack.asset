@@ -15,14 +15,14 @@ MonoBehaviour:
   Name: ShootArrow
   AnimationTrigger: Attack2
   Damage: 10
-  Knockback: 10000
+  Knockback: 5
   StaminaCost: 10
-  AttackCooldown: 4
+  AttackCooldown: 5
   MinRange: 3
   MaxRange: 10
   Chance: 10
   AttackMethod:
     m_PersistentCalls:
       m_Calls: []
-  Projectile: test
+  Projectile: Test
   ProjectileSpeed: 10

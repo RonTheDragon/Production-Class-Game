@@ -6,15 +6,14 @@ public class EnemyAttackSystem : AttackSystem
 {
     Animator Anim;
     AudioManager Audio;
-    public MeleeAttack meleeAttack;
-    public RangeAttack rangeAttack;
-    public ParticleAttack particleAttack;
-    public List<SOattack> Attacks = new List<SOattack>();
-    public float TryToAttackEvery = 0.2f;
+    [SerializeField] MeleeAttack meleeAttack;
+    [SerializeField] RangeAttack rangeAttack;
+    [SerializeField] ParticleAttack particleAttack;
+    [SerializeField] List<SOattack> Attacks = new List<SOattack>();
+    [SerializeField] float TryToAttackEvery = 0.2f;
+    [SerializeField] float DamageMultiplier = 1;
     float TryAttack;
-    public float DamageMultiplier = 1;
 
-    // Start is called before the first frame update
     new void Start()
     {
         base.Start();
@@ -22,7 +21,6 @@ public class EnemyAttackSystem : AttackSystem
         Anim = transform.GetChild(0).GetChild(0).GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     new void Update()
     {
         base.Update();
@@ -38,7 +36,8 @@ public class EnemyAttackSystem : AttackSystem
             if (Attacks[N].Chance != 100)
             {
                 float R = Random.Range(0f, 100f);
-                if (R > Attacks[N].Chance) TheChance = false;
+                if (R > Attacks[N].Chance)
+                    TheChance = false;
             }
             float dist = Vector3.Distance(transform.position, Target);
             if (dist > Attacks[N].MinRange && dist < Attacks[N].MaxRange && TheChance)
@@ -50,7 +49,7 @@ public class EnemyAttackSystem : AttackSystem
                     meleeAttack.Knock = SOM.Knockback;
                     meleeAttack.AttackCooldown = SOM.DamagingCooldown;
                 }
-                if (Attacks[N] is SOrangedAttack && rangeAttack != null)
+                else if (Attacks[N] is SOrangedAttack && rangeAttack != null)
                 {
                     SOrangedAttack SOR = (SOrangedAttack)Attacks[N];
                     rangeAttack.Damage = SOR.Damage * DamageMultiplier;
@@ -58,11 +57,17 @@ public class EnemyAttackSystem : AttackSystem
                     rangeAttack.Bullet = SOR.Projectile;
                     rangeAttack.ProjectileSpeed = SOR.ProjectileSpeed;
                 }
-                if (Attacks[N] is SOparticleAttack && particleAttack != null)
+                else if (Attacks[N] is SOparticleAttack && particleAttack != null)
                 {
                     SOparticleAttack SOP = (SOparticleAttack)Attacks[N];
-                    if (particleAttack.particle == null) { particleAttack.CreateParticleSystem(SOP.particleSystem,SOP.Name); }
-                    else if (particleAttack.pc.pName != SOP.Name) { particleAttack.ReplaceParticleSystem(SOP.particleSystem, SOP.Name); }
+                    if (particleAttack.particle == null)
+                    {
+                        particleAttack.CreateParticleSystem(SOP.particleSystem,SOP.Name);
+                    }
+                    else if (particleAttack.pc.pName != SOP.Name)
+                    {
+                        particleAttack.ReplaceParticleSystem(SOP.particleSystem, SOP.Name);
+                    }
                     particleAttack.Damage = SOP.Damage * DamageMultiplier;
                     particleAttack.Knock = SOP.Knockback;
                     particleAttack.Hold = SOP.Hold;

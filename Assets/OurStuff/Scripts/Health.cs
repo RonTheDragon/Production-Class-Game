@@ -5,9 +5,8 @@ using UnityEngine;
 public abstract class Health : MonoBehaviour
 {
     public float MaxHp = 100;
-    [HideInInspector]
     public float Hp;
-    public float HpRegan;
+    [SerializeField] float HpRegan;
     protected float TheKnockback;
     protected Vector3 TheImpactLocation;
 

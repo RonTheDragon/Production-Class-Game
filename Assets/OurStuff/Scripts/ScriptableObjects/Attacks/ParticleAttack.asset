@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: ShootParticle Red
   AnimationTrigger: Attack3
-  Damage: 10
-  Knockback: 10000
+  Damage: 7
+  Knockback: 3
   StaminaCost: 10
-  AttackCooldown: 4
+  AttackCooldown: 5
   MinRange: 3
   MaxRange: 10
   Chance: 10
@@ -27,4 +27,4 @@ MonoBehaviour:
   particleSystem: {fileID: 2011320512540257276, guid: cf5cb6016dfe0134582859705b468893, type: 3}
   Emit: 1
   Hold: 1
-  DamagingCooldown: 0.2
+  DamagingCooldown: 0.1

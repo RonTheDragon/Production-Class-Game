@@ -12,8 +12,6 @@ public abstract class AttackSystem : MonoBehaviour
     public float StaminaCost = 30;
     public float Tired = 30;
     [HideInInspector]
-    public float AttackCooldown;
-    [HideInInspector]
     public float Acooldown;
 
     // Start is called before the first frame update

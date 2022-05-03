@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : Health
 {
-    //CharacterController CC;
+    CharacterController CC;
     Rigidbody RB;
     //PlayerControler PC;
     //Animator Anim;
@@ -15,7 +15,7 @@ public class PlayerHealth : Health
     new void Start()
     {
         base.Start();
-        //CC = GetComponent<CharacterController>();
+        CC = GetComponent<CharacterController>();
         RB = GetComponent<Rigidbody>();
         //Anim = transform.GetChild(0).GetComponent<Animator>();
         //audio = GetComponent<AudioManager>();
@@ -33,10 +33,10 @@ public class PlayerHealth : Health
         if (TheKnockback > 0)
         {
             TheKnockback -= TheKnockback * Time.deltaTime * 2;
-            //CC.Move((transform.position - TheImpactLocation).normalized * TheKnockback * Time.deltaTime);
-            Vector3 Knock = (transform.position - TheImpactLocation).normalized * TheKnockback *Time.deltaTime;
+            Vector3 Knock = (transform.position - TheImpactLocation).normalized * TheKnockback * Time.deltaTime;
             Knock.y = 0;
-            RB.AddForce(Knock);
+            //RB.AddForce(Knock);
+            CC.Move(Knock);
 
         }
     }

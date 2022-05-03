@@ -14,15 +14,16 @@ public class Enemy : MonoBehaviour
     GameObject Player;
     GameObject TheWall;
     float dist;
-    public float DetectionRange;
-    float alert;
+    [SerializeField] float DetectionRange;
+    [SerializeField] float alert;
     bool chasingPlayer;
-    public float RoamCooldown = 10;
+    [SerializeField] float RoamCooldown = 10;
     float roamCooldown;
-    public float RoamRadius = 10;
-    public float Bravery = 50;
+    [SerializeField] float RoamRadius = 10;
+    [SerializeField] float Bravery = 50;
+    [SerializeField] float timeToAlert = 0.5f;
 
-    public float RandomSoundMaxCooldown = 5;
+    [SerializeField] float RandomSoundMaxCooldown = 5;
     float SoundCoolDown;
 
     EnemyAttackSystem eas;
@@ -84,9 +85,11 @@ public class Enemy : MonoBehaviour
         else if (alert > 0)
         {
             alert -= Time.deltaTime;
-            if (alert > 1) chasingPlayer = true;
-            else chasingPlayer = false;
         }
+            if(alert > timeToAlert)
+            chasingPlayer = true;
+            else
+            chasingPlayer = false;
 
         if (chasingPlayer)
         {
@@ -127,8 +130,15 @@ public class Enemy : MonoBehaviour
             {
                 NMA.speed = 0;
             }
-            //Wander();
-            AttackWall();
+
+            if (TheWall == null)
+            {
+                Wander();
+            }
+            else
+            {
+                AttackWall();
+            }
         }
 
         if (eas.Stamina < eas.Tired) { NMA.speed = OriginalSpeed * 0.5f; }
@@ -188,7 +198,6 @@ public class Enemy : MonoBehaviour
         eas.Attack(MoveTo);
     }
 
-    //Not Used Currently
     void Wander()
     {
         if (roamCooldown > 0) { roamCooldown -= Time.deltaTime; }
@@ -202,11 +211,12 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    bool eyesightcheck()
+    bool eyesightCheck()
     {
         RaycastHit hit;
-        if (Physics.Raycast(TheEnemy.position, (Player.transform.position - TheEnemy.position).normalized, out hit, DetectionRange))
+        if (Physics.Raycast(TheEnemy.position, (Player.transform.position - TheEnemy.position).normalized, out hit, DetectionRange, GameManager.instance.enemiesCanSee))
         {
+            Debug.Log(hit.collider.gameObject.name);
             if (hit.transform.gameObject == Player)
             {
                 return true;
@@ -220,7 +230,7 @@ public class Enemy : MonoBehaviour
         dist = Vector3.Distance(TheEnemy.position, Player.transform.position);
         if (dist <= DetectionRange && alert < 3)
         {
-            if (eyesightcheck())
+            if (eyesightCheck())
                 return true;
             else return false;
         }
@@ -229,9 +239,9 @@ public class Enemy : MonoBehaviour
 
     public void GotHit()
     {
-        Particle.Emit(5);
-        //Audio.PlaySound(Sound.Activation.Custom, "Ah");
-      //  anim.SetTrigger("Ouch");
+        //Particle.Emit(5); <-------RETURN LATER
+        //Audio.PlaySound(Sound.Activation.Custom, "Ah"); <-------RETURN LATER
+        //anim.SetTrigger("Ouch"); <-------RETURN LATER
         alert += 2;
     }
 

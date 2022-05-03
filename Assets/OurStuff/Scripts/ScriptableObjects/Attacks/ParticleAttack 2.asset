@@ -15,9 +15,9 @@ MonoBehaviour:
   Name: ShootParticle Blue
   AnimationTrigger: Attack3
   Damage: 10
-  Knockback: 10000
+  Knockback: 5
   StaminaCost: 10
-  AttackCooldown: 4
+  AttackCooldown: 5
   MinRange: 3
   MaxRange: 10
   Chance: 10

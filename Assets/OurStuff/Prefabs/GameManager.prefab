@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7171943304287298665}
   - component: {fileID: 1783876122695431559}
+  - component: {fileID: 1704370367}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -45,3 +46,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   Wall: {fileID: 0}
+  enemiesCanSee:
+    serializedVersion: 2
+    m_Bits: 127
+--- !u!114 &1704370367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5310620670068136351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ba14dd420138b44382f62e238132902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Groups:
+  - tag: Projectiles
+    pools:
+    - tag: Test
+      prefab: {fileID: 8441075466056421742, guid: 9647f1c62dbe74b49874db704861a1b7, type: 3}
+      size: 20
