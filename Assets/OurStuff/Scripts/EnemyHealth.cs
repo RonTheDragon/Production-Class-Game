@@ -6,11 +6,13 @@ public class EnemyHealth : Health
 {
     Enemy enemy;
     public GameObject DeadGhost;
+    EnemyAttackSystem EAS;
 
     new void Start()
     {
         base.Start();
         enemy = transform.parent.GetComponent<Enemy>();
+        EAS = GetComponent<EnemyAttackSystem>();
     }
 
     new void Update()
@@ -18,9 +20,9 @@ public class EnemyHealth : Health
         base.Update();
         TakeKnockback();
     }
-    public override void TakeDamage(float Damage, float Knock, Vector3 ImpactLocation)
+    public override void TakeDamage(float Damage, float Knock, float Stagger, Vector3 ImpactLocation)
     {
-        base.TakeDamage(Damage, Knock, ImpactLocation);
+        base.TakeDamage(Damage, Knock , Stagger, ImpactLocation);
         enemy.GotHit();
     }
 
@@ -38,5 +40,10 @@ public class EnemyHealth : Health
         //Instantiate(DeadGhost, transform.position, transform.rotation).GetComponent<ParticleSystemRenderer>().material = transform.GetChild(0).GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().materials[1];
         //GameManager.Player.GetComponent<PlayerControler>().KillAdded();
         Destroy(transform.parent.gameObject);
+    }
+
+    protected override void GetStaggered()
+    {
+        EAS.Stagger();
     }
 }

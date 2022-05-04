@@ -20,3 +20,4 @@ MonoBehaviour:
   MaxRange: 100
   Chance: 30
   attackType: 2
+  PreviousAttack: Block

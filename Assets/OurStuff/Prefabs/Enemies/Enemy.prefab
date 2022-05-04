@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHp: 100
   Hp: 0
+  StaggerResistance: 50
   HpRegan: 0
   DeadGhost: {fileID: 0}
 --- !u!114 &1004402096
@@ -186,8 +187,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 42dce146ac29829449562261afe0745e, type: 2}
   - {fileID: 11400000, guid: 32243c880f256fd43bf8ec57da9062f3, type: 2}
   - {fileID: 11400000, guid: 100d8e7d7e52e1441849ee318033859b, type: 2}
+  - {fileID: 11400000, guid: d0cb891d226932447b0058eb437244cc, type: 2}
   DamageMultiplier: 1
-  TryToAttackEvery: 0.2
+  HoldingAnAttack: 
+  PreviousAttack: 
+  TryToAttackEvery: 0.1
 --- !u!114 &429841490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,6 +295,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 10
   Knock: 1
+  Stagger: 0
   Attackable:
     serializedVersion: 2
     m_Bits: 8
@@ -358,6 +363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 0
   Knock: 0
+  Stagger: 0
   Attackable:
     serializedVersion: 2
     m_Bits: 8
@@ -378,6 +384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 0
   Knock: 0
+  Stagger: 0
   Attackable:
     serializedVersion: 2
     m_Bits: 8

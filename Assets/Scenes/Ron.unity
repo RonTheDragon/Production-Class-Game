@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1103356264, guid: 247ded5f593901542bb012f6c071c87c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.061544884
+      objectReference: {fileID: 0}
     - target: {fileID: 8559470171900184560, guid: 247ded5f593901542bb012f6c071c87c, type: 3}
       propertyPath: m_Name
       value: Third Person Player
@@ -652,6 +656,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 0
   Knock: 0
+  Stagger: 0
   Attackable:
     serializedVersion: 2
     m_Bits: 8

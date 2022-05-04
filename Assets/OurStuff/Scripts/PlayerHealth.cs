@@ -7,6 +7,7 @@ public class PlayerHealth : Health
 {
     CharacterController CC;
     Rigidbody RB;
+    PlayerAttackSystem PAS;
     //PlayerControler PC;
     //Animator Anim;
     //AudioManager audio;
@@ -17,6 +18,7 @@ public class PlayerHealth : Health
         base.Start();
         CC = GetComponent<CharacterController>();
         RB = GetComponent<Rigidbody>();
+        PAS = GetComponent<PlayerAttackSystem>();
         //Anim = transform.GetChild(0).GetComponent<Animator>();
         //audio = GetComponent<AudioManager>();
         //PC = transform.parent.GetComponent<PlayerControler>();
@@ -44,9 +46,15 @@ public class PlayerHealth : Health
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-    public override void TakeDamage(float Damage, float Knock, Vector3 ImpactLocation)
+
+    protected override void GetStaggered()
     {
-        base.TakeDamage(Damage, Knock, ImpactLocation);
+        PAS.Stagger();
+    }
+
+    public override void TakeDamage(float Damage, float Knock, float Stagger, Vector3 ImpactLocation)
+    {
+        base.TakeDamage(Damage, Knock, Stagger, ImpactLocation);
         //Anim.SetTrigger("Ouch");
         //audio.PlaySound(Sound.Activation.Custom, "Ouch");
     }

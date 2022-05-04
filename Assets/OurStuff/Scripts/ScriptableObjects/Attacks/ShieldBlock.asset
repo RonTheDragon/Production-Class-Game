@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: ShieldBlock
   m_EditorClassIdentifier: 
   Name: Block
-  AnimationTrigger: Attack4
+  AnimationTrigger: Attack5
   StaminaCost: 10
   AttackCooldown: 0.1
   MinRange: 0
   MaxRange: 5
   Chance: 30
   attackType: 1
+  PreviousAttack: 
   HpProtection: 0.1
   KnockProtection: 0.1
   ProtectionTime: 1.4

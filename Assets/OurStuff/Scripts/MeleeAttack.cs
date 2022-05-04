@@ -7,18 +7,21 @@ public class MeleeAttack : Attack
     public float AttackCooldown;
     float cooldown;
     List<Collider> TriggerList = new List<Collider>();
+    Collider TheTrigger;
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        TheTrigger = GetComponent<Collider>();
     }
 
     // Update is called once per frame
     void Update()
     {
         if (cooldown > 0) { cooldown -= Time.deltaTime; }
+        if (!TheTrigger.enabled && TriggerList.Count>0) { TriggerList = new List<Collider>(); }
+        
     }
 
 
@@ -34,7 +37,7 @@ public class MeleeAttack : Attack
                     if (TargetHp != null)
                     {
                         cooldown = AttackCooldown;
-                        TargetHp.TakeDamage(Damage, Knock, transform.parent.position);
+                        TargetHp.TakeDamage(Damage, Knock,Stagger, transform.parent.position);
                     }
                 }
             }

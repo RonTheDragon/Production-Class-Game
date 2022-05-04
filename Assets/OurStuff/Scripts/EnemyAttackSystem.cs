@@ -36,29 +36,7 @@ public class EnemyAttackSystem : AttackSystem
             float dist = Vector3.Distance(transform.position, Target);
             if (dist > Attacks[attackType].MinRange && dist < Attacks[attackType].MaxRange && TheChance)
             {
-                StaminaCost = Attacks[attackType].StaminaCost;
-                if (CanAttack())
-                {
-                    if (Attacks[attackType].attackType != SOability.AttackType.CanRelease)
-                    {
-                        SetUpAttack(attackType);
-                        if (Attacks[attackType].attackType == SOability.AttackType.NeedsRelease)
-                        {
-                            HoldingAnAttack = true;
-                        }
-                        Acooldown = Attacks[attackType].AttackCooldown;
-                        // Audio.PlaySound(Sound.Activation.Custom, "Attack");
-                        Anim.SetTrigger(Attacks[attackType].AnimationTrigger);
-                        //Attacks[N].AttackMethod.Invoke();
-                    }
-                }
-                else if (Attacks[attackType].attackType == SOability.AttackType.CanRelease && HoldingAnAttack == true)
-                {
-                    SetUpAttack(attackType);
-                    HoldingAnAttack = false;
-                    Acooldown = Attacks[attackType].AttackCooldown;
-                    Anim.SetTrigger(Attacks[attackType].AnimationTrigger);
-                }
+                AttemptToAttack(attackType);
             }
         }
         else
@@ -68,4 +46,5 @@ public class EnemyAttackSystem : AttackSystem
     }
 
     
+
 }

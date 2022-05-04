@@ -6,6 +6,7 @@ public abstract class Health : MonoBehaviour
 {
     public float MaxHp = 100;
     public float Hp;
+    [SerializeField] float StaggerResistance;
     [SerializeField] float HpRegan;
     protected float TheKnockback;
     protected Vector3 TheImpactLocation;
@@ -47,7 +48,7 @@ public abstract class Health : MonoBehaviour
         }
     }
 
-    public virtual void TakeDamage(float Damage, float knock, Vector3 ImpactLocation)
+    public virtual void TakeDamage(float Damage, float knock, float Stagger , Vector3 ImpactLocation)
     {
         if (TempTimeLeft > 0)
         {
@@ -58,9 +59,23 @@ public abstract class Health : MonoBehaviour
         {
             Hp -= Damage;
             TheKnockback = knock;
+            TryStagger(Stagger);
+            
         }
         TheImpactLocation = ImpactLocation;
     }
+
+    public void TryStagger(float stagger)
+    {
+        float S = Random.Range(stagger, stagger*2);
+        if (S > StaggerResistance)
+        {
+            GetStaggered();
+        }
+    }
+
+    protected abstract void GetStaggered();
+
 
     public void GainTempProtection(float hp, float knock, float time)
     {

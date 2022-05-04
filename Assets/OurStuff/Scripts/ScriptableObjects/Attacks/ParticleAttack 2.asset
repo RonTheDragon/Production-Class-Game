@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: ParticleAttack 2
   m_EditorClassIdentifier: 
   Name: ShootParticle Blue
-  AnimationTrigger: Attack3
-  Damage: 10
-  Knockback: 5
+  AnimationTrigger: Attack4
   StaminaCost: 10
-  AttackCooldown: 5
+  AttackCooldown: 3
   MinRange: 3
   MaxRange: 10
   Chance: 10
-  AttackMethod:
-    m_PersistentCalls:
-      m_Calls: []
+  attackType: 0
+  PreviousAttack: 
+  Damage: 10
+  Knockback: 5
+  Stagger: 40
   particleSystem: {fileID: 2011320512540257276, guid: 392a7048511c7ca47a19602da90e6c40, type: 3}
   Emit: 1
   Hold: 0

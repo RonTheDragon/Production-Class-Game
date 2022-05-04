@@ -16,6 +16,12 @@ public class ThirdPersonMovement : MonoBehaviour
 
     [SerializeField] float gravity = 9.8f;
 
+    [SerializeField] List<int> DownLeftClickAttacks;
+    [SerializeField] List<int> DownRightClickAttacks;
+    [SerializeField] List<int> UpLeftClickAttacks;
+    [SerializeField] List<int> UpRightClickAttacks;
+    
+
     //all the GetComponent's and speed
     private void Awake()
     {
@@ -35,19 +41,23 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            PAS.Attack(0);
+            foreach(int i in DownLeftClickAttacks)
+            { PAS.Attack(i); }
         }
         else if (Input.GetMouseButtonDown(1))
         {
-            PAS.Attack(1);
+            foreach (int i in DownRightClickAttacks)
+            { PAS.Attack(i); }
         }
         else if (Input.GetMouseButtonUp(0))
         {
-            PAS.Attack(2);
+            foreach (int i in UpLeftClickAttacks)
+            { PAS.Attack(i); }
         }
         else if (Input.GetMouseButtonUp(1))
         {
-            PAS.Attack(3);
+            foreach (int i in UpRightClickAttacks)
+            { PAS.Attack(i); }
         }
 
         if (PAS.Acooldown > 0)

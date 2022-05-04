@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: ParticleAttack
   m_EditorClassIdentifier: 
   Name: ShootParticle Red
-  AnimationTrigger: Attack3
-  Damage: 7
-  Knockback: 3
+  AnimationTrigger: Attack4
   StaminaCost: 10
-  AttackCooldown: 5
+  AttackCooldown: 3
   MinRange: 3
   MaxRange: 10
   Chance: 10
-  AttackMethod:
-    m_PersistentCalls:
-      m_Calls: []
+  attackType: 0
+  PreviousAttack: 
+  Damage: 7
+  Knockback: 3
+  Stagger: 40
   particleSystem: {fileID: 2011320512540257276, guid: cf5cb6016dfe0134582859705b468893, type: 3}
   Emit: 1
   Hold: 1

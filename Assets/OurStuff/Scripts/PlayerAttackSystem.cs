@@ -23,29 +23,6 @@ public class PlayerAttackSystem : AttackSystem
     }
     public void Attack(int attackType)
     {
-        StaminaCost = Attacks[attackType].StaminaCost;
-        if (CanAttack())
-        {
-            if (Attacks[attackType].attackType != SOability.AttackType.CanRelease)
-            {
-
-
-                SetUpAttack(attackType);
-                if (Attacks[attackType].attackType == SOability.AttackType.NeedsRelease)
-                {
-                    HoldingAnAttack = true;
-                }
-                Acooldown = Attacks[attackType].AttackCooldown;
-                //Audio.PlaySound(Sound.Activation.Custom, "Attack");
-                Anim.SetTrigger(Attacks[attackType].AnimationTrigger);
-            }
-        }
-        else if (Attacks[attackType].attackType == SOability.AttackType.CanRelease && HoldingAnAttack == true)
-        {
-            SetUpAttack(attackType);
-            HoldingAnAttack = false;
-            Acooldown = Attacks[attackType].AttackCooldown;
-            Anim.SetTrigger(Attacks[attackType].AnimationTrigger);
-        }
+        AttemptToAttack(attackType);
     }
 }

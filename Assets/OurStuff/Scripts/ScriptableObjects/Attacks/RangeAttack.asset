@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: RangeAttack
   m_EditorClassIdentifier: 
   Name: ShootArrow
-  AnimationTrigger: Attack2
-  Damage: 10
-  Knockback: 5
+  AnimationTrigger: Attack3
   StaminaCost: 10
-  AttackCooldown: 5
+  AttackCooldown: 3
   MinRange: 3
   MaxRange: 10
   Chance: 10
-  AttackMethod:
-    m_PersistentCalls:
-      m_Calls: []
+  attackType: 0
+  PreviousAttack: 
+  Damage: 10
+  Knockback: 5
+  Stagger: 40
   Projectile: Test
   ProjectileSpeed: 10
