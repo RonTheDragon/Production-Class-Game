@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] float Bravery = 50;
     [SerializeField] float timeToAlert = 0.5f;
 
-    [SerializeField] float RandomSoundMaxCooldown = 5;
+    //[SerializeField] float RandomSoundMaxCooldown = 5;
     float SoundCoolDown;
 
     EnemyAttackSystem eas;
@@ -216,7 +216,7 @@ public class Enemy : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(TheEnemy.position, (Player.transform.position - TheEnemy.position).normalized, out hit, DetectionRange, GameManager.instance.enemiesCanSee))
         {
-            Debug.Log(hit.collider.gameObject.name);
+            //Debug.Log(hit.collider.gameObject.name);
             if (hit.transform.gameObject == Player)
             {
                 return true;

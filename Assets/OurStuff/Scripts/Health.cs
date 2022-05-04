@@ -10,6 +10,10 @@ public abstract class Health : MonoBehaviour
     protected float TheKnockback;
     protected Vector3 TheImpactLocation;
 
+    float TempHpProtection = 1;
+    float TempKnockProtection = 1;
+    float TempTimeLeft;
+
     protected void Start()
     {
         Hp = MaxHp;
@@ -37,13 +41,32 @@ public abstract class Health : MonoBehaviour
         {
             Death();
         }
+        if (TempTimeLeft > 0)
+        {
+            TempTimeLeft -= Time.deltaTime;
+        }
     }
 
     public virtual void TakeDamage(float Damage, float knock, Vector3 ImpactLocation)
     {
-        Hp -= Damage;
-        TheKnockback = knock;
+        if (TempTimeLeft > 0)
+        {
+            Hp -= Damage * TempHpProtection;
+            TheKnockback = knock * TempKnockProtection;
+        }
+        else
+        {
+            Hp -= Damage;
+            TheKnockback = knock;
+        }
         TheImpactLocation = ImpactLocation;
+    }
+
+    public void GainTempProtection(float hp, float knock, float time)
+    {
+        TempHpProtection = hp;
+        TempKnockProtection = knock;
+        TempTimeLeft = time;
     }
 
     protected virtual void Death()

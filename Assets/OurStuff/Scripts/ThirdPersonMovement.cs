@@ -41,6 +41,14 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             PAS.Attack(1);
         }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            PAS.Attack(2);
+        }
+        else if (Input.GetMouseButtonUp(1))
+        {
+            PAS.Attack(3);
+        }
 
         if (PAS.Acooldown > 0)
         {
