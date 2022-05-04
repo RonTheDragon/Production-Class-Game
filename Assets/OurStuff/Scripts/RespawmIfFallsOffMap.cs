@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class RespawmIfFallsOffMap : MonoBehaviour
 {
-    Vector3 startPos;
-    // Start is called before the first frame update
+    [HideInInspector]
+    public Vector3 startPos;
     void Start()
     {
         startPos = transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (transform.position.y < -10)

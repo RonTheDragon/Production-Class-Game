@@ -12,6 +12,8 @@ public class PlayerHealth : Health
     //Animator Anim;
     //AudioManager audio;
 
+    bool iGotThePower;
+
     // Start is called before the first frame update
     new void Start()
     {
@@ -42,9 +44,16 @@ public class PlayerHealth : Health
 
         }
     }
+
     protected override void Death()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (iGotThePower)
+        {
+            Instantiate(GameManager.instance.PowerStone, transform.position, transform.rotation);
+        }
+        GameManager.instance.Player = Instantiate(GameManager.instance.Player, GetComponent<RespawmIfFallsOffMap>().startPos, transform.rotation/* FIX LATER*/);
+        Destroy(gameObject);
     }
 
     protected override void GetStaggered()
@@ -52,10 +61,18 @@ public class PlayerHealth : Health
         PAS.Stagger();
     }
 
-    public override void TakeDamage(float Damage, float Knock, float Stagger, Vector3 ImpactLocation)
+    public override void TakeDamage(float Damage, float Knock, float minStagger, float maxStagger, Vector3 ImpactLocation)
     {
-        base.TakeDamage(Damage, Knock, Stagger, ImpactLocation);
+        base.TakeDamage(Damage, Knock, minStagger, maxStagger, ImpactLocation);
         //Anim.SetTrigger("Ouch");
         //audio.PlaySound(Sound.Activation.Custom, "Ouch");
+    }
+
+    public void CollectPowerStone()
+    {
+        iGotThePower = true;
+        PAS.DamageMultiplier = 2;
+        MaxHp *= 2;
+        Hp = MaxHp;
     }
 }

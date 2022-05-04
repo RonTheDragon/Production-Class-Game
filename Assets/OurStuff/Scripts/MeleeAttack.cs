@@ -27,7 +27,6 @@ public class MeleeAttack : Attack
 
     private void OnTriggerStay(Collider other)
     {
-
         if (cooldown <= 0 && Attackable == (Attackable | (1 << other.gameObject.layer)))
         {
             foreach(Collider c in TriggerList) {
@@ -37,7 +36,7 @@ public class MeleeAttack : Attack
                     if (TargetHp != null)
                     {
                         cooldown = AttackCooldown;
-                        TargetHp.TakeDamage(Damage, Knock,Stagger, transform.parent.position);
+                        TargetHp.TakeDamage(Damage, Knock, minStagger, maxStagger, transform.parent.position);
                     }
                 }
             }

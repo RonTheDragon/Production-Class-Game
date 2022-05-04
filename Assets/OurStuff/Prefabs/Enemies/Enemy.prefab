@@ -169,12 +169,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 004dcb9a7b488564ba128bcd0a4a6fd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxStamina: 100
   Stamina: 0
-  StaminaRegan: 30
+  AttackCooldown: 0
   StaminaCost: 30
+  MaxStamina: 100
+  StaminaRegan: 30
   Tired: 30
-  Acooldown: 0
+  StaggerDuration: 0.3
   meleeAttack: {fileID: 8713926645642635755}
   Shield: {fileID: 208415829091395381}
   rangeAttack: {fileID: 4739428901942009257}
@@ -191,6 +192,7 @@ MonoBehaviour:
   DamageMultiplier: 1
   HoldingAnAttack: 
   PreviousAttack: 
+  timeToComboReset: 1.5
   TryToAttackEvery: 0.1
 --- !u!114 &429841490
 MonoBehaviour:

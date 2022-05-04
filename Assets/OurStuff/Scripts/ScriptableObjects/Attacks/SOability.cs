@@ -11,7 +11,7 @@ public class SOability : ScriptableObject
     public float MinRange = 0;
     public float MaxRange = 3;
     public float Chance = 100;
-    public enum AttackType { Normal, NeedsRelease, CanRelease , Combo}
+    public enum AttackType { Normal, NeedsRelease, CanRelease , Combo, StartCombo}
     public AttackType attackType = AttackType.Normal;
     public string PreviousAttack;
 }

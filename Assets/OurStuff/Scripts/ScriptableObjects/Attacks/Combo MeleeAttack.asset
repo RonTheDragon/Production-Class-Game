@@ -21,7 +21,8 @@ MonoBehaviour:
   Chance: 100
   attackType: 3
   PreviousAttack: SwordAttack
-  Damage: 15
+  Damage: 20
   Knockback: 10
-  Stagger: 45
-  DamagingCooldown: 1
+  minStagger: 40
+  maxStagger: 60
+  DamagingCooldown: 0.4

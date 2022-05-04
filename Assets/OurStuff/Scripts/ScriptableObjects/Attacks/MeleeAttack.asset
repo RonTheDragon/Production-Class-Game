@@ -19,9 +19,10 @@ MonoBehaviour:
   MinRange: 0
   MaxRange: 3
   Chance: 100
-  attackType: 0
+  attackType: 4
   PreviousAttack: 
-  Damage: 10
-  Knockback: 8
-  Stagger: 40
-  DamagingCooldown: 1
+  Damage: 5
+  Knockback: 2.5
+  minStagger: 0
+  maxStagger: 70
+  DamagingCooldown: 0.4

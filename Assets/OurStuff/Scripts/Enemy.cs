@@ -6,8 +6,7 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    
-
+    Vector3 previousPos;
     float OriginalSpeed;
     float OriginalDetectionRange;
     NavMeshAgent NMA;
@@ -40,11 +39,9 @@ public class Enemy : MonoBehaviour
     Transform TheEnemy;
 
     float StoppingDistance;
-
      
     void Awake()
     {
-
         TheEnemy = transform.GetChild(0);
         NMA = TheEnemy.GetComponent<NavMeshAgent>();
         eas = TheEnemy.GetComponent<EnemyAttackSystem>();
@@ -53,8 +50,9 @@ public class Enemy : MonoBehaviour
         Particle = TheEnemy.GetComponent<ParticleSystem>();
         PR = TheEnemy.GetComponent<ParticleSystemRenderer>();
         anim = TheEnemy.GetChild(0).GetChild(0).GetComponent<Animator>();
-       // MR = anim.transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>();
+        // MR = anim.transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>();
 
+        previousPos = TheEnemy.transform.position;
     }
 
     void Start()
@@ -66,18 +64,34 @@ public class Enemy : MonoBehaviour
         StoppingDistance = NMA.stoppingDistance;
     }
 
-    // Update is called once per frame
     void Update()
     {
+        if (Player == null)
+        {
+            Player = GameManager.instance.Player;
+        }
         //  HpBar.fillAmount = 0;
         //   StaminaBar.fillAmount = 0;
         EnemyAI();
         PlayRandomSound();
+        WalkingAnimation();
+    }
+
+    private void WalkingAnimation()
+    {
+        if (previousPos == TheEnemy.transform.position)
+        {
+            anim.SetInteger("Walk", 0);
+        }
+        else
+        {
+            anim.SetInteger("Walk", 1);
+            previousPos = TheEnemy.transform.position;
+        }
     }
 
     protected void EnemyAI()
     {
-
         if (canSeePlayer())
         {
             alert += Time.deltaTime;
@@ -94,7 +108,7 @@ public class Enemy : MonoBehaviour
         if (chasingPlayer)
         {
             DetectionRange = OriginalDetectionRange * 1.5f;
-            if (eas.Acooldown <= 0)
+            if (eas.AttackCooldown <= 0)
             {
                 NMA.speed = OriginalSpeed * 1.5f;
                 NMA.stoppingDistance = StoppingDistance;
@@ -112,16 +126,12 @@ public class Enemy : MonoBehaviour
             {
                 RunningAway();
             }
-
-
         }
-
-       
 
         else
         {
             DetectionRange = OriginalDetectionRange;
-            if (eas.Acooldown <= 0)
+            if (eas.AttackCooldown <= 0)
             {
                 NMA.speed = OriginalSpeed;
                 NMA.stoppingDistance = StoppingDistance-2;
@@ -168,8 +178,6 @@ public class Enemy : MonoBehaviour
             return false;
         }
     } 
-
-   
 
     void RunningAway()
     {
@@ -255,7 +263,4 @@ public class Enemy : MonoBehaviour
             TheEnemy.rotation = Quaternion.Slerp(TheEnemy.rotation, lookRotation, Time.deltaTime * NMA.angularSpeed);
         }
     }
-
-    
-
 }

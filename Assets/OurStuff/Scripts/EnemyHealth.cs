@@ -20,9 +20,9 @@ public class EnemyHealth : Health
         base.Update();
         TakeKnockback();
     }
-    public override void TakeDamage(float Damage, float Knock, float Stagger, Vector3 ImpactLocation)
+    public override void TakeDamage(float Damage, float Knock, float minStagger, float maxStagger, Vector3 ImpactLocation)
     {
-        base.TakeDamage(Damage, Knock , Stagger, ImpactLocation);
+        base.TakeDamage(Damage, Knock , minStagger, maxStagger, ImpactLocation);
         enemy.GotHit();
     }
 

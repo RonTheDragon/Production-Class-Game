@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class ThirdPersonMovement : MonoBehaviour
 {
-    CharacterController controller;
-    PlayerAttackSystem PAS;
+    Vector3 previousPos;
+    Transform player;
+    Animator anim;
+
+    CharacterController        controller;
+    PlayerAttackSystem         PAS;
     [SerializeField] Transform cam;
 
     [SerializeField] float speed = 6f;
-    float originalSpeed;
+    [SerializeField] float originalSpeed = 6f;
 
     [SerializeField] float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
@@ -25,9 +29,10 @@ public class ThirdPersonMovement : MonoBehaviour
     //all the GetComponent's and speed
     private void Awake()
     {
+        player = transform;
         PAS = GetComponent<PlayerAttackSystem>();
         controller = GetComponent<CharacterController>();
-        originalSpeed = speed;
+        anim = player.GetChild(0).GetComponent<Animator>();
     }
 
     void Update()
@@ -35,6 +40,20 @@ public class ThirdPersonMovement : MonoBehaviour
         Attack();
         CameraController();
         Gravity();
+        WalkingAnimation();
+    }
+
+    private void WalkingAnimation()
+    {
+        if (previousPos == player.transform.position)
+        {
+            anim.SetInteger("Walk", 0);
+        }
+        else
+        {
+            anim.SetInteger("Walk", 1);
+            previousPos = player.transform.position;
+        }
     }
 
     private void Attack()
@@ -60,7 +79,7 @@ public class ThirdPersonMovement : MonoBehaviour
             { PAS.Attack(i); }
         }
 
-        if (PAS.Acooldown > 0)
+        if (PAS.AttackCooldown > 0)
         {
             speed = 0;
         }

@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   Wall: {fileID: 0}
+  PowerStone: {fileID: 5504683918200391403, guid: 987bb2c5c37a5d64bafcdfb75138c42c, type: 3}
   enemiesCanSee:
     serializedVersion: 2
     m_Bits: 127

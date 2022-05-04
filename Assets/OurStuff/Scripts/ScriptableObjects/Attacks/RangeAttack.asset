@@ -23,6 +23,7 @@ MonoBehaviour:
   PreviousAttack: 
   Damage: 10
   Knockback: 5
-  Stagger: 40
+  minStagger: 0
+  maxStagger: 60
   Projectile: Test
   ProjectileSpeed: 10

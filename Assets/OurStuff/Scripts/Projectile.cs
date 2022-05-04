@@ -31,7 +31,7 @@ public class Projectile : Attack
             Health TargetHp = other.transform.GetComponent<Health>();
             if (TargetHp != null)
             {
-                TargetHp.TakeDamage(Damage, Knock, Stagger, transform.position);
+                TargetHp.TakeDamage(Damage, Knock, minStagger, maxStagger, transform.position);
                 gameObject.SetActive(false);
                 //Destroy(gameObject);
             }

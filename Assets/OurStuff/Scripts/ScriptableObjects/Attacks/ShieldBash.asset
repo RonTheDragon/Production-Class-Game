@@ -23,5 +23,6 @@ MonoBehaviour:
   PreviousAttack: Block
   Damage: 20
   Knockback: 20
-  Stagger: 50
+  minStagger: 60
+  maxStagger: 100
   DamagingCooldown: 1

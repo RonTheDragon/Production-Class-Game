@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public GameObject Player;
     public GameObject Wall;
+    public GameObject PowerStone;
     public LayerMask enemiesCanSee;
 
     private void Awake()

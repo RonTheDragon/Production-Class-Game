@@ -38,17 +38,19 @@ public abstract class Health : MonoBehaviour
         {
             Hp = MaxHp;
         }
+
         if (Hp <= 0)
         {
             Death();
         }
+
         if (TempTimeLeft > 0)
         {
             TempTimeLeft -= Time.deltaTime;
         }
     }
 
-    public virtual void TakeDamage(float Damage, float knock, float Stagger , Vector3 ImpactLocation)
+    public virtual void TakeDamage(float Damage, float knock, float minStagger ,float maxStagger, Vector3 ImpactLocation)
     {
         if (TempTimeLeft > 0)
         {
@@ -59,15 +61,15 @@ public abstract class Health : MonoBehaviour
         {
             Hp -= Damage;
             TheKnockback = knock;
-            TryStagger(Stagger);
+            TryStagger(minStagger, maxStagger);
             
         }
         TheImpactLocation = ImpactLocation;
     }
 
-    public void TryStagger(float stagger)
+    public void TryStagger(float minStagger, float maxStagger)
     {
-        float S = Random.Range(stagger, stagger*2);
+        float S = Random.Range(minStagger, maxStagger);
         if (S > StaggerResistance)
         {
             GetStaggered();
