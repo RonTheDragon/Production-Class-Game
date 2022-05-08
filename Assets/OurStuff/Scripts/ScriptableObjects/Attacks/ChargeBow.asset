@@ -9,18 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3ee7ce315c90a742a974b5d02fb51f5, type: 3}
-  m_Name: ShieldBlock
+  m_Script: {fileID: 11500000, guid: 449a2fa9301304d4fabd5d4bca230e71, type: 3}
+  m_Name: ChargeBow
   m_EditorClassIdentifier: 
-  Name: Block
-  AnimationTrigger: Attack5
+  Name: ChargeBow
+  AnimationTrigger: Charge
   StaminaCost: 10
-  AttackCooldown: 0.1
-  MinRange: 0
-  MaxRange: 5
-  Chance: 30
+  AttackCooldown: 1
+  MinRange: 3
+  MaxRange: 10
+  Chance: 20
   attackType: 1
   PreviousAttack: 
-  HpProtection: 0.1
-  KnockProtection: 0.1
-  ProtectionTime: 0.7
+  MaxCharge: 2
+  ChargeSpeed: 1

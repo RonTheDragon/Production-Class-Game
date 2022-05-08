@@ -58,6 +58,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private void Attack()
     {
+        /*
         if (Input.GetMouseButtonDown(0))
         {
             foreach(int i in DownLeftClickAttacks)
@@ -78,7 +79,7 @@ public class ThirdPersonMovement : MonoBehaviour
             foreach (int i in UpRightClickAttacks)
             { PAS.Attack(i); }
         }
-
+        */
         if (PAS.AttackCooldown > 0)
         {
             speed = 0;

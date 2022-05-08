@@ -7,6 +7,7 @@ public abstract class Attack : MonoBehaviour
     public float Damage;
     public float Knock;
     public float minStagger;
-    public float maxStagger;
+    public float maxStagger;  
     public LayerMask Attackable;
+    [HideInInspector] public float Charge;
 }

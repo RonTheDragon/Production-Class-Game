@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: ShootArrow
   AnimationTrigger: Attack3
-  StaminaCost: 10
-  AttackCooldown: 3
-  MinRange: 3
-  MaxRange: 10
-  Chance: 10
-  attackType: 0
-  PreviousAttack: 
+  StaminaCost: 0
+  AttackCooldown: 0.5
+  MinRange: 0
+  MaxRange: 100
+  Chance: 50
+  attackType: 2
+  PreviousAttack: ChargeBow
   Damage: 10
   Knockback: 5
   minStagger: 0

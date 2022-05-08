@@ -48,39 +48,8 @@ MonoBehaviour:
   alert: 0
   RoamCooldown: 10
   RoamRadius: 10
-  Bravery: 50
+  BraveEnoughToFight: 50
   timeToAlert: 0.5
---- !u!1 &4001379481381939404
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5878531508893929850}
-  m_Layer: 7
-  m_Name: EnemyModel
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5878531508893929850
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4001379481381939404}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 531948730092193348}
-  m_Father: {fileID: 4703707835343519709}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5585825698694198890
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,7 +83,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 5878531508893929850}
+  - {fileID: 531948730092193348}
   m_Father: {fileID: 1973851244922249123}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -173,26 +142,29 @@ MonoBehaviour:
   AttackCooldown: 0
   StaminaCost: 30
   MaxStamina: 100
-  StaminaRegan: 30
+  StaminaRegan: 5
   Tired: 30
   StaggerDuration: 0.3
   meleeAttack: {fileID: 8713926645642635755}
   Shield: {fileID: 208415829091395381}
   rangeAttack: {fileID: 4739428901942009257}
   particleAttack: {fileID: 9005349444630305532}
-  Attacks:
-  - {fileID: 11400000, guid: 567de1d183ef6464ca817f5cde21648d, type: 2}
-  - {fileID: 11400000, guid: f5f473570cd558e4882b4e91049ca6aa, type: 2}
-  - {fileID: 11400000, guid: ace4a139be5122e47aec043e02751526, type: 2}
-  - {fileID: 11400000, guid: e4b0e2e733c2a4b44a8ca04038cd203e, type: 2}
-  - {fileID: 11400000, guid: 42dce146ac29829449562261afe0745e, type: 2}
-  - {fileID: 11400000, guid: 32243c880f256fd43bf8ec57da9062f3, type: 2}
-  - {fileID: 11400000, guid: 100d8e7d7e52e1441849ee318033859b, type: 2}
-  - {fileID: 11400000, guid: d0cb891d226932447b0058eb437244cc, type: 2}
   DamageMultiplier: 1
   HoldingAnAttack: 
   PreviousAttack: 
   timeToComboReset: 1.5
+  OffensiveAttacks:
+  - {fileID: 11400000, guid: 567de1d183ef6464ca817f5cde21648d, type: 2}
+  - {fileID: 11400000, guid: d0cb891d226932447b0058eb437244cc, type: 2}
+  - {fileID: 11400000, guid: ace4a139be5122e47aec043e02751526, type: 2}
+  - {fileID: 11400000, guid: e4b0e2e733c2a4b44a8ca04038cd203e, type: 2}
+  - {fileID: 11400000, guid: f5f473570cd558e4882b4e91049ca6aa, type: 2}
+  - {fileID: 11400000, guid: 100d8e7d7e52e1441849ee318033859b, type: 2}
+  - {fileID: 11400000, guid: 32243c880f256fd43bf8ec57da9062f3, type: 2}
+  - {fileID: 11400000, guid: c9116d97e6c28b342b516e6734055162, type: 2}
+  DefensiveAttacks:
+  - {fileID: 11400000, guid: 42dce146ac29829449562261afe0745e, type: 2}
+  BraveEnoughToOffensive: 70
   TryToAttackEvery: 0.1
 --- !u!114 &429841490
 MonoBehaviour:
@@ -297,10 +269,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 10
   Knock: 1
-  Stagger: 0
+  minStagger: 0
+  maxStagger: 0
   Attackable:
     serializedVersion: 2
     m_Bits: 8
+  Charge: 0
   AttackCooldown: 1
 --- !u!114 &208415829091395381
 MonoBehaviour:
@@ -365,10 +339,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 0
   Knock: 0
-  Stagger: 0
+  minStagger: 0
+  maxStagger: 0
   Attackable:
     serializedVersion: 2
     m_Bits: 8
+  Charge: 0
   AnimationTrigger: 0
   Bullet: 
   ProjectileSpeed: 0
@@ -386,10 +362,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 0
   Knock: 0
-  Stagger: 0
+  minStagger: 0
+  maxStagger: 0
   Attackable:
     serializedVersion: 2
     m_Bits: 8
+  Charge: 0
   particle: {fileID: 0}
   AnimationTrigger: 0
   Hold: 0
@@ -402,7 +380,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 5878531508893929850}
+    m_TransformParent: {fileID: 4703707835343519709}
     m_Modifications:
     - target: {fileID: -9070493210130169274, guid: cddcb093f6f529843ab33e9151c7043c, type: 3}
       propertyPath: m_Layer
@@ -938,7 +916,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cddcb093f6f529843ab33e9151c7043c, type: 3}
       propertyPath: m_Name
-      value: man_free
+      value: EnemyModel
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cddcb093f6f529843ab33e9151c7043c, type: 3}
       propertyPath: m_Layer

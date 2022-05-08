@@ -13,7 +13,7 @@ public class RangeAttack : Attack
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -37,10 +37,10 @@ public class RangeAttack : Attack
         Projectile p = TheBullet.GetComponent<Projectile>();
         if (p != null)
         {
-            p.Damage = Damage;
-            p.Knock = Knock;
+            p.Damage = Damage*Charge;
+            p.Knock = Knock*Charge;
             p.Attackable = Attackable;
-            p.Speed = ProjectileSpeed;
+            p.Speed = ProjectileSpeed*Charge;
         }
     }
 }

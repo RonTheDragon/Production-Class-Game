@@ -15,7 +15,7 @@ public class ParticleCollision : MonoBehaviour
             if (TargetHp != null)
             {
                 p.cooldown = p.AttackCooldown;
-                TargetHp.TakeDamage(p.Damage, p.Knock, p.minStagger, p.maxStagger ,transform.position);
+                TargetHp.TakeDamage(p.Damage*p.Charge, p.Knock*p.Charge, p.minStagger, p.maxStagger ,transform.position);
             }
         }
     }

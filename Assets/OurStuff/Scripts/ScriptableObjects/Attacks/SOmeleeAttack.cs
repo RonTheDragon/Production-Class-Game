@@ -6,4 +6,6 @@ using UnityEngine;
 public class SOmeleeAttack : SOattack
 {
     public float DamagingCooldown = 1;
+    public float AttackMovementForce;
+    public Vector2 AttackMovementDirection;
 }

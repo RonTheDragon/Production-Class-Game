@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class MeleeAttack : Attack
 {
+    public bool AnimationTrigger;
     public float AttackCooldown;
+    public float AttackMovementForce;
+    public Vector2 AttackMovementDirection;
     float cooldown;
     List<Collider> TriggerList = new List<Collider>();
     Collider TheTrigger;
+    [HideInInspector] public AttackSystem attackSystem;
+    bool _alreadyON;
 
 
     // Start is called before the first frame update
@@ -21,7 +26,19 @@ public class MeleeAttack : Attack
     {
         if (cooldown > 0) { cooldown -= Time.deltaTime; }
         if (!TheTrigger.enabled && TriggerList.Count>0) { TriggerList = new List<Collider>(); }
-        
+
+        if (!_alreadyON && AnimationTrigger)
+        {
+            _alreadyON = true;
+            attackSystem.AttackMovementForce = AttackMovementForce;
+            attackSystem.AttackMovementDirection = AttackMovementDirection;
+            attackSystem.AttackMovement();
+        }
+        else if (_alreadyON && !AnimationTrigger)
+        {
+            _alreadyON = false;
+        }
+
     }
 
 
@@ -36,7 +53,7 @@ public class MeleeAttack : Attack
                     if (TargetHp != null)
                     {
                         cooldown = AttackCooldown;
-                        TargetHp.TakeDamage(Damage, Knock, minStagger, maxStagger, transform.parent.position);
+                        TargetHp.TakeDamage(Damage*Charge, Knock*Charge, minStagger, maxStagger, transform.parent.position);
                     }
                 }
             }

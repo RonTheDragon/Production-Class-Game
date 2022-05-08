@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] float RoamCooldown = 10;
     float roamCooldown;
     [SerializeField] float RoamRadius = 10;
-    [SerializeField] float Bravery = 50;
+    [SerializeField] float BraveEnoughToFight = 50;
     [SerializeField] float timeToAlert = 0.5f;
 
     //[SerializeField] float RandomSoundMaxCooldown = 5;
@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
         Audio = TheEnemy.GetComponent<AudioManager>();
         Particle = TheEnemy.GetComponent<ParticleSystem>();
         PR = TheEnemy.GetComponent<ParticleSystemRenderer>();
-        anim = TheEnemy.GetChild(0).GetChild(0).GetComponent<Animator>();
+        anim = TheEnemy.GetChild(0).GetComponent<Animator>();
         // MR = anim.transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>();
 
         previousPos = TheEnemy.transform.position;
@@ -118,7 +118,7 @@ public class Enemy : MonoBehaviour
                 NMA.speed = 0;
             }
             
-            if (CheckBravery())
+            if (CheckBravery(BraveEnoughToFight))
             {
                 ChasePlayer();
             }
@@ -164,12 +164,12 @@ public class Enemy : MonoBehaviour
         else { SoundCoolDown -= Time.deltaTime; }
     }
 
-   bool CheckBravery()
+   public bool CheckBravery(float bravery)
     {
         float maxBrave = hp.MaxHp + eas.MaxStamina;
         float currentBravery = hp.Hp + eas.Stamina;
         float BravePercent = currentBravery / maxBrave * 100;
-        if (BravePercent >= 100 - Bravery)
+        if (BravePercent >= 100 - bravery)
         {
             return true;
         }
@@ -191,7 +191,7 @@ public class Enemy : MonoBehaviour
         {          
             RotateTowards(Player.transform.position);              
         }
-        eas.Attack(Player.transform.position);
+        eas.Attack(Player.transform.position,true);
     }
 
     void AttackWall()
@@ -203,7 +203,7 @@ public class Enemy : MonoBehaviour
         {
             RotateTowards(MoveTo);
         }
-        eas.Attack(MoveTo);
+        eas.Attack(MoveTo,false);
     }
 
     void Wander()

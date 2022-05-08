@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0.99999905, b: 0.99999905, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -136,68 +136,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 241280698, guid: 247ded5f593901542bb012f6c071c87c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9921777
-      objectReference: {fileID: 0}
-    - target: {fileID: 241280698, guid: 247ded5f593901542bb012f6c071c87c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.08272932
-      objectReference: {fileID: 0}
-    - target: {fileID: 241280698, guid: 247ded5f593901542bb012f6c071c87c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.09315859
+      value: 0.04166897
       objectReference: {fileID: 0}
     - target: {fileID: 241280698, guid: 247ded5f593901542bb012f6c071c87c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.007785419
-      objectReference: {fileID: 0}
-    - target: {fileID: 755351446, guid: 247ded5f593901542bb012f6c071c87c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.99169236
-      objectReference: {fileID: 0}
-    - target: {fileID: 755351446, guid: 247ded5f593901542bb012f6c071c87c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.08770692
+      value: -0.0034825027
       objectReference: {fileID: 0}
     - target: {fileID: 755351446, guid: 247ded5f593901542bb012f6c071c87c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.09372875
+      value: 0.041929737
       objectReference: {fileID: 0}
     - target: {fileID: 755351446, guid: 247ded5f593901542bb012f6c071c87c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.008289526
-      objectReference: {fileID: 0}
-    - target: {fileID: 1103356264, guid: 247ded5f593901542bb012f6c071c87c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9934202
-      objectReference: {fileID: 0}
-    - target: {fileID: 1103356264, guid: 247ded5f593901542bb012f6c071c87c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.06855362
-      objectReference: {fileID: 0}
-    - target: {fileID: 1103356264, guid: 247ded5f593901542bb012f6c071c87c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.09152574
-      objectReference: {fileID: 0}
-    - target: {fileID: 1103356264, guid: 247ded5f593901542bb012f6c071c87c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.006315978
-      objectReference: {fileID: 0}
-    - target: {fileID: 1406966635, guid: 247ded5f593901542bb012f6c071c87c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9927687
-      objectReference: {fileID: 0}
-    - target: {fileID: 1406966635, guid: 247ded5f593901542bb012f6c071c87c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.08142335
-      objectReference: {fileID: 0}
-    - target: {fileID: 1406966635, guid: 247ded5f593901542bb012f6c071c87c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.087912366
-      objectReference: {fileID: 0}
-    - target: {fileID: 1406966635, guid: 247ded5f593901542bb012f6c071c87c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.0072102575
+      value: -0.0037083353
       objectReference: {fileID: 0}
     - target: {fileID: 8559470171900184560, guid: 247ded5f593901542bb012f6c071c87c, type: 3}
       propertyPath: m_Name
@@ -974,6 +926,7 @@ MonoBehaviour:
   Attackable:
     serializedVersion: 2
     m_Bits: 8
+  Charge: 0
   particle: {fileID: 0}
   AnimationTrigger: 0
   Hold: 0
@@ -1228,6 +1181,7 @@ MonoBehaviour:
   Attackable:
     serializedVersion: 2
     m_Bits: 8
+  Charge: 0
   particle: {fileID: 0}
   AnimationTrigger: 0
   Hold: 0
@@ -1473,6 +1427,7 @@ MonoBehaviour:
   Attackable:
     serializedVersion: 2
     m_Bits: 8
+  Charge: 0
   particle: {fileID: 0}
   AnimationTrigger: 0
   Hold: 0

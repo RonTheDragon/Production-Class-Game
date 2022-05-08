@@ -26,3 +26,5 @@ MonoBehaviour:
   minStagger: 0
   maxStagger: 70
   DamagingCooldown: 0.4
+  AttackMovementForce: 2
+  AttackMovementDirection: {x: 2, y: -1}
