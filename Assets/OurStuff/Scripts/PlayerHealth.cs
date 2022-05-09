@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerHealth : Health
+public class PlayerHealth : CharacterHealth
 {
     CharacterController CC;
     Rigidbody RB;
@@ -51,6 +51,7 @@ public class PlayerHealth : Health
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         if (iGotThePower)
         {
+            LoseStone();
             Instantiate(GameManager.instance.PowerStone, transform.position, transform.rotation);
         }
         GameManager.instance.Player = Instantiate(GameManager.instance.Player, GetComponent<RespawmIfFallsOffMap>().startPos, transform.rotation/* FIX LATER*/);
@@ -75,5 +76,14 @@ public class PlayerHealth : Health
         PAS.DamageMultiplier = 2;
         MaxHp *= 2;
         Hp = MaxHp;
+        transform.localScale = new Vector3(1.1f, 1.1f, 1.1f);
+    }
+    public void LoseStone()
+    {
+        iGotThePower = false;
+        PAS.DamageMultiplier = 1;
+        MaxHp /= 2;
+        Hp = MaxHp;
+        transform.localScale = new Vector3(1f, 1f, 1f);
     }
 }

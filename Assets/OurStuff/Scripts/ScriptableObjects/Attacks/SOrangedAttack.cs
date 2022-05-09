@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "RangeAttack", menuName = "Attacks/Ranged Attack")]
+[CreateAssetMenu(fileName = "RangeAttack", menuName = "Combat/Attacks/Ranged Attack")]
 public class SOrangedAttack : SOattack
 {
     public string Projectile;

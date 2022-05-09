@@ -10,7 +10,7 @@ public class DefensiveAbility : MonoBehaviour
 
     public bool AnimationTrigger;
     bool _alreadyON;
-    public Health EffectedHealth;
+    public CharacterHealth EffectedHealth;
     
     void Start()
     {

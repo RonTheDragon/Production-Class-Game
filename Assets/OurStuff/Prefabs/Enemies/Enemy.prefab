@@ -48,7 +48,7 @@ MonoBehaviour:
   alert: 0
   RoamCooldown: 10
   RoamRadius: 10
-  BraveEnoughToFight: 50
+  BraveEnoughToFight: 20
   timeToAlert: 0.5
 --- !u!1 &5585825698694198890
 GameObject:
@@ -123,8 +123,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHp: 100
   Hp: 0
-  StaggerResistance: 50
   HpRegan: 0
+  StaggerResistance: 50
   DeadGhost: {fileID: 0}
 --- !u!114 &1004402096
 MonoBehaviour:
@@ -167,7 +167,7 @@ MonoBehaviour:
   DefensiveAttacks:
   - {fileID: 11400000, guid: 42dce146ac29829449562261afe0745e, type: 2}
   - {fileID: 11400000, guid: f92c306285687304b8b47559f9975e6e, type: 2}
-  BraveEnoughToOffensive: 60
+  BraveEnoughToOffensive: 50
   TryToAttackEvery: 0.1
 --- !u!114 &429841490
 MonoBehaviour:
@@ -275,7 +275,7 @@ MonoBehaviour:
   Stagger: {x: 0, y: 0}
   Attackable:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 72
   Charge: 0
   AnimationTrigger: 0
   AttackCooldown: 1
@@ -348,7 +348,7 @@ MonoBehaviour:
   Stagger: {x: 0, y: 0}
   Attackable:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 72
   Charge: 0
   AnimationTrigger: 0
   Bullet: 
@@ -370,7 +370,7 @@ MonoBehaviour:
   Stagger: {x: 0, y: 0}
   Attackable:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 72
   Charge: 0
   particle: {fileID: 0}
   AnimationTrigger: 0

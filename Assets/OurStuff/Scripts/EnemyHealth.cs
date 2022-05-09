@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealth : Health
+public class EnemyHealth : CharacterHealth , IpooledObject
 {
     Enemy enemy;
     public GameObject DeadGhost;
@@ -13,6 +13,10 @@ public class EnemyHealth : Health
         base.Start();
         enemy = transform.parent.GetComponent<Enemy>();
         EAS = GetComponent<EnemyAttackSystem>();
+    }
+    public void OnObjectSpawn()
+    {
+        Start();
     }
 
     new void Update()
@@ -39,11 +43,12 @@ public class EnemyHealth : Health
     {
         //Instantiate(DeadGhost, transform.position, transform.rotation).GetComponent<ParticleSystemRenderer>().material = transform.GetChild(0).GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().materials[1];
         //GameManager.Player.GetComponent<PlayerControler>().KillAdded();
-        Destroy(transform.parent.gameObject);
+        transform.parent.gameObject.SetActive(false);
     }
 
     protected override void GetStaggered()
     {
         EAS.Stagger();
     }
+
 }

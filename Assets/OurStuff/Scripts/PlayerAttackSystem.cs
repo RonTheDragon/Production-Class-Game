@@ -6,11 +6,7 @@ public class PlayerAttackSystem : AttackSystem
 {
     CharacterController CC;
     AudioManager Audio;
-    [SerializeField] List<SOability> DownLeftClickAttacks = new List<SOability>();
-    [SerializeField] List<SOability> DownRightClickAttacks = new List<SOability>();
-    [SerializeField] List<SOability> UpLeftClickAttacks = new List<SOability>();
-    [SerializeField] List<SOability> UpRightClickAttacks = new List<SOability>();
-    [SerializeField] List<SOability> SpaceAbility = new List<SOability>();
+    public SOclass PlayerClass;
     //public LayerMask OnlyFloor;
 
     new void Start()
@@ -35,31 +31,35 @@ public class PlayerAttackSystem : AttackSystem
     }
     void Attacking()
     {
-        if (Input.GetMouseButtonDown(0))
-        {    
-            for (int i = 0; i < DownLeftClickAttacks.Count; i++)     
-            { Attack(DownLeftClickAttacks,i); }
-        }
-        else if (Input.GetMouseButtonDown(1))
+        if (PlayerClass != null)
         {
-            for (int i = 0; i < DownRightClickAttacks.Count; i++)
-            { Attack(DownRightClickAttacks, i); }
+            if (Input.GetMouseButtonDown(0))
+            {
+                for (int i = 0; i < PlayerClass.DownLeftClickAttacks.Count; i++)
+                { Attack(PlayerClass.DownLeftClickAttacks, i); }
+            }
+            else if (Input.GetMouseButtonDown(1))
+            {
+                for (int i = 0; i < PlayerClass.DownRightClickAttacks.Count; i++)
+                { Attack(PlayerClass.DownRightClickAttacks, i); }
+            }
+            else if (Input.GetMouseButtonUp(0))
+            {
+                for (int i = 0; i < PlayerClass.UpLeftClickAttacks.Count; i++)
+                { Attack(PlayerClass.UpLeftClickAttacks, i); }
+            }
+            else if (Input.GetMouseButtonUp(1))
+            {
+                for (int i = 0; i < PlayerClass.UpRightClickAttacks.Count; i++)
+                { Attack(PlayerClass.UpRightClickAttacks, i); }
+            }
+            else if (Input.GetKeyDown(KeyCode.Space))
+            {
+                for (int i = 0; i < PlayerClass.SpaceAbility.Count; i++)
+                { Attack(PlayerClass.SpaceAbility, i); }
+            }
         }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            for (int i = 0; i < UpLeftClickAttacks.Count; i++)
-            { Attack(UpLeftClickAttacks, i); }
-        }
-        else if (Input.GetMouseButtonUp(1))
-        {
-            for (int i = 0; i < UpRightClickAttacks.Count; i++)
-            { Attack(UpRightClickAttacks, i); }
-        }
-        else if (Input.GetKeyDown(KeyCode.Space))
-        {
-            for (int i = 0; i < SpaceAbility.Count; i++)
-            { Attack(SpaceAbility, i); }
-        }
+        else Debug.Log("Player Missing a Class for Combat");
     }
 
     public override void AttackMovement()

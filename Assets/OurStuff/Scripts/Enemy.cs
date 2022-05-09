@@ -169,7 +169,7 @@ public class Enemy : MonoBehaviour
         float maxBrave = hp.MaxHp + eas.MaxStamina;
         float currentBravery = hp.Hp + eas.Stamina;
         float BravePercent = currentBravery / maxBrave * 100;
-        if (BravePercent >= 100 - bravery)
+        if (BravePercent >= bravery)
         {
             return true;
         }

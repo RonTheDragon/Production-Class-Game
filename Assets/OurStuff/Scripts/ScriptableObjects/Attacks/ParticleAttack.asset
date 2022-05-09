@@ -18,7 +18,7 @@ MonoBehaviour:
   AttackCooldown: 0.5
   MinRange: 0
   MaxRange: 100
-  Chance: 30
+  Chance: 33
   attackType: 2
   PreviousAttack: ChargeBow
   Damage: 7

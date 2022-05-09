@@ -18,7 +18,7 @@ MonoBehaviour:
   AttackCooldown: 1
   MinRange: 3
   MaxRange: 20
-  Chance: 15
+  Chance: 20
   attackType: 1
   PreviousAttack: 
   MaxCharge: 2

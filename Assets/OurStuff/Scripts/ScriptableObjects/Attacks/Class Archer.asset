@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f68ffa90c77ffd3418efdb956f5f9872, type: 3}
+  m_Name: Class Archer
+  m_EditorClassIdentifier: 
+  DownLeftClickAttacks:
+  - {fileID: 11400000, guid: 567de1d183ef6464ca817f5cde21648d, type: 2}
+  - {fileID: 11400000, guid: d0cb891d226932447b0058eb437244cc, type: 2}
+  - {fileID: 11400000, guid: ace4a139be5122e47aec043e02751526, type: 2}
+  DownRightClickAttacks:
+  - {fileID: 11400000, guid: c9116d97e6c28b342b516e6734055162, type: 2}
+  UpLeftClickAttacks: []
+  UpRightClickAttacks:
+  - {fileID: 11400000, guid: f5f473570cd558e4882b4e91049ca6aa, type: 2}
+  SpaceAbility:
+  - {fileID: 11400000, guid: f92c306285687304b8b47559f9975e6e, type: 2}

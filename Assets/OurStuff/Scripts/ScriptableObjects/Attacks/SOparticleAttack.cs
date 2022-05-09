@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ParticleAttack", menuName = "Attacks/Particle Attack")]
+[CreateAssetMenu(fileName = "ParticleAttack", menuName = "Combat/Attacks/Particle Attack")]
 public class SOparticleAttack : SOattack
 {
     public ParticleSystem particleSystem;

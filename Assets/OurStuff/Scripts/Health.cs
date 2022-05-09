@@ -6,27 +6,20 @@ public abstract class Health : MonoBehaviour
 {
     public float MaxHp = 100;
     public float Hp;
-    [SerializeField] float StaggerResistance;
-    [SerializeField] float HpRegan;
-    protected float TheKnockback;
-    protected Vector3 TheImpactLocation;
+    public float HpRegan;
 
-    float TempHpProtection = 1;
-    float TempKnockProtection = 1;
-    float TempTimeLeft;
-
+    // Start is called before the first frame update
     protected void Start()
     {
         Hp = MaxHp;
     }
-
 
     protected void Update()
     {
         HealthMechanic();
     }
 
-    protected void HealthMechanic()
+    protected virtual void HealthMechanic()
     {
 
         if (Hp < MaxHp)
@@ -42,53 +35,13 @@ public abstract class Health : MonoBehaviour
         if (Hp <= 0)
         {
             Death();
-        }
-
-        if (TempTimeLeft > 0)
-        {
-            TempTimeLeft -= Time.deltaTime;
-        }
+        }   
     }
 
     public virtual void TakeDamage(float Damage, float knock, Vector2 Stagger, Vector3 ImpactLocation)
     {
-        if (TempTimeLeft > 0)
-        {
-            Hp -= Damage * TempHpProtection;
-            TheKnockback = knock * TempKnockProtection;
-        }
-        else
-        {
             Hp -= Damage;
-            TheKnockback = knock;
-            TryStagger(Stagger.x, Stagger.y);
-            
-        }
-        TheImpactLocation = ImpactLocation;
     }
 
-    public void TryStagger(float minStagger, float maxStagger)
-    {
-        float S = Random.Range(minStagger, maxStagger);
-        if (S > StaggerResistance)
-        {
-            GetStaggered();
-        }
-    }
-
-    protected abstract void GetStaggered();
-
-
-    public void GainTempProtection(float hp, float knock, float time)
-    {
-        TempHpProtection = hp;
-        TempKnockProtection = knock;
-        TempTimeLeft = time;
-    }
-
-    protected virtual void Death()
-    {
-        gameObject.SetActive(false);
-    }
-
+    protected abstract void Death();
 }
