@@ -23,8 +23,7 @@ MonoBehaviour:
   PreviousAttack: Block
   Damage: 20
   Knockback: 20
-  minStagger: 60
-  maxStagger: 100
+  Stagger: {x: 50, y: 100}
   DamagingCooldown: 1
   AttackMovementForce: 10
   AttackMovementDirection: {x: 1, y: 0}

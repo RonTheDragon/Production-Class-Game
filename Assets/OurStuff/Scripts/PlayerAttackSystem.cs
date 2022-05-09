@@ -10,6 +10,7 @@ public class PlayerAttackSystem : AttackSystem
     [SerializeField] List<SOability> DownRightClickAttacks = new List<SOability>();
     [SerializeField] List<SOability> UpLeftClickAttacks = new List<SOability>();
     [SerializeField] List<SOability> UpRightClickAttacks = new List<SOability>();
+    [SerializeField] List<SOability> SpaceAbility = new List<SOability>();
     //public LayerMask OnlyFloor;
 
     new void Start()
@@ -18,6 +19,8 @@ public class PlayerAttackSystem : AttackSystem
         CC = GetComponent<CharacterController>();
         Audio = GetComponent<AudioManager>();
         Anim = transform.GetChild(0).GetComponent<Animator>();
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     new void Update()
@@ -51,6 +54,11 @@ public class PlayerAttackSystem : AttackSystem
         {
             for (int i = 0; i < UpRightClickAttacks.Count; i++)
             { Attack(UpRightClickAttacks, i); }
+        }
+        else if (Input.GetKeyDown(KeyCode.Space))
+        {
+            for (int i = 0; i < SpaceAbility.Count; i++)
+            { Attack(SpaceAbility, i); }
         }
     }
 

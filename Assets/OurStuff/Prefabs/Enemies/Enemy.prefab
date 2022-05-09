@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1664207589}
   m_Layer: 7
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,6 +153,8 @@ MonoBehaviour:
   HoldingAnAttack: 
   PreviousAttack: 
   timeToComboReset: 1.5
+  AttackMovementForce: 0
+  AttackMovementDirection: {x: 0, y: 0}
   OffensiveAttacks:
   - {fileID: 11400000, guid: 567de1d183ef6464ca817f5cde21648d, type: 2}
   - {fileID: 11400000, guid: d0cb891d226932447b0058eb437244cc, type: 2}
@@ -164,7 +166,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c9116d97e6c28b342b516e6734055162, type: 2}
   DefensiveAttacks:
   - {fileID: 11400000, guid: 42dce146ac29829449562261afe0745e, type: 2}
-  BraveEnoughToOffensive: 70
+  - {fileID: 11400000, guid: f92c306285687304b8b47559f9975e6e, type: 2}
+  BraveEnoughToOffensive: 60
   TryToAttackEvery: 0.1
 --- !u!114 &429841490
 MonoBehaviour:
@@ -269,13 +272,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 10
   Knock: 1
-  minStagger: 0
-  maxStagger: 0
+  Stagger: {x: 0, y: 0}
   Attackable:
     serializedVersion: 2
     m_Bits: 8
   Charge: 0
+  AnimationTrigger: 0
   AttackCooldown: 1
+  AttackMovementForce: 0
+  AttackMovementDirection: {x: 0, y: 0}
+  attackSystem: {fileID: 0}
 --- !u!114 &208415829091395381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,8 +345,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 0
   Knock: 0
-  minStagger: 0
-  maxStagger: 0
+  Stagger: {x: 0, y: 0}
   Attackable:
     serializedVersion: 2
     m_Bits: 8
@@ -362,8 +367,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 0
   Knock: 0
-  minStagger: 0
-  maxStagger: 0
+  Stagger: {x: 0, y: 0}
   Attackable:
     serializedVersion: 2
     m_Bits: 8

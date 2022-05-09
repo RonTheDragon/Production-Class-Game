@@ -18,13 +18,12 @@ MonoBehaviour:
   AttackCooldown: 0.5
   MinRange: 0
   MaxRange: 100
-  Chance: 50
+  Chance: 30
   attackType: 2
   PreviousAttack: ChargeBow
   Damage: 10
   Knockback: 5
-  minStagger: 40
-  maxStagger: 120
+  Stagger: {x: 40, y: 100}
   particleSystem: {fileID: 2011320512540257276, guid: 392a7048511c7ca47a19602da90e6c40, type: 3}
   Emit: 1
   Hold: 0

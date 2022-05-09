@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0b3ac95e465fd04f8ad6fe51096e1be, type: 3}
-  m_Name: Combo MeleeAttack
+  m_Name: Roll
   m_EditorClassIdentifier: 
-  Name: SwordAttack Combo
-  AnimationTrigger: Attack2
+  Name: Rolling
+  AnimationTrigger: Roll
   StaminaCost: 10
-  AttackCooldown: 0.7
-  MinRange: 0
-  MaxRange: 5
-  Chance: 100
-  attackType: 3
-  PreviousAttack: SwordAttack
-  Damage: 20
-  Knockback: 10
-  Stagger: {x: 40, y: 100}
-  DamagingCooldown: 0.4
-  AttackMovementForce: 4
-  AttackMovementDirection: {x: 2, y: 1}
+  AttackCooldown: 1
+  MinRange: 6
+  MaxRange: 12
+  Chance: 15
+  attackType: 0
+  PreviousAttack: 
+  Damage: 0
+  Knockback: 0
+  Stagger: {x: 0, y: 0}
+  DamagingCooldown: 1
+  AttackMovementForce: 12
+  AttackMovementDirection: {x: 1, y: 0}

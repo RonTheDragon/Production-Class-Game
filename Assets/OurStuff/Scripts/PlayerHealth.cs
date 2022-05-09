@@ -36,6 +36,7 @@ public class PlayerHealth : Health
     {
         if (TheKnockback > 0)
         {
+            if (PAS.AttackMovementForce > 0) { TheKnockback = 0; }
             TheKnockback -= TheKnockback * Time.deltaTime * 2;
             Vector3 Knock = (transform.position - TheImpactLocation).normalized * TheKnockback * Time.deltaTime;
             Knock.y = 0;
@@ -61,9 +62,9 @@ public class PlayerHealth : Health
         PAS.Stagger();
     }
 
-    public override void TakeDamage(float Damage, float Knock, float minStagger, float maxStagger, Vector3 ImpactLocation)
+    public override void TakeDamage(float Damage, float Knock, Vector2 Stagger, Vector3 ImpactLocation)
     {
-        base.TakeDamage(Damage, Knock, minStagger, maxStagger, ImpactLocation);
+        base.TakeDamage(Damage, Knock, Stagger, ImpactLocation);
         //Anim.SetTrigger("Ouch");
         //audio.PlaySound(Sound.Activation.Custom, "Ouch");
     }

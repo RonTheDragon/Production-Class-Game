@@ -18,12 +18,11 @@ MonoBehaviour:
   AttackCooldown: 0.5
   MinRange: 0
   MaxRange: 100
-  Chance: 50
+  Chance: 30
   attackType: 2
   PreviousAttack: ChargeBow
   Damage: 10
   Knockback: 5
-  minStagger: 0
-  maxStagger: 60
+  Stagger: {x: 20, y: 70}
   Projectile: Test
   ProjectileSpeed: 10

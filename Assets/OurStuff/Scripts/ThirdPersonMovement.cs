@@ -19,11 +19,6 @@ public class ThirdPersonMovement : MonoBehaviour
     float turnSmoothVelocity;
 
     [SerializeField] float gravity = 9.8f;
-
-    [SerializeField] List<int> DownLeftClickAttacks;
-    [SerializeField] List<int> DownRightClickAttacks;
-    [SerializeField] List<int> UpLeftClickAttacks;
-    [SerializeField] List<int> UpRightClickAttacks;
     
 
     //all the GetComponent's and speed
@@ -58,28 +53,6 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private void Attack()
     {
-        /*
-        if (Input.GetMouseButtonDown(0))
-        {
-            foreach(int i in DownLeftClickAttacks)
-            { PAS.Attack(i); }
-        }
-        else if (Input.GetMouseButtonDown(1))
-        {
-            foreach (int i in DownRightClickAttacks)
-            { PAS.Attack(i); }
-        }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            foreach (int i in UpLeftClickAttacks)
-            { PAS.Attack(i); }
-        }
-        else if (Input.GetMouseButtonUp(1))
-        {
-            foreach (int i in UpRightClickAttacks)
-            { PAS.Attack(i); }
-        }
-        */
         if (PAS.AttackCooldown > 0)
         {
             speed = 0;

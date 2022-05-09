@@ -7,6 +7,5 @@ public abstract class SOattack : SOability
 {
     public float Damage = 10;
     public float Knockback = 5;
-    public float minStagger = 0;
-    public float maxStagger = 100;
+    public Vector2 Stagger = new Vector2(0, 100);
 }

@@ -9,17 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 449a2fa9301304d4fabd5d4bca230e71, type: 3}
-  m_Name: ChargeBow
+  m_Script: {fileID: 11500000, guid: 997827a301b5d824ea5f07905d878598, type: 3}
+  m_Name: EasyWave
   m_EditorClassIdentifier: 
-  Name: ChargeBow
-  AnimationTrigger: Charge
-  StaminaCost: 10
-  AttackCooldown: 1
-  MinRange: 3
-  MaxRange: 20
-  Chance: 15
-  attackType: 1
-  PreviousAttack: 
-  MaxCharge: 2
-  ChargeSpeed: 1
+  Monsters:
+  - Name: Enemy
+    Amount: {x: 1, y: 3}
+  TimeBetweenSpawns: {x: 1, y: 2}
+  TimeTillNextWave: {x: 10, y: 20}
+  TooManyMonstersToStart: {x: 2, y: 3}

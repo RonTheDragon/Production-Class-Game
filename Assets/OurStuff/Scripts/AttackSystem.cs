@@ -63,6 +63,10 @@ public abstract class AttackSystem : MonoBehaviour
         {
             AttackMovement();
         }
+        if (AttackCooldown <= 0&& AttackMovementForce>0)
+        {
+            AttackMovementForce = 0;
+        }
     }
 
     protected bool CanAttack()
@@ -92,8 +96,7 @@ public abstract class AttackSystem : MonoBehaviour
                 meleeAttack.attackSystem = this;
             }
             meleeAttack.Damage = SOM.Damage * DamageMultiplier;
-            meleeAttack.minStagger = SOM.minStagger;
-            meleeAttack.maxStagger = SOM.maxStagger;
+            meleeAttack.Stagger = SOM.Stagger;
             meleeAttack.Knock = SOM.Knockback;
             meleeAttack.AttackCooldown = SOM.DamagingCooldown;
             meleeAttack.Charge = Charge;
@@ -104,8 +107,7 @@ public abstract class AttackSystem : MonoBehaviour
         {
             SOrangedAttack SOR = (SOrangedAttack)Attacks[attackType];
             rangeAttack.Damage = SOR.Damage * DamageMultiplier;
-            rangeAttack.minStagger = SOR.minStagger;
-            rangeAttack.maxStagger = SOR.maxStagger;
+            rangeAttack.Stagger = SOR.Stagger;
             rangeAttack.Knock = SOR.Knockback;
             rangeAttack.Bullet = SOR.Projectile;
             rangeAttack.ProjectileSpeed = SOR.ProjectileSpeed;
@@ -124,8 +126,7 @@ public abstract class AttackSystem : MonoBehaviour
             }
 
             particleAttack.Damage = SOP.Damage * DamageMultiplier;
-            particleAttack.minStagger = SOP.minStagger;
-            particleAttack.maxStagger = SOP.maxStagger;
+            particleAttack.Stagger = SOP.Stagger;
             particleAttack.Knock = SOP.Knockback;
             particleAttack.Hold = SOP.Hold;
             particleAttack.ParticleAmount = SOP.Emit;

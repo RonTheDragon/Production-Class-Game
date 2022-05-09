@@ -50,7 +50,7 @@ public abstract class Health : MonoBehaviour
         }
     }
 
-    public virtual void TakeDamage(float Damage, float knock, float minStagger ,float maxStagger, Vector3 ImpactLocation)
+    public virtual void TakeDamage(float Damage, float knock, Vector2 Stagger, Vector3 ImpactLocation)
     {
         if (TempTimeLeft > 0)
         {
@@ -61,7 +61,7 @@ public abstract class Health : MonoBehaviour
         {
             Hp -= Damage;
             TheKnockback = knock;
-            TryStagger(minStagger, maxStagger);
+            TryStagger(Stagger.x, Stagger.y);
             
         }
         TheImpactLocation = ImpactLocation;
