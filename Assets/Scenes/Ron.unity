@@ -144,11 +144,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1406966635, guid: 247ded5f593901542bb012f6c071c87c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.04450072
+      value: 0.044500712
       objectReference: {fileID: 0}
     - target: {fileID: 1406966635, guid: 247ded5f593901542bb012f6c071c87c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.003649791
+      value: -0.0036497905
       objectReference: {fileID: 0}
     - target: {fileID: 8559470171900184560, guid: 247ded5f593901542bb012f6c071c87c, type: 3}
       propertyPath: m_Name
@@ -355,11 +355,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &967031712 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7823743732389589676, guid: 247ded5f593901542bb012f6c071c87c, type: 3}
-  m_PrefabInstance: {fileID: 24177549}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1310661997
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,7 +401,7 @@ GameObject:
   - component: {fileID: 1775786071}
   - component: {fileID: 1775786075}
   - component: {fileID: 1775786076}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: TheWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -679,9 +674,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7303057436717104375, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: PressE
-      value: 
-      objectReference: {fileID: 967031712}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}

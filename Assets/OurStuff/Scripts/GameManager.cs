@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public GameObject Wall;
     public GameObject PowerStone;
     public LayerMask enemiesCanSee;
+    public LayerMask enemiesCanAttack;
+    public LayerMask PlayerCanAttack;
 
     private void Awake()
     {

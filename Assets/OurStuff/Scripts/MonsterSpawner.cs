@@ -20,7 +20,6 @@ public class MonsterSpawner : MonoBehaviour
     float TimeLeftForNextEnemy;
     SOwave Wave;
     List<MonstersLeft> MonstersLeftToSpawn = new List<MonstersLeft>();
-    [SerializeField] GameObject PressE;
 
     // Start is called before the first frame update
     void Start()
@@ -98,7 +97,7 @@ public class MonsterSpawner : MonoBehaviour
             else
             {
                 Wave = null;
-                PressE.SetActive(true);
+                GameManager.instance.Player.GetComponent<ThirdPersonMovement>().PressE.SetActive(true);
             }
         }
         else
@@ -136,7 +135,7 @@ public class MonsterSpawner : MonoBehaviour
     {
         CurrentWave = 0;
         CurrentLevel++;
-        PressE.SetActive(false);
+        GameManager.instance.Player.GetComponent<ThirdPersonMovement>().PressE.SetActive(false);
         StartWave();
     }
 }

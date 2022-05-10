@@ -177,6 +177,12 @@ MonoBehaviour:
   enemiesCanSee:
     serializedVersion: 2
     m_Bits: 127
+  enemiesCanAttack:
+    serializedVersion: 2
+    m_Bits: 264
+  PlayerCanAttack:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &7303057436717104375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,7 +204,6 @@ MonoBehaviour:
   MonstersAmount: 0
   CurrentWave: 0
   CurrentLevel: 0
-  PressE: {fileID: 0}
 --- !u!1 &5328786050612512330
 GameObject:
   m_ObjectHideFlags: 0

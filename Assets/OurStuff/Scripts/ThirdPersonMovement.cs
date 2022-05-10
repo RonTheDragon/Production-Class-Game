@@ -19,7 +19,8 @@ public class ThirdPersonMovement : MonoBehaviour
     float turnSmoothVelocity;
 
     [SerializeField] float gravity = 9.8f;
-    
+    public GameObject PressE;
+
 
     //all the GetComponent's and speed
     private void Awake()

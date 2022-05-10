@@ -291,4 +291,11 @@ public abstract class AttackSystem : MonoBehaviour
         return false;
     }
     public abstract void AttackMovement();
+
+    protected void SetLayersForAttacks(LayerMask L)
+    {
+        if (meleeAttack != null) { meleeAttack.Attackable = L; }
+        if (rangeAttack != null) { rangeAttack.Attackable = L; }
+        if (particleAttack != null) { particleAttack.Attackable = L; }
+    }
 }

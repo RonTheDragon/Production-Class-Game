@@ -18,6 +18,7 @@ public class EnemyAttackSystem : AttackSystem
         enemy = transform.parent.GetComponent<Enemy>();
         Audio = GetComponent<AudioManager>();
         Anim = transform.GetChild(0).GetComponent<Animator>();
+        SetLayersForAttacks(GameManager.instance.enemiesCanAttack);
     }
 
     new void Update()

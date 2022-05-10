@@ -17,13 +17,13 @@ public class PlayerAttackSystem : AttackSystem
         Anim = transform.GetChild(0).GetComponent<Animator>();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        SetLayersForAttacks(GameManager.instance.PlayerCanAttack);
     }
 
     new void Update()
     {
         base.Update();
         Attacking();
-
     }
     public void Attack(List<SOability> Attacks, int attackType)
     {
