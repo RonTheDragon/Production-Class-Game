@@ -15,10 +15,7 @@ public abstract class AttackSystem : MonoBehaviour
     public                   float StaminaRegan    = 30;
     public                   float Tired           = 30;
     [SerializeField]         float StaggerDuration = 0.3f;
-    [SerializeField] MeleeAttack meleeAttack;
-    [SerializeField] DefensiveAbility Shield;
-    [SerializeField] RangeAttack rangeAttack;
-    [SerializeField] ParticleAttack particleAttack;
+    [SerializeField] List<Ability> abilities = new List<Ability>();
     //public List<SOability> Attacks = new List<SOability>();
     public float DamageMultiplier  = 1;
     [SerializeField] string HoldingAnAttack;
@@ -27,6 +24,7 @@ public abstract class AttackSystem : MonoBehaviour
                      float comboTimer;
     [HideInInspector] public float AttackMovementForce;
     [HideInInspector] public Vector2 AttackMovementDirection;
+
     protected void Start()
     {
         Stamina = MaxStamina;
@@ -88,57 +86,82 @@ public abstract class AttackSystem : MonoBehaviour
     protected void SetUpAttack(List<SOability> Attacks, int attackType)
     {
         AttackMovementForce = 0;
-        if (Attacks[attackType] is SOmeleeAttack && meleeAttack != null)
+        if (Attacks[attackType] is SOattack)
         {
-            SOmeleeAttack SOM = (SOmeleeAttack)Attacks[attackType];
-            if (meleeAttack.attackSystem == null)
+            if (Attacks[attackType] is SOmeleeAttack)
             {
-                meleeAttack.attackSystem = this;
-            }
-            meleeAttack.Damage = SOM.Damage * DamageMultiplier;
-            meleeAttack.Stagger = SOM.Stagger;
-            meleeAttack.Knock = SOM.Knockback;
-            meleeAttack.AttackCooldown = SOM.DamagingCooldown;
-            meleeAttack.Charge = Charge;
-            meleeAttack.AttackMovementForce = SOM.AttackMovementForce;
-            meleeAttack.AttackMovementDirection = SOM.AttackMovementDirection;
-        }
-        else if (Attacks[attackType] is SOrangedAttack && rangeAttack != null)
-        {
-            SOrangedAttack SOR = (SOrangedAttack)Attacks[attackType];
-            rangeAttack.Damage = SOR.Damage * DamageMultiplier;
-            rangeAttack.Stagger = SOR.Stagger;
-            rangeAttack.Knock = SOR.Knockback;
-            rangeAttack.Bullet = SOR.Projectile;
-            rangeAttack.ProjectileSpeed = SOR.ProjectileSpeed;
-            rangeAttack.Charge = Charge;
-        }
-        else if (Attacks[attackType] is SOparticleAttack && particleAttack != null)
-        {
-            SOparticleAttack SOP = (SOparticleAttack)Attacks[attackType];
-            if (particleAttack.particle == null)
-            {
-                particleAttack.CreateParticleSystem(SOP.particleSystem, SOP.Name);
-            }
-            else if (particleAttack.pc.pName != SOP.Name)
-            {
-                particleAttack.ReplaceParticleSystem(SOP.particleSystem, SOP.Name);
-            }
+                SOmeleeAttack SOM;
+                MeleeAttack meleeAttack;
 
-            particleAttack.Damage = SOP.Damage * DamageMultiplier;
-            particleAttack.Stagger = SOP.Stagger;
-            particleAttack.Knock = SOP.Knockback;
-            particleAttack.Hold = SOP.Hold;
-            particleAttack.ParticleAmount = SOP.Emit;
-            particleAttack.AttackCooldown = SOP.DamagingCooldown;
-            particleAttack.Charge = Charge;
+                SOM = (SOmeleeAttack)Attacks[attackType];
+                meleeAttack = AbilityGet<MeleeAttack>();
+
+                if (meleeAttack != null)
+                {
+                    setAttack(meleeAttack, SOM);
+                    if (meleeAttack.attackSystem == null)
+                    {
+                        meleeAttack.attackSystem = this;
+                    }
+                    meleeAttack.AttackCooldown = SOM.DamagingCooldown;
+                    meleeAttack.AttackMovementForce = SOM.AttackMovementForce;
+                    meleeAttack.AttackMovementDirection = SOM.AttackMovementDirection;
+                }
+            }
+            else if (Attacks[attackType] is SOrangedAttack)
+            {
+                SOrangedAttack SOR;
+                RangeAttack rangeAttack;
+
+                SOR = (SOrangedAttack)Attacks[attackType];
+                rangeAttack = AbilityGet<RangeAttack>();
+
+                if (rangeAttack != null)
+                {
+                    setAttack(rangeAttack, SOR);
+                    rangeAttack.Bullet = SOR.Projectile;
+                    rangeAttack.ProjectileSpeed = SOR.ProjectileSpeed;
+                }
+            }
+            else if (Attacks[attackType] is SOparticleAttack)
+            {
+                SOparticleAttack SOP;
+                ParticleAttack particleAttack;
+
+                SOP = (SOparticleAttack)Attacks[attackType];
+                particleAttack = AbilityGet<ParticleAttack>();
+
+                if (particleAttack != null)
+                {
+                    setAttack(particleAttack, SOP);
+                    if (particleAttack.particle == null)
+                    {
+                        particleAttack.CreateParticleSystem(SOP.particleSystem, SOP.Name);
+                    }
+                    else if (particleAttack.pc.pName != SOP.Name)
+                    {
+                        particleAttack.ReplaceParticleSystem(SOP.particleSystem, SOP.Name);
+                    }
+                    particleAttack.Hold = SOP.Hold;
+                    particleAttack.ParticleAmount = SOP.Emit;
+                    particleAttack.AttackCooldown = SOP.DamagingCooldown;
+                }
+            }
         }
-        else if (Attacks[attackType] is SOdefence && Shield != null)
+        else if (Attacks[attackType] is SOdefence)
         {
-            SOdefence SOD = (SOdefence)Attacks[attackType];
-            Shield.HpProtection = SOD.HpProtection;
-            Shield.KnockProtection = SOD.KnockProtection;
-            Shield.ProtectionTime = SOD.ProtectionTime;
+            SOdefence SOD;
+            DefensiveAbility Shield;
+
+            SOD = (SOdefence)Attacks[attackType];
+            Shield = AbilityGet<DefensiveAbility>();
+
+            if (Shield != null)
+            {         
+                Shield.HpProtection = SOD.HpProtection;
+                Shield.KnockProtection = SOD.KnockProtection;
+                Shield.ProtectionTime = SOD.ProtectionTime;
+            }
         }
         else if (Attacks[attackType] is SOcharge)
         {
@@ -146,7 +169,7 @@ public abstract class AttackSystem : MonoBehaviour
             MaxCharge = SOD.MaxCharge;
             ChargeSpeed = SOD.ChargeSpeed;
         }
-        
+
         if (!(Attacks[attackType] is SOcharge))
         {
             ResetCharge();
@@ -156,6 +179,27 @@ public abstract class AttackSystem : MonoBehaviour
         Anim.SetTrigger(Attacks[attackType].AnimationTrigger);
         PreviousAttack = Attacks[attackType].Name;
         comboTimer = timeToComboReset + AttackCooldown;
+    }
+
+    void setAttack(Attack TheAttack,SOattack TheSOattack)
+    {
+        TheAttack.Damage = TheSOattack.Damage * DamageMultiplier;
+        TheAttack.Stagger = TheSOattack.Stagger;
+        TheAttack.Knock = TheSOattack.Knockback;
+        TheAttack.Charge = Charge;
+    }
+
+    T AbilityGet<T>() where T : Ability
+    {
+        foreach (Ability a in abilities)
+        {
+            if (a is T)
+            {
+                return (T)a;
+            }
+        }
+        Debug.Log("THIS WASNT SUPPOSED TO HAPPEN");
+        return null;
     }
 
     public void Stagger()
@@ -294,8 +338,13 @@ public abstract class AttackSystem : MonoBehaviour
 
     protected void SetLayersForAttacks(LayerMask L)
     {
-        if (meleeAttack != null) { meleeAttack.Attackable = L; }
-        if (rangeAttack != null) { rangeAttack.Attackable = L; }
-        if (particleAttack != null) { particleAttack.Attackable = L; }
+        foreach(Ability a in abilities)
+        {
+            if (a is Attack)
+            {
+                Attack A = (Attack)a;
+                A.Attackable = L;
+            }
+        }
     }
 }

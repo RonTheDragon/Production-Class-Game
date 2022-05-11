@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DefensiveAbility : MonoBehaviour
+public class DefensiveAbility : Ability
 {
     public float HpProtection;
     public float KnockProtection;

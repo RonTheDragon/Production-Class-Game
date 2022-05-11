@@ -741,7 +741,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1406966633}
-  m_LocalRotation: {x: 0.08166046, y: 0.04450072, z: -0.003649791, w: 0.9956596}
+  m_LocalRotation: {x: 0.08166046, y: 0.044500712, z: -0.0036497905, w: 0.9956596}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1510,17 +1510,18 @@ MonoBehaviour:
   StaminaRegan: 30
   Tired: 30
   StaggerDuration: 0.3
-  meleeAttack: {fileID: 8559470171756185900}
-  Shield: {fileID: 1609402007}
-  rangeAttack: {fileID: 8559470171562960360}
-  particleAttack: {fileID: 8559470171562960359}
+  abilities:
+  - {fileID: 8559470171756185900}
+  - {fileID: 1609402007}
+  - {fileID: 8559470171562960360}
+  - {fileID: 8559470171562960359}
   DamageMultiplier: 1
   HoldingAnAttack: 
   PreviousAttack: 
   timeToComboReset: 1
   AttackMovementForce: 0
   AttackMovementDirection: {x: 0, y: 0}
-  PlayerClass: {fileID: 11400000, guid: 926597246559e654ba8125c983fd5ec4, type: 2}
+  PlayerClass: {fileID: 11400000, guid: e126c1b55136a47498ea0743b94340a5, type: 2}
 --- !u!1001 &8559470171141448785
 PrefabInstance:
   m_ObjectHideFlags: 0

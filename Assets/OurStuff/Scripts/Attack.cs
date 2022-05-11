@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Attack : MonoBehaviour
+public abstract class Attack : Ability
 {
     public float Damage;
     public float Knock;
