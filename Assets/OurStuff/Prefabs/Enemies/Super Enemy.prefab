@@ -95,10 +95,11 @@ MonoBehaviour:
   StaminaRegan: 30
   Tired: 30
   StaggerDuration: 0.3
-  meleeAttack: {fileID: 4414656003671475646}
-  Shield: {fileID: 5138155502424476512}
-  rangeAttack: {fileID: 319686693983384060}
-  particleAttack: {fileID: 4130779118524839593}
+  abilities:
+  - {fileID: 4414656003671475646}
+  - {fileID: 5138155502424476512}
+  - {fileID: 319686693983384060}
+  - {fileID: 4130779118524839593}
   DamageMultiplier: 3
   HoldingAnAttack: 
   PreviousAttack: 
