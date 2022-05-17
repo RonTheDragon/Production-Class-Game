@@ -16,6 +16,7 @@ MonoBehaviour:
   AnimationTrigger: Roll
   StaminaCost: 10
   AttackCooldown: 1
+  AbilityCooldown: 0
   MinRange: 6
   MaxRange: 12
   Chance: 15

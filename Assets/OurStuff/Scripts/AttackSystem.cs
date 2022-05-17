@@ -24,6 +24,7 @@ public abstract class AttackSystem : MonoBehaviour
                      float comboTimer;
     [HideInInspector] public float AttackMovementForce;
     [HideInInspector] public Vector2 AttackMovementDirection;
+    List<AbilityCoolDown> abilityCoolDowns = new List<AbilityCoolDown>();
 
     protected void Start()
     {
@@ -64,6 +65,14 @@ public abstract class AttackSystem : MonoBehaviour
         if (AttackCooldown <= 0&& AttackMovementForce>0)
         {
             AttackMovementForce = 0;
+        }
+        if (abilityCoolDowns.Count > 0)
+        {
+            foreach(AbilityCoolDown a in abilityCoolDowns)
+            {
+                a.Cooldown -= Time.deltaTime;
+                if (a.Cooldown <= 0) abilityCoolDowns.Remove(a); break;
+            }
         }
     }
 
@@ -179,6 +188,10 @@ public abstract class AttackSystem : MonoBehaviour
         Anim.SetTrigger(Attacks[attackType].AnimationTrigger);
         PreviousAttack = Attacks[attackType].Name;
         comboTimer = timeToComboReset + AttackCooldown;
+        if (Attacks[attackType].AbilityCooldown != 0)
+        {
+            abilityCoolDowns.Add(new AbilityCoolDown(Attacks[attackType].Name, Attacks[attackType].AbilityCooldown));
+        }
     }
 
     void setAttack(Attack TheAttack,SOattack TheSOattack)
@@ -214,7 +227,13 @@ public abstract class AttackSystem : MonoBehaviour
 
     protected void AttemptToAttack(List<SOability> Attacks, int attackType)
     {
-        
+        if (Attacks[attackType].AbilityCooldown != 0)
+        {
+            if (abilityCoolDowns.Count != 0)
+            {
+                if (CheckAbilityCooldown(Attacks[attackType].Name)) return;
+            }
+        }
         StaminaCost = Attacks[attackType].StaminaCost;
 
         switch (Attacks[attackType].attackType)
@@ -346,5 +365,33 @@ public abstract class AttackSystem : MonoBehaviour
                 A.Attackable = L;
             }
         }
+    }
+
+    bool CheckAbilityCooldown(string Name)
+    {
+        foreach(AbilityCoolDown a in abilityCoolDowns)
+        {
+            if (a.AbilityName == Name)
+            {
+                if (this is PlayerAttackSystem)
+                {
+                    Debug.Log($"{Name} is in Cooldown ({(int)a.Cooldown}s)");
+                }
+                return true;
+            }
+        }
+        return false;
+    }
+    
+}
+
+public class AbilityCoolDown
+{
+    public string AbilityName;
+    public float Cooldown;
+    public AbilityCoolDown(string AbilityName, float Cooldown)
+    {
+        this.AbilityName = AbilityName;
+        this.Cooldown = Cooldown;
     }
 }

@@ -8,6 +8,7 @@ public class SOability : ScriptableObject
     public string AnimationTrigger;
     public float StaminaCost = 10;
     public float AttackCooldown = 1;
+    public float AbilityCooldown = 0;
     public float MinRange = 0;
     public float MaxRange = 3;
     public float Chance = 100;
