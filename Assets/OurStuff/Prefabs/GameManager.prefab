@@ -283,6 +283,9 @@ MonoBehaviour:
     - tag: Test
       prefab: {fileID: 8441075466056421742, guid: 9647f1c62dbe74b49874db704861a1b7, type: 3}
       size: 20
+    - tag: Mine
+      prefab: {fileID: 2554057503374829988, guid: a0412644ec5cb314883ae34ba8539744, type: 3}
+      size: 30
   - tag: Enemies
     pools:
     - tag: Enemy

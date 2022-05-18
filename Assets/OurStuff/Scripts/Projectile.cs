@@ -23,7 +23,7 @@ public class Projectile : Attack
         transform.position += transform.forward * Speed * Time.deltaTime;
     }
 
-    private void OnTriggerStay(Collider other)
+    protected virtual void OnTriggerStay(Collider other)
     {
 
         if (Attackable == (Attackable | (1 << other.gameObject.layer)))

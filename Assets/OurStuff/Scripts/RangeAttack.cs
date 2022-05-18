@@ -39,6 +39,7 @@ public class RangeAttack : Attack
         {
             p.Damage = Damage*Charge;
             p.Knock = Knock*Charge;
+            p.Stagger = Stagger;
             p.Attackable = Attackable;
             p.Speed = ProjectileSpeed*Charge;
         }

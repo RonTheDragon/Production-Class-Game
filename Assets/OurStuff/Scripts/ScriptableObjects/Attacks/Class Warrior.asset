@@ -22,4 +22,4 @@ MonoBehaviour:
   UpRightClickAttacks:
   - {fileID: 11400000, guid: 32243c880f256fd43bf8ec57da9062f3, type: 2}
   SpaceAbility:
-  - {fileID: 11400000, guid: f92c306285687304b8b47559f9975e6e, type: 2}
+  - {fileID: 11400000, guid: 4b4186adca57dc342968aaf7f90204ea, type: 2}
