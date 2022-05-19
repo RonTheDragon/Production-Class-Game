@@ -15,6 +15,7 @@ public class EnemyAttackSystem : AttackSystem
     new void Start()
     {
         base.Start();
+        Attacker = transform.parent.gameObject;
         enemy = transform.parent.GetComponent<Enemy>();
         Audio = GetComponent<AudioManager>();
         Anim = transform.GetChild(0).GetComponent<Animator>();

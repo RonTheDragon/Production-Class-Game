@@ -42,6 +42,7 @@ public class RangeAttack : Attack
             p.Stagger = Stagger;
             p.Attackable = Attackable;
             p.Speed = ProjectileSpeed*Charge;
+            p.Attacker = Attacker;
         }
     }
 }

@@ -24,10 +24,13 @@ public class EnemyHealth : CharacterHealth , IpooledObject
         base.Update();
         TakeKnockback();
     }
-    public override void TakeDamage(float Damage, float Knock, Vector2 Stagger, Vector3 ImpactLocation)
+    public override void TakeDamage(float Damage, float Knock, Vector2 Stagger, Vector3 ImpactLocation, GameObject Attacker)
     {
-        base.TakeDamage(Damage, Knock , Stagger, ImpactLocation);
-        enemy.GotHit();
+        base.TakeDamage(Damage, Knock , Stagger, ImpactLocation, Attacker);
+        if (Attacker == GameManager.instance.Player)
+        {
+            enemy.GotHit();
+        }
     }
 
     void TakeKnockback()

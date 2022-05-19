@@ -12,6 +12,7 @@ public class PlayerAttackSystem : AttackSystem
     new void Start()
     {
         base.Start();
+        Attacker = gameObject;
         CC = GetComponent<CharacterController>();
         Audio = GetComponent<AudioManager>();
         Anim = transform.GetChild(0).GetComponent<Animator>();

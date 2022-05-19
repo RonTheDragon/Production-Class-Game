@@ -63,9 +63,9 @@ public class PlayerHealth : CharacterHealth
         PAS.Stagger();
     }
 
-    public override void TakeDamage(float Damage, float Knock, Vector2 Stagger, Vector3 ImpactLocation)
+    public override void TakeDamage(float Damage, float Knock, Vector2 Stagger, Vector3 ImpactLocation, GameObject Attacker)
     {
-        base.TakeDamage(Damage, Knock, Stagger, ImpactLocation);
+        base.TakeDamage(Damage, Knock, Stagger, ImpactLocation, Attacker);
         //Anim.SetTrigger("Ouch");
         //audio.PlaySound(Sound.Activation.Custom, "Ouch");
     }

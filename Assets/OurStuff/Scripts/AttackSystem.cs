@@ -25,6 +25,7 @@ public abstract class AttackSystem : MonoBehaviour
     [HideInInspector] public float AttackMovementForce;
     [HideInInspector] public Vector2 AttackMovementDirection;
     List<AbilityCoolDown> abilityCoolDowns = new List<AbilityCoolDown>();
+    protected GameObject Attacker;
 
     protected void Start()
     {
@@ -215,6 +216,7 @@ public abstract class AttackSystem : MonoBehaviour
         TheAttack.Stagger = TheSOattack.Stagger;
         TheAttack.Knock = TheSOattack.Knockback;
         TheAttack.Charge = Charge;
+        TheAttack.Attacker = Attacker;
     }
 
     T AbilityGet<T>() where T : Ability

@@ -47,7 +47,7 @@ public abstract class CharacterHealth : Health
         }
     }
 
-    public override void TakeDamage(float Damage, float knock, Vector2 Stagger, Vector3 ImpactLocation)
+    public override void TakeDamage(float Damage, float knock, Vector2 Stagger, Vector3 ImpactLocation,GameObject Attacker)
     {
         if (TempTimeLeft > 0)
         {

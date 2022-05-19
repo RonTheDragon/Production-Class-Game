@@ -5,6 +5,7 @@ using UnityEngine;
 public class TheWall : MonoBehaviour
 {
     public enum WallAttacks { None, Mines}
+    public float WallLength = 90;
     LayerMask Attackable;
 
     // Start is called before the first frame update
@@ -40,9 +41,10 @@ public class TheWall : MonoBehaviour
             Amount = s.AmountOfShoots;
         }
 
+        float X = (WallLength * -0.5f) + Random.Range(WallLength / Amount / 2, WallLength / Amount);
         for (int i = 0; i < Amount; i++)
         {
-            float X = Random.Range(-45, 45);
+            X += Random.Range(WallLength / Amount / 2, WallLength/Amount);
             float Y = Random.Range(5, 10);
             Shoot(attack, transform.position + transform.up * Y + transform.right*X, transform.rotation);
         }
@@ -77,6 +79,7 @@ public class TheWall : MonoBehaviour
             p.Stagger = attack.Stagger;
             p.Speed = ProjectileSpeed;
             p.Attackable = Attackable;
+            p.Attacker = gameObject;
             if (p is Mine)
             {
                 Mine m = (Mine)p;

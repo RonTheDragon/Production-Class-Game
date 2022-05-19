@@ -153,7 +153,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 241280695}
-  m_LocalRotation: {x: 0.08300102, y: 0.04720783, z: -0.0039454037, w: 0.9954229}
+  m_LocalRotation: {x: 0.08300101, y: 0.04720783, z: -0.0039454037, w: 0.9954229}
   m_LocalPosition: {x: 0, y: 1.3094445, z: -4.3293304}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -541,7 +541,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1103356262}
-  m_LocalRotation: {x: 0.06876958, y: 0.046363246, z: -0.0031994209, w: 0.99654955}
+  m_LocalRotation: {x: 0.068769574, y: 0.046363246, z: -0.0031994202, w: 0.99654955}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -741,7 +741,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1406966633}
-  m_LocalRotation: {x: 0.08166046, y: 0.04450072, z: -0.003649791, w: 0.9956596}
+  m_LocalRotation: {x: 0.08166046, y: 0.044500712, z: -0.0036497905, w: 0.9956596}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1271,6 +1271,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   Charge: 0
+  Attacker: {fileID: 0}
   AnimationTrigger: 0
   Bullet: 
   ProjectileSpeed: 0
@@ -1293,6 +1294,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   Charge: 0
+  Attacker: {fileID: 0}
   particle: {fileID: 0}
   AnimationTrigger: 0
   Hold: 0
@@ -1365,6 +1367,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   Charge: 0
+  Attacker: {fileID: 0}
   AnimationTrigger: 0
   AttackCooldown: 1
   AttackMovementForce: 0
@@ -1440,7 +1443,7 @@ CharacterController:
   m_Height: 1.9
   m_Radius: 0.3
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_StepOffset: 0.5
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}

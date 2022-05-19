@@ -249,7 +249,6 @@ public class Enemy : MonoBehaviour
     {
         //Particle.Emit(5); <-------RETURN LATER
         //Audio.PlaySound(Sound.Activation.Custom, "Ah"); <-------RETURN LATER
-        //anim.SetTrigger("Ouch"); <-------RETURN LATER
         alert += 2;
     }
 

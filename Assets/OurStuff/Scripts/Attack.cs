@@ -9,4 +9,5 @@ public abstract class Attack : Ability
     public Vector2 Stagger;
     [HideInInspector] public LayerMask Attackable;
     [HideInInspector] public float Charge;
+    [HideInInspector] public GameObject Attacker;
 }

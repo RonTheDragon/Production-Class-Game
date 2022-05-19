@@ -38,7 +38,7 @@ public abstract class Health : MonoBehaviour
         }   
     }
 
-    public virtual void TakeDamage(float Damage, float knock, Vector2 Stagger, Vector3 ImpactLocation)
+    public virtual void TakeDamage(float Damage, float knock, Vector2 Stagger, Vector3 ImpactLocation, GameObject Attacker)
     {
             Hp -= Damage;
     }
