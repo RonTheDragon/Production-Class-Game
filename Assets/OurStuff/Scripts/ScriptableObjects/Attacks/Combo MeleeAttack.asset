@@ -15,7 +15,8 @@ MonoBehaviour:
   Name: SwordAttack Combo
   AnimationTrigger: Attack2
   StaminaCost: 10
-  AttackCooldown: 0.7
+  AttackCooldown: 0.4
+  AbilityCooldown: 0
   MinRange: 0
   MaxRange: 5
   Chance: 100

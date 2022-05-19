@@ -168,8 +168,8 @@ MonoBehaviour:
   DefensiveAttacks:
   - {fileID: 11400000, guid: 42dce146ac29829449562261afe0745e, type: 2}
   - {fileID: 11400000, guid: f92c306285687304b8b47559f9975e6e, type: 2}
-  BraveEnoughToOffensive: 50
-  TryToAttackEvery: 0.1
+  BraveEnoughToOffensive: 40
+  TryToAttackEvery: 0.05
 --- !u!114 &429841490
 MonoBehaviour:
   m_ObjectHideFlags: 0

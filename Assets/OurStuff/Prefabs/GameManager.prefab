@@ -290,7 +290,7 @@ MonoBehaviour:
     pools:
     - tag: Enemy
       prefab: {fileID: 1973851244922249122, guid: 27251afe19e2d2e44ab315b766ae61ec, type: 3}
-      size: 30
+      size: 100
     - tag: SuperEnemy
       prefab: {fileID: 6831559436007961591, guid: 8249412b6e1369c4c9e96b69ff85547a, type: 3}
       size: 10

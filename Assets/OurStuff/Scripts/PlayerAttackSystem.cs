@@ -58,6 +58,11 @@ public class PlayerAttackSystem : AttackSystem
                 for (int i = 0; i < PlayerClass.SpaceAbility.Count; i++)
                 { Attack(PlayerClass.SpaceAbility, i); }
             }
+            else if (Input.GetKeyDown(KeyCode.F))
+            {
+                for (int i = 0; i < PlayerClass.F_Ability.Count; i++)
+                { Attack(PlayerClass.F_Ability, i); }
+            }
         }
         else Debug.Log("Player Missing a Class for Combat");
     }

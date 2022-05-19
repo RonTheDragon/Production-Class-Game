@@ -33,12 +33,12 @@ public class EnemyAttackSystem : AttackSystem
             List<SOability> Attacks;
             if (UseDefensives && DefensiveAttacks.Count > 0)
             {             
-                    int OffensiveChance = 0;
+                    int OffensiveChance = 1;
                     if (enemy.CheckBravery(BraveEnoughToOffensive))
                     {
-                        OffensiveChance++;
+                        OffensiveChance+=2;
                     }
-                    int R = Random.Range(0, 3);
+                    int R = Random.Range(0, 4);
                     if (R > OffensiveChance)
                     {
                         Attacks = DefensiveAttacks;

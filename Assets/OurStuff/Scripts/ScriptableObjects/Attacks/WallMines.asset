@@ -27,6 +27,6 @@ MonoBehaviour:
   Stagger: {x: 0, y: 100}
   wallAttack: 1
   Projectile: Mine
-  ProjectileSpeed: 3000000
-  AmountOfShoots: 20
+  ProjectileSpeed: 5000000
+  AmountOfShoots: 10
   ExplosionRadius: 10

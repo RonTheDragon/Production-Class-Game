@@ -16,9 +16,10 @@ MonoBehaviour:
   AnimationTrigger: Attack3
   StaminaCost: 0
   AttackCooldown: 0.5
+  AbilityCooldown: 0
   MinRange: 0
   MaxRange: 100
-  Chance: 33
+  Chance: 10
   attackType: 2
   PreviousAttack: ChargeBow
   Damage: 10

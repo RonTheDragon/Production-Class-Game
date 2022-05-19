@@ -10,4 +10,5 @@ public class SOclass : ScriptableObject
     public List<SOability> UpLeftClickAttacks = new List<SOability>();
     public List<SOability> UpRightClickAttacks = new List<SOability>();
     public List<SOability> SpaceAbility = new List<SOability>();
+    public List<SOability> F_Ability = new List<SOability>();
 }
