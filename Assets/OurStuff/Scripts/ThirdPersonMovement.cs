@@ -103,7 +103,7 @@ public class ThirdPersonMovement : MonoBehaviour
                 }
                 else
                 {
-                    target = cam.transform.forward * 999;
+                    target = cam.transform.forward * 9999;
                 }
 
                 Gun.transform.LookAt(target);

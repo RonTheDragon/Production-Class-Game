@@ -27,4 +27,4 @@ MonoBehaviour:
   Knockback: 5
   Stagger: {x: 20, y: 70}
   Projectile: Test
-  ProjectileSpeed: 10
+  ProjectileSpeed: 30

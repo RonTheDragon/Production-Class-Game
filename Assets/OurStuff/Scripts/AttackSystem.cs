@@ -70,7 +70,7 @@ public abstract class AttackSystem : MonoBehaviour
             AttackMovementForce = 0;
             }
 
-            StopAiming();
+            Aiming(false);
         }
         if (abilityCoolDowns.Count > 0)
         {
@@ -104,7 +104,7 @@ public abstract class AttackSystem : MonoBehaviour
 
         if (this is PlayerAttackSystem && Attacks[attackType].aiming)
         {
-            Aiming();
+            Aiming(true);
         }
 
         if (Attacks[attackType] is SOattack)
@@ -411,12 +411,7 @@ public abstract class AttackSystem : MonoBehaviour
         return false;
     }
 
-    public virtual void Aiming()
-    {
-
-    }
-
-    public virtual void StopAiming()
+    public virtual void Aiming(bool aim)
     {
 
     }

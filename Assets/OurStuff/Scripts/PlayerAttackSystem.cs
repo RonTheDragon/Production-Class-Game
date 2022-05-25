@@ -88,13 +88,9 @@ public class PlayerAttackSystem : AttackSystem
         CC.Move(Knock);
     }
 
-    public override void Aiming()
+    public override void Aiming(bool aim)
     {
-        thirdPersonMovement.aim = true;
+        thirdPersonMovement.aim = aim;
     }
 
-    public override void StopAiming()
-    {
-        thirdPersonMovement.aim = false;
-    }
 }

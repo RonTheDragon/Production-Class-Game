@@ -153,7 +153,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 241280695}
-  m_LocalRotation: {x: 0.08300101, y: 0.04720783, z: -0.0039454037, w: 0.9954229}
+  m_LocalRotation: {x: 0.08300102, y: 0.04720783, z: -0.0039454037, w: 0.9954229}
   m_LocalPosition: {x: 0, y: 1.3094445, z: -4.3293304}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -277,6 +277,81 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &303182517
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 303182518}
+  - component: {fileID: 303182520}
+  - component: {fileID: 303182519}
+  m_Layer: 3
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &303182518
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303182517}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2564637773573837187}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &303182520
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303182517}
+  m_CullTransparentMesh: 1
+--- !u!114 &303182519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303182517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &589435713
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,7 +616,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1103356262}
-  m_LocalRotation: {x: 0.068769574, y: 0.046363246, z: -0.0031994202, w: 0.99654955}
+  m_LocalRotation: {x: 0.06876958, y: 0.046363246, z: -0.0031994209, w: 0.99654955}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -949,6 +1024,7 @@ RectTransform:
   m_Children:
   - {fileID: 1132474741745471965}
   - {fileID: 4139015233922036698}
+  - {fileID: 303182518}
   m_Father: {fileID: 8559470171900184561}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1459,12 +1535,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dec640a5c3db9949b1d6ca6fb83be6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aim: 1
   cam: {fileID: 241280698}
   speed: 6
   originalSpeed: 6
   turnSmoothTime: 0.1
   gravity: 9.8
   PressE: {fileID: 7823743732389589676}
+  Gun: {fileID: 8559470171562960357}
 --- !u!114 &8559470171900184564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1524,7 +1602,7 @@ MonoBehaviour:
   timeToComboReset: 1
   AttackMovementForce: 0
   AttackMovementDirection: {x: 0, y: 0}
-  PlayerClass: {fileID: 11400000, guid: e126c1b55136a47498ea0743b94340a5, type: 2}
+  PlayerClass: {fileID: 11400000, guid: 926597246559e654ba8125c983fd5ec4, type: 2}
 --- !u!1001 &8559470171141448785
 PrefabInstance:
   m_ObjectHideFlags: 0
