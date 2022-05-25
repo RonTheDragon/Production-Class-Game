@@ -18,10 +18,10 @@ public abstract class AttackSystem : MonoBehaviour
     [SerializeField] List<Ability> abilities = new List<Ability>();
     //public List<SOability> Attacks = new List<SOability>();
     public float DamageMultiplier  = 1;
-    [SerializeField] string HoldingAnAttack;
-    [SerializeField] string PreviousAttack;
-    [SerializeField] float timeToComboReset = 1;
-                     float comboTimer;
+    [SerializeField]  string HoldingAnAttack;
+    [SerializeField]  string PreviousAttack;
+    [SerializeField]  float timeToComboReset = 1;
+                      float comboTimer;
     [HideInInspector] public float AttackMovementForce;
     [HideInInspector] public Vector2 AttackMovementDirection;
     List<AbilityCoolDown> abilityCoolDowns = new List<AbilityCoolDown>();
@@ -63,9 +63,14 @@ public abstract class AttackSystem : MonoBehaviour
         {
             AttackMovement();
         }
-        if (AttackCooldown <= 0&& AttackMovementForce>0)
+        if (AttackCooldown <= 0)
         {
+            if (AttackMovementForce > 0)
+            {
             AttackMovementForce = 0;
+            }
+
+            StopAiming();
         }
         if (abilityCoolDowns.Count > 0)
         {
@@ -96,6 +101,12 @@ public abstract class AttackSystem : MonoBehaviour
     protected void SetUpAttack(List<SOability> Attacks, int attackType)
     {
         AttackMovementForce = 0;
+
+        if (this is PlayerAttackSystem && Attacks[attackType].aiming)
+        {
+            Aiming();
+        }
+
         if (Attacks[attackType] is SOattack)
         {
             if (Attacks[attackType] is SOmeleeAttack)
@@ -399,7 +410,17 @@ public abstract class AttackSystem : MonoBehaviour
         }
         return false;
     }
-    
+
+    public virtual void Aiming()
+    {
+
+    }
+
+    public virtual void StopAiming()
+    {
+
+    }
+
 }
 
 public class AbilityCoolDown

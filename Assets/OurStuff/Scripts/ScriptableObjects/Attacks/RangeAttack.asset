@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: ShootArrow
   AnimationTrigger: Attack3
+  PreviousAttack: ChargeBow
   StaminaCost: 0
   AttackCooldown: 0.5
   AbilityCooldown: 0
@@ -21,7 +22,7 @@ MonoBehaviour:
   MaxRange: 100
   Chance: 10
   attackType: 2
-  PreviousAttack: ChargeBow
+  aiming: 1
   Damage: 10
   Knockback: 5
   Stagger: {x: 20, y: 70}

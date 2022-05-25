@@ -14,12 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: ChargeBow
   AnimationTrigger: Charge
+  PreviousAttack: 
   StaminaCost: 10
   AttackCooldown: 1
+  AbilityCooldown: 0
   MinRange: 3
   MaxRange: 20
   Chance: 20
   attackType: 1
-  PreviousAttack: 
+  aiming: 1
   MaxCharge: 2
   ChargeSpeed: 1

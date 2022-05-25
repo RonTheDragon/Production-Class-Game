@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: ShootParticle Red
   AnimationTrigger: Attack4
+  PreviousAttack: ChargeBow
   StaminaCost: 10
   AttackCooldown: 0.5
   AbilityCooldown: 0
@@ -21,7 +22,7 @@ MonoBehaviour:
   MaxRange: 100
   Chance: 10
   attackType: 2
-  PreviousAttack: ChargeBow
+  aiming: 1
   Damage: 7
   Knockback: 3
   Stagger: {x: 0, y: 0}

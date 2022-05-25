@@ -16,7 +16,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 567de1d183ef6464ca817f5cde21648d, type: 2}
   - {fileID: 11400000, guid: d0cb891d226932447b0058eb437244cc, type: 2}
   - {fileID: 11400000, guid: ace4a139be5122e47aec043e02751526, type: 2}
-  DownRightClickAttacks:
+  DownRightClickAttacks: []
+  LeftClickAttacks: []
+  RightClickAttacks:
   - {fileID: 11400000, guid: c9116d97e6c28b342b516e6734055162, type: 2}
   UpLeftClickAttacks: []
   UpRightClickAttacks:

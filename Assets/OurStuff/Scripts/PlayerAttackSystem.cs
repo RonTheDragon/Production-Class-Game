@@ -7,6 +7,7 @@ public class PlayerAttackSystem : AttackSystem
     CharacterController CC;
     AudioManager Audio;
     public SOclass PlayerClass;
+    ThirdPersonMovement thirdPersonMovement;
     //public LayerMask OnlyFloor;
 
     new void Start()
@@ -19,6 +20,7 @@ public class PlayerAttackSystem : AttackSystem
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         SetLayersForAttacks(GameManager.instance.PlayerCanAttack);
+        thirdPersonMovement = GetComponent<ThirdPersonMovement>();
     }
 
     new void Update()
@@ -43,6 +45,16 @@ public class PlayerAttackSystem : AttackSystem
             {
                 for (int i = 0; i < PlayerClass.DownRightClickAttacks.Count; i++)
                 { Attack(PlayerClass.DownRightClickAttacks, i); }
+            }
+            else if (Input.GetMouseButton(0))
+            {
+                for (int i = 0; i < PlayerClass.LeftClickAttacks.Count; i++)
+                { Attack(PlayerClass.LeftClickAttacks, i); }
+            }
+            else if (Input.GetMouseButton(1))
+            {
+                for (int i = 0; i < PlayerClass.RightClickAttacks.Count; i++)
+                { Attack(PlayerClass.RightClickAttacks, i); }
             }
             else if (Input.GetMouseButtonUp(0))
             {
@@ -74,5 +86,15 @@ public class PlayerAttackSystem : AttackSystem
         Vector3 Knock = (transform.forward * AttackMovementDirection.x + transform.right * AttackMovementDirection.y).normalized * AttackMovementForce * Time.deltaTime;
         Knock.y = 0;
         CC.Move(Knock);
+    }
+
+    public override void Aiming()
+    {
+        thirdPersonMovement.aim = true;
+    }
+
+    public override void StopAiming()
+    {
+        thirdPersonMovement.aim = false;
     }
 }
