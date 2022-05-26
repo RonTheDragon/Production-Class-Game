@@ -5,9 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class WallHealth : Health
 {
+    bool AlreadyDead;
     protected override void Death()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (!AlreadyDead)
+        {
+            AlreadyDead = true;
+            StartCoroutine(GameManager.instance.GetComponent<PlayerRespawnManager>().GameLost());       
+        }
     }
 
     // Start is called before the first frame update

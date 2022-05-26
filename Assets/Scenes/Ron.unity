@@ -130,25 +130,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 241280698, guid: 247ded5f593901542bb012f6c071c87c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.08300102
-      objectReference: {fileID: 0}
-    - target: {fileID: 1103356264, guid: 247ded5f593901542bb012f6c071c87c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.06876958
-      objectReference: {fileID: 0}
-    - target: {fileID: 1103356264, guid: 247ded5f593901542bb012f6c071c87c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.0031994209
-      objectReference: {fileID: 0}
     - target: {fileID: 1406966635, guid: 247ded5f593901542bb012f6c071c87c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.04450072
+      value: 0.059933264
       objectReference: {fileID: 0}
     - target: {fileID: 1406966635, guid: 247ded5f593901542bb012f6c071c87c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.003649791
+      value: -0.0049155145
       objectReference: {fileID: 0}
     - target: {fileID: 8559470171900184560, guid: 247ded5f593901542bb012f6c071c87c, type: 3}
       propertyPath: m_Name
@@ -497,9 +485,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a961617a60710414486a24eacf450691, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHp: 200
+  MaxHp: 1000
   Hp: 0
-  HpRegan: 10
+  HpRegan: 30
 --- !u!54 &1775786076
 Rigidbody:
   m_ObjectHideFlags: 0

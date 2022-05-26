@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 49b199dadb0e8fa44812df8d4dc14b6f, type: 3}
-  m_Name: WeakWarrior
+  m_Name: WeakArcher
   m_EditorClassIdentifier: 
-  RoleName: Warrior
+  RoleName: Archer
   Body: {fileID: 8559470171900184560, guid: 247ded5f593901542bb012f6c071c87c, type: 3}
-  role: {fileID: 11400000, guid: e126c1b55136a47498ea0743b94340a5, type: 2}
+  role: {fileID: 11400000, guid: 926597246559e654ba8125c983fd5ec4, type: 2}
   damageMultiplier: {x: 0.5, y: 1}
-  health: {x: 100, y: 150}
+  health: {x: 30, y: 70}

@@ -54,7 +54,8 @@ public class PlayerHealth : CharacterHealth
             LoseStone();
             Instantiate(GameManager.instance.PowerStone, transform.position, transform.rotation);
         }
-        GameManager.instance.Player = Instantiate(GameManager.instance.Player, GetComponent<RespawmIfFallsOffMap>().startPos, transform.rotation/* FIX LATER*/);
+        //GameManager.instance.Player = Instantiate(GameManager.instance.Player, GetComponent<RespawmIfFallsOffMap>().startPos, transform.rotation/* FIX LATER*/);
+        GameManager.instance.GetComponent<PlayerRespawnManager>().OpenRespawnMenu();
         Destroy(gameObject);
     }
 

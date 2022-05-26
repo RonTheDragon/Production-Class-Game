@@ -92,49 +92,54 @@ public class Enemy : MonoBehaviour
 
     protected void EnemyAI()
     {
-        if (canSeePlayer())
+        if (Player != null)
         {
-            alert += Time.deltaTime;
-        }
-        else if (alert > 0)
-        {
-            alert -= Time.deltaTime;
-        }
-            if(alert > timeToAlert)
-            chasingPlayer = true;
-            else
-            chasingPlayer = false;
+            if (canSeePlayer())
+            {
+                alert += Time.deltaTime;
+            }
+            else if (alert > 0)
+            {
+                alert -= Time.deltaTime;
+            }
 
-        if (chasingPlayer)
-        {
-            DetectionRange = OriginalDetectionRange * 1.5f;
-            if (eas.AttackCooldown <= 0)
-            {
-                NMA.speed = OriginalSpeed * 1.5f;
-                NMA.stoppingDistance = StoppingDistance;
-            }
+            if (alert > timeToAlert)
+                chasingPlayer = true;
             else
-            {
-                NMA.speed = 0;
-            }
-            
-            if (CheckBravery(BraveEnoughToFight))
-            {
-                ChasePlayer();
-            }
-            else
-            {
-                RunningAway();
-            }
+                chasingPlayer = false;
         }
+        else { chasingPlayer = false; }
 
+            if (chasingPlayer)
+            {
+                DetectionRange = OriginalDetectionRange * 1.5f;
+                if (eas.AttackCooldown <= 0)
+                {
+                    NMA.speed = OriginalSpeed * 1.5f;
+                    NMA.stoppingDistance = StoppingDistance;
+                }
+                else
+                {
+                    NMA.speed = 0;
+                }
+
+                if (CheckBravery(BraveEnoughToFight))
+                {
+                    ChasePlayer();
+                }
+                else
+                {
+                    RunningAway();
+                }
+            }
+        
         else
         {
             DetectionRange = OriginalDetectionRange;
             if (eas.AttackCooldown <= 0)
             {
                 NMA.speed = OriginalSpeed;
-                NMA.stoppingDistance = StoppingDistance-2;
+                NMA.stoppingDistance = StoppingDistance - 2;
             }
             else
             {
