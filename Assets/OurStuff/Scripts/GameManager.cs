@@ -6,27 +6,15 @@ public class GameManager : MonoBehaviour
 {
     [HideInInspector]
     public static GameManager instance;
-    public GameObject Player;
-    public GameObject Wall;
-    public GameObject PowerStone;
-    public LayerMask enemiesCanSee;
-    public LayerMask enemiesCanAttack;
-    public LayerMask PlayerCanAttack;
+    public        GameObject  Player;
+    public        GameObject  Wall;
+    public        GameObject  PowerStone;
+    public        LayerMask   enemiesCanSee;
+    public        LayerMask   enemiesCanAttack;
+    public        LayerMask   PlayerCanAttack;
 
     private void Awake()
     {
         instance = this;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

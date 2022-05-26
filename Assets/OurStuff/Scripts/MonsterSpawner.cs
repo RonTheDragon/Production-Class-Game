@@ -31,7 +31,6 @@ public class MonsterSpawner : MonoBehaviour
         StartWave();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (MonsterCounterTimer > 0)
@@ -83,6 +82,11 @@ public class MonsterSpawner : MonoBehaviour
         }
         TimeLeftForWave = Random.Range((int)Wave.TimeTillNextWave.x, (int)Wave.TimeTillNextWave.y+1);
         TimeBetweenEnemiesSpawn = Wave.TimeBetweenSpawns;
+
+        if (CurrentWave == 0)
+        {
+            GetComponent<PlayerRespawnManager>().SetCharacterList(Levels[CurrentLevel].PlayerCharacterAmount);
+        }
     }
     void NextWave()
     {

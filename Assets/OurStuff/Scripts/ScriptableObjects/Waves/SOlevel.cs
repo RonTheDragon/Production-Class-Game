@@ -6,4 +6,5 @@ using UnityEngine;
 public class SOlevel : ScriptableObject
 {
     public List<SOwave> Waves = new List<SOwave>();
+    public int PlayerCharacterAmount = 3;
 }
