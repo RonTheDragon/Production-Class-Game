@@ -4,13 +4,14 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour , IpooledObject
 {
     Vector3 previousPos;
     float OriginalSpeed;
     float OriginalDetectionRange;
     NavMeshAgent NMA;
     GameObject Player;
+    Transform PlayerCam;
     GameObject TheWall;
     float dist;
     [SerializeField] float DetectionRange;
@@ -21,6 +22,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] float RoamRadius = 10;
     [SerializeField] float BraveEnoughToFight = 50;
     [SerializeField] float timeToAlert = 0.5f;
+
+    [SerializeField] GameObject CanvasHolder;
+    Image hpBar;
+    Image staminaBar;
+    float ShowingData;
 
     //[SerializeField] float RandomSoundMaxCooldown = 5;
     float SoundCoolDown;
@@ -58,6 +64,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         Player=GameManager.instance.Player;
+        PlayerCam = GameManager.instance.Player.GetComponent<ThirdPersonMovement>().cam;
         TheWall = GameManager.instance.Wall;
         OriginalSpeed = NMA.speed;
         OriginalDetectionRange = DetectionRange;
@@ -69,12 +76,17 @@ public class Enemy : MonoBehaviour
         if (Player == null)
         {
             Player = GameManager.instance.Player;
+            PlayerCam = Player?.GetComponent<ThirdPersonMovement>().cam;
         }
         //  HpBar.fillAmount = 0;
         //   StaminaBar.fillAmount = 0;
         EnemyAI();
         PlayRandomSound();
         WalkingAnimation();
+        if (GameManager.instance.Data != GameManager.ShowEnemyData.Never)
+        {
+            ShowData();
+        }
     }
 
     private void WalkingAnimation()
@@ -201,7 +213,20 @@ public class Enemy : MonoBehaviour
 
     void AttackWall()
     {
-        Vector3 MoveTo = new Vector3(TheEnemy.position.x, TheEnemy.position.y, TheWall.transform.position.z);
+        Vector3 MoveTo;
+
+        if (GameManager.instance.WallFacingZ)
+        {
+            float Xpos = Mathf.Clamp(TheEnemy.position.x, TheWall.transform.position.x - (GameManager.instance.WallLength / 2), TheWall.transform.position.x + (GameManager.instance.WallLength / 2));
+            MoveTo = new Vector3(Xpos, TheEnemy.position.y, TheWall.transform.position.z);
+        }
+        else
+        {
+            float Zpos = Mathf.Clamp(TheEnemy.position.z, TheWall.transform.position.z - (GameManager.instance.WallLength / 2), TheWall.transform.position.z + (GameManager.instance.WallLength / 2));
+           // Debug.Log(Zpos);
+            MoveTo = new Vector3(TheWall.transform.position.x+3, TheEnemy.position.y, Zpos);
+        }
+
         NMA.SetDestination(MoveTo);
         float distance = Vector3.Distance(TheEnemy.transform.position, MoveTo);
         if (distance <= NMA.stoppingDistance + 1 || NMA.speed == 0)
@@ -255,6 +280,7 @@ public class Enemy : MonoBehaviour
         //Particle.Emit(5); <-------RETURN LATER
         //Audio.PlaySound(Sound.Activation.Custom, "Ah"); <-------RETURN LATER
         alert += 2;
+        ShowingData = 5;
     }
 
     private void RotateTowards(Vector3 target)
@@ -265,6 +291,51 @@ public class Enemy : MonoBehaviour
         {
             Quaternion lookRotation = Quaternion.LookRotation(direction);
             TheEnemy.rotation = Quaternion.Slerp(TheEnemy.rotation, lookRotation, Time.deltaTime * NMA.angularSpeed);
+        }
+    }
+
+    public void OnObjectSpawn()
+    {
+        TheEnemy.transform.position = transform.position;
+        TheEnemy.GetComponent<NavMeshAgent>().enabled = true;
+    }
+
+    void ShowData()
+    {
+
+        if (GameManager.instance.Data == GameManager.ShowEnemyData.Always)
+        {
+            if (CanvasHolder.activeSelf==false)
+            CanvasHolder.SetActive(true);
+            DataUpdating();
+        }
+        else if (ShowingData>0)
+        {
+            ShowingData -= Time.deltaTime;
+            if (CanvasHolder.activeSelf == false)
+                CanvasHolder.SetActive(true);
+            DataUpdating();
+        }
+        else
+        {
+            if (CanvasHolder.activeSelf == true)
+                CanvasHolder.SetActive(false);
+        }
+    }
+
+    void DataUpdating()
+    {
+        if (CanvasHolder != null)
+        {
+            CanvasHolder.transform.position = TheEnemy.transform.position;
+            CanvasHolder.transform.GetChild(0).LookAt(PlayerCam.transform.position);
+            if (hpBar == null)
+            {
+                hpBar = CanvasHolder.transform.GetChild(0).GetChild(0).GetComponent<Image>();
+                staminaBar = CanvasHolder.transform.GetChild(0).GetChild(1).GetComponent<Image>();
+            }
+            hpBar.fillAmount = hp.Hp / hp.MaxHp;
+            staminaBar.fillAmount = eas.Stamina / eas.MaxStamina;
         }
     }
 }

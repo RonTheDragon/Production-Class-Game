@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ThirdPersonMovement : MonoBehaviour
 {
@@ -12,7 +13,9 @@ public class ThirdPersonMovement : MonoBehaviour
 
     CharacterController        controller;
     PlayerAttackSystem         PAS;
-    [SerializeField] Transform cam;
+    PlayerHealth               Hp;
+    WallHealth                 WallHp;
+    public Transform cam;
 
     [SerializeField] float speed         = 6f;
     [SerializeField] float originalSpeed = 6f;
@@ -22,6 +25,9 @@ public class ThirdPersonMovement : MonoBehaviour
 
     [SerializeField] float gravity = 9.8f;
     public GameObject PressE;
+    [SerializeField] Image HpBar;
+    [SerializeField] Image StaminaBar;
+    [SerializeField] Image WallHpBar;
 
     [SerializeField] GameObject Gun;
 
@@ -32,6 +38,11 @@ public class ThirdPersonMovement : MonoBehaviour
         player = transform;
         PAS = GetComponent<PlayerAttackSystem>();
         controller = GetComponent<CharacterController>();
+        if (GameManager.instance.Wall != null)
+        {
+            WallHp = GameManager.instance.Wall.GetComponent<WallHealth>();
+        }
+        Hp = GetComponent<PlayerHealth>();
         anim = player.GetChild(0).GetComponent<Animator>();
     }
 
@@ -41,6 +52,7 @@ public class ThirdPersonMovement : MonoBehaviour
         CameraController();
         Gravity();
         WalkingAnimation();
+        UpdateUI();
     }
 
     private void WalkingAnimation()
@@ -116,5 +128,12 @@ public class ThirdPersonMovement : MonoBehaviour
 
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
+    }
+
+    void UpdateUI()
+    {
+        HpBar.fillAmount = Hp.Hp / Hp.MaxHp;
+        StaminaBar.fillAmount = PAS.Stamina / PAS.MaxStamina;
+        WallHpBar.fillAmount = WallHp.Hp / WallHp.MaxHp;
     }
 }

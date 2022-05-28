@@ -14,13 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: ShieldBash
   AnimationTrigger: Release2
+  PreviousAttack: Block
   StaminaCost: 10
   AttackCooldown: 1
+  AbilityCooldown: 0
   MinRange: 0
   MaxRange: 3
   Chance: 100
   attackType: 2
-  PreviousAttack: Block
+  aiming: 0
   Damage: 20
   Knockback: 20
   Stagger: {x: 50, y: 100}

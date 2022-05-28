@@ -8,7 +8,6 @@ public class EnemyAttackSystem : AttackSystem
     [SerializeField] List<SOability> DefensiveAttacks = new List<SOability>();
     [SerializeField] float BraveEnoughToOffensive = 70;
     AudioManager Audio;
-    [SerializeField] float TryToAttackEvery = 0.2f;
     float TryAttack;
     Enemy enemy;
 
@@ -29,8 +28,8 @@ public class EnemyAttackSystem : AttackSystem
     public void Attack(Vector3 Target,bool UseDefensives)
     {
         if (TryAttack <= 0)
-        {
-            TryAttack = TryToAttackEvery;
+        {    
+            TryAttack = (GameManager.instance.EnemeiesTryToAttackEvery / (OffensiveAttacks.Count+ DefensiveAttacks.Count));
             List<SOability> Attacks;
             if (UseDefensives && DefensiveAttacks.Count > 0)
             {             
@@ -62,9 +61,14 @@ public class EnemyAttackSystem : AttackSystem
                     TheChance = false;
             }
             float dist = Vector3.Distance(transform.position, Target);
-            if (dist > Attacks[attackType].MinRange && dist < Attacks[attackType].MaxRange && TheChance)
+            if ((dist > Attacks[attackType].MinRange || Attacks[attackType].MinRange == 0) && dist < Attacks[attackType].MaxRange) // if In Range
             {
+                if (TheChance) // if Random Worked
                 AttemptToAttack(Attacks,attackType);
+            }
+            else
+            {
+                TryAttack = 0;
             }
         }
         else

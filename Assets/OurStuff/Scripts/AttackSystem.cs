@@ -170,9 +170,10 @@ public abstract class AttackSystem : MonoBehaviour
             }
             else if (Attacks[attackType] is SOwall)
             {
+                Debug.LogWarning("Dont Put Wall Attacks On a Player");
+                /*
                 if (!(this is PlayerAttackSystem))
                 {
-                    Debug.LogWarning("Only Players Supposed to have Wall Attacks");
                     return;
                 }
 
@@ -181,6 +182,7 @@ public abstract class AttackSystem : MonoBehaviour
                     abilityCoolDowns.Add(new AbilityCoolDown(Attacks[attackType].Name, Attacks[attackType].AbilityCooldown));
                 }
                 GameManager.instance.Wall.GetComponent<TheWall>().WallAttack((SOwall)Attacks[attackType]);
+                */
                 return;
             }
         }
@@ -356,16 +358,18 @@ public abstract class AttackSystem : MonoBehaviour
 
     void ComboAttack(List<SOability> Attacks, int attackType)
     {
-        if (CanAttack() && PreviousAttack == Attacks[attackType].PreviousAttack)
+        if (PreviousAttack == Attacks[attackType].PreviousAttack)
         {
+            if (CanAttack())
             SetUpAttack(Attacks, attackType);
         }
     }
 
     void StartComboAttack(List<SOability> Attacks, int attackType)
     {
-        if (CanAttack() && PreviousAttack != Attacks[attackType].Name)
+        if (PreviousAttack != Attacks[attackType].Name)
         {
+            if (CanAttack())
             SetUpAttack(Attacks, attackType);
         }
     }

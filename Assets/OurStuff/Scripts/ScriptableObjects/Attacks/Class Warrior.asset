@@ -18,10 +18,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 100d8e7d7e52e1441849ee318033859b, type: 2}
   DownRightClickAttacks:
   - {fileID: 11400000, guid: 42dce146ac29829449562261afe0745e, type: 2}
+  LeftClickAttacks: []
+  RightClickAttacks: []
   UpLeftClickAttacks: []
   UpRightClickAttacks:
   - {fileID: 11400000, guid: 32243c880f256fd43bf8ec57da9062f3, type: 2}
   SpaceAbility:
   - {fileID: 11400000, guid: f92c306285687304b8b47559f9975e6e, type: 2}
-  F_Ability:
-  - {fileID: 11400000, guid: 4b4186adca57dc342968aaf7f90204ea, type: 2}
+  F_Ability: []

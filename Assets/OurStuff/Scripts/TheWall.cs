@@ -5,8 +5,13 @@ using UnityEngine;
 public class TheWall : MonoBehaviour
 {
     public enum WallAttacks { None, Mines}
+    public SOwall[] TheWallAttacks = new SOwall[4];
     public float WallLength = 90;
+    public float Wallheight = 10;
+    public float WallThickness = 0;
+    public bool WallFacingZ;
     LayerMask Attackable;
+    List<AbilityCoolDown> abilityCoolDowns = new List<AbilityCoolDown>();
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +22,34 @@ public class TheWall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            if (TheWallAttacks[0]!=null)
+            AttemptToWallAttack(TheWallAttacks[0]);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            if (TheWallAttacks[1] != null)
+                AttemptToWallAttack(TheWallAttacks[1]);
+        }
+        else if(Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            if (TheWallAttacks[2] != null)
+                AttemptToWallAttack(TheWallAttacks[2]);
+        }
+        else if(Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            if (TheWallAttacks[3] != null)
+                AttemptToWallAttack(TheWallAttacks[3]);
+        }
+        if (abilityCoolDowns.Count > 0)
+        {
+            foreach (AbilityCoolDown a in abilityCoolDowns)
+            {
+                a.Cooldown -= Time.deltaTime;
+                if (a.Cooldown <= 0) abilityCoolDowns.Remove(a); break;
+            }
+        }
     }
 
     public void WallAttack(SOwall attack)
@@ -30,6 +62,19 @@ public class TheWall : MonoBehaviour
 
             default: break;
         }
+    }
+
+    public void AttemptToWallAttack(SOwall attack)
+    {
+        if (attack.AbilityCooldown != 0)
+        {
+            if (abilityCoolDowns.Count != 0)
+            {
+                if (CheckAbilityCooldown(attack.Name)) return;
+            }  
+        }
+        abilityCoolDowns.Add(new AbilityCoolDown(attack.Name, attack.AbilityCooldown));
+        WallAttack(attack);
     }
 
     public void Mines(SOwall attack)
@@ -45,8 +90,8 @@ public class TheWall : MonoBehaviour
         for (int i = 0; i < Amount; i++)
         {
             X += Random.Range(WallLength / Amount / 2, WallLength/Amount);
-            float Y = Random.Range(5, 10);
-            Shoot(attack, transform.position + transform.up * Y + transform.right*X, transform.rotation);
+            float Y = Random.Range(Wallheight, Wallheight+5);
+            Shoot(attack, transform.position + (transform.forward* WallThickness) + transform.up * Y + transform.right*X, transform.rotation);
         }
         
     }
@@ -86,5 +131,17 @@ public class TheWall : MonoBehaviour
                 m.ExplosionRadius = ExplosionRadius;
             }
         }
+    }
+    bool CheckAbilityCooldown(string Name)
+    {
+        foreach (AbilityCoolDown a in abilityCoolDowns)
+        {
+            if (a.AbilityName == Name)
+            {
+                Debug.Log($"{Name} is in Cooldown ({(int)a.Cooldown}s)");
+                return true;
+            }
+        }
+        return false;
     }
 }
