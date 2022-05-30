@@ -6078,7 +6078,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 54cc26dfbeb4b6140be93e9108167d3d, type: 2}
     - target: {fileID: 919132149155446097, guid: 8e337360bcaddd942accc0983c9346a6, type: 3}
       propertyPath: m_Name
-      value: Tavern (1)
+      value: Tavern
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8e337360bcaddd942accc0983c9346a6, type: 3}
       propertyPath: m_Layer
