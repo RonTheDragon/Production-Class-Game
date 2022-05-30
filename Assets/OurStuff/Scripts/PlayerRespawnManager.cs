@@ -11,11 +11,11 @@ public class PlayerRespawnManager : MonoBehaviour
     [SerializeField] GameObject Content;
     [SerializeField] GameObject ChooseHeroButton;
     [SerializeField] List<string> CharacterNames = new List<string>();
-    Vector3 ReSpawnPoint;
+    [SerializeField] Transform PlayerRespawnLocation;
 
     void Start()
     {
-        ReSpawnPoint = GameManager.instance.Player.transform.position;
+        SpawnFirstCharacter();
     }
 
     void Update()
@@ -23,28 +23,48 @@ public class PlayerRespawnManager : MonoBehaviour
         
     }
 
+    public void SpawnFirstCharacter()
+    {
+        RespawnPlayer(CreateCharacter());
+        StartCoroutine(SpawnFirstRock());
+    }
+
+    IEnumerator SpawnFirstRock()
+    {
+        yield return null;
+        Instantiate(GameManager.instance.PowerStone, PlayerRespawnLocation.position, PlayerRespawnLocation.rotation);
+    }
+
     public void SetCharacterList(int amount)
     {
         playerParameters = new List<PlayerParameters>();
         for (int i = 0; i < amount; i++)
         {
-            int   playerSelected   = Random.Range(0, PlayerBodies.Count);
+            PlayerParameters par = CreateCharacter();
 
-            float damageMultiplier = Random.Range(PlayerBodies[playerSelected].damageMultiplier.x,
-                PlayerBodies[playerSelected].damageMultiplier.y);
-
-            float health           = Random.Range(PlayerBodies[playerSelected].health.x, PlayerBodies[playerSelected].health.y);
-
-            string PersonalName    = CharacterNames[Random.Range(0, CharacterNames.Count)];
-
-            playerParameters.Add(new PlayerParameters(
-                PlayerBodies[playerSelected].Body,
-                PlayerBodies[playerSelected].role,
-                PlayerBodies[playerSelected].RoleName,
-                PersonalName,
-                damageMultiplier,
-                health));
+            playerParameters.Add(par);
         }
+    }
+
+    private PlayerParameters CreateCharacter()
+    {
+        int playerSelected = Random.Range(0, PlayerBodies.Count);
+
+        float damageMultiplier = Random.Range(PlayerBodies[playerSelected].damageMultiplier.x,
+            PlayerBodies[playerSelected].damageMultiplier.y);
+
+        float health = Random.Range(PlayerBodies[playerSelected].health.x, PlayerBodies[playerSelected].health.y);
+
+        string PersonalName = CharacterNames[Random.Range(0, CharacterNames.Count)];
+
+        PlayerParameters par = new PlayerParameters(
+            PlayerBodies[playerSelected].Body,
+            PlayerBodies[playerSelected].role,
+            PlayerBodies[playerSelected].RoleName,
+            PersonalName,
+            damageMultiplier,
+            health);
+        return par;
     }
 
     public void OpenRespawnMenu()
@@ -88,7 +108,7 @@ public class PlayerRespawnManager : MonoBehaviour
 
     public void RespawnPlayer(PlayerParameters player)
     {
-        GameObject RespawnedPlayer = Instantiate(player.PlayerBody, ReSpawnPoint, Quaternion.identity);
+        GameObject RespawnedPlayer = Instantiate(player.PlayerBody, PlayerRespawnLocation.position, PlayerRespawnLocation.rotation);
         GameManager.instance.Player = RespawnedPlayer;
         PlayerHealth hp =  RespawnedPlayer.GetComponent<PlayerHealth>();
         hp.MaxHp = player.health;

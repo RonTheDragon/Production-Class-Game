@@ -108,7 +108,7 @@ Transform:
   m_Children:
   - {fileID: 1738639940}
   m_Father: {fileID: 7171943304287298665}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 37.582, y: 87.581, z: -0.902}
 --- !u!20 &917270211
 Camera:
@@ -547,7 +547,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7171943304287298665}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2031512176
 MonoBehaviour:
@@ -648,6 +648,36 @@ Transform:
   m_Father: {fileID: 7171943304287298665}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3658641199962979280
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6253043627097330725}
+  m_Layer: 0
+  m_Name: PlayerRespawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6253043627097330725
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3658641199962979280}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7171943304287298665}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3985735940831968261
 GameObject:
   m_ObjectHideFlags: 0
@@ -739,6 +769,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9171677702026164444}
+  - {fileID: 6253043627097330725}
   - {fileID: 6050470641601111888}
   - {fileID: 917270208}
   - {fileID: 2031512174}
@@ -762,6 +793,7 @@ MonoBehaviour:
   PowerStone: {fileID: 5504683918200391403, guid: 987bb2c5c37a5d64bafcdfb75138c42c, type: 3}
   EnemeiesTryToAttackEvery: 0.5
   Data: 1
+  PlayerKillingShortCut: 0
   enemiesCanSee:
     serializedVersion: 2
     m_Bits: 127
@@ -823,6 +855,7 @@ MonoBehaviour:
   - Josh
   - Albert
   - Ted
+  PlayerRespawnLocation: {fileID: 6253043627097330725}
 --- !u!1 &5328786050612512330
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,7 +915,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7171943304287298665}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3490371703351010182
 MonoBehaviour:

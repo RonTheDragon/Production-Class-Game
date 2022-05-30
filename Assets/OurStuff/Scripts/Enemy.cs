@@ -64,7 +64,10 @@ public class Enemy : MonoBehaviour , IpooledObject
     void Start()
     {
         Player=GameManager.instance.Player;
-        PlayerCam = GameManager.instance.Player.GetComponent<ThirdPersonMovement>().cam;
+        if (Player != null)
+        {
+            PlayerCam = GameManager.instance.Player?.GetComponent<ThirdPersonMovement>().cam;
+        }
         TheWall = GameManager.instance.Wall;
         OriginalSpeed = NMA.speed;
         OriginalDetectionRange = DetectionRange;
@@ -76,14 +79,17 @@ public class Enemy : MonoBehaviour , IpooledObject
         if (Player == null)
         {
             Player = GameManager.instance.Player;
-            PlayerCam = Player?.GetComponent<ThirdPersonMovement>().cam;
+            if (Player != null)
+            {
+                PlayerCam = Player.GetComponent<ThirdPersonMovement>().cam;
+            }
         }
         //  HpBar.fillAmount = 0;
         //   StaminaBar.fillAmount = 0;
         EnemyAI();
         PlayRandomSound();
         WalkingAnimation();
-        if (GameManager.instance.Data != GameManager.ShowEnemyData.Never)
+        if (GameManager.instance.Data != GameManager.ShowEnemyData.Never && GameManager.instance.Player!=null)
         {
             ShowData();
         }
@@ -215,16 +221,17 @@ public class Enemy : MonoBehaviour , IpooledObject
     {
         Vector3 MoveTo;
 
+        float WallSmaller = GameManager.instance.WallLength * 0.8f;
         if (GameManager.instance.WallFacingZ)
         {
-            float Xpos = Mathf.Clamp(TheEnemy.position.x, TheWall.transform.position.x - (GameManager.instance.WallLength / 2), TheWall.transform.position.x + (GameManager.instance.WallLength / 2));
+            float Xpos = Mathf.Clamp(TheEnemy.position.x, TheWall.transform.position.x - (WallSmaller / 2), TheWall.transform.position.x + (WallSmaller / 2));
             MoveTo = new Vector3(Xpos, TheEnemy.position.y, TheWall.transform.position.z);
         }
         else
         {
-            float Zpos = Mathf.Clamp(TheEnemy.position.z, TheWall.transform.position.z - (GameManager.instance.WallLength / 2), TheWall.transform.position.z + (GameManager.instance.WallLength / 2));
+            float Zpos = Mathf.Clamp(TheEnemy.position.z, TheWall.transform.position.z - (WallSmaller / 2), TheWall.transform.position.z + (WallSmaller / 2));
            // Debug.Log(Zpos);
-            MoveTo = new Vector3(TheWall.transform.position.x+3, TheEnemy.position.y, Zpos);
+            MoveTo = new Vector3(TheWall.transform.position.x+ 2, TheEnemy.position.y, Zpos);
         }
 
         NMA.SetDestination(MoveTo);

@@ -13,6 +13,7 @@ public class PlayerHealth : CharacterHealth
     //AudioManager audio;
 
     bool iGotThePower;
+    bool CanKillSelf;
 
     // Start is called before the first frame update
     new void Start()
@@ -21,6 +22,7 @@ public class PlayerHealth : CharacterHealth
         CC = GetComponent<CharacterController>();
         RB = GetComponent<Rigidbody>();
         PAS = GetComponent<PlayerAttackSystem>();
+        CanKillSelf = GameManager.instance.PlayerKillingShortCut;
         //Anim = transform.GetChild(0).GetComponent<Animator>();
         //audio = GetComponent<AudioManager>();
         //PC = transform.parent.GetComponent<PlayerControler>();
@@ -31,6 +33,13 @@ public class PlayerHealth : CharacterHealth
     {
         base.Update();
         TakeKnockback();
+        if (CanKillSelf)
+        {
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                Death();
+            }
+        }
     }
     void TakeKnockback()
     {
@@ -74,7 +83,7 @@ public class PlayerHealth : CharacterHealth
     public void CollectPowerStone()
     {
         iGotThePower = true;
-        PAS.DamageMultiplier = 2;
+        PAS.DamageMultiplier *= 2;
         MaxHp *= 2;
         Hp = MaxHp;
         transform.localScale = new Vector3(1.1f, 1.1f, 1.1f);
@@ -82,7 +91,7 @@ public class PlayerHealth : CharacterHealth
     public void LoseStone()
     {
         iGotThePower = false;
-        PAS.DamageMultiplier = 1;
+        PAS.DamageMultiplier /= 2;
         MaxHp /= 2;
         Hp = MaxHp;
         transform.localScale = new Vector3(1f, 1f, 1f);

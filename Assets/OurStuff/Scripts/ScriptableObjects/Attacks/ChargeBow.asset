@@ -20,7 +20,7 @@ MonoBehaviour:
   AbilityCooldown: 0
   MinRange: 3
   MaxRange: 20
-  Chance: 20
+  Chance: 10
   attackType: 1
   aiming: 1
   MaxCharge: 2
