@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: SwordAttack
   AnimationTrigger: Attack1
+  PreviousAttack: 
   StaminaCost: 10
   AttackCooldown: 0.4
   AbilityCooldown: 0
@@ -21,7 +22,8 @@ MonoBehaviour:
   MaxRange: 3
   Chance: 100
   attackType: 4
-  PreviousAttack: 
+  aiming: 0
+  Image: {fileID: 0}
   Damage: 5
   Knockback: 2.5
   Stagger: {x: 0, y: 0}

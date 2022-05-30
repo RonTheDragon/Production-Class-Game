@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TheWall : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class TheWall : MonoBehaviour
     public bool WallFacingZ;
     LayerMask Attackable;
     List<AbilityCoolDown> abilityCoolDowns = new List<AbilityCoolDown>();
+    GameObject WallCooldowns;
 
     // Start is called before the first frame update
     void Start()
@@ -42,12 +44,24 @@ public class TheWall : MonoBehaviour
             if (TheWallAttacks[3] != null)
                 AttemptToWallAttack(TheWallAttacks[3]);
         }
-        if (abilityCoolDowns.Count > 0)
+
+        if (GameManager.instance.Player != null)
         {
-            foreach (AbilityCoolDown a in abilityCoolDowns)
+            if (WallCooldowns == null)
             {
-                a.Cooldown -= Time.deltaTime;
-                if (a.Cooldown <= 0) abilityCoolDowns.Remove(a); break;
+                WallCooldowns = GameManager.instance.Player.GetComponent<ThirdPersonMovement>().WallCooldowns;
+            }
+
+            if (abilityCoolDowns.Count > 0)
+            {
+
+                for (int i = 0; i < abilityCoolDowns.Count; i++)
+                {
+                    abilityCoolDowns[i].Cooldown -= Time.deltaTime;
+                    WallCooldowns.transform.GetChild(i).GetChild(1).GetComponent<Image>().fillAmount = -(abilityCoolDowns[i].Cooldown / abilityCoolDowns[i].MaxCooldown)+1;
+                    if (abilityCoolDowns[i].Cooldown <= 0) { abilityCoolDowns.Remove(abilityCoolDowns[i]); Destroy(WallCooldowns.transform.GetChild(i).gameObject);   break; }
+
+                }
             }
         }
     }
@@ -74,6 +88,15 @@ public class TheWall : MonoBehaviour
             }  
         }
         abilityCoolDowns.Add(new AbilityCoolDown(attack.Name, attack.AbilityCooldown));
+        GameObject Circle = Instantiate(GameManager.instance.CooldownCircleObject, transform.position, transform.rotation, WallCooldowns.transform);
+        if (attack.Image != null)
+        {
+            foreach (Transform c in Circle.transform)
+            {
+                c.GetComponent<Image>().sprite = attack.Image;
+            }
+        }
+        Circle.name = attack.Name;
         WallAttack(attack);
     }
 

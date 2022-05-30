@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerAttackSystem : AttackSystem
 {
@@ -8,6 +9,7 @@ public class PlayerAttackSystem : AttackSystem
     AudioManager Audio;
     public SOclass PlayerClass;
     ThirdPersonMovement thirdPersonMovement;
+    GameObject PlayerCooldownCircles;
     //public LayerMask OnlyFloor;
 
     new void Start()
@@ -21,6 +23,7 @@ public class PlayerAttackSystem : AttackSystem
         Cursor.lockState = CursorLockMode.Locked;
         SetLayersForAttacks(GameManager.instance.PlayerCanAttack);
         thirdPersonMovement = GetComponent<ThirdPersonMovement>();
+        PlayerCooldownCircles = thirdPersonMovement.PlayerCooldowns;
     }
 
     new void Update()
@@ -91,6 +94,31 @@ public class PlayerAttackSystem : AttackSystem
     public override void Aiming(bool aim)
     {
         thirdPersonMovement.aim = aim;
+    }
+
+    protected override void DrainCooldowns()
+    {
+        for (int i = 0; i < abilityCoolDowns.Count; i++)
+        {
+            abilityCoolDowns[i].Cooldown -= Time.deltaTime;
+            PlayerCooldownCircles.transform.GetChild(i).GetChild(1).GetComponent<Image>().fillAmount = -(abilityCoolDowns[i].Cooldown / abilityCoolDowns[i].MaxCooldown) + 1;
+            if (abilityCoolDowns[i].Cooldown <= 0) { abilityCoolDowns.Remove(abilityCoolDowns[i]); Destroy(PlayerCooldownCircles.transform.GetChild(i).gameObject); break; }
+
+        }
+    }
+
+    protected override void AddCooldown(SOability a)
+    {
+        abilityCoolDowns.Add(new AbilityCoolDown(a.Name, a.AbilityCooldown));
+        GameObject Circle = Instantiate(GameManager.instance.CooldownCircleObject, transform.position, PlayerCooldownCircles.transform.rotation, PlayerCooldownCircles.transform);
+        if (a.Image != null)
+        {
+            foreach (Transform c in Circle.transform)
+            {
+                c.GetComponent<Image>().sprite = a.Image;
+            }
+        }
+        Circle.name = a.Name;
     }
 
 }

@@ -28,6 +28,8 @@ public class ThirdPersonMovement : MonoBehaviour
     [SerializeField] Image HpBar;
     [SerializeField] Image StaminaBar;
     [SerializeField] Image WallHpBar;
+    public GameObject PlayerCooldowns;
+    public GameObject WallCooldowns;
 
     [SerializeField] GameObject Gun;
 

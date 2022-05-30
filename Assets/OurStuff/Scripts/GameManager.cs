@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public        LayerMask     PlayerCanAttack;
     [HideInInspector] public bool WallFacingZ;
     [HideInInspector] public float WallLength;
+    public        GameObject    CooldownCircleObject;
 
     private void Awake()
     {

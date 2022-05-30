@@ -805,6 +805,7 @@ MonoBehaviour:
     m_Bits: 128
   WallFacingZ: 0
   WallLength: 0
+  CooldownCircleObject: {fileID: 3048677536125606005, guid: 5d895738d74dd9843893ec3095921fa5, type: 3}
 --- !u!114 &7303057436717104375
 MonoBehaviour:
   m_ObjectHideFlags: 0

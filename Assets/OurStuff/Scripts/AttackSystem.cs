@@ -24,7 +24,7 @@ public abstract class AttackSystem : MonoBehaviour
                       float comboTimer;
     [HideInInspector] public float AttackMovementForce;
     [HideInInspector] public Vector2 AttackMovementDirection;
-    List<AbilityCoolDown> abilityCoolDowns = new List<AbilityCoolDown>();
+    protected List<AbilityCoolDown> abilityCoolDowns = new List<AbilityCoolDown>();
     protected GameObject Attacker;
 
     protected void Start()
@@ -74,11 +74,16 @@ public abstract class AttackSystem : MonoBehaviour
         }
         if (abilityCoolDowns.Count > 0)
         {
-            foreach(AbilityCoolDown a in abilityCoolDowns)
-            {
-                a.Cooldown -= Time.deltaTime;
-                if (a.Cooldown <= 0) abilityCoolDowns.Remove(a); break;
-            }
+            DrainCooldowns();
+        }
+    }
+
+    virtual protected void DrainCooldowns()
+    {
+        foreach (AbilityCoolDown a in abilityCoolDowns)
+        {
+            a.Cooldown -= Time.deltaTime;
+            if (a.Cooldown <= 0) abilityCoolDowns.Remove(a); break;
         }
     }
 
@@ -219,8 +224,14 @@ public abstract class AttackSystem : MonoBehaviour
         comboTimer = timeToComboReset + AttackCooldown;
         if (Attacks[attackType].AbilityCooldown != 0)
         {
-            abilityCoolDowns.Add(new AbilityCoolDown(Attacks[attackType].Name, Attacks[attackType].AbilityCooldown));
+            AddCooldown(Attacks[attackType]);
+            //abilityCoolDowns.Add(new AbilityCoolDown(Attacks[attackType].Name, Attacks[attackType].AbilityCooldown));
         }
+    }
+
+    protected virtual void AddCooldown(SOability a)
+    {
+        abilityCoolDowns.Add(new AbilityCoolDown(a.Name, a.AbilityCooldown));
     }
 
     void setAttack(Attack TheAttack,SOattack TheSOattack)
@@ -426,9 +437,11 @@ public class AbilityCoolDown
 {
     public string AbilityName;
     public float Cooldown;
+    public float MaxCooldown;
     public AbilityCoolDown(string AbilityName, float Cooldown)
     {
         this.AbilityName = AbilityName;
         this.Cooldown = Cooldown;
+        this.MaxCooldown = Cooldown;
     }
 }

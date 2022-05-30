@@ -16,4 +16,5 @@ public class SOability : ScriptableObject
     public enum AttackType { Normal, NeedsRelease, CanRelease , Combo, StartCombo}
     public      AttackType attackType = AttackType.Normal;
     public bool aiming;
+    public Sprite Image;
 }
