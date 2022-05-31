@@ -14,6 +14,7 @@ public class TheWall : MonoBehaviour
     LayerMask Attackable;
     List<AbilityCoolDown> abilityCoolDowns = new List<AbilityCoolDown>();
     GameObject WallCooldowns;
+    GameObject WallCooldownsStillAlive;
 
     // Start is called before the first frame update
     void Start()
@@ -47,19 +48,46 @@ public class TheWall : MonoBehaviour
 
         if (GameManager.instance.Player != null)
         {
-            if (WallCooldowns == null)
-            {
-                WallCooldowns = GameManager.instance.Player.GetComponent<ThirdPersonMovement>().WallCooldowns;
-            }
-
-            if (abilityCoolDowns.Count > 0)
-            {
-
-                for (int i = 0; i < abilityCoolDowns.Count; i++)
+                if (WallCooldowns == null)
                 {
-                    abilityCoolDowns[i].Cooldown -= Time.deltaTime;
-                    WallCooldowns.transform.GetChild(i).GetChild(1).GetComponent<Image>().fillAmount = -(abilityCoolDowns[i].Cooldown / abilityCoolDowns[i].MaxCooldown)+1;
-                    if (abilityCoolDowns[i].Cooldown <= 0) { abilityCoolDowns.Remove(abilityCoolDowns[i]); Destroy(WallCooldowns.transform.GetChild(i).gameObject);   break; }
+                    WallCooldowns = GameManager.instance.Player.GetComponent<ThirdPersonMovement>().WallCooldowns;
+                }
+
+            if (abilityCoolDowns.Count == WallCooldowns.transform.childCount)
+            {
+
+                if (abilityCoolDowns.Count == WallCooldowns.transform.childCount)
+                    if (abilityCoolDowns.Count > 0)
+                {
+
+                    for (int i = 0; i < abilityCoolDowns.Count; i++)
+                    {
+                        abilityCoolDowns[i].Cooldown -= Time.deltaTime;
+                        WallCooldowns.transform.GetChild(i).GetChild(1).GetComponent<Image>().fillAmount = -(abilityCoolDowns[i].Cooldown / abilityCoolDowns[i].MaxCooldown) + 1;
+                        if (abilityCoolDowns[i].Cooldown <= 0) { abilityCoolDowns.Remove(abilityCoolDowns[i]); Destroy(WallCooldowns.transform.GetChild(i).gameObject); break; }
+                    }
+
+                }
+            }
+        }
+        else
+        {
+                if (WallCooldownsStillAlive == null)
+                {
+                    WallCooldownsStillAlive = GameManager.instance.GetComponent<PlayerRespawnManager>().WallCooldownsStorage;
+                }
+
+            if (abilityCoolDowns.Count == WallCooldownsStillAlive.transform.childCount)
+            {
+                if (abilityCoolDowns.Count > 0)
+                {
+
+                    for (int i = 0; i < abilityCoolDowns.Count; i++)
+                    {
+                        abilityCoolDowns[i].Cooldown -= Time.deltaTime;
+                        WallCooldownsStillAlive.transform.GetChild(i).GetChild(1).GetComponent<Image>().fillAmount = -(abilityCoolDowns[i].Cooldown / abilityCoolDowns[i].MaxCooldown) + 1;
+                        if (abilityCoolDowns[i].Cooldown <= 0) { abilityCoolDowns.Remove(abilityCoolDowns[i]); Destroy(WallCooldownsStillAlive.transform.GetChild(i).gameObject); break; }
+                    }
 
                 }
             }
@@ -88,7 +116,7 @@ public class TheWall : MonoBehaviour
             }  
         }
         abilityCoolDowns.Add(new AbilityCoolDown(attack.Name, attack.AbilityCooldown));
-        GameObject Circle = Instantiate(GameManager.instance.CooldownCircleObject, transform.position, transform.rotation, WallCooldowns.transform);
+        GameObject Circle = Instantiate(GameManager.instance.CooldownCircleObject, transform.position, WallCooldowns.transform.rotation, WallCooldowns.transform);
         if (attack.Image != null)
         {
             foreach (Transform c in Circle.transform)

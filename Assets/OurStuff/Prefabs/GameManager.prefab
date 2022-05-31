@@ -857,6 +857,7 @@ MonoBehaviour:
   - Albert
   - Ted
   PlayerRespawnLocation: {fileID: 6253043627097330725}
+  WallCooldownsStorage: {fileID: 0}
 --- !u!1 &5328786050612512330
 GameObject:
   m_ObjectHideFlags: 0

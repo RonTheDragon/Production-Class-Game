@@ -2973,9 +2973,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 863390329, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: WallData
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 863390329, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
       propertyPath: PlayerRespawnLocation
       value: 
       objectReference: {fileID: 413011113}
+    - target: {fileID: 1063591015, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -442
+      objectReference: {fileID: 0}
     - target: {fileID: 1783876122695431559, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
       propertyPath: Data
       value: 2
@@ -2991,6 +2999,14 @@ PrefabInstance:
     - target: {fileID: 1783876122695431559, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
       propertyPath: PlayerKillingShortCut
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3880413666879710621, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 134.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 3880413666879710621, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 155.44
       objectReference: {fileID: 0}
     - target: {fileID: 5310620670068136351, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
       propertyPath: m_Name
@@ -51075,7 +51091,7 @@ MonoBehaviour:
   - {fileID: 0}
   WallLength: 35
   Wallheight: 15
-  WallThickness: 20
+  WallThickness: 3
   WallFacingZ: 0
 --- !u!114 &1592667120
 MonoBehaviour:
