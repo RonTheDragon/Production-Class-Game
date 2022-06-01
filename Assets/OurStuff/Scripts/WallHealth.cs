@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class WallHealth : Health
 {
-    bool AlreadyDead;
     protected override void Death()
     {
         if (!AlreadyDead)

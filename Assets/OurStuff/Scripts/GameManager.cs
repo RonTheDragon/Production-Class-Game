@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public bool WallFacingZ;
     [HideInInspector] public float WallLength;
     public        GameObject    CooldownCircleObject;
+    [HideInInspector] public Transform SoulSucker;
+    [HideInInspector] public int SoulEnergy;
 
     private void Awake()
     {

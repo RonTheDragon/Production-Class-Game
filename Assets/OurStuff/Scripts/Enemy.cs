@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour , IpooledObject
 {
+    [SerializeField] Vector2 SoulValue = new Vector2(5, 10);
+    [HideInInspector] public int SoulWorth;
     Vector3 previousPos;
     float OriginalSpeed;
     float OriginalDetectionRange;
@@ -23,7 +25,7 @@ public class Enemy : MonoBehaviour , IpooledObject
     [SerializeField] float BraveEnoughToFight = 50;
     [SerializeField] float timeToAlert = 0.5f;
 
-    [SerializeField] GameObject CanvasHolder;
+    public GameObject CanvasHolder;
     Image hpBar;
     Image staminaBar;
     float ShowingData;
@@ -33,7 +35,7 @@ public class Enemy : MonoBehaviour , IpooledObject
 
     EnemyAttackSystem eas;
     EnemyHealth hp;
-    Animator anim;
+    [HideInInspector] public Animator anim;
     SkinnedMeshRenderer MR;
     AudioManager Audio;
     ParticleSystem Particle;
@@ -305,6 +307,8 @@ public class Enemy : MonoBehaviour , IpooledObject
     {
         TheEnemy.transform.position = transform.position;
         TheEnemy.GetComponent<NavMeshAgent>().enabled = true;
+        SoulWorth = (int)Random.Range(SoulValue.x, SoulValue.y);
+        hp.OnObjectSpawn();
     }
 
     void ShowData()

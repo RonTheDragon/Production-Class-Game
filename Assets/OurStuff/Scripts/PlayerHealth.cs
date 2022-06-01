@@ -8,6 +8,7 @@ public class PlayerHealth : CharacterHealth
     CharacterController CC;
     Rigidbody RB;
     PlayerAttackSystem PAS;
+    Animator anim;
     //PlayerControler PC;
     //Animator Anim;
     //AudioManager audio;
@@ -22,6 +23,7 @@ public class PlayerHealth : CharacterHealth
         CC = GetComponent<CharacterController>();
         RB = GetComponent<Rigidbody>();
         PAS = GetComponent<PlayerAttackSystem>();
+        anim = transform.GetChild(0).GetComponent<Animator>();
         CanKillSelf = GameManager.instance.PlayerKillingShortCut;
         //Anim = transform.GetChild(0).GetComponent<Animator>();
         //audio = GetComponent<AudioManager>();
@@ -43,7 +45,7 @@ public class PlayerHealth : CharacterHealth
     }
     void TakeKnockback()
     {
-        if (TheKnockback > 0)
+        if (TheKnockback > 0 && !AlreadyDead)
         {
             if (PAS.AttackMovementForce > 0) { TheKnockback = 0; }
             TheKnockback -= TheKnockback * Time.deltaTime * 2;
@@ -57,16 +59,23 @@ public class PlayerHealth : CharacterHealth
 
     protected override void Death()
     {
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        if (iGotThePower)
+        if (!AlreadyDead)
         {
-            LoseStone();
-            Instantiate(GameManager.instance.PowerStone, transform.position, transform.rotation);
+            AlreadyDead = true;
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            if (iGotThePower)
+            {
+                LoseStone();
+                GameManager.instance.SoulSucker = Instantiate(GameManager.instance.PowerStone, transform.position, transform.rotation).transform;
+            }
+            //GameManager.instance.Player = Instantiate(GameManager.instance.Player, GetComponent<RespawmIfFallsOffMap>().startPos, transform.rotation/* FIX LATER*/);
+            anim.SetBool("Death", true);
+            PAS.enabled = false;
+            StartCoroutine(DisposeOfBody());
         }
-        //GameManager.instance.Player = Instantiate(GameManager.instance.Player, GetComponent<RespawmIfFallsOffMap>().startPos, transform.rotation/* FIX LATER*/);
-        GameManager.instance.GetComponent<PlayerRespawnManager>().OpenRespawnMenu();
-        Destroy(gameObject);
     }
+
+    
 
     protected override void GetStaggered()
     {
@@ -75,7 +84,10 @@ public class PlayerHealth : CharacterHealth
 
     public override void TakeDamage(float Damage, float Knock, Vector2 Stagger, Vector3 ImpactLocation, GameObject Attacker)
     {
-        base.TakeDamage(Damage, Knock, Stagger, ImpactLocation, Attacker);
+        if (!AlreadyDead)
+        {
+            base.TakeDamage(Damage, Knock, Stagger, ImpactLocation, Attacker);
+        }
         //Anim.SetTrigger("Ouch");
         //audio.PlaySound(Sound.Activation.Custom, "Ouch");
     }
@@ -87,6 +99,7 @@ public class PlayerHealth : CharacterHealth
         MaxHp *= 2;
         Hp = MaxHp;
         transform.localScale = new Vector3(1.1f, 1.1f, 1.1f);
+        GameManager.instance.SoulSucker = transform;
     }
     public void LoseStone()
     {
@@ -95,5 +108,12 @@ public class PlayerHealth : CharacterHealth
         MaxHp /= 2;
         Hp = MaxHp;
         transform.localScale = new Vector3(1f, 1f, 1f);
+    }
+
+    protected override IEnumerator DisposeOfBody()
+    {
+        yield return new WaitForSeconds(3);
+        GameManager.instance.GetComponent<PlayerRespawnManager>().OpenRespawnMenu();
+        Destroy(gameObject);
     }
 }

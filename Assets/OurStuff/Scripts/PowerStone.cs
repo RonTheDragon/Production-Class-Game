@@ -21,8 +21,14 @@ public class PowerStone : MonoBehaviour
         if (other.tag == "Player")
         {
             PlayerHealth hp = other.GetComponent<PlayerHealth>();
-            hp?.CollectPowerStone();
-            Destroy(this.gameObject);
+            if (hp != null)
+            {
+                if (!hp.isDead())
+                {
+                    hp?.CollectPowerStone();
+                    Destroy(this.gameObject);
+                }
+            }
         }
     }
 }

@@ -82,4 +82,9 @@ public abstract class CharacterHealth : Health
         TempKnockProtection = knock;
         TempTimeLeft = time;
     }
+    public bool isDead()
+    {
+        return AlreadyDead;
+    }
+    protected abstract IEnumerator DisposeOfBody();
 }

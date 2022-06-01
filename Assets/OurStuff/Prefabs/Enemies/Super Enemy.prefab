@@ -24,6 +24,14 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1664207589, guid: 27251afe19e2d2e44ab315b766ae61ec, type: 3}
+      propertyPath: SoulValue.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1664207589, guid: 27251afe19e2d2e44ab315b766ae61ec, type: 3}
+      propertyPath: SoulValue.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1664207589, guid: 27251afe19e2d2e44ab315b766ae61ec, type: 3}
       propertyPath: DetectionRange
       value: 20
       objectReference: {fileID: 0}

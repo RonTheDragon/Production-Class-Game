@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ThirdPersonMovement : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class ThirdPersonMovement : MonoBehaviour
     [SerializeField] Image HpBar;
     [SerializeField] Image StaminaBar;
     [SerializeField] Image WallHpBar;
+    [SerializeField] TMP_Text SoulAmount;
     public GameObject PlayerCooldowns;
     public GameObject WallCooldowns;
 
@@ -106,7 +108,8 @@ public class ThirdPersonMovement : MonoBehaviour
 
             if (aim)
             {
-                transform.rotation = Quaternion.Euler(0f, targetAngleAim, 0f);
+                if (!Hp.isDead())
+                    transform.rotation = Quaternion.Euler(0f, targetAngleAim, 0f);
                 moveDir = transform.forward * vertical + transform.right * horizontal;
 
                 Vector3 target = new Vector3();
@@ -124,10 +127,12 @@ public class ThirdPersonMovement : MonoBehaviour
             }
             else
             {
-                transform.rotation = Quaternion.Euler(0f, angle, 0f);
+                if (!Hp.isDead())
+                    transform.rotation = Quaternion.Euler(0f, angle, 0f);
                 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             }
 
+            if (!Hp.isDead())
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
     }
@@ -137,5 +142,6 @@ public class ThirdPersonMovement : MonoBehaviour
         HpBar.fillAmount = Hp.Hp / Hp.MaxHp;
         StaminaBar.fillAmount = PAS.Stamina / PAS.MaxStamina;
         WallHpBar.fillAmount = WallHp.Hp / WallHp.MaxHp;
+        SoulAmount.text = $"Souls: {GameManager.instance.SoulEnergy}";
     }
 }

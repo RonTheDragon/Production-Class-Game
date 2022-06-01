@@ -7,6 +7,7 @@ public abstract class Health : MonoBehaviour
     public float MaxHp = 100;
     public float Hp;
     public float HpRegan;
+    protected bool AlreadyDead;
 
     // Start is called before the first frame update
     protected void Start()
