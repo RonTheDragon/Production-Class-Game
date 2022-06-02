@@ -12,10 +12,10 @@ public class PlayerRespawnManager : MonoBehaviour
     [SerializeField] GameObject ChooseHeroButton;
     [SerializeField] List<string> CharacterNames = new List<string>();
     [SerializeField] Transform PlayerRespawnLocation;
-    [HideInInspector] public GameObject WallCooldownsStorage;
     void Start()
     {
         SpawnFirstCharacter();
+        RespawnMenu.SetActive(false);
     }
 
     void Update()
@@ -71,13 +71,6 @@ public class PlayerRespawnManager : MonoBehaviour
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        WallCooldownsStorage = GameManager.instance.Player.GetComponent<ThirdPersonMovement>().WallCooldowns;
-        WallCooldownsStorage.transform.SetParent(transform);
-
-        foreach (Transform c in Content.transform) //Kill All Previous Cards
-        {
-            Destroy(c.gameObject);
-        }
 
         RespawnMenu.SetActive(true);
 
@@ -119,18 +112,7 @@ public class PlayerRespawnManager : MonoBehaviour
         PlayerAttackSystem pas = RespawnedPlayer.GetComponent<PlayerAttackSystem>();
         pas.PlayerClass = player.role;
         pas.DamageMultiplier = player.damageMultiplier;
-
-        if (WallCooldownsStorage != null)
-        {
-            GameObject newWallCooldowns = GameManager.instance.Player.GetComponent<ThirdPersonMovement>().WallCooldowns; 
-
-            foreach (Transform t in WallCooldownsStorage.transform)
-            {
-                t.SetParent(newWallCooldowns.transform);    
-            }
-            Destroy(WallCooldownsStorage);
-            WallCooldownsStorage=null;
-        }
+        GameManager.instance.Wall.GetComponent<TheWall>().SetUpAllCooldowns(false);
     }
 }
 

@@ -2976,13 +2976,13 @@ PrefabInstance:
       propertyPath: WallData
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 863390329, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: PlayerRespawnLocation
-      value: 
-      objectReference: {fileID: 413011113}
+    - target: {fileID: 917270207, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1063591015, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -442
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1783876122695431559, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
       propertyPath: Wall
@@ -12256,11 +12256,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 409488602}
   m_Mesh: {fileID: -3214521003866156968, guid: e6fa019b6629fb447bb39d0e85b8a394, type: 3}
---- !u!4 &413011113 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6253043627097330725, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-  m_PrefabInstance: {fileID: 115125543}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &414374090
 GameObject:
   m_ObjectHideFlags: 0
@@ -51073,8 +51068,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TheWallAttacks:
-  - {fileID: 11400000, guid: 4b4186adca57dc342968aaf7f90204ea, type: 2}
   - {fileID: 0}
+  - {fileID: 11400000, guid: 4b4186adca57dc342968aaf7f90204ea, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   WallLength: 35

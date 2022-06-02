@@ -14,12 +14,12 @@ public class TheWall : MonoBehaviour
     LayerMask Attackable;
     List<AbilityCoolDown> abilityCoolDowns = new List<AbilityCoolDown>();
     GameObject WallCooldowns;
-    GameObject WallCooldownsStillAlive;
 
     // Start is called before the first frame update
     void Start()
     {
         Attackable = GameManager.instance.PlayerCanAttack;
+        SetUpAllCooldowns(true);
     }
 
     // Update is called once per frame
@@ -52,46 +52,33 @@ public class TheWall : MonoBehaviour
                 {
                     WallCooldowns = GameManager.instance.Player.GetComponent<ThirdPersonMovement>().WallCooldowns;
                 }
-
-            if (abilityCoolDowns.Count == WallCooldowns.transform.childCount)
-            {
-
+   
                 if (abilityCoolDowns.Count == WallCooldowns.transform.childCount)
-                    if (abilityCoolDowns.Count > 0)
                 {
 
                     for (int i = 0; i < abilityCoolDowns.Count; i++)
                     {
-                        abilityCoolDowns[i].Cooldown -= Time.deltaTime;
-                        WallCooldowns.transform.GetChild(i).GetChild(1).GetComponent<Image>().fillAmount = -(abilityCoolDowns[i].Cooldown / abilityCoolDowns[i].MaxCooldown) + 1;
-                        if (abilityCoolDowns[i].Cooldown <= 0) { abilityCoolDowns.Remove(abilityCoolDowns[i]); Destroy(WallCooldowns.transform.GetChild(i).gameObject); break; }
+                            if (abilityCoolDowns[i].Cooldown > 0)
+                            {
+                                abilityCoolDowns[i].Cooldown -= Time.deltaTime;
+                                WallCooldowns.transform.GetChild(i).GetChild(1).GetComponent<Image>().fillAmount = -(abilityCoolDowns[i].Cooldown / abilityCoolDowns[i].MaxCooldown) + 1;
+                            }
+                            else WallCooldowns.transform.GetChild(i).GetChild(1).GetComponent<Image>().fillAmount = 1;
                     }
-
                 }
-            }
+            
         }
         else
         {
-                if (WallCooldownsStillAlive == null)
-                {
-                    WallCooldownsStillAlive = GameManager.instance.GetComponent<PlayerRespawnManager>().WallCooldownsStorage;
-                }
-
-            if (abilityCoolDowns.Count == WallCooldownsStillAlive.transform.childCount)
+            for (int i = 0; i < abilityCoolDowns.Count; i++)
             {
-                if (abilityCoolDowns.Count > 0)
+                if (abilityCoolDowns[i].Cooldown > 0)
                 {
-
-                    for (int i = 0; i < abilityCoolDowns.Count; i++)
-                    {
-                        abilityCoolDowns[i].Cooldown -= Time.deltaTime;
-                        WallCooldownsStillAlive.transform.GetChild(i).GetChild(1).GetComponent<Image>().fillAmount = -(abilityCoolDowns[i].Cooldown / abilityCoolDowns[i].MaxCooldown) + 1;
-                        if (abilityCoolDowns[i].Cooldown <= 0) { abilityCoolDowns.Remove(abilityCoolDowns[i]); Destroy(WallCooldownsStillAlive.transform.GetChild(i).gameObject); break; }
-                    }
-
+                    abilityCoolDowns[i].Cooldown -= Time.deltaTime;               
                 }
             }
         }
+       
     }
 
     public void WallAttack(SOwall attack)
@@ -115,19 +102,69 @@ public class TheWall : MonoBehaviour
                 if (CheckAbilityCooldown(attack.Name)) return;
             }  
         }
-        abilityCoolDowns.Add(new AbilityCoolDown(attack.Name, attack.AbilityCooldown));
-        GameObject Circle = Instantiate(GameManager.instance.CooldownCircleObject, transform.position, WallCooldowns.transform.rotation, WallCooldowns.transform);
-        if (attack.Image != null)
-        {
-            foreach (Transform c in Circle.transform)
-            {
-                c.GetComponent<Image>().sprite = attack.Image;
-            }
-        }
-        Circle.name = attack.Name;
+        StartCooldown(attack);
         WallAttack(attack);
     }
 
+    void StartCooldown(SOwall attack)
+    {
+        foreach (AbilityCoolDown c in abilityCoolDowns)
+        {
+            if (c.AbilityName == attack.Name)
+            {
+                c.Cooldown = c.MaxCooldown;
+            }
+        }
+    }
+
+    public void SetUpAllCooldowns(bool Reset)
+    {
+        if (WallCooldowns == null)
+        {
+            WallCooldowns = GameManager.instance.Player.GetComponent<ThirdPersonMovement>().WallCooldowns;
+        }
+        if (Reset)
+        {
+            abilityCoolDowns = new List<AbilityCoolDown>();
+            foreach (Transform t in WallCooldowns.transform)
+            {
+                Destroy(t.gameObject);
+            }
+        }
+
+        int count = 0;
+        foreach (SOwall attack in TheWallAttacks)
+        {
+            if (attack != null)
+            {
+                if (Reset)
+                {
+                    AbilityCoolDown ac = new AbilityCoolDown(attack.Name, attack.AbilityCooldown);
+                    ac.Cooldown = 0;
+                    abilityCoolDowns.Add(ac);
+                }
+                GameObject Circle = Instantiate(GameManager.instance.CooldownCircleObject, transform.position, WallCooldowns.transform.rotation, WallCooldowns.transform);
+                if (attack.Image != null)
+                {
+                    foreach (Transform c in Circle.transform)
+                    {
+                        c.GetComponent<Image>().sprite = attack.Image;
+                    }
+                }
+                Circle.name = attack.Name;
+            }
+            else
+            {
+                if (Reset)
+                {
+                    abilityCoolDowns.Add(new AbilityCoolDown($"Empty Slot {count}", 0));
+                }
+                GameObject Circle = Instantiate(GameManager.instance.CooldownCircleObject, transform.position, WallCooldowns.transform.rotation, WallCooldowns.transform);
+                Circle.name = $"Empty Slot {count}";
+            }
+            count++;
+        }
+    }
     public void Mines(SOwall attack)
     {
         int Amount = 10;
@@ -189,8 +226,11 @@ public class TheWall : MonoBehaviour
         {
             if (a.AbilityName == Name)
             {
-                Debug.Log($"{Name} is in Cooldown ({(int)a.Cooldown}s)");
-                return true;
+                if (a.Cooldown > 0)
+                {
+                    Debug.Log($"{Name} is in Cooldown ({(int)a.Cooldown}s)");
+                    return true;
+                }
             }
         }
         return false;

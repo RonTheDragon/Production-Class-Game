@@ -24,11 +24,11 @@ MonoBehaviour:
   attackType: 0
   aiming: 0
   Image: {fileID: 21300000, guid: 73a698c822ce0e847b8ad637df3b17c8, type: 3}
-  Damage: 100
+  Damage: 200
   Knockback: 20
   Stagger: {x: 0, y: 100}
   wallAttack: 1
   Projectile: Mine
   ProjectileSpeed: 2000000
-  AmountOfShoots: 5
-  ExplosionRadius: 10
+  AmountOfShoots: 7
+  ExplosionRadius: 15

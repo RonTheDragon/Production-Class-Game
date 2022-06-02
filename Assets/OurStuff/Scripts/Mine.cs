@@ -6,6 +6,7 @@ public class Mine : Projectile, IpooledObject
 {
     public float ExplosionRadius = 10;
     Rigidbody RB;
+    public string Explosion = "Explosion";
     // Start is called before the first frame update
     void Awake()
     {
@@ -53,6 +54,8 @@ public class Mine : Projectile, IpooledObject
                     }
                 }
             }
+            GameObject Boom = ObjectPooler.Instance.SpawnFromPool(Explosion, transform.position, transform.rotation);
+            Boom.GetComponent<ParticleSystem>().Play();
             gameObject.SetActive(false);
         }
         

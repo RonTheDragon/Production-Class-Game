@@ -183,7 +183,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -750,6 +750,7 @@ GameObject:
   - component: {fileID: 1783876122695431559}
   - component: {fileID: 7303057436717104375}
   - component: {fileID: 863390329}
+  - component: {fileID: 5037168004244105019}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -862,7 +863,23 @@ MonoBehaviour:
   - Albert
   - Ted
   PlayerRespawnLocation: {fileID: 6253043627097330725}
-  WallCooldownsStorage: {fileID: 0}
+--- !u!114 &5037168004244105019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5310620670068136351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 10fc4df2da32a41aaa32d77bc913491c, type: 2}
 --- !u!1 &5328786050612512330
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,9 +962,6 @@ MonoBehaviour:
     - tag: Mine
       prefab: {fileID: 2554057503374829988, guid: a0412644ec5cb314883ae34ba8539744, type: 3}
       size: 30
-    - tag: Soul
-      prefab: {fileID: 5165347865524770908, guid: cfe6c27ab13208f4da2864915d2c37a5, type: 3}
-      size: 30
   - tag: Enemies
     pools:
     - tag: Enemy
@@ -955,6 +969,14 @@ MonoBehaviour:
       size: 100
     - tag: SuperEnemy
       prefab: {fileID: 3550711882627019458, guid: 1701578ba2c30604884e1ee6986e4084, type: 3}
+      size: 10
+  - tag: Effects
+    pools:
+    - tag: Soul
+      prefab: {fileID: 5165347865524770908, guid: cfe6c27ab13208f4da2864915d2c37a5, type: 3}
+      size: 30
+    - tag: Explosion
+      prefab: {fileID: 354629442732617438, guid: 22b163c6ad1acf84ebf312a4601037e2, type: 3}
       size: 10
 --- !u!1 &9013158160471282744
 GameObject:

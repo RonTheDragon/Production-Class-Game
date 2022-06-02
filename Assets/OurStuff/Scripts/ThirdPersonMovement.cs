@@ -139,8 +139,16 @@ public class ThirdPersonMovement : MonoBehaviour
 
     void UpdateUI()
     {
-        HpBar.fillAmount = Hp.Hp / Hp.MaxHp;
-        StaminaBar.fillAmount = PAS.Stamina / PAS.MaxStamina;
+        if (!Hp.isDead())
+        {
+            HpBar.fillAmount = Hp.Hp / Hp.MaxHp;
+            StaminaBar.fillAmount = PAS.Stamina / PAS.MaxStamina;
+        }
+        else
+        {
+            HpBar.fillAmount = 0;
+            StaminaBar.fillAmount = 0;
+        }
         WallHpBar.fillAmount = WallHp.Hp / WallHp.MaxHp;
         SoulAmount.text = $"Souls: {GameManager.instance.SoulEnergy}";
     }
