@@ -792,8 +792,8 @@ MonoBehaviour:
   Wall: {fileID: 0}
   PowerStone: {fileID: 5504683918200391403, guid: 987bb2c5c37a5d64bafcdfb75138c42c, type: 3}
   EnemeiesTryToAttackEvery: 0.5
-  Data: 1
-  PlayerKillingShortCut: 0
+  Data: 2
+  PlayerKillingShortCut: 1
   enemiesCanSee:
     serializedVersion: 2
     m_Bits: 127
@@ -803,9 +803,14 @@ MonoBehaviour:
   PlayerCanAttack:
     serializedVersion: 2
     m_Bits: 128
+  LayerMaskOfEverything:
+    serializedVersion: 2
+    m_Bits: 4294967295
   WallFacingZ: 0
   WallLength: 0
   CooldownCircleObject: {fileID: 3048677536125606005, guid: 5d895738d74dd9843893ec3095921fa5, type: 3}
+  SoulSucker: {fileID: 0}
+  SoulEnergy: 0
 --- !u!114 &7303057436717104375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -939,6 +944,9 @@ MonoBehaviour:
       size: 20
     - tag: Mine
       prefab: {fileID: 2554057503374829988, guid: a0412644ec5cb314883ae34ba8539744, type: 3}
+      size: 30
+    - tag: Soul
+      prefab: {fileID: 5165347865524770908, guid: cfe6c27ab13208f4da2864915d2c37a5, type: 3}
       size: 30
   - tag: Enemies
     pools:

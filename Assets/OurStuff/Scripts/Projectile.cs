@@ -25,21 +25,23 @@ public class Projectile : Attack
 
     protected virtual void OnTriggerStay(Collider other)
     {
-
-        if (Attackable == (Attackable | (1 << other.gameObject.layer)))
+        if (!other.isTrigger)
         {
-            Health TargetHp = other.transform.GetComponent<Health>();
-            if (TargetHp != null)
+            if (Attackable == (Attackable | (1 << other.gameObject.layer)))
             {
-                TargetHp.TakeDamage(Damage, Knock, Stagger, transform.position,Attacker);
+                Health TargetHp = other.transform.GetComponent<Health>();
+                if (TargetHp != null)
+                {
+                    TargetHp.TakeDamage(Damage, Knock, Stagger, transform.position, Attacker);
+                    gameObject.SetActive(false);
+                    //Destroy(gameObject);
+                }
+            }
+            else
+            {
                 gameObject.SetActive(false);
                 //Destroy(gameObject);
             }
-        }
-        else
-        {
-            gameObject.SetActive(false);
-            //Destroy(gameObject);
         }
     }
 }

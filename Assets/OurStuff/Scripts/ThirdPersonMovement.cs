@@ -114,9 +114,9 @@ public class ThirdPersonMovement : MonoBehaviour
 
                 Vector3 target = new Vector3();
                 RaycastHit hit;
-                if(Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, Mathf.Infinity))
-                {
-                    target = hit.point;
+                if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, Mathf.Infinity, GameManager.instance.enemiesCanSee, QueryTriggerInteraction.Ignore))
+                {                  
+                        target = hit.point;
                 }
                 else
                 {

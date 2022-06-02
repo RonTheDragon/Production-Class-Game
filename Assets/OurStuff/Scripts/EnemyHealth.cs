@@ -9,6 +9,7 @@ public class EnemyHealth : CharacterHealth , IpooledObject
     public GameObject DeadGhost;
     EnemyAttackSystem EAS;
     NavMeshAgent nav;
+    Collider col;
 
     new void Start()
     {
@@ -16,6 +17,8 @@ public class EnemyHealth : CharacterHealth , IpooledObject
         enemy = transform.parent.GetComponent<Enemy>();
         EAS = GetComponent<EnemyAttackSystem>();
         nav = GetComponent<NavMeshAgent>();
+        col = GetComponent<Collider>();
+        
     }
     public void OnObjectSpawn()
     {
@@ -23,6 +26,7 @@ public class EnemyHealth : CharacterHealth , IpooledObject
         enemy.enabled = true;
         enemy.anim.SetBool("Death", false);
         AlreadyDead = false;
+        col.enabled = true;
     }
 
     new void Update()
@@ -64,6 +68,7 @@ public class EnemyHealth : CharacterHealth , IpooledObject
             nav.SetDestination(transform.position);
             GameObject soul =ObjectPooler.Instance.SpawnFromPool("Soul", transform.position+Vector3.up, Random.rotation);
             soul.GetComponent<Soul>().SoulEnergy = enemy.SoulWorth;
+            col.enabled = false;
             StartCoroutine(DisposeOfBody());
         }
     }

@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public        LayerMask     enemiesCanSee;
     public        LayerMask     enemiesCanAttack;
     public        LayerMask     PlayerCanAttack;
+    public        LayerMask     LayerMaskOfEverything;
     [HideInInspector] public bool WallFacingZ;
     [HideInInspector] public float WallLength;
     public        GameObject    CooldownCircleObject;
