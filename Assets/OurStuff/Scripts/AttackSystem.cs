@@ -173,23 +173,6 @@ public abstract class AttackSystem : MonoBehaviour
                     particleAttack.AttackCooldown = SOP.DamagingCooldown;
                 }
             }
-            else if (Attacks[attackType] is SOwall)
-            {
-                Debug.LogWarning("Dont Put Wall Attacks On a Player");
-                /*
-                if (!(this is PlayerAttackSystem))
-                {
-                    return;
-                }
-
-                if (Attacks[attackType].AbilityCooldown != 0)
-                {
-                    abilityCoolDowns.Add(new AbilityCoolDown(Attacks[attackType].Name, Attacks[attackType].AbilityCooldown));
-                }
-                GameManager.instance.Wall.GetComponent<TheWall>().WallAttack((SOwall)Attacks[attackType]);
-                */
-                return;
-            }
         }
         else if (Attacks[attackType] is SOdefence)
         {

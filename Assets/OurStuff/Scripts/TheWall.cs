@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TheWall : MonoBehaviour
 {
-    public enum WallAttacks { None, Mines}
+    public enum WallAttacks { None, Mines , Particle}
     public SOwall[] TheWallAttacks = new SOwall[4];
     public float WallLength = 90;
     public float Wallheight = 10;
@@ -14,6 +14,7 @@ public class TheWall : MonoBehaviour
     LayerMask Attackable;
     List<AbilityCoolDown> abilityCoolDowns = new List<AbilityCoolDown>();
     GameObject WallCooldowns;
+    GameObject UsedParticle;
 
     // Start is called before the first frame update
     void Start()
@@ -88,8 +89,51 @@ public class TheWall : MonoBehaviour
             case WallAttacks.Mines:
                 Mines(attack);
                 break;
+            case WallAttacks.Particle:
+                ParticleRain(attack);
+                break;
+                
 
             default: break;
+        }
+    }
+
+    public void Mines(SOwall attack)
+    {
+        int Amount = 10;
+        if (attack is SOwallRanged)
+        {
+            SOwallRanged s = (SOwallRanged)attack;
+            Amount = s.AmountOfShoots;
+        }
+
+        float X = (WallLength * -0.5f) + Random.Range(WallLength / Amount / 2, WallLength / Amount);
+        for (int i = 0; i < Amount; i++)
+        {
+            X += Random.Range(WallLength / Amount / 2, WallLength/Amount);
+            float Y = Random.Range(Wallheight, Wallheight+5);
+            Shoot(attack, transform.position + (transform.forward* WallThickness) + transform.up * Y + transform.right*X, transform.rotation);
+        }
+        
+    }
+
+    public void ParticleRain(SOwall attack)
+    {
+        if (attack is SOwallParticle)
+        {
+            SOwallParticle AP = (SOwallParticle)attack;
+
+            if (UsedParticle != null)
+            {
+                Destroy(UsedParticle);
+                UsedParticle = null;
+            }
+            UsedParticle = Instantiate(AP.particleSystem.gameObject, transform.position+AP.Position, transform.rotation * Quaternion.Euler(AP.Rotation), transform);
+            ParticleCollision pc = UsedParticle.GetComponent<ParticleCollision>();
+            pc.w = this;
+            pc.Damage = AP.Damage;
+            pc.Knock = AP.Knockback;
+            pc.Stagger = AP.Stagger;
         }
     }
 
@@ -165,24 +209,6 @@ public class TheWall : MonoBehaviour
             count++;
         }
     }
-    public void Mines(SOwall attack)
-    {
-        int Amount = 10;
-        if (attack is SOwallRanged)
-        {
-            SOwallRanged s = (SOwallRanged)attack;
-            Amount = s.AmountOfShoots;
-        }
-
-        float X = (WallLength * -0.5f) + Random.Range(WallLength / Amount / 2, WallLength / Amount);
-        for (int i = 0; i < Amount; i++)
-        {
-            X += Random.Range(WallLength / Amount / 2, WallLength/Amount);
-            float Y = Random.Range(Wallheight, Wallheight+5);
-            Shoot(attack, transform.position + (transform.forward* WallThickness) + transform.up * Y + transform.right*X, transform.rotation);
-        }
-        
-    }
 
     public void Shoot(SOwall attack, Vector3 ShootFrom, Quaternion ShootDirection)
     {
@@ -207,9 +233,13 @@ public class TheWall : MonoBehaviour
         Projectile p = TheBullet.GetComponent<Projectile>();
         if (p != null)
         {
-            p.Damage = attack.Damage;
-            p.Knock = attack.Knockback;
-            p.Stagger = attack.Stagger;
+            if (attack is SOwallAttack)
+            {
+                SOwallAttack a = (SOwallAttack)attack;
+                p.Damage = a.Damage;
+                p.Knock = a.Knockback;
+                p.Stagger = a.Stagger;
+            }
             p.Speed = ProjectileSpeed;
             p.Attackable = Attackable;
             p.Attacker = gameObject;

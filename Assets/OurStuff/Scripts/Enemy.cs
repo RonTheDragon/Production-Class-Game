@@ -284,10 +284,11 @@ public class Enemy : MonoBehaviour , IpooledObject
         else return false;
     } 
 
-    public void GotHit()
+    public void GotHit(bool ByPlayer)
     {
         //Particle.Emit(5); <-------RETURN LATER
         //Audio.PlaySound(Sound.Activation.Custom, "Ah"); <-------RETURN LATER
+        if (ByPlayer)
         alert += 2;
         ShowingData = 5;
     }

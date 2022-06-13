@@ -51070,7 +51070,7 @@ MonoBehaviour:
   TheWallAttacks:
   - {fileID: 0}
   - {fileID: 11400000, guid: 4b4186adca57dc342968aaf7f90204ea, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: d613990230ec9514397085a5f4cd17d4, type: 2}
   - {fileID: 0}
   WallLength: 35
   Wallheight: 15

@@ -39,10 +39,7 @@ public class EnemyHealth : CharacterHealth , IpooledObject
         if (!AlreadyDead)
         {
             base.TakeDamage(Damage, Knock, Stagger, ImpactLocation, Attacker);
-            if (Attacker == GameManager.instance.Player)
-            {
-                enemy.GotHit();
-            }
+            enemy.GotHit(Attacker == GameManager.instance.Player);
         }
     }
 
