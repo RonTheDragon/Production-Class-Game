@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 8224471458878995143}
   - component: {fileID: 8828259269197601191}
   - component: {fileID: 8798600169629996017}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Dark_Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &8224471458878995143
 Transform:

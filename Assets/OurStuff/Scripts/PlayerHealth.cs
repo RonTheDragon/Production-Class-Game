@@ -62,16 +62,20 @@ public class PlayerHealth : CharacterHealth
         if (!AlreadyDead)
         {
             AlreadyDead = true;
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            if (iGotThePower)
+            if (!GameManager.instance.AlreadyWon)
             {
-                LoseStone();
-                GameManager.instance.SoulSucker = Instantiate(GameManager.instance.PowerStone, transform.position, transform.rotation).transform;
+                //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                if (iGotThePower)
+                {
+                    LoseStone();
+                    GameManager.instance.SoulSucker = Instantiate(GameManager.instance.PowerStone, transform.position, transform.rotation).transform;
+                }
+                //GameManager.instance.Player = Instantiate(GameManager.instance.Player, GetComponent<RespawmIfFallsOffMap>().startPos, transform.rotation/* FIX LATER*/);
+                anim.SetBool("Death", true);
+                PAS.enabled = false;
+                StartCoroutine(DisposeOfBody());
+
             }
-            //GameManager.instance.Player = Instantiate(GameManager.instance.Player, GetComponent<RespawmIfFallsOffMap>().startPos, transform.rotation/* FIX LATER*/);
-            anim.SetBool("Death", true);
-            PAS.enabled = false;
-            StartCoroutine(DisposeOfBody());
         }
     }
 
@@ -113,7 +117,10 @@ public class PlayerHealth : CharacterHealth
     protected override IEnumerator DisposeOfBody()
     {
         yield return new WaitForSeconds(3);
-        GameManager.instance.GetComponent<PlayerRespawnManager>().OpenRespawnMenu();
-        Destroy(gameObject);
+        if (GameManager.instance.AlreadyWon == false)
+        {
+            GameManager.instance.GetComponent<PlayerRespawnManager>().OpenRespawnMenu();
+            Destroy(gameObject);
+        }
     }
 }

@@ -20,7 +20,7 @@ public class TheWall : MonoBehaviour
     void Start()
     {
         Attackable = GameManager.instance.PlayerCanAttack;
-        SetUpAllCooldowns(true);
+        //SetUpAllCooldowns(true);
     }
 
     // Update is called once per frame

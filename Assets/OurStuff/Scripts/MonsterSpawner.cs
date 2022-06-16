@@ -28,7 +28,7 @@ public class MonsterSpawner : MonoBehaviour
         {
             SpawningLocations.Add(location);
         }
-        StartWave();
+        //StartWave();
     }
 
     void Update()
@@ -51,7 +51,7 @@ public class MonsterSpawner : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                StartNextLevel();
+                EndLevel();
             }
         }
     }
@@ -61,7 +61,7 @@ public class MonsterSpawner : MonoBehaviour
         MonstersAmount = gos.Length;
     }
 
-    void StartWave()
+    public void StartWave()
     {
         MonstersLeftToSpawn = new List<MonstersLeft>();
         Wave = Levels[CurrentLevel].Waves[CurrentWave];       
@@ -92,16 +92,24 @@ public class MonsterSpawner : MonoBehaviour
     {
        
         if (Levels[CurrentLevel].Waves.Count <= CurrentWave+1)
-        { 
+        {
+            Wave = null;
             if (Levels.Count <= CurrentLevel+1)
-            {
+            {               
                  Debug.Log("No More Levels");
                  return;
             }
             else
-            {
-                Wave = null;
-                GameManager.instance.Player.GetComponent<ThirdPersonMovement>().PressE.SetActive(true);
+            {             
+                GameManager.instance.AlreadyWon = true;
+                if (GameManager.instance.Player != null)
+                {
+                    GameManager.instance.Player.GetComponent<ThirdPersonMovement>().PressE.SetActive(true);
+                }
+                else
+                {
+                    EndLevel();
+                }
             }
         }
         else
@@ -111,6 +119,17 @@ public class MonsterSpawner : MonoBehaviour
         }
         
     }
+
+    public void WaveLost()
+    {
+        CurrentWave = 0;
+        Wave = null;
+        foreach(GameObject Enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            Enemy.SetActive(false);
+        }
+    }
+
     void DuringWave()
     {
         if (MonstersLeftToSpawn.Count > 0 && TimeLeftForNextEnemy<=0)
@@ -135,11 +154,21 @@ public class MonsterSpawner : MonoBehaviour
         public string Name;
         public int Amount;
     }
-    public void StartNextLevel()
+    public void EndLevel()
     {
-        CurrentWave = 0;
-        CurrentLevel++;
-        GameManager.instance.Player.GetComponent<ThirdPersonMovement>().PressE.SetActive(false);
-        StartWave();
+        GameObject Player = GameManager.instance.Player;
+        if (Player != null)
+        {
+            CurrentWave = 0;
+            CurrentLevel++;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+
+            Player.GetComponent<ThirdPersonMovement>().PressE.SetActive(false);
+            Player.SetActive(false);
+
+            GameManager.instance.GetComponent<TownManager>().TownCamera.gameObject.SetActive(true);
+        }
+        //StartWave();
     }
 }

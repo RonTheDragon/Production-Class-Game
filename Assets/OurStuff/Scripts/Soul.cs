@@ -18,17 +18,20 @@ public class Soul : MonoBehaviour , IpooledObject
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.instance.SoulSucker.gameObject != null && !SoulAlreadyCollected)
+        if (GameManager.instance.SoulSucker != null)
         {
-            float s = 1 + (0.1f * SoulEnergy );
-            transform.localScale = new Vector3(s,s,s);
-            float dist = Vector3.Distance(transform.position, GameManager.instance.SoulSucker.position);
-            transform.position += transform.forward * (speed) * Time.deltaTime;
-            Vector3 newDirection = Vector3.RotateTowards(transform.forward, GameManager.instance.SoulSucker.position-transform.position, rotationSpeed * Time.deltaTime, 0.0f);
-            transform.rotation = Quaternion.LookRotation(newDirection);
-            if (dist < 0.1f && !SoulAlreadyCollected)
+            if (GameManager.instance.SoulSucker.gameObject != null && !SoulAlreadyCollected)
             {
-                SoulCollected();
+                float s = 1 + (0.1f * SoulEnergy);
+                transform.localScale = new Vector3(s, s, s);
+                float dist = Vector3.Distance(transform.position, GameManager.instance.SoulSucker.position);
+                transform.position += transform.forward * (speed) * Time.deltaTime;
+                Vector3 newDirection = Vector3.RotateTowards(transform.forward, GameManager.instance.SoulSucker.position - transform.position, rotationSpeed * Time.deltaTime, 0.0f);
+                transform.rotation = Quaternion.LookRotation(newDirection);
+                if (dist < 0.1f && !SoulAlreadyCollected)
+                {
+                    SoulCollected();
+                }
             }
         }
     }

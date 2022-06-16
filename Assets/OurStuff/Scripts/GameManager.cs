@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public        GameObject    CooldownCircleObject;
     [HideInInspector] public Transform SoulSucker;
     [HideInInspector] public int SoulEnergy;
+    [HideInInspector] public bool AlreadyWon;
 
     private void Awake()
     {

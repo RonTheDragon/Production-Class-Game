@@ -14,7 +14,7 @@ public class PlayerRespawnManager : MonoBehaviour
     [SerializeField] Transform PlayerRespawnLocation;
     void Start()
     {
-        SpawnFirstCharacter();
+        //SpawnFirstCharacter();
         RespawnMenu.SetActive(false);
     }
 
@@ -25,8 +25,35 @@ public class PlayerRespawnManager : MonoBehaviour
 
     public void SpawnFirstCharacter()
     {
-        RespawnPlayer(CreateCharacter());
-        StartCoroutine(SpawnFirstRock());
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        if (GameManager.instance.Player == null) // if no player
+        {
+            RespawnPlayer(CreateCharacter());
+            StartCoroutine(SpawnFirstRock());
+        }
+        else                                                // if there is a player
+        {
+            if (GameManager.instance.Player.GetComponent<PlayerHealth>().AlreadyDead == true)
+            {
+                Destroy(GameManager.instance.Player);
+                Destroy(GameManager.instance.SoulSucker.gameObject);
+                RespawnPlayer(CreateCharacter());
+                StartCoroutine(SpawnFirstRock());
+                return;
+            }
+
+            GameObject Player = GameManager.instance.Player;
+            Player.transform.position = PlayerRespawnLocation.position;
+            Player.SetActive(true);
+            Health hp = Player.GetComponent<Health>();
+            hp.Hp = hp.MaxHp;
+            if (GameManager.instance.SoulSucker.gameObject != Player)
+            {
+                Destroy(GameManager.instance.SoulSucker.gameObject);
+                StartCoroutine(SpawnFirstRock());
+            }
+        }
     }
 
     IEnumerator SpawnFirstRock()
@@ -102,7 +129,17 @@ public class PlayerRespawnManager : MonoBehaviour
     {
         Debug.Log("Game Over");
         yield return new WaitForSeconds(5);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        RespawnMenu.SetActive(false);
+        if (GameManager.instance.SoulSucker.gameObject != null)
+        {
+            Destroy(GameManager.instance.SoulSucker.gameObject);
+        }
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        GameManager.instance.GetComponent<MonsterSpawner>().WaveLost();
+        GameManager.instance.GetComponent<TownManager>().TownCamera.gameObject.SetActive(true);
     }
 
     public void RemoveCard(int Remove)
