@@ -98,7 +98,7 @@ public class PlayerHealth : CharacterHealth
         PAS.DamageMultiplier *= 2;
         MaxHp *= 2;
         Hp = MaxHp;
-        transform.localScale = new Vector3(1.1f, 1.1f, 1.1f);
+        transform.localScale = new Vector3(1.3f, 1.3f, 1.3f);
         GameManager.instance.SoulSucker = transform;
     }
     public void LoseStone()
