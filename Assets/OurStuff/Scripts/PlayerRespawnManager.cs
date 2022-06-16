@@ -72,8 +72,17 @@ public class PlayerRespawnManager : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
 
-        RespawnMenu.SetActive(true);
+        if (Content.transform.childCount > 0)
+        {
 
+            foreach(Transform c in Content.transform)
+            {
+                Destroy(c.gameObject);
+            }
+        }
+
+        RespawnMenu.SetActive(true);
+        
         if (playerParameters.Count > 0)
         {
 
