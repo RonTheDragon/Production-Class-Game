@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WeakWarrior
   m_EditorClassIdentifier: 
   RoleName: Warrior
-  Body: {fileID: 8559470171900184560, guid: 247ded5f593901542bb012f6c071c87c, type: 3}
+  Body: {fileID: 5533782428262834980, guid: e232913e0d08cd942844ca2ad82c0904, type: 3}
   role: {fileID: 11400000, guid: e126c1b55136a47498ea0743b94340a5, type: 2}
   damageMultiplier: {x: 0.5, y: 1}
   health: {x: 100, y: 150}
