@@ -120,6 +120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e812a70b6c7c20940806e74e8af4311d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SoulValue: {x: 5, y: 10}
+  SoulWorth: 0
   DetectionRange: 10
   alert: 0
   RoamCooldown: 10
@@ -127,6 +129,7 @@ MonoBehaviour:
   BraveEnoughToFight: 20
   timeToAlert: 0.5
   CanvasHolder: {fileID: 2639252842676306409}
+  anim: {fileID: 0}
 --- !u!1 &2378122981402056441
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,7 +283,7 @@ NavMeshAgent:
   m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -307,6 +310,7 @@ MonoBehaviour:
   MaxHp: 100
   Hp: 0
   HpRegan: 0
+  AlreadyDead: 0
   StaggerResistance: 50
   DeadGhost: {fileID: 0}
 --- !u!114 &1004402096

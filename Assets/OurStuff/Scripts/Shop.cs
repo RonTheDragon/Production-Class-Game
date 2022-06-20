@@ -90,7 +90,7 @@ public class Shop : MonoBehaviour, ItownClickable
             switch (Up.Upgrading)
             {
                 case UpgradesList.WallHp:
-                    GameManager.instance.Wall.GetComponent<WallHealth>().MaxHp += 50;
+                    GameManager.instance.Wall.GetComponent<WallHealth>().MaxHp += 100;
                     break;
             }
         }

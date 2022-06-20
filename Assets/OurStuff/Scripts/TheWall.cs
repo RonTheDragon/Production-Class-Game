@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TheWall : MonoBehaviour
 {
-    public enum WallAttacks { None, Mines , Particle}
+    public enum WallAttacks { None, Mines , Particle , Healing}
     public SOwall[] TheWallAttacks = new SOwall[4];
     public float WallLength = 90;
     public float Wallheight = 10;
@@ -92,6 +92,10 @@ public class TheWall : MonoBehaviour
             case WallAttacks.Particle:
                 ParticleRain(attack);
                 break;
+            case WallAttacks.Healing:
+                Heal(attack);
+                break;
+
                 
 
             default: break;
@@ -134,6 +138,16 @@ public class TheWall : MonoBehaviour
             pc.Damage = AP.Damage;
             pc.Knock = AP.Knockback;
             pc.Stagger = AP.Stagger;
+        }
+    }
+
+    public void Heal(SOwall attack)
+    {
+        if (attack is SOwallHeal)
+        {
+            SOwallHeal H = (SOwallHeal)attack;
+            WallHealth hp = GetComponent<WallHealth>();
+            hp.Hp += hp.MaxHp * 0.01f * H.Heal;
         }
     }
 
