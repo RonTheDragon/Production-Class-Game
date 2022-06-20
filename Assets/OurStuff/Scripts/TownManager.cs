@@ -16,22 +16,25 @@ public class TownManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!GameManager.instance.CantUseTown)
         {
-            Ray ray = TownCamera.ScreenPointToRay(Input.mousePosition);
-            RaycastHit raycastHit;
-            if (Physics.Raycast(ray, out raycastHit))
+            if (Input.GetMouseButtonDown(0))
             {
-                ItownClickable TC = raycastHit.collider.gameObject.GetComponent<ItownClickable>();
-                if (TC != null)
+                Ray ray = TownCamera.ScreenPointToRay(Input.mousePosition);
+                RaycastHit raycastHit;
+                if (Physics.Raycast(ray, out raycastHit))
                 {
-                    TC.OnClicked();
+                    ItownClickable TC = raycastHit.collider.gameObject.GetComponent<ItownClickable>();
+                    if (TC != null)
+                    {
+                        TC.OnClicked();
+                    }
                 }
             }
         }
     }
 
-    void UpdateSoulCount()
+    public void UpdateSoulCount()
     {
         Souls.text = $"Souls: {GameManager.instance.SoulEnergy}";
     }

@@ -20,8 +20,12 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public bool WallFacingZ;
     [HideInInspector] public float WallLength;
     public        GameObject    CooldownCircleObject;
+    [HideInInspector] public bool CantUseTown;
+    public GameObject Upgrade;
+    public GameObject ShopItem;
+    public GameObject BaughtItem;
     [HideInInspector] public Transform SoulSucker;
-    [HideInInspector] public int SoulEnergy;
+    public int SoulEnergy;
     [HideInInspector] public bool AlreadyWon;
 
     private void Awake()
@@ -29,5 +33,10 @@ public class GameManager : MonoBehaviour
         instance = this;
         WallFacingZ = Wall.GetComponent<TheWall>().WallFacingZ;
         WallLength = Wall.GetComponent<TheWall>().WallLength;
+    }
+
+    public void Shopping(bool b)
+    {
+        CantUseTown = b;
     }
 }

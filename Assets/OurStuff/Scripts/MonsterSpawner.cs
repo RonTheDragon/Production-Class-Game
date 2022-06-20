@@ -168,6 +168,8 @@ public class MonsterSpawner : MonoBehaviour
             Player.SetActive(false);
 
             GameManager.instance.GetComponent<TownManager>().TownCamera.gameObject.SetActive(true);
+            GameManager.instance.GetComponent<TownManager>().UpdateSoulCount();
+            GameManager.instance.CantUseTown = false;
         }
         //StartWave();
     }

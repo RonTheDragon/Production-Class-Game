@@ -140,6 +140,8 @@ public class PlayerRespawnManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         GameManager.instance.GetComponent<MonsterSpawner>().WaveLost();
         GameManager.instance.GetComponent<TownManager>().TownCamera.gameObject.SetActive(true);
+        GameManager.instance.GetComponent<TownManager>().UpdateSoulCount();
+        GameManager.instance.CantUseTown = false;
     }
 
     public void RemoveCard(int Remove)

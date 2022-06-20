@@ -14,6 +14,7 @@ public class StartBattle : MonoBehaviour , ItownClickable
         hp.Hp = hp.MaxHp;
         GameManager.instance.GetComponent<TownManager>().TownCamera.gameObject.SetActive(false);
         GameManager.instance.AlreadyWon = false;
+        GameManager.instance.CantUseTown= true;
     }
 
 }
