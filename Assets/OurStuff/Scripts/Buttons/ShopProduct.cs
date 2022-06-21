@@ -3,16 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShopUpgrade : MonoBehaviour
+public abstract class ShopProduct : MonoBehaviour
 {
     public Shop shop;
-    public Upgrade upgrade;
-    private void Start()
+    void Start()
     {
         GetComponent<Button>().onClick.AddListener(OnClick);
     }
-    public void OnClick()
-    {
-        shop.UseUpgrade(upgrade);
-    }
+    public abstract void OnClick();
+
 }

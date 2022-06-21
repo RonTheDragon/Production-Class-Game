@@ -131,6 +131,11 @@ public class PlayerRespawnManager : MonoBehaviour
         yield return new WaitForSeconds(5);
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
+        if (GameManager.instance.Player != null)
+        {
+            GameManager.instance.Player.SetActive(false);
+        }
+
         RespawnMenu.SetActive(false);
         if (GameManager.instance.SoulSucker.gameObject != null)
         {
