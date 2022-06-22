@@ -520,6 +520,22 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1592667117}
     - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[0].pools.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[0].pools.Array.data[2].tag
+      value: GolemRock
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[0].pools.Array.data[2].size
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[0].pools.Array.data[2].prefab
+      value: 
+      objectReference: {fileID: 3191585019767905320, guid: 402046c7b26e3fc469af0764a8b4bedc, type: 3}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
       propertyPath: Groups.Array.data[1].pools.Array.data[1].prefab
       value: 
       objectReference: {fileID: 7279148891320323637, guid: 8339445f9512bbc4194c3611e9e54ba4, type: 3}
