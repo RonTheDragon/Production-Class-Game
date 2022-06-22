@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WeakArcher
   m_EditorClassIdentifier: 
   RoleName: Archer
-  Body: {fileID: 5533782428262834980, guid: e232913e0d08cd942844ca2ad82c0904, type: 3}
+  Body: {fileID: 4974266621324811428, guid: 66aaab8aa9829064aa8f24007f836263, type: 3}
   role: {fileID: 11400000, guid: 926597246559e654ba8125c983fd5ec4, type: 2}
   damageMultiplier: {x: 0.5, y: 1}
   health: {x: 30, y: 70}

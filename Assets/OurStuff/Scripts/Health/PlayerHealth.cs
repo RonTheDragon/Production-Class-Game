@@ -23,7 +23,7 @@ public class PlayerHealth : CharacterHealth
         CC = GetComponent<CharacterController>();
         RB = GetComponent<Rigidbody>();
         PAS = GetComponent<PlayerAttackSystem>();
-        anim = transform.GetChild(0).GetComponent<Animator>();
+        anim = GetComponent<ThirdPersonMovement>().animator;
         CanKillSelf = GameManager.instance.PlayerKillingShortCut;
         //Anim = transform.GetChild(0).GetComponent<Animator>();
         //audio = GetComponent<AudioManager>();

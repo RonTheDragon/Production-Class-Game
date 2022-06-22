@@ -23,26 +23,34 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8daa6da93070c404196d516473b5ff33, type: 2}
+    - target: {fileID: 3033782911989730173, guid: 89ef136ead5e26a438b669df7c7d3931, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4626013883555717117, guid: 89ef136ead5e26a438b669df7c7d3931, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7246966230910348196, guid: 89ef136ead5e26a438b669df7c7d3931, type: 3}
       propertyPath: BraveEnoughToOffensive
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7246966230910348196, guid: 89ef136ead5e26a438b669df7c7d3931, type: 3}
       propertyPath: OffensiveAttacks.Array.size
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7246966230910348196, guid: 89ef136ead5e26a438b669df7c7d3931, type: 3}
       propertyPath: OffensiveAttacks.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: f5f473570cd558e4882b4e91049ca6aa, type: 2}
+      objectReference: {fileID: 11400000, guid: 00dd8e7e1bf269c46850c9c9e02ab156, type: 2}
     - target: {fileID: 7246966230910348196, guid: 89ef136ead5e26a438b669df7c7d3931, type: 3}
       propertyPath: OffensiveAttacks.Array.data[3]
       value: 
-      objectReference: {fileID: 11400000, guid: c9116d97e6c28b342b516e6734055162, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 7246966230910348196, guid: 89ef136ead5e26a438b669df7c7d3931, type: 3}
       propertyPath: OffensiveAttacks.Array.data[4]
       value: 
-      objectReference: {fileID: 11400000, guid: 32243c880f256fd43bf8ec57da9062f3, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 7246966230910348218, guid: 89ef136ead5e26a438b669df7c7d3931, type: 3}
       propertyPath: m_Speed
       value: 2.5

@@ -18,7 +18,7 @@ public class PlayerAttackSystem : AttackSystem
         Attacker = gameObject;
         CC = GetComponent<CharacterController>();
         Audio = GetComponent<AudioManager>();
-        Anim = transform.GetChild(0).GetComponent<Animator>();
+        Anim = GetComponent<ThirdPersonMovement>().animator;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         SetLayersForAttacks(GameManager.instance.PlayerCanAttack);

@@ -8,7 +8,7 @@ public class ThirdPersonMovement : MonoBehaviour
 {
     Vector3 previousPos;
     Transform player;
-    Animator anim;
+    public Animator animator;
 
     public bool aim = true;
 
@@ -47,7 +47,6 @@ public class ThirdPersonMovement : MonoBehaviour
             WallHp = GameManager.instance.Wall.GetComponent<WallHealth>();
         }
         Hp = GetComponent<PlayerHealth>();
-        anim = player.GetChild(0).GetComponent<Animator>();
     }
 
     void Update()
@@ -63,11 +62,11 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         if (previousPos == player.transform.position)
         {
-            anim.SetInteger("Walk", 0);
+            animator.SetInteger("Walk", 0);
         }
         else
         {
-            anim.SetInteger("Walk", 1);
+            animator.SetInteger("Walk", 1);
             previousPos = player.transform.position;
         }
     }
