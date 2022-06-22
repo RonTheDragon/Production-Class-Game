@@ -31,6 +31,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7246966230609521962, guid: 89ef136ead5e26a438b669df7c7d3931, type: 3}
+      propertyPath: m_Height
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7246966230609521962, guid: 89ef136ead5e26a438b669df7c7d3931, type: 3}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7246966230609521962, guid: 89ef136ead5e26a438b669df7c7d3931, type: 3}
+      propertyPath: m_Center.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7246966230910348196, guid: 89ef136ead5e26a438b669df7c7d3931, type: 3}
       propertyPath: BraveEnoughToOffensive
       value: 30
@@ -78,6 +90,10 @@ PrefabInstance:
     - target: {fileID: 7246966231843312881, guid: 89ef136ead5e26a438b669df7c7d3931, type: 3}
       propertyPath: BraveEnoughToFight
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7246966231843312881, guid: 89ef136ead5e26a438b669df7c7d3931, type: 3}
+      propertyPath: CanvasHolderHeight
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 9220806171759854006, guid: 89ef136ead5e26a438b669df7c7d3931, type: 3}
       propertyPath: m_Name

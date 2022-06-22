@@ -662,6 +662,7 @@ MonoBehaviour:
   BraveEnoughToFight: 20
   timeToAlert: 0.5
   CanvasHolder: {fileID: 4626013883555717117}
+  CanvasHolderHeight: 0.5
   anim: {fileID: 7691940457263069742}
 --- !u!1001 &878960430446492380
 PrefabInstance:

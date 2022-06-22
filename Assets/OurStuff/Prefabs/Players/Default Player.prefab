@@ -1695,7 +1695,7 @@ MonoBehaviour:
   Attacker: {fileID: 0}
   particle: {fileID: 0}
   AnimationTrigger: 0
-  Hold: 0
+  particleType: 0
   ParticleAmount: 1
   AttackCooldown: 0
   cooldown: 0
@@ -1830,7 +1830,7 @@ MonoBehaviour:
   AttackCooldown: 0
   StaminaCost: 30
   MaxStamina: 100
-  StaminaRegan: 30
+  StaminaRegan: 15
   Tired: 30
   StaggerDuration: 0.3
   abilities:

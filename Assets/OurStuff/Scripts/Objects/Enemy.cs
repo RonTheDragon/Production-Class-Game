@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour , IpooledObject
     [SerializeField] float timeToAlert = 0.5f;
 
     public GameObject CanvasHolder;
+    public float CanvasHolderHeight;
     Image hpBar;
     Image staminaBar;
     float ShowingData;
@@ -340,7 +341,8 @@ public class Enemy : MonoBehaviour , IpooledObject
     {
         if (CanvasHolder != null)
         {
-            CanvasHolder.transform.position = TheEnemy.transform.position;
+            
+            CanvasHolder.transform.position = new Vector3(TheEnemy.transform.position.x, TheEnemy.transform.position.y+ CanvasHolderHeight, TheEnemy.transform.position.z);
             CanvasHolder.transform.GetChild(0).LookAt(PlayerCam.transform.position);
             if (hpBar == null)
             {
