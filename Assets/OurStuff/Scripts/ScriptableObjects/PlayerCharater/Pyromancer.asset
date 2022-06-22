@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49b199dadb0e8fa44812df8d4dc14b6f, type: 3}
+  m_Name: Pyromancer
+  m_EditorClassIdentifier: 
+  RoleName: Mage
+  Body: {fileID: 4974266621324811428, guid: 66aaab8aa9829064aa8f24007f836263, type: 3}
+  role: {fileID: 11400000, guid: e9da291bff372f542a2ae5869cd9f2c4, type: 2}
+  damageMultiplier: {x: 1, y: 2}
+  health: {x: 30, y: 70}

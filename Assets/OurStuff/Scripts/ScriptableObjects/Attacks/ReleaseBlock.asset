@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53270ef755bbaf647a91832db378b2ee, type: 3}
   m_Name: ReleaseBlock
   m_EditorClassIdentifier: 
-  Name: StopBlocking
-  AnimationTrigger: Release1
+  Name: Stop Fire
+  AnimationTrigger: Release3
+  PreviousAttack: Block
   StaminaCost: 0
   AttackCooldown: 0
+  AbilityCooldown: 0
   MinRange: 0
   MaxRange: 100
   Chance: 30
   attackType: 2
-  PreviousAttack: Block
+  aiming: 0
+  Image: {fileID: 0}

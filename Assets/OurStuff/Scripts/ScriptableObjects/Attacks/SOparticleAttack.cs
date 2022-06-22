@@ -7,6 +7,6 @@ public class SOparticleAttack : SOattack
 {
     public ParticleSystem particleSystem;
     public int Emit = 1;
-    public bool Hold;
+    public ParticleAttack.ParticleType particleType;
     public float DamagingCooldown = 0.2f;
 }

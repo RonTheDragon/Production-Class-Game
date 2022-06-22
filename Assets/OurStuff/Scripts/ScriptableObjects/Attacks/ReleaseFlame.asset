@@ -9,23 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5640c261f1e55fe449404fdbaf8911d7, type: 3}
-  m_Name: RangeAttack
+  m_Script: {fileID: 11500000, guid: 53270ef755bbaf647a91832db378b2ee, type: 3}
+  m_Name: ReleaseFlame
   m_EditorClassIdentifier: 
-  Name: ShootArrow
-  AnimationTrigger: Attack3
-  PreviousAttack: ChargeBow
+  Name: StopFire
+  AnimationTrigger: Release3
+  PreviousAttack: FlameThrower
   StaminaCost: 0
-  AttackCooldown: 0.5
+  AttackCooldown: 0
   AbilityCooldown: 0
   MinRange: 0
   MaxRange: 100
-  Chance: 10
+  Chance: 30
   attackType: 2
-  aiming: 1
+  aiming: 0
   Image: {fileID: 0}
-  Damage: 10
-  Knockback: 5
-  Stagger: {x: 20, y: 70}
-  Projectile: Test
-  ProjectileSpeed: 30

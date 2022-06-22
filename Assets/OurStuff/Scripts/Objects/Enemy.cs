@@ -35,7 +35,6 @@ public class Enemy : MonoBehaviour , IpooledObject
 
     EnemyAttackSystem eas;
     EnemyHealth hp;
-    [HideInInspector] public Animator anim;
     SkinnedMeshRenderer MR;
     AudioManager Audio;
     ParticleSystem Particle;
@@ -48,6 +47,9 @@ public class Enemy : MonoBehaviour , IpooledObject
 
     float StoppingDistance;
      
+    
+    public Animator anim;
+
     void Awake()
     {
         TheEnemy = transform.GetChild(0);
@@ -57,7 +59,6 @@ public class Enemy : MonoBehaviour , IpooledObject
         Audio = TheEnemy.GetComponent<AudioManager>();
         Particle = TheEnemy.GetComponent<ParticleSystem>();
         PR = TheEnemy.GetComponent<ParticleSystemRenderer>();
-        anim = TheEnemy.GetChild(0).GetComponent<Animator>();
         // MR = anim.transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>();
 
         previousPos = TheEnemy.transform.position;

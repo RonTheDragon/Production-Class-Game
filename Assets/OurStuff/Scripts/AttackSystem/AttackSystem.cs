@@ -168,7 +168,7 @@ public abstract class AttackSystem : MonoBehaviour
                     {
                         particleAttack.ReplaceParticleSystem(SOP.particleSystem, SOP.Name);
                     }
-                    particleAttack.Hold = SOP.Hold;
+                    particleAttack.particleType = SOP.particleType;
                     particleAttack.ParticleAmount = SOP.Emit;
                     particleAttack.AttackCooldown = SOP.DamagingCooldown;
                 }
