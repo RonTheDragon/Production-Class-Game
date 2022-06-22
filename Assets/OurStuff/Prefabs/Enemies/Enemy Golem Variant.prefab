@@ -440,7 +440,7 @@ MonoBehaviour:
   Attacker: {fileID: 0}
   particle: {fileID: 0}
   AnimationTrigger: 0
-  Hold: 0
+  particleType: 0
   ParticleAmount: 1
   AttackCooldown: 0
   cooldown: 0
@@ -662,7 +662,8 @@ MonoBehaviour:
   BraveEnoughToFight: 20
   timeToAlert: 0.5
   CanvasHolder: {fileID: 4626013883555717117}
-  anim: {fileID: 0}
+  CanvasHolderHeight: 0.5
+  anim: {fileID: 7691940457263069742}
 --- !u!1001 &878960430446492380
 PrefabInstance:
   m_ObjectHideFlags: 0

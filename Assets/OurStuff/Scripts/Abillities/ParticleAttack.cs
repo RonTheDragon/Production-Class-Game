@@ -7,7 +7,8 @@ public class ParticleAttack : Attack
     [HideInInspector]
     public ParticleSystem particle;
     public bool AnimationTrigger;
-    public bool Hold;
+    public enum ParticleType { Single , Spam , Play}
+    public ParticleType particleType;
     bool _alreadyON;
     public int ParticleAmount = 1;
 
@@ -33,19 +34,22 @@ public class ParticleAttack : Attack
     {
         if (cooldown > 0) { cooldown -= Time.deltaTime; }
 
-        if (Hold)
+        if (particleType == ParticleType.Spam)
         {
             if (AnimationTrigger)
             {
                 Shoot();
             }
         }
-        else
+        else 
         {
             if (!_alreadyON && AnimationTrigger)
             {
                 _alreadyON = true;
+                if (particleType == ParticleType.Single)
                 Shoot();
+                else if (particleType == ParticleType.Play)
+                Play();
             }
             else if (_alreadyON && !AnimationTrigger)
             {
@@ -57,6 +61,11 @@ public class ParticleAttack : Attack
     public void Shoot()
     {
         particle.Emit(ParticleAmount);
+    }
+
+    public void Play()
+    {
+        particle.Play();
     }
 
     public void CreateParticleSystem(ParticleSystem p,string ParticleName)

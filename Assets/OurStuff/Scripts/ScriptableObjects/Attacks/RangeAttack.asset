@@ -23,6 +23,7 @@ MonoBehaviour:
   Chance: 10
   attackType: 2
   aiming: 1
+  Image: {fileID: 0}
   Damage: 10
   Knockback: 5
   Stagger: {x: 20, y: 70}

@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour , IpooledObject
     [SerializeField] float timeToAlert = 0.5f;
 
     public GameObject CanvasHolder;
+    public float CanvasHolderHeight;
     Image hpBar;
     Image staminaBar;
     float ShowingData;
@@ -35,7 +36,6 @@ public class Enemy : MonoBehaviour , IpooledObject
 
     EnemyAttackSystem eas;
     EnemyHealth hp;
-    [HideInInspector] public Animator anim;
     SkinnedMeshRenderer MR;
     AudioManager Audio;
     ParticleSystem Particle;
@@ -48,6 +48,9 @@ public class Enemy : MonoBehaviour , IpooledObject
 
     float StoppingDistance;
      
+    
+    public Animator anim;
+
     void Awake()
     {
         TheEnemy = transform.GetChild(0);
@@ -57,7 +60,6 @@ public class Enemy : MonoBehaviour , IpooledObject
         Audio = TheEnemy.GetComponent<AudioManager>();
         Particle = TheEnemy.GetComponent<ParticleSystem>();
         PR = TheEnemy.GetComponent<ParticleSystemRenderer>();
-        anim = TheEnemy.GetChild(0).GetComponent<Animator>();
         // MR = anim.transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>();
 
         previousPos = TheEnemy.transform.position;
@@ -339,7 +341,8 @@ public class Enemy : MonoBehaviour , IpooledObject
     {
         if (CanvasHolder != null)
         {
-            CanvasHolder.transform.position = TheEnemy.transform.position;
+            
+            CanvasHolder.transform.position = new Vector3(TheEnemy.transform.position.x, TheEnemy.transform.position.y+ CanvasHolderHeight, TheEnemy.transform.position.z);
             CanvasHolder.transform.GetChild(0).LookAt(PlayerCam.transform.position);
             if (hpBar == null)
             {
