@@ -519,6 +519,30 @@ PrefabInstance:
       propertyPath: Wall
       value: 
       objectReference: {fileID: 1592667117}
+    - target: {fileID: 2909591882988768622, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9387491
+      objectReference: {fileID: 0}
+    - target: {fileID: 2909591882988768622, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.24706435
+      objectReference: {fileID: 0}
+    - target: {fileID: 2909591882988768622, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.23231688
+      objectReference: {fileID: 0}
+    - target: {fileID: 2909591882988768622, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.06114224
+      objectReference: {fileID: 0}
+    - target: {fileID: 2909591882988768622, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 29.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 2909591882988768622, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 27.8
+      objectReference: {fileID: 0}
     - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
       propertyPath: Groups.Array.data[0].pools.Array.size
       value: 3
