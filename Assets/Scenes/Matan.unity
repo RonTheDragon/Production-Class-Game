@@ -515,6 +515,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -0.00012207031
       objectReference: {fileID: 0}
+    - target: {fileID: 863390329, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: PlayerBodies.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 863390329, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: PlayerBodies.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2ec64f7a79d54b847b421b794da9ed66, type: 2}
     - target: {fileID: 998420710, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
       propertyPath: m_Volume
       value: 0.1
