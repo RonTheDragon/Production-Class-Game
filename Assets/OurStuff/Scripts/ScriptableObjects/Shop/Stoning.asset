@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7fd2c1947d5477b47ad66441a9715abe, type: 3}
-  m_Name: RainArrows
+  m_Name: Stoning
   m_EditorClassIdentifier: 
-  Name: Rain Arrow
-  Explanation: Shoots Arrows for 20 Seconds
+  Name: Stoning
+  Explanation: Throw Rocks for 20 Seconds
   Price: 5
   ability: {fileID: 11400000, guid: d613990230ec9514397085a5f4cd17d4, type: 2}
