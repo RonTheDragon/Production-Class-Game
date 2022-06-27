@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Stoning
   AbilityCooldown: 40
-  Image: {fileID: 21300000, guid: d3ded431aacfda146b4ec9773251232b, type: 3}
+  Image: {fileID: 21300000, guid: 9e5ecbb4a0bbd544f8d9c64e6a6a4d9a, type: 3}
   wallAttack: 2
   Damage: 40
   Knockback: 15

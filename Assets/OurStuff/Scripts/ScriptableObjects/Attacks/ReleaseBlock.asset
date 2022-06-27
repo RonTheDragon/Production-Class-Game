@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ReleaseBlock
   m_EditorClassIdentifier: 
   Name: Stop Block
-  AnimationTrigger: Release1
+  AnimationTrigger: Release
   PreviousAttack: Block
   StaminaCost: 0
   AttackCooldown: 0

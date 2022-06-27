@@ -30,6 +30,7 @@ public abstract class AttackSystem : MonoBehaviour
     protected void Start()
     {
         Stamina = MaxStamina;
+        HoldingAnAttack= string.Empty;
     }
 
     protected void Update()
@@ -37,9 +38,19 @@ public abstract class AttackSystem : MonoBehaviour
         if (AttackCooldown > 0 && HoldingAnAttack == string.Empty)
             AttackCooldown -= Time.deltaTime;
 
+        if (HoldingAnAttack != string.Empty)
+        {
+            Stamina -= StaminaCost * Time.deltaTime;
+            if (Stamina <= 0)
+            {
+                Anim.SetTrigger("Release");
+                HoldingAnAttack = string.Empty;
+            }
+        }
+
         if (Stamina < MaxStamina)
         {
-            if (StaminaRegan > 0)
+            if (StaminaRegan > 0 && HoldingAnAttack == string.Empty)
                 Stamina += Time.deltaTime * StaminaRegan;
         }
         else

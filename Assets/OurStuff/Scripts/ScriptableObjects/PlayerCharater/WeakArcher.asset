@@ -15,5 +15,5 @@ MonoBehaviour:
   RoleName: Archer
   Body: {fileID: 2516225614057224521, guid: 6f9276e5a49dd7b4d90031ac8672cb46, type: 3}
   role: {fileID: 11400000, guid: 926597246559e654ba8125c983fd5ec4, type: 2}
-  damageMultiplier: {x: 0.5, y: 1}
+  damageMultiplier: {x: 1, y: 2}
   health: {x: 30, y: 70}

@@ -13,22 +13,13 @@ MonoBehaviour:
   m_Name: WallMines
   m_EditorClassIdentifier: 
   Name: Mines
-  AnimationTrigger: 
-  PreviousAttack: 
-  StaminaCost: 0
-  AttackCooldown: 1
   AbilityCooldown: 60
-  MinRange: 0
-  MaxRange: 3
-  Chance: 100
-  attackType: 0
-  aiming: 0
   Image: {fileID: 21300000, guid: 73a698c822ce0e847b8ad637df3b17c8, type: 3}
+  wallAttack: 1
   Damage: 200
   Knockback: 20
   Stagger: {x: 0, y: 100}
-  wallAttack: 1
   Projectile: Mine
-  ProjectileSpeed: 2000000
+  ProjectileSpeed: 20000
   AmountOfShoots: 7
   ExplosionRadius: 15

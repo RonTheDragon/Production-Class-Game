@@ -15,7 +15,7 @@ MonoBehaviour:
   Name: Sword3
   AnimationTrigger: Sword3
   PreviousAttack: Sword2
-  StaminaCost: 10
+  StaminaCost: 30
   AttackCooldown: 1
   AbilityCooldown: 0
   MinRange: 0

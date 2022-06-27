@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ReleaseFlame
   m_EditorClassIdentifier: 
   Name: StopFire
-  AnimationTrigger: Release3
+  AnimationTrigger: Release
   PreviousAttack: FlameThrower
   StaminaCost: 0
   AttackCooldown: 0

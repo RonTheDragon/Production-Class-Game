@@ -89,6 +89,10 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             controller.Move(Vector3.down * gravity * Time.deltaTime);
         }
+        else
+        {
+            controller.Move(Vector3.down * 0.001f * Time.deltaTime);
+        }
     }
 
     private void CameraController()

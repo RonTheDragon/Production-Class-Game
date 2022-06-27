@@ -15,7 +15,7 @@ MonoBehaviour:
   Name: Sword2
   AnimationTrigger: Sword2
   PreviousAttack: SwordAttack
-  StaminaCost: 10
+  StaminaCost: 20
   AttackCooldown: 0.3
   AbilityCooldown: 0
   MinRange: 0

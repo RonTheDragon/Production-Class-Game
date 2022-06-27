@@ -37,6 +37,7 @@ public class PlayerRespawnManager : MonoBehaviour
             if (GameManager.instance.Player.GetComponent<PlayerHealth>().AlreadyDead == true)
             {
                 Destroy(GameManager.instance.Player);
+                if (GameManager.instance.SoulSucker!=null)
                 Destroy(GameManager.instance.SoulSucker.gameObject);
                 RespawnPlayer(CreateCharacter());
                 StartCoroutine(SpawnFirstRock());

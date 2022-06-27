@@ -15,7 +15,7 @@ MonoBehaviour:
   Name: FlameThrower
   AnimationTrigger: Fire
   PreviousAttack: 
-  StaminaCost: 50
+  StaminaCost: 20
   AttackCooldown: 1
   AbilityCooldown: 0
   MinRange: 0
