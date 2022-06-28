@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Class Mage
   m_EditorClassIdentifier: 
   DownLeftClickAttacks:
-  - {fileID: 11400000, guid: 7601089ddf044e648a117434630ec571, type: 2}
+  - {fileID: 11400000, guid: 59dc66122f918a74b8391d6849a70aeb, type: 2}
   DownRightClickAttacks:
   - {fileID: 11400000, guid: c9538954b663309488f112de7b644920, type: 2}
   LeftClickAttacks: []

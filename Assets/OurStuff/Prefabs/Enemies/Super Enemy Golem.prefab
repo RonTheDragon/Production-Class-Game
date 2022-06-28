@@ -54,7 +54,7 @@ PrefabInstance:
     - target: {fileID: 7246966230910348196, guid: 89ef136ead5e26a438b669df7c7d3931, type: 3}
       propertyPath: OffensiveAttacks.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: 00dd8e7e1bf269c46850c9c9e02ab156, type: 2}
+      objectReference: {fileID: 11400000, guid: e5464f459b850464eaab0f89b2fa3b6b, type: 2}
     - target: {fileID: 7246966230910348196, guid: 89ef136ead5e26a438b669df7c7d3931, type: 3}
       propertyPath: OffensiveAttacks.Array.data[3]
       value: 

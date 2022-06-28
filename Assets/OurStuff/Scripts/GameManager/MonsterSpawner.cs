@@ -52,6 +52,11 @@ public class MonsterSpawner : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 EndLevel();
+                if (Levels.Count <= CurrentLevel + 1)
+                {
+                    CurrentLevel--;
+                    Debug.Log("Repeat Last Level");
+                }
             }
         }
     }
@@ -167,9 +172,13 @@ public class MonsterSpawner : MonoBehaviour
             Player.GetComponent<ThirdPersonMovement>().PressE.SetActive(false);
             Player.SetActive(false);
 
-            GameManager.instance.GetComponent<TownManager>().TownCamera.gameObject.SetActive(true);
-            GameManager.instance.GetComponent<TownManager>().UpdateSoulCount();
+            TownManager TM = GameManager.instance.GetComponent<TownManager>();
+            TM.TownCamera.gameObject.SetActive(true);
+            TM.UpdateSoulCount();
             GameManager.instance.CantUseTown = false;
+
+            WallHealth WH = GameManager.instance.Wall.GetComponent<WallHealth>();
+            WH.Hp = WH.MaxHp;
         }
         //StartWave();
     }

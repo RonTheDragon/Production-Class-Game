@@ -158,6 +158,14 @@ public abstract class AttackSystem : MonoBehaviour
                     setAttack(rangeAttack, SOR);
                     rangeAttack.Bullet = SOR.Projectile;
                     rangeAttack.ProjectileSpeed = SOR.ProjectileSpeed;
+
+                    if (Attacks[attackType] is SOexplosiveRange)
+                    {
+                        SOexplosiveRange SOE;
+                        SOE = (SOexplosiveRange)Attacks[attackType];
+
+                        rangeAttack.ExplosionRadius = SOE.ExplosionRadius;
+                    }
                 }
             }
             else if (Attacks[attackType] is SOparticleAttack)
