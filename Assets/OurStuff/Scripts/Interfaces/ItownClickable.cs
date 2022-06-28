@@ -5,4 +5,6 @@ using UnityEngine;
 public interface ItownClickable
 {
     public void OnClicked();
+
+    public string OnHover();
 }

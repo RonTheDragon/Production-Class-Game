@@ -52,7 +52,7 @@ public class MonsterSpawner : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 EndLevel();
-                if (Levels.Count <= CurrentLevel + 1)
+                if (Levels.Count <= CurrentLevel)
                 {
                     CurrentLevel--;
                     Debug.Log("Repeat Last Level");
@@ -102,10 +102,8 @@ public class MonsterSpawner : MonoBehaviour
             if (Levels.Count <= CurrentLevel+1)
             {               
                  Debug.Log("No More Levels");
-                 return;
             }
-            else
-            {             
+                       
                 GameManager.instance.AlreadyWon = true;
                 if (GameManager.instance.Player != null)
                 {
@@ -115,7 +113,7 @@ public class MonsterSpawner : MonoBehaviour
                 {
                     EndLevel();
                 }
-            }
+            
         }
         else
         {

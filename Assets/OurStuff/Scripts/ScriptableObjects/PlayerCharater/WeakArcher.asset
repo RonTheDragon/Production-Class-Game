@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b199dadb0e8fa44812df8d4dc14b6f, type: 3}
   m_Name: WeakArcher
   m_EditorClassIdentifier: 
+  classRole: 1
   RoleName: Archer
   Body: {fileID: 2516225614057224521, guid: 6f9276e5a49dd7b4d90031ac8672cb46, type: 3}
   role: {fileID: 11400000, guid: 926597246559e654ba8125c983fd5ec4, type: 2}

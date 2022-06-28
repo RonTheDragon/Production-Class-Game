@@ -85,13 +85,31 @@ public class PlayerRespawnManager : MonoBehaviour
 
         string PersonalName = CharacterNames[Random.Range(0, CharacterNames.Count)];
 
+        float dm = 1;
+        float hm = 1;
+        switch (PlayerBodies[playerSelected].classRole)
+        {
+            case PlayerParameters.ClassRole.Warrior:
+                dm = GameManager.instance.WarriorDamageMultiplier;
+                hm = GameManager.instance.WarriorHealthMultiplier;
+                break;
+            case PlayerParameters.ClassRole.Rogue:
+                dm = GameManager.instance.RogueDamageMultiplier;
+                hm = GameManager.instance.RogueHealthMultiplier;
+                break;
+            case PlayerParameters.ClassRole.Mage:
+                dm = GameManager.instance.MageDamageMultiplier;
+                hm = GameManager.instance.MageHealthMultiplier;
+                break;
+        }
+
         PlayerParameters par = new PlayerParameters(
             PlayerBodies[playerSelected].Body,
             PlayerBodies[playerSelected].role,
             PlayerBodies[playerSelected].RoleName,
             PersonalName,
-            damageMultiplier,
-            health);
+            damageMultiplier * dm,
+            health * hm);
         return par;
     }
 
@@ -172,6 +190,7 @@ public class PlayerRespawnManager : MonoBehaviour
 
 public class PlayerParameters
 {
+    public enum ClassRole { Warrior, Rogue, Mage};
     public GameObject PlayerBody;
     public SOclass    role;
     public string     RoleName;

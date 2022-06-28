@@ -4,21 +4,21 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class Shop : MonoBehaviour, ItownClickable
+public abstract class Shop : MonoBehaviour, ItownClickable
 {
-    [HideInInspector] public enum UpgradesList { Select_Upgrade_Here , WallHp }
+    [HideInInspector] public enum UpgradesList { Select_Upgrade_Here , WallHp , WarriorHp , WarriorDamage , RogueHp , RogueDamage , MageHp, MageDamage}
     public GameObject OwningShop;
-    GameObject UpgradeContext;
-    GameObject ShopContext;
-    [HideInInspector] public GameObject EquipContext;
+    protected GameObject UpgradeContext;
 
     public List<SOupgrade> Upgrades = new List<SOupgrade>();
-    List<Upgrade> _upgrades = new List<Upgrade>();
+    protected List<Upgrade> _upgrades = new List<Upgrade>();
 
-    public List<SObuyWallAbility> WallAbilities = new List<SObuyWallAbility>();
-    List<WallAbility> _wallAbilities = new List<WallAbility>();
 
-    
+    [SerializeField] GameObject ShowWhenUsed;
+    [SerializeField] string TextToShow;
+    float hovered;
+
+
 
     //public List<>
 
@@ -32,25 +32,24 @@ public class Shop : MonoBehaviour, ItownClickable
         else { Debug.Log("Missing a Shop"); }
     }
 
-    void Start()
+    protected void Start()
     {
         if (OwningShop != null)
         {
             UpgradeContext = OwningShop.transform.GetChild(0).GetChild(0).GetChild(0).GetChild(0).gameObject;
             CreateUpgrades();
-            ShopContext = OwningShop.transform.GetChild(0).GetChild(1).GetChild(0).GetChild(0).gameObject;
-            CreateWallAbility();
-            EquipContext = OwningShop.transform.GetChild(0).GetChild(2).GetChild(0).GetChild(0).gameObject;
-
         }
     }
 
     void Update()
     {
-        
+        if (hovered > 0)
+            hovered -= Time.deltaTime;
+        else
+            ShowWhenUsed.SetActive(false);
     }
 
-    void ClearChilds(Transform T)
+    protected void ClearChilds(Transform T)
     {
         foreach (Transform t in T)
         {
@@ -69,16 +68,6 @@ public class Shop : MonoBehaviour, ItownClickable
             MakeUpgrade(Up);
         }
     }
-    void CreateWallAbility()
-    {
-        ClearChilds(ShopContext.transform);
-        foreach (SObuyWallAbility u in WallAbilities)
-        {
-            WallAbility Up = new WallAbility(u.name, u.Explanation, u.ability.Image, u.Price, u.ability);
-            _wallAbilities.Add(Up);
-            MakeWallAbility(Up);
-        }
-    }
 
     //Refreshes 
     void RefreshUprades()
@@ -88,16 +77,6 @@ public class Shop : MonoBehaviour, ItownClickable
         foreach (Upgrade u in _upgrades)
         {
             MakeUpgrade(u);
-        }
-    }
-
-    void RefreshWallAbility()
-    {
-        ClearChilds(ShopContext.transform);
-
-        foreach (WallAbility u in _wallAbilities)
-        {
-            MakeWallAbility(u);
         }
     }
     
@@ -118,26 +97,7 @@ public class Shop : MonoBehaviour, ItownClickable
         SUP.upgrade = Up;
     }
 
-    void MakeWallAbility(WallAbility Up)
-    {
-        GameObject i = Instantiate(GameManager.instance.ShopItem, transform.position, ShopContext.transform.rotation, ShopContext.transform);
-        i.transform.GetChild(0).GetComponent<TMP_Text>().text = Up.Name;
-        i.transform.GetChild(1).GetComponent<TMP_Text>().text = Up.Explanation;
-        i.transform.GetChild(2).GetComponent<Image>().sprite = Up.Icon;
-        i.transform.GetChild(3).GetComponent<TMP_Text>().text = $"Price: {Up.Price}";
-        ShopWallAttack SUP = i.GetComponent<ShopWallAttack>();
-        SUP.shop = this;
-        SUP.wa = Up;
-    }
 
-    void MakeEquipableWallAbility(WallAbility Up)
-    {
-        GameObject i = Instantiate(GameManager.instance.BaughtItem, transform.position, EquipContext.transform.rotation, EquipContext.transform);
-        i.GetComponent<Image>().sprite = Up.Icon;
-        DDwallAbility dd = i.GetComponent<DDwallAbility>();
-        dd.shop = this;
-        dd.ability = Up.TheAbility;
-    }
 
     //Uses
     public void UseUpgrade(Upgrade Up)
@@ -148,30 +108,40 @@ public class Shop : MonoBehaviour, ItownClickable
             Up.lvl++;
             RefreshUprades();
             GameManager.instance.GetComponent<TownManager>().UpdateSoulCount();
+            float mult = 0.3f;
             switch (Up.Upgrading)
             {
                 case UpgradesList.WallHp:
                     GameManager.instance.Wall.GetComponent<WallHealth>().MaxHp += 100;
                     break;
+                case UpgradesList.WarriorHp:
+                    GameManager.instance.WarriorHealthMultiplier += mult;
+                    break;
+                case UpgradesList.WarriorDamage:
+                    GameManager.instance.WarriorDamageMultiplier += mult;
+                    break;
+                case UpgradesList.RogueHp:
+                    GameManager.instance.RogueHealthMultiplier += mult;
+                    break;
+                case UpgradesList.RogueDamage:
+                    GameManager.instance.RogueDamageMultiplier += mult;
+                    break;
+                case UpgradesList.MageHp:
+                    GameManager.instance.MageHealthMultiplier += mult;
+                    break;
+                case UpgradesList.MageDamage:
+                    GameManager.instance.MageDamageMultiplier += mult;
+                    break;
             }
         }
     }
 
-    public void BuyWallAbility(WallAbility Up)
+    public string OnHover()
     {
-        if (GameManager.instance.SoulEnergy >= Up.Price)
-        {
-            GameManager.instance.SoulEnergy -= Up.Price;
-            GameManager.instance.GetComponent<TownManager>().UpdateSoulCount();
-
-            MakeEquipableWallAbility(Up);
-
-            _wallAbilities.Remove(Up);
-            
-            RefreshWallAbility();
-        }
+        ShowWhenUsed.SetActive(true);
+        hovered = 0.1f;
+        return TextToShow;
     }
-
 }
 
 

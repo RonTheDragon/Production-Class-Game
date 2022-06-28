@@ -7,6 +7,10 @@ public class ShopWallAttack : ShopProduct
     public WallAbility wa;
     public override void OnClick()
     {
-        shop.BuyWallAbility(wa);
+        if (shop is WallShop)
+        {
+            WallShop WS = (WallShop)shop;
+            WS.BuyWallAbility(wa);
+        }
     }
 }

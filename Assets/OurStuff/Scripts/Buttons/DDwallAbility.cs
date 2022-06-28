@@ -14,7 +14,11 @@ public class DDwallAbility : DragAndDropItem
         {
             WallAbilitySlot slot = InSlot.GetComponent<WallAbilitySlot>();
             GameManager.instance.Wall.GetComponent<TheWall>().TheWallAttacks[slot.SlotNum] = null;
-            transform.SetParent(shop.EquipContext.transform);
+            if (shop is WallShop)
+            {
+                WallShop WS = (WallShop)shop;
+                transform.SetParent(WS.EquipContext.transform);
+            }
             slot.HeldItem = null;
             InSlot = null;
         }
