@@ -23,5 +23,7 @@ MonoBehaviour:
   Chance: 10
   attackType: 1
   aiming: 1
+  Image: {fileID: 0}
   MaxCharge: 2
+  MinCharge: 0.5
   ChargeSpeed: 1

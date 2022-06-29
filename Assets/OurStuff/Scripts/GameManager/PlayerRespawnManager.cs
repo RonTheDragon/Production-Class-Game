@@ -49,11 +49,14 @@ public class PlayerRespawnManager : MonoBehaviour
             Player.SetActive(true);
             Health hp = Player.GetComponent<Health>();
             hp.Hp = hp.MaxHp;
-            if (GameManager.instance.SoulSucker.gameObject != Player)
+            if (GameManager.instance.SoulSucker != null)
             {
-                Destroy(GameManager.instance.SoulSucker.gameObject);
-                StartCoroutine(SpawnFirstRock());
-            }
+                if (GameManager.instance.SoulSucker.gameObject != Player)
+                {
+                    Destroy(GameManager.instance.SoulSucker.gameObject);
+                    StartCoroutine(SpawnFirstRock());
+                }
+            }else StartCoroutine(SpawnFirstRock());
         }
     }
 
@@ -156,7 +159,7 @@ public class PlayerRespawnManager : MonoBehaviour
         }
 
         RespawnMenu.SetActive(false);
-        if (GameManager.instance.SoulSucker.gameObject != null)
+        if (GameManager.instance.SoulSucker != null)
         {
             Destroy(GameManager.instance.SoulSucker.gameObject);
         }

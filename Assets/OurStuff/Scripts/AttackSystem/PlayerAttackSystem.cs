@@ -88,6 +88,7 @@ public class PlayerAttackSystem : AttackSystem
         AttackMovementForce -= AttackMovementForce * Time.deltaTime;   
         Vector3 Knock = (transform.forward * AttackMovementDirection.x + transform.right * AttackMovementDirection.y).normalized * AttackMovementForce * Time.deltaTime;
         Knock.y = 0;
+        if (CC.enabled)
         CC.Move(Knock);
     }
 
@@ -121,4 +122,10 @@ public class PlayerAttackSystem : AttackSystem
         Circle.name = a.Name;
     }
 
+    public float ShowCharge()
+    {
+        float n;
+        n = (Charge - MinCharge - 1) / (MaxCharge);
+        return n;
+    }
 }

@@ -139,7 +139,7 @@ public abstract class Shop : MonoBehaviour, ItownClickable
     public string OnHover()
     {
         ShowWhenUsed.SetActive(true);
-        hovered = 0.1f;
+        hovered = 0.01f;
         return TextToShow;
     }
 }

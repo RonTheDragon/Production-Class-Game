@@ -780,13 +780,57 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 353564595, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.00012207031
+      objectReference: {fileID: 0}
+    - target: {fileID: 703138172, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.00012207031
+      objectReference: {fileID: 0}
+    - target: {fileID: 417024131810929889, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.00012207031
+      objectReference: {fileID: 0}
     - target: {fileID: 1783876122695431559, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
       propertyPath: Wall
       value: 
       objectReference: {fileID: 1592667117}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[0].pools.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[0].pools.Array.data[4].tag
+      value: Trap
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[0].pools.Array.data[4].size
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[1].pools.Array.data[0].size
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[1].pools.Array.data[1].size
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[0].pools.Array.data[4].prefab
+      value: 
+      objectReference: {fileID: 7314162115414295912, guid: e2dec45e73c201242965314ac015631a, type: 3}
     - target: {fileID: 5310620670068136351, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5514943425907303490, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.00012207031
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527093921801887142, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.00012207031
       objectReference: {fileID: 0}
     - target: {fileID: 7171943304287298665, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
       propertyPath: m_RootOrder
@@ -832,9 +876,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7730170683772069024, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: m_text
-      value: Rogue
+    - target: {fileID: 7563725159686553178, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.00012207031
+      objectReference: {fileID: 0}
+    - target: {fileID: 7944354763992106444, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.00012207031
+      objectReference: {fileID: 0}
+    - target: {fileID: 7973809054738653158, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.00012207031
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}

@@ -5,7 +5,7 @@ using UnityEngine;
 public class ExplosiveProjectile : Projectile
 {
     public float ExplosionRadius;
-    public string Explosion;
+    public string Explosion = "Explosion";
     // Start is called before the first frame update
     void Start()
     {

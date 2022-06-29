@@ -12041,7 +12041,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Wall
+  m_text: Rogue
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -12781,6 +12781,9 @@ MonoBehaviour:
       size: 10
     - tag: RockExplosion
       prefab: {fileID: 3637473083548795381, guid: 100770ec6a0f05f45b491d216fceed0f, type: 3}
+      size: 10
+    - tag: UsedTrap
+      prefab: {fileID: 39965580145438263, guid: 8dc30ba0c1e9bfc438919f32ccd4a151, type: 3}
       size: 10
 --- !u!1 &9013158160471282744
 GameObject:

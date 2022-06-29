@@ -2,11 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mine : Projectile, IpooledObject
+public class Mine : ExplosiveProjectile, IpooledObject
 {
-    public float ExplosionRadius = 10;
     Rigidbody RB;
-    public string Explosion = "Explosion";
     // Start is called before the first frame update
     void Awake()
     {

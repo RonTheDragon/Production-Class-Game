@@ -24,4 +24,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f5f473570cd558e4882b4e91049ca6aa, type: 2}
   SpaceAbility:
   - {fileID: 11400000, guid: f92c306285687304b8b47559f9975e6e, type: 2}
-  F_Ability: []
+  F_Ability:
+  - {fileID: 11400000, guid: 899ba5eb976072e479988792cb81e815, type: 2}

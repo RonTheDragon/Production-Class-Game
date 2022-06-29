@@ -78,6 +78,7 @@ public class EnemyHealth : CharacterHealth , IpooledObject
     protected override IEnumerator DisposeOfBody()
     {
         yield return new WaitForSeconds(5);
+        enemy.anim.Rebind();
         transform.parent.gameObject.SetActive(false);
     }
 }

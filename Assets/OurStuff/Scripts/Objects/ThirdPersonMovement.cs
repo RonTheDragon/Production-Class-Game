@@ -20,6 +20,8 @@ public class ThirdPersonMovement : MonoBehaviour
 
     [SerializeField] float speed         = 6f;
     [SerializeField] float originalSpeed = 6f;
+    [SerializeField] float SprintSpeed = 12f;
+    [SerializeField] float SprintDrain = 15f;
 
     [SerializeField] float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
@@ -28,12 +30,14 @@ public class ThirdPersonMovement : MonoBehaviour
     public GameObject PressE;
     [SerializeField] Image HpBar;
     [SerializeField] Image StaminaBar;
+    [SerializeField] Image ChargeBar;
     [SerializeField] Image WallHpBar;
     [SerializeField] TMP_Text SoulAmount;
     public GameObject PlayerCooldowns;
     public GameObject WallCooldowns;
 
     [SerializeField] GameObject Gun;
+    bool Sprint;
 
 
     //all the GetComponent's and speed
@@ -64,11 +68,18 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             animator.SetInteger("Walk", 0);
         }
+        else if (Sprint)
+        {
+            animator.SetInteger("Walk", 2);
+            previousPos = player.transform.position;
+            PAS.Stamina -= Time.deltaTime * SprintDrain;
+        }
         else
         {
             animator.SetInteger("Walk", 1);
             previousPos = player.transform.position;
         }
+
     }
 
     private void Attack()
@@ -76,6 +87,10 @@ public class ThirdPersonMovement : MonoBehaviour
         if (PAS.AttackCooldown > 0)
         {
             speed = 0;
+        }
+        else if (Sprint && PAS.Stamina > (PAS.MaxStamina/2))
+        {
+            speed = SprintSpeed;
         }
         else
         {
@@ -85,13 +100,16 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private void Gravity()
     {
-        if (!controller.isGrounded)
+        if (controller.enabled)
         {
-            controller.Move(Vector3.down * gravity * Time.deltaTime);
-        }
-        else
-        {
-            controller.Move(Vector3.down * 0.001f * Time.deltaTime);
+            if (!controller.isGrounded)
+            {
+                controller.Move(Vector3.down * gravity * Time.deltaTime);
+            }
+            else
+            {
+                controller.Move(Vector3.down * 0.001f * Time.deltaTime);
+            }
         }
     }
 
@@ -99,6 +117,14 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            Sprint = true;
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            Sprint = false;
+        }
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
         if (direction.magnitude >= 0.1f || aim)
@@ -142,15 +168,26 @@ public class ThirdPersonMovement : MonoBehaviour
 
     void UpdateUI()
     {
+        GameObject C = ChargeBar.gameObject;
         if (!Hp.isDead())
         {
             HpBar.fillAmount = Hp.Hp / Hp.MaxHp;
             StaminaBar.fillAmount = PAS.Stamina / PAS.MaxStamina;
+            float n = PAS.ShowCharge();
+            if (n > 0)
+            {
+                if (!C.activeSelf)
+                C.SetActive(true);
+                ChargeBar.fillAmount = n;
+            }
+            else if (C.activeSelf) C.SetActive(false);
+
         }
         else
         {
             HpBar.fillAmount = 0;
             StaminaBar.fillAmount = 0;
+            C.SetActive(false);
         }
         WallHpBar.fillAmount = WallHp.Hp / WallHp.MaxHp;
         SoulAmount.text = $"Souls: {GameManager.instance.SoulEnergy}";

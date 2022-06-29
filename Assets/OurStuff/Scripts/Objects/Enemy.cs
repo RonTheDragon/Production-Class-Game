@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour , IpooledObject
     public float CanvasHolderHeight;
     Image hpBar;
     Image staminaBar;
-    float ShowingData;
+    [HideInInspector] public float ShowingData;
 
     //[SerializeField] float RandomSoundMaxCooldown = 5;
     float SoundCoolDown;
@@ -288,10 +288,10 @@ public class Enemy : MonoBehaviour , IpooledObject
 
     public void GotHit(bool ByPlayer)
     {
-        //Particle.Emit(5); <-------RETURN LATER
         //Audio.PlaySound(Sound.Activation.Custom, "Ah"); <-------RETURN LATER
         if (ByPlayer)
         alert += 2;
+        Particle.Emit(5);
         ShowingData = 5;
     }
 
