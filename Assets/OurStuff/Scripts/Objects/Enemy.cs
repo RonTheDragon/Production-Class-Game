@@ -30,6 +30,8 @@ public class Enemy : MonoBehaviour , IpooledObject
     Image hpBar;
     Image staminaBar;
     [HideInInspector] public float ShowingData;
+    [SerializeField] Transform EnemyAnimationBody;
+    Vector3 startposforFix;
 
     //[SerializeField] float RandomSoundMaxCooldown = 5;
     float SoundCoolDown;
@@ -67,7 +69,8 @@ public class Enemy : MonoBehaviour , IpooledObject
 
     void Start()
     {
-        Player=GameManager.instance.Player;
+        startposforFix = EnemyAnimationBody.position;
+        Player =GameManager.instance.Player;
         if (Player != null)
         {
             PlayerCam = GameManager.instance.Player?.GetComponent<ThirdPersonMovement>().cam;
@@ -286,12 +289,12 @@ public class Enemy : MonoBehaviour , IpooledObject
         else return false;
     } 
 
-    public void GotHit(bool ByPlayer)
+    public void GotHit(bool ByPlayer, float Damage)
     {
         //Audio.PlaySound(Sound.Activation.Custom, "Ah"); <-------RETURN LATER
         if (ByPlayer)
         alert += 2;
-        Particle.Emit(5);
+        Particle.Emit((int)(Damage/5));
         ShowingData = 5;
     }
 
@@ -308,6 +311,7 @@ public class Enemy : MonoBehaviour , IpooledObject
 
     public void OnObjectSpawn()
     {
+        EnemyAnimationBody.position = startposforFix;
         TheEnemy.transform.position = transform.position;
         TheEnemy.GetComponent<NavMeshAgent>().enabled = true;
         SoulWorth = (int)Random.Range(SoulValue.x, SoulValue.y);

@@ -5497,6 +5497,7 @@ MonoBehaviour:
   CanvasHolder: {fileID: 4626013883555717117}
   CanvasHolderHeight: 0.5
   ShowingData: 0
+  EnemyAnimationBody: {fileID: 5181490786915597731}
   anim: {fileID: 7691940457263069742}
 --- !u!1001 &878960430446492380
 PrefabInstance:
@@ -5571,6 +5572,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: b2160a56e3f1622408b1c45a7bf79158, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96365df5eb6ac6145ab26bbd28ec6c4d, type: 3}
+--- !u!4 &5181490786915597731 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5465940246521907071, guid: 96365df5eb6ac6145ab26bbd28ec6c4d, type: 3}
+  m_PrefabInstance: {fileID: 878960430446492380}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &844434446619663671 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 96365df5eb6ac6145ab26bbd28ec6c4d, type: 3}
