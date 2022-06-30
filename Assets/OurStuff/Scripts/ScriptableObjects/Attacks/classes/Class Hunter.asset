@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f68ffa90c77ffd3418efdb956f5f9872, type: 3}
   m_Name: Class Hunter
   m_EditorClassIdentifier: 
+  classRole: 1
   DownLeftClickAttacks:
   - {fileID: 11400000, guid: 567de1d183ef6464ca817f5cde21648d, type: 2}
   - {fileID: 11400000, guid: d0cb891d226932447b0058eb437244cc, type: 2}

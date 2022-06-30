@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f68ffa90c77ffd3418efdb956f5f9872, type: 3}
   m_Name: Class Arbalist
   m_EditorClassIdentifier: 
+  classRole: 1
   DownLeftClickAttacks: []
   DownRightClickAttacks:
   - {fileID: 11400000, guid: 9cc53fbef91b8fe41a2d8d0048fcc247, type: 2}

@@ -11,12 +11,6 @@ public class Mine : ExplosiveProjectile, IpooledObject
         RB = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     protected override void Movement()
     {
         RB.AddForce(transform.forward * Speed * Time.deltaTime);

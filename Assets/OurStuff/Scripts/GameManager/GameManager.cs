@@ -30,13 +30,25 @@ public class GameManager : MonoBehaviour
     public int SoulEnergy;
     [HideInInspector] public bool AlreadyWon;
 
-    public float RogueDamageMultiplier = 1;
-    public float MageDamageMultiplier = 1;
-    public float WarriorDamageMultiplier = 1;
+    [HideInInspector] public float RogueDamageMultiplier = 1;
+    [HideInInspector] public float MageDamageMultiplier = 1;
+    [HideInInspector] public float WarriorDamageMultiplier = 1;
 
-    public float RogueHealthMultiplier = 1;
-    public float MageHealthMultiplier = 1;
-    public float WarriorHealthMultiplier = 1;
+    [HideInInspector] public float RogueHealthMultiplier = 1;
+    [HideInInspector] public float MageHealthMultiplier = 1;
+    [HideInInspector] public float WarriorHealthMultiplier = 1;
+
+    [HideInInspector] public float RogueStaminaMultiplier = 1;
+    [HideInInspector] public float MageStaminaMultiplier = 1;
+    [HideInInspector] public float WarriorStaminaMultiplier = 1;
+
+    [HideInInspector] public float RogueSpeedMultiplier = 1;
+    [HideInInspector] public float MageSpeedMultiplier = 1;
+    [HideInInspector] public float WarriorSpeedMultiplier = 1;
+
+    [HideInInspector] public float RogueReganMultiplier = 1;
+    [HideInInspector] public float MageReganMultiplier = 1;
+    [HideInInspector] public float WarriorReganMultiplier = 1;
 
     private void Awake()
     {

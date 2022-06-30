@@ -8960,10 +8960,12 @@ MonoBehaviour:
   CooldownCircleObject: {fileID: 3048677536125606005, guid: 5d895738d74dd9843893ec3095921fa5, type: 3}
   CantUseTown: 0
   Upgrade: {fileID: 3048677536125606005, guid: 9d35ae2ac2cb9224b9074668a5f85b0b, type: 3}
-  ShopItem: {fileID: 3048677536125606005, guid: c653f1f1e5499654192c80b8b92a6acb, type: 3}
-  BaughtItem: {fileID: 3048677536125606005, guid: 51b236b2b86d35e4cb232e3a6088beba, type: 3}
+  WallShopItem: {fileID: 3048677536125606005, guid: c653f1f1e5499654192c80b8b92a6acb, type: 3}
+  WallBaughtItem: {fileID: 3048677536125606005, guid: 51b236b2b86d35e4cb232e3a6088beba, type: 3}
+  ClassShopItem: {fileID: 3048677536125606005, guid: c82f1902235b3b04abd21212dfab688a, type: 3}
+  ClassBaughtItem: {fileID: 3048677536125606005, guid: 70272852661b0d5478bb0b648cfa34c1, type: 3}
   SoulSucker: {fileID: 0}
-  SoulEnergy: 20
+  SoulEnergy: 1000
   AlreadyWon: 0
   RogueDamageMultiplier: 1
   MageDamageMultiplier: 1
@@ -8971,6 +8973,15 @@ MonoBehaviour:
   RogueHealthMultiplier: 1
   MageHealthMultiplier: 1
   WarriorHealthMultiplier: 1
+  RogueStaminaMultiplier: 1
+  MageStaminaMultiplier: 1
+  WarriorStaminaMultiplier: 1
+  RogueSpeedMultiplier: 1
+  MageSpeedMultiplier: 1
+  WarriorSpeedMultiplier: 1
+  RogueReganMultiplier: 1
+  MageReganMultiplier: 1
+  WarriorReganMultiplier: 1
 --- !u!114 &7303057436717104375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9004,11 +9015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7684c8baf3225bf45a88a6c513960edd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerBodies:
-  - {fileID: 11400000, guid: 131f7fc4b2f70ec4a890a36d42e6f1db, type: 2}
-  - {fileID: 11400000, guid: f0a44ea29ed13df40bc7d5d470189439, type: 2}
-  - {fileID: 11400000, guid: 2ec64f7a79d54b847b421b794da9ed66, type: 2}
-  - {fileID: 11400000, guid: 1f13ccb1a0716ee40a01d7b39ff3b5b1, type: 2}
+  PlayerBodies: []
   RespawnMenu: {fileID: 917270207}
   Content: {fileID: 1063591014}
   ChooseHeroButton: {fileID: 8946831418901850636, guid: f0913a9d1dc12df43ba93c1b66b52c2f, type: 3}

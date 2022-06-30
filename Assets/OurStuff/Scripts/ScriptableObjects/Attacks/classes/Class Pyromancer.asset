@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f68ffa90c77ffd3418efdb956f5f9872, type: 3}
   m_Name: Class Pyromancer
   m_EditorClassIdentifier: 
+  classRole: 2
   DownLeftClickAttacks:
   - {fileID: 11400000, guid: 59dc66122f918a74b8391d6849a70aeb, type: 2}
   DownRightClickAttacks:

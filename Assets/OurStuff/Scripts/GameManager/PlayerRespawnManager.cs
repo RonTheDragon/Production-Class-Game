@@ -90,7 +90,7 @@ public class PlayerRespawnManager : MonoBehaviour
 
         float dm = 1;
         float hm = 1;
-        switch (PlayerBodies[playerSelected].classRole)
+        switch (PlayerBodies[playerSelected].role.classRole)
         {
             case PlayerParameters.ClassRole.Warrior:
                 dm = GameManager.instance.WarriorDamageMultiplier;

@@ -6,7 +6,10 @@ using UnityEngine.UI;
 
 public abstract class Shop : MonoBehaviour, ItownClickable
 {
-    [HideInInspector] public enum UpgradesList { Select_Upgrade_Here , WallHp , WarriorHp , WarriorDamage , RogueHp , RogueDamage , MageHp, MageDamage}
+    [HideInInspector] public enum UpgradesList { SelectUpgradeHere , WallHp , WallDamage, WallHealing, WallCooldowns,
+        WarriorHp , WarriorDamage , WarriorStamina , WarriorSpeed , WarriorRegan,
+        RogueHp , RogueDamage , RogueStamina , RogueSpeed, RogueRegan,
+        MageHp, MageDamage, MageStamina , MageSpeed, MageRegan}
     public GameObject OwningShop;
     protected GameObject UpgradeContext;
     protected GameObject ShopContext;
@@ -120,11 +123,29 @@ public abstract class Shop : MonoBehaviour, ItownClickable
                 case UpgradesList.WallHp:
                     GameManager.instance.Wall.GetComponent<WallHealth>().MaxHp += 100;
                     break;
+                case UpgradesList.WallDamage:
+                    GameManager.instance.Wall.GetComponent<TheWall>().DamageMultiplier += mult;
+                    break;
+                case UpgradesList.WallHealing:
+                    GameManager.instance.Wall.GetComponent<TheWall>().HealingMultiplier += mult;
+                    break;
+                case UpgradesList.WallCooldowns:
+                    GameManager.instance.Wall.GetComponent<TheWall>().CooldownMultiplier -= 0.15f;
+                    break;
                 case UpgradesList.WarriorHp:
                     GameManager.instance.WarriorHealthMultiplier += mult;
                     break;
                 case UpgradesList.WarriorDamage:
                     GameManager.instance.WarriorDamageMultiplier += mult;
+                    break;
+                case UpgradesList.WarriorStamina:
+                    GameManager.instance.WarriorStaminaMultiplier += mult;
+                    break;
+                case UpgradesList.WarriorSpeed:
+                    GameManager.instance.WarriorSpeedMultiplier += mult/2;
+                    break;
+                case UpgradesList.WarriorRegan:
+                    GameManager.instance.WarriorReganMultiplier += mult;
                     break;
                 case UpgradesList.RogueHp:
                     GameManager.instance.RogueHealthMultiplier += mult;
@@ -132,11 +153,29 @@ public abstract class Shop : MonoBehaviour, ItownClickable
                 case UpgradesList.RogueDamage:
                     GameManager.instance.RogueDamageMultiplier += mult;
                     break;
+                case UpgradesList.RogueStamina:
+                    GameManager.instance.RogueStaminaMultiplier += mult;
+                    break;
+                case UpgradesList.RogueSpeed:
+                    GameManager.instance.RogueSpeedMultiplier += mult / 2;
+                    break;
+                case UpgradesList.RogueRegan:
+                    GameManager.instance.RogueReganMultiplier += mult;
+                    break;
                 case UpgradesList.MageHp:
                     GameManager.instance.MageHealthMultiplier += mult;
                     break;
                 case UpgradesList.MageDamage:
                     GameManager.instance.MageDamageMultiplier += mult;
+                    break;
+                case UpgradesList.MageStamina:
+                    GameManager.instance.MageStaminaMultiplier += mult;
+                    break;
+                case UpgradesList.MageSpeed:
+                    GameManager.instance.MageSpeedMultiplier += mult / 2;
+                    break;
+                case UpgradesList.MageRegan:
+                    GameManager.instance.MageReganMultiplier += mult;
                     break;
             }
         }

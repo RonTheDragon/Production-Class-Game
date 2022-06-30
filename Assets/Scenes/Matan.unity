@@ -780,30 +780,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 863390329, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: PlayerBodies.Array.size
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1783876122695431559, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
       propertyPath: Wall
       value: 
       objectReference: {fileID: 1592667117}
-    - target: {fileID: 1783876122695431559, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: WallShopItem
-      value: 
-      objectReference: {fileID: 3048677536125606005, guid: c653f1f1e5499654192c80b8b92a6acb, type: 3}
-    - target: {fileID: 1783876122695431559, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: ClassShopItem
-      value: 
-      objectReference: {fileID: 3048677536125606005, guid: c82f1902235b3b04abd21212dfab688a, type: 3}
-    - target: {fileID: 1783876122695431559, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: WallBaughtItem
-      value: 
-      objectReference: {fileID: 3048677536125606005, guid: 51b236b2b86d35e4cb232e3a6088beba, type: 3}
-    - target: {fileID: 1783876122695431559, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: ClassBaughtItem
-      value: 
-      objectReference: {fileID: 3048677536125606005, guid: 70272852661b0d5478bb0b648cfa34c1, type: 3}
     - target: {fileID: 5310620670068136351, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -6669,6 +6649,9 @@ MonoBehaviour:
   Upgrades:
   - {fileID: 11400000, guid: ab87a734da90af74f8392f14b11685fd, type: 2}
   - {fileID: 11400000, guid: cb7ceb0e74afe2d41a23ca3f520224ee, type: 2}
+  - {fileID: 11400000, guid: 3f09dad28fb907d428f2e30cdd2d29ec, type: 2}
+  - {fileID: 11400000, guid: edae94e4bea8fb84cbb017a50b85ebf0, type: 2}
+  - {fileID: 11400000, guid: 181d036c298323f4cb88bb1f07bf5e09, type: 2}
   ShowWhenUsed: {fileID: 1256745344}
   TextToShow: Click To Open Mage Shop
   Classes:
@@ -8638,6 +8621,9 @@ MonoBehaviour:
   Upgrades:
   - {fileID: 11400000, guid: f9e4a4a47af23cc4295805af1a23887d, type: 2}
   - {fileID: 11400000, guid: efd6448a4d1dbbd4b89a2b4b0138c1e8, type: 2}
+  - {fileID: 11400000, guid: b3853f9775c904347b464ae89be479e5, type: 2}
+  - {fileID: 11400000, guid: 91c4ef4ebb1908d4283ee91629572eb8, type: 2}
+  - {fileID: 11400000, guid: 0a063672c6f2f6042ab3c50e78a55766, type: 2}
   ShowWhenUsed: {fileID: 26535710}
   TextToShow: Click To Open Rogue Shop
   Classes:
@@ -12417,6 +12403,9 @@ MonoBehaviour:
   Wallheight: 15
   WallThickness: 3
   WallFacingZ: 0
+  DamageMultiplier: 1
+  HealingMultiplier: 1
+  CooldownMultiplier: 1
 --- !u!114 &1592667120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15788,6 +15777,9 @@ MonoBehaviour:
   EquipContext: {fileID: 0}
   Upgrades:
   - {fileID: 11400000, guid: 11cefb1796a30ce459e8e5d2e28904fb, type: 2}
+  - {fileID: 11400000, guid: 82865bfe9d3f0bf4db4a30756f6644aa, type: 2}
+  - {fileID: 11400000, guid: 411cd0e4717f59c4590d60c052243a97, type: 2}
+  - {fileID: 11400000, guid: 60571f94d1a127e4fbfdf55194d66370, type: 2}
   ShowWhenUsed: {fileID: 373804456}
   TextToShow: Click To Open Wall Shop
   WallAbilities:
@@ -17088,6 +17080,9 @@ MonoBehaviour:
   Upgrades:
   - {fileID: 11400000, guid: af8cd39a0b800334bb950522e70748c4, type: 2}
   - {fileID: 11400000, guid: 4f5420b053477d446b70ca2f78a98e90, type: 2}
+  - {fileID: 11400000, guid: f5abe530ae8fcf84ea13bd043a37b063, type: 2}
+  - {fileID: 11400000, guid: de85df06feeb23845b4b5b6d74b4583c, type: 2}
+  - {fileID: 11400000, guid: 54dff62004d172d45b579fd1197b1bc2, type: 2}
   ShowWhenUsed: {fileID: 586802487}
   TextToShow: Click To Open Warrior Shop
   Classes:

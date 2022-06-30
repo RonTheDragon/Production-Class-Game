@@ -11,6 +11,9 @@ public class TheWall : MonoBehaviour
     public float Wallheight = 10;
     public float WallThickness = 0;
     public bool WallFacingZ;
+    [HideInInspector] public float DamageMultiplier = 1;
+    [HideInInspector] public float HealingMultiplier = 1;
+    [HideInInspector] public float CooldownMultiplier = 1;
     LayerMask Attackable;
     List<AbilityCoolDown> abilityCoolDowns = new List<AbilityCoolDown>();
     GameObject WallCooldowns;
@@ -62,7 +65,7 @@ public class TheWall : MonoBehaviour
                             if (abilityCoolDowns[i].Cooldown > 0)
                             {
                                 abilityCoolDowns[i].Cooldown -= Time.deltaTime;
-                                WallCooldowns.transform.GetChild(i).GetChild(1).GetComponent<Image>().fillAmount = -(abilityCoolDowns[i].Cooldown / abilityCoolDowns[i].MaxCooldown) + 1;
+                                WallCooldowns.transform.GetChild(i).GetChild(1).GetComponent<Image>().fillAmount = -(abilityCoolDowns[i].Cooldown / (abilityCoolDowns[i].MaxCooldown* CooldownMultiplier)) + 1;
                             }
                             else WallCooldowns.transform.GetChild(i).GetChild(1).GetComponent<Image>().fillAmount = 1;
                     }
@@ -135,7 +138,7 @@ public class TheWall : MonoBehaviour
             UsedParticle = Instantiate(AP.particleSystem.gameObject, transform.position+AP.Position, transform.rotation * Quaternion.Euler(AP.Rotation), transform);
             ParticleCollision pc = UsedParticle.GetComponent<ParticleCollision>();
             pc.w = this;
-            pc.Damage = AP.Damage;
+            pc.Damage = AP.Damage * DamageMultiplier;
             pc.Knock = AP.Knockback;
             pc.Stagger = AP.Stagger;
         }
@@ -147,7 +150,7 @@ public class TheWall : MonoBehaviour
         {
             SOwallHeal H = (SOwallHeal)attack;
             WallHealth hp = GetComponent<WallHealth>();
-            hp.Hp += hp.MaxHp * 0.01f * H.Heal;
+            hp.Hp += hp.MaxHp * 0.01f * (H.Heal*HealingMultiplier);
         }
     }
 
@@ -170,7 +173,7 @@ public class TheWall : MonoBehaviour
         {
             if (c.AbilityName == attack.Name)
             {
-                c.Cooldown = c.MaxCooldown;
+                c.Cooldown = (c.MaxCooldown* CooldownMultiplier);
             }
         }
     }
@@ -250,7 +253,7 @@ public class TheWall : MonoBehaviour
             if (attack is SOwallAttack)
             {
                 SOwallAttack a = (SOwallAttack)attack;
-                p.Damage = a.Damage;
+                p.Damage = a.Damage * DamageMultiplier;
                 p.Knock = a.Knockback;
                 p.Stagger = a.Stagger;
             }

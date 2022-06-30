@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06382e833ea9f1f42b6c159e7206f8bc, type: 3}
-  m_Name: Warrior Damage
+  m_Name: Rogue Speed
   m_EditorClassIdentifier: 
-  Name: Warrior Damage
-  Explanation: More Damage As Warrior
-  Icon: {fileID: 21300000, guid: 4e3054eec1a12b448906671f15f81313, type: 3}
+  Name: Rogue Speed
+  Explanation: Move Faster As Rogue
+  Icon: {fileID: 21300000, guid: 3468aceeceae0ee4a9e8493317ed274b, type: 3}
   Prices: 050000000a00000014000000
-  Upgrading: 6
+  Upgrading: 13

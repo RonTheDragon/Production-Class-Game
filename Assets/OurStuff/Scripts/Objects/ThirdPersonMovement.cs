@@ -19,8 +19,8 @@ public class ThirdPersonMovement : MonoBehaviour
     public Transform cam;
 
     [SerializeField] float speed         = 6f;
-    [SerializeField] float originalSpeed = 6f;
-    [SerializeField] float SprintSpeed = 12f;
+    public float originalSpeed = 6f;
+    public float SprintSpeed = 12f;
     [SerializeField] float SprintDrain = 15f;
 
     [SerializeField] float turnSmoothTime = 0.1f;
