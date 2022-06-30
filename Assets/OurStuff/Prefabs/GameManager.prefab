@@ -9008,6 +9008,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 131f7fc4b2f70ec4a890a36d42e6f1db, type: 2}
   - {fileID: 11400000, guid: f0a44ea29ed13df40bc7d5d470189439, type: 2}
   - {fileID: 11400000, guid: 2ec64f7a79d54b847b421b794da9ed66, type: 2}
+  - {fileID: 11400000, guid: 1f13ccb1a0716ee40a01d7b39ff3b5b1, type: 2}
   RespawnMenu: {fileID: 917270207}
   Content: {fileID: 1063591014}
   ChooseHeroButton: {fileID: 8946831418901850636, guid: f0913a9d1dc12df43ba93c1b66b52c2f, type: 3}
@@ -12763,14 +12764,17 @@ MonoBehaviour:
     - tag: FireBall
       prefab: {fileID: 4866355416100459866, guid: acfe1b1ebc9c3504ab8a778fc536463c, type: 3}
       size: 30
+    - tag: Trap
+      prefab: {fileID: 7314162115414295912, guid: e2dec45e73c201242965314ac015631a, type: 3}
+      size: 30
   - tag: Enemies
     pools:
     - tag: Enemy
       prefab: {fileID: 9220806171759854006, guid: 89ef136ead5e26a438b669df7c7d3931, type: 3}
-      size: 100
+      size: 40
     - tag: SuperEnemy
       prefab: {fileID: 7279148891320323637, guid: 8339445f9512bbc4194c3611e9e54ba4, type: 3}
-      size: 10
+      size: 20
   - tag: Effects
     pools:
     - tag: Soul

@@ -10,17 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f68ffa90c77ffd3418efdb956f5f9872, type: 3}
-  m_Name: Class Mage
+  m_Name: Class Arbalist
   m_EditorClassIdentifier: 
-  DownLeftClickAttacks:
-  - {fileID: 11400000, guid: 59dc66122f918a74b8391d6849a70aeb, type: 2}
+  DownLeftClickAttacks: []
   DownRightClickAttacks:
-  - {fileID: 11400000, guid: c9538954b663309488f112de7b644920, type: 2}
-  LeftClickAttacks: []
+  - {fileID: 11400000, guid: 9cc53fbef91b8fe41a2d8d0048fcc247, type: 2}
+  LeftClickAttacks:
+  - {fileID: 11400000, guid: 1a3ec51985d4e704ca484f1777113ef6, type: 2}
   RightClickAttacks: []
   UpLeftClickAttacks: []
-  UpRightClickAttacks:
-  - {fileID: 11400000, guid: c3d2efecd3dfd814b8bec386f357fb58, type: 2}
+  UpRightClickAttacks: []
   SpaceAbility:
   - {fileID: 11400000, guid: f92c306285687304b8b47559f9975e6e, type: 2}
   F_Ability: []

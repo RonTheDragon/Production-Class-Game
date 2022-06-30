@@ -22,8 +22,10 @@ public class GameManager : MonoBehaviour
     public        GameObject    CooldownCircleObject;
     [HideInInspector] public bool CantUseTown;
     public GameObject Upgrade;
-    public GameObject ShopItem;
-    public GameObject BaughtItem;
+    public GameObject WallShopItem;
+    public GameObject WallBaughtItem;
+    public GameObject ClassShopItem;
+    public GameObject ClassBaughtItem;
     [HideInInspector] public Transform SoulSucker;
     public int SoulEnergy;
     [HideInInspector] public bool AlreadyWon;

@@ -10,20 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f68ffa90c77ffd3418efdb956f5f9872, type: 3}
-  m_Name: Class Warrior
+  m_Name: Class Pyromancer
   m_EditorClassIdentifier: 
   DownLeftClickAttacks:
-  - {fileID: 11400000, guid: e5326967e6e62fd46babff5e31641b52, type: 2}
-  - {fileID: 11400000, guid: 8d611f2509190b748a9001d6758befa9, type: 2}
-  - {fileID: 11400000, guid: 100d8e7d7e52e1441849ee318033859b, type: 2}
-  - {fileID: 11400000, guid: 567de1d183ef6464ca817f5cde21648d, type: 2}
+  - {fileID: 11400000, guid: 59dc66122f918a74b8391d6849a70aeb, type: 2}
   DownRightClickAttacks:
-  - {fileID: 11400000, guid: 42dce146ac29829449562261afe0745e, type: 2}
+  - {fileID: 11400000, guid: c9538954b663309488f112de7b644920, type: 2}
   LeftClickAttacks: []
   RightClickAttacks: []
   UpLeftClickAttacks: []
   UpRightClickAttacks:
-  - {fileID: 11400000, guid: 32243c880f256fd43bf8ec57da9062f3, type: 2}
+  - {fileID: 11400000, guid: c3d2efecd3dfd814b8bec386f357fb58, type: 2}
   SpaceAbility:
   - {fileID: 11400000, guid: f92c306285687304b8b47559f9975e6e, type: 2}
   F_Ability: []

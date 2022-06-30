@@ -9,24 +9,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0b3ac95e465fd04f8ad6fe51096e1be, type: 3}
-  m_Name: Roll
+  m_Script: {fileID: 11500000, guid: 5640c261f1e55fe449404fdbaf8911d7, type: 3}
+  m_Name: Crossbow Slow
   m_EditorClassIdentifier: 
-  Name: Rolling
-  AnimationTrigger: Roll
+  Name: Crossbow Fast Attack
+  AnimationTrigger: Crossbow2
   PreviousAttack: 
   StaminaCost: 30
   AttackCooldown: 1
   AbilityCooldown: 0
-  MinRange: 6
-  MaxRange: 100
-  Chance: 5
+  MinRange: 0
+  MaxRange: 3
+  Chance: 100
   attackType: 0
-  aiming: 0
+  aiming: 1
   Image: {fileID: 0}
-  Damage: 0
-  Knockback: 0
-  Stagger: {x: 0, y: 0}
-  DamagingCooldown: 1
-  AttackMovementForce: 12
-  AttackMovementDirection: {x: 1, y: 0}
+  Damage: 30
+  Knockback: 20
+  Stagger: {x: 70, y: 100}
+  Projectile: Test
+  ProjectileSpeed: 60

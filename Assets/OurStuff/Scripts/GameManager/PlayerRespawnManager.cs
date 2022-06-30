@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerRespawnManager : MonoBehaviour
 {
-    [SerializeField] List<SOPlayerBody> PlayerBodies = new List<SOPlayerBody>();
+    public List<SOPlayerBody> PlayerBodies = new List<SOPlayerBody>();
     List<PlayerParameters> playerParameters;
     [SerializeField] GameObject RespawnMenu;
     [SerializeField] GameObject Content;
@@ -110,6 +110,7 @@ public class PlayerRespawnManager : MonoBehaviour
             PlayerBodies[playerSelected].Body,
             PlayerBodies[playerSelected].role,
             PlayerBodies[playerSelected].RoleName,
+            PlayerBodies[playerSelected].Image,
             PersonalName,
             damageMultiplier * dm,
             health * hm);
@@ -197,15 +198,17 @@ public class PlayerParameters
     public GameObject PlayerBody;
     public SOclass    role;
     public string     RoleName;
+    public Sprite     icon;
     public string     PersonalName;
     public float      damageMultiplier;
     public float      health;
 
-    public PlayerParameters(GameObject PlayerBody, SOclass role,string RoleName, string PersonalName, float damageMultiplier, float health)
+    public PlayerParameters(GameObject PlayerBody, SOclass role,string RoleName, Sprite icon, string PersonalName, float damageMultiplier, float health)
     {
         this.PlayerBody       = PlayerBody;
         this.role             = role;
         this.RoleName         = RoleName;
+        this.icon             = icon;
         this.PersonalName     = PersonalName;
         this.damageMultiplier = damageMultiplier;
         this.health           = health;

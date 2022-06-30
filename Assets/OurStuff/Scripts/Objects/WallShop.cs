@@ -8,18 +8,13 @@ public class WallShop : Shop
 {
     public List<SObuyWallAbility> WallAbilities = new List<SObuyWallAbility>();
     List<WallAbility> _wallAbilities = new List<WallAbility>();
-    GameObject ShopContext;
-    [HideInInspector] public GameObject EquipContext;
 
     new void Start()
     {
         base.Start();
         if (OwningShop != null)
-        {
-            ShopContext = OwningShop.transform.GetChild(0).GetChild(1).GetChild(0).GetChild(0).gameObject;
+        {           
             CreateWallAbility();
-            EquipContext = OwningShop.transform.GetChild(0).GetChild(2).GetChild(0).GetChild(0).gameObject;
-
         }
     }
 
@@ -28,7 +23,7 @@ public class WallShop : Shop
         ClearChilds(ShopContext.transform);
         foreach (SObuyWallAbility u in WallAbilities)
         {
-            WallAbility Up = new WallAbility(u.name, u.Explanation, u.ability.Image, u.Price, u.ability);
+            WallAbility Up = new WallAbility(u.Name, u.Explanation, u.ability.Image, u.Price, u.ability);
             _wallAbilities.Add(Up);
             MakeWallAbility(Up);
         }
@@ -46,7 +41,7 @@ public class WallShop : Shop
 
     void MakeWallAbility(WallAbility Up)
     {
-        GameObject i = Instantiate(GameManager.instance.ShopItem, transform.position, ShopContext.transform.rotation, ShopContext.transform);
+        GameObject i = Instantiate(GameManager.instance.WallShopItem, transform.position, ShopContext.transform.rotation, ShopContext.transform);
         i.transform.GetChild(0).GetComponent<TMP_Text>().text = Up.Name;
         i.transform.GetChild(1).GetComponent<TMP_Text>().text = Up.Explanation;
         i.transform.GetChild(2).GetComponent<Image>().sprite = Up.Icon;
@@ -58,7 +53,7 @@ public class WallShop : Shop
 
     void MakeEquipableWallAbility(WallAbility Up)
     {
-        GameObject i = Instantiate(GameManager.instance.BaughtItem, transform.position, EquipContext.transform.rotation, EquipContext.transform);
+        GameObject i = Instantiate(GameManager.instance.WallBaughtItem, transform.position, EquipContext.transform.rotation, EquipContext.transform);
         i.GetComponent<Image>().sprite = Up.Icon;
         DDwallAbility dd = i.GetComponent<DDwallAbility>();
         dd.shop = this;
@@ -78,5 +73,17 @@ public class WallShop : Shop
 
             RefreshWallAbility();
         }
+    }
+}
+public class WallAbility : ShopBuyable
+{
+    public SOwall TheAbility;
+    public WallAbility(string Name, string Explanation, Sprite Icon, int Price, SOwall TheAbility)
+    {
+        this.Name = Name;
+        this.Explanation = Explanation;
+        this.Icon = Icon;
+        this.Price = Price;
+        this.TheAbility = TheAbility;
     }
 }

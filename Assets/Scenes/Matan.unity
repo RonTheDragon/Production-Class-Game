@@ -780,57 +780,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 353564595, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.00012207031
-      objectReference: {fileID: 0}
-    - target: {fileID: 703138172, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.00012207031
-      objectReference: {fileID: 0}
-    - target: {fileID: 417024131810929889, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.00012207031
+    - target: {fileID: 863390329, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: PlayerBodies.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1783876122695431559, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
       propertyPath: Wall
       value: 
       objectReference: {fileID: 1592667117}
-    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: Groups.Array.data[0].pools.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: Groups.Array.data[0].pools.Array.data[4].tag
-      value: Trap
-      objectReference: {fileID: 0}
-    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: Groups.Array.data[0].pools.Array.data[4].size
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: Groups.Array.data[1].pools.Array.data[0].size
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: Groups.Array.data[1].pools.Array.data[1].size
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: Groups.Array.data[0].pools.Array.data[4].prefab
+    - target: {fileID: 1783876122695431559, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: WallShopItem
       value: 
-      objectReference: {fileID: 7314162115414295912, guid: e2dec45e73c201242965314ac015631a, type: 3}
+      objectReference: {fileID: 3048677536125606005, guid: c653f1f1e5499654192c80b8b92a6acb, type: 3}
+    - target: {fileID: 1783876122695431559, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: ClassShopItem
+      value: 
+      objectReference: {fileID: 3048677536125606005, guid: c82f1902235b3b04abd21212dfab688a, type: 3}
+    - target: {fileID: 1783876122695431559, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: WallBaughtItem
+      value: 
+      objectReference: {fileID: 3048677536125606005, guid: 51b236b2b86d35e4cb232e3a6088beba, type: 3}
+    - target: {fileID: 1783876122695431559, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: ClassBaughtItem
+      value: 
+      objectReference: {fileID: 3048677536125606005, guid: 70272852661b0d5478bb0b648cfa34c1, type: 3}
     - target: {fileID: 5310620670068136351, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
       propertyPath: m_Name
       value: GameManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 5514943425907303490, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.00012207031
-      objectReference: {fileID: 0}
-    - target: {fileID: 5527093921801887142, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.00012207031
       objectReference: {fileID: 0}
     - target: {fileID: 7171943304287298665, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
       propertyPath: m_RootOrder
@@ -875,18 +851,6 @@ PrefabInstance:
     - target: {fileID: 7171943304287298665, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7563725159686553178, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.00012207031
-      objectReference: {fileID: 0}
-    - target: {fileID: 7944354763992106444, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.00012207031
-      objectReference: {fileID: 0}
-    - target: {fileID: 7973809054738653158, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.00012207031
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
@@ -6701,11 +6665,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OwningShop: {fileID: 998840567}
+  EquipContext: {fileID: 0}
   Upgrades:
   - {fileID: 11400000, guid: ab87a734da90af74f8392f14b11685fd, type: 2}
   - {fileID: 11400000, guid: cb7ceb0e74afe2d41a23ca3f520224ee, type: 2}
   ShowWhenUsed: {fileID: 1256745344}
   TextToShow: Click To Open Mage Shop
+  Classes:
+  - {fileID: 11400000, guid: 88776d999fa5b6f4b8f4c030724700bc, type: 2}
 --- !u!65 &691746439
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8667,11 +8634,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OwningShop: {fileID: 212587335}
+  EquipContext: {fileID: 0}
   Upgrades:
   - {fileID: 11400000, guid: f9e4a4a47af23cc4295805af1a23887d, type: 2}
   - {fileID: 11400000, guid: efd6448a4d1dbbd4b89a2b4b0138c1e8, type: 2}
   ShowWhenUsed: {fileID: 26535710}
   TextToShow: Click To Open Rogue Shop
+  Classes:
+  - {fileID: 11400000, guid: 60641eecf4c2b6243b6cc0e6756f54d1, type: 2}
+  - {fileID: 11400000, guid: 2746edbfe14a06c4986d5f453393c7f1, type: 2}
 --- !u!65 &1028263081
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15814,6 +15785,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OwningShop: {fileID: 254543105}
+  EquipContext: {fileID: 0}
   Upgrades:
   - {fileID: 11400000, guid: 11cefb1796a30ce459e8e5d2e28904fb, type: 2}
   ShowWhenUsed: {fileID: 373804456}
@@ -15822,7 +15794,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 51fbbcd9694ad164e8d54a932d7af54e, type: 2}
   - {fileID: 11400000, guid: 0234a1a9e5fa03a49b15536978f2cd46, type: 2}
   - {fileID: 11400000, guid: f9929bbb275352a4086f60d1be115dd8, type: 2}
-  EquipContext: {fileID: 0}
 --- !u!65 &1969705477
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17113,11 +17084,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OwningShop: {fileID: 2096560771}
+  EquipContext: {fileID: 0}
   Upgrades:
   - {fileID: 11400000, guid: af8cd39a0b800334bb950522e70748c4, type: 2}
   - {fileID: 11400000, guid: 4f5420b053477d446b70ca2f78a98e90, type: 2}
   ShowWhenUsed: {fileID: 586802487}
   TextToShow: Click To Open Warrior Shop
+  Classes:
+  - {fileID: 11400000, guid: 7ce6e90f2ec0bd248913483e04f66cfa, type: 2}
 --- !u!65 &2084837816
 BoxCollider:
   m_ObjectHideFlags: 0

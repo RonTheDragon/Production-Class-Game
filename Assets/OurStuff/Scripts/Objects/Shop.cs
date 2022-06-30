@@ -9,9 +9,13 @@ public abstract class Shop : MonoBehaviour, ItownClickable
     [HideInInspector] public enum UpgradesList { Select_Upgrade_Here , WallHp , WarriorHp , WarriorDamage , RogueHp , RogueDamage , MageHp, MageDamage}
     public GameObject OwningShop;
     protected GameObject UpgradeContext;
+    protected GameObject ShopContext;
+    [HideInInspector] public GameObject EquipContext;
 
     public List<SOupgrade> Upgrades = new List<SOupgrade>();
     protected List<Upgrade> _upgrades = new List<Upgrade>();
+
+
 
 
     [SerializeField] GameObject ShowWhenUsed;
@@ -38,6 +42,8 @@ public abstract class Shop : MonoBehaviour, ItownClickable
         {
             UpgradeContext = OwningShop.transform.GetChild(0).GetChild(0).GetChild(0).GetChild(0).gameObject;
             CreateUpgrades();
+            ShopContext = OwningShop.transform.GetChild(0).GetChild(1).GetChild(0).GetChild(0).gameObject;
+            EquipContext = OwningShop.transform.GetChild(0).GetChild(2).GetChild(0).GetChild(0).gameObject;
         }
     }
 
@@ -173,15 +179,4 @@ public abstract class ShopBuyable : ShopItem
     public int Price;
 }
 
-public class WallAbility : ShopBuyable
-{
-    public SOwall TheAbility;
-    public WallAbility(string Name, string Explanation, Sprite Icon,int Price,SOwall TheAbility)
-    {
-        this.Name = Name;
-        this.Explanation = Explanation;
-        this.Icon = Icon;
-        this.Price = Price;
-        this.TheAbility = TheAbility;
-    }
-}
+

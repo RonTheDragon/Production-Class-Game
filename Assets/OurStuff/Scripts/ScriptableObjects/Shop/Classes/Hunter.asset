@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7965fe841914e044a9353ee958b2f610, type: 3}
+  m_Name: Hunter
+  m_EditorClassIdentifier: 
+  Name: Hunter
+  Explanation: Using Bow and laying Traps
+  LongExplanation: Charge a Shoot with Left Click and Release to shoot, Press F to
+    lay a Bear Trap
+  Price: 0
+  Body: {fileID: 11400000, guid: 131f7fc4b2f70ec4a890a36d42e6f1db, type: 2}

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShopWallAttack : ShopProduct
 {
-    public WallAbility wa;
+    [HideInInspector] public WallAbility wa;
     public override void OnClick()
     {
         if (shop is WallShop)
