@@ -41,6 +41,10 @@ public class PlayerHealth : CharacterHealth
             {
                 Death();
             }
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                GameManager.instance.Wall.GetComponent<WallHealth>().Hp = -1;
+            }
         }
     }
     void TakeKnockback()
@@ -72,6 +76,7 @@ public class PlayerHealth : CharacterHealth
                 }
                 //GameManager.instance.Player = Instantiate(GameManager.instance.Player, GetComponent<RespawmIfFallsOffMap>().startPos, transform.rotation/* FIX LATER*/);
                 anim.SetBool("Death", true);
+                CC.enabled = false;
                 PAS.enabled = false;
                 StartCoroutine(DisposeOfBody());
 

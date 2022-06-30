@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerRespawnManager : MonoBehaviour
 {
-    [SerializeField] List<SOPlayerBody> PlayerBodies = new List<SOPlayerBody>();
+    public List<SOPlayerBody> PlayerBodies = new List<SOPlayerBody>();
     List<PlayerParameters> playerParameters;
     [SerializeField] GameObject RespawnMenu;
     [SerializeField] GameObject Content;
@@ -37,6 +37,7 @@ public class PlayerRespawnManager : MonoBehaviour
             if (GameManager.instance.Player.GetComponent<PlayerHealth>().AlreadyDead == true)
             {
                 Destroy(GameManager.instance.Player);
+                if (GameManager.instance.SoulSucker!=null)
                 Destroy(GameManager.instance.SoulSucker.gameObject);
                 RespawnPlayer(CreateCharacter());
                 StartCoroutine(SpawnFirstRock());
@@ -48,11 +49,14 @@ public class PlayerRespawnManager : MonoBehaviour
             Player.SetActive(true);
             Health hp = Player.GetComponent<Health>();
             hp.Hp = hp.MaxHp;
-            if (GameManager.instance.SoulSucker.gameObject != Player)
+            if (GameManager.instance.SoulSucker != null)
             {
-                Destroy(GameManager.instance.SoulSucker.gameObject);
-                StartCoroutine(SpawnFirstRock());
-            }
+                if (GameManager.instance.SoulSucker.gameObject != Player)
+                {
+                    Destroy(GameManager.instance.SoulSucker.gameObject);
+                    StartCoroutine(SpawnFirstRock());
+                }
+            }else StartCoroutine(SpawnFirstRock());
         }
     }
 
@@ -84,13 +88,32 @@ public class PlayerRespawnManager : MonoBehaviour
 
         string PersonalName = CharacterNames[Random.Range(0, CharacterNames.Count)];
 
+        float dm = 1;
+        float hm = 1;
+        switch (PlayerBodies[playerSelected].role.classRole)
+        {
+            case PlayerParameters.ClassRole.Warrior:
+                dm = GameManager.instance.WarriorDamageMultiplier;
+                hm = GameManager.instance.WarriorHealthMultiplier;
+                break;
+            case PlayerParameters.ClassRole.Rogue:
+                dm = GameManager.instance.RogueDamageMultiplier;
+                hm = GameManager.instance.RogueHealthMultiplier;
+                break;
+            case PlayerParameters.ClassRole.Mage:
+                dm = GameManager.instance.MageDamageMultiplier;
+                hm = GameManager.instance.MageHealthMultiplier;
+                break;
+        }
+
         PlayerParameters par = new PlayerParameters(
             PlayerBodies[playerSelected].Body,
             PlayerBodies[playerSelected].role,
             PlayerBodies[playerSelected].RoleName,
+            PlayerBodies[playerSelected].Image,
             PersonalName,
-            damageMultiplier,
-            health);
+            damageMultiplier * dm,
+            health * hm);
         return par;
     }
 
@@ -137,7 +160,7 @@ public class PlayerRespawnManager : MonoBehaviour
         }
 
         RespawnMenu.SetActive(false);
-        if (GameManager.instance.SoulSucker.gameObject != null)
+        if (GameManager.instance.SoulSucker != null)
         {
             Destroy(GameManager.instance.SoulSucker.gameObject);
         }
@@ -171,18 +194,21 @@ public class PlayerRespawnManager : MonoBehaviour
 
 public class PlayerParameters
 {
+    public enum ClassRole { Warrior, Rogue, Mage};
     public GameObject PlayerBody;
     public SOclass    role;
     public string     RoleName;
+    public Sprite     icon;
     public string     PersonalName;
     public float      damageMultiplier;
     public float      health;
 
-    public PlayerParameters(GameObject PlayerBody, SOclass role,string RoleName, string PersonalName, float damageMultiplier, float health)
+    public PlayerParameters(GameObject PlayerBody, SOclass role,string RoleName, Sprite icon, string PersonalName, float damageMultiplier, float health)
     {
         this.PlayerBody       = PlayerBody;
         this.role             = role;
         this.RoleName         = RoleName;
+        this.icon             = icon;
         this.PersonalName     = PersonalName;
         this.damageMultiplier = damageMultiplier;
         this.health           = health;

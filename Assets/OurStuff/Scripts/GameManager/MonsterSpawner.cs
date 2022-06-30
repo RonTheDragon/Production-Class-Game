@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class MonsterSpawner : MonoBehaviour
 {
@@ -20,6 +21,9 @@ public class MonsterSpawner : MonoBehaviour
     float TimeLeftForNextEnemy;
     SOwave Wave;
     List<MonstersLeft> MonstersLeftToSpawn = new List<MonstersLeft>();
+    Vector2 HealthMultiplier = new Vector2(1, 1);
+    Vector2 DamageMultiplier = new Vector2(1, 1);
+    float DifficultyMultiplier = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +56,11 @@ public class MonsterSpawner : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 EndLevel();
+                if (Levels.Count <= CurrentLevel)
+                {
+                    CurrentLevel--;
+                    Debug.Log("Repeat Last Level");
+                }
             }
         }
     }
@@ -64,7 +73,12 @@ public class MonsterSpawner : MonoBehaviour
     public void StartWave()
     {
         MonstersLeftToSpawn = new List<MonstersLeft>();
-        Wave = Levels[CurrentLevel].Waves[CurrentWave];       
+        Wave = Levels[CurrentLevel].Waves[CurrentWave];
+
+        HealthMultiplier = Wave.HealthMultiplier;
+        DamageMultiplier = Wave.DamageMultiplier;
+        DifficultyMultiplier = Levels[CurrentLevel].DifficultyMultiplier;
+
         for (int i = 0; i < Wave.Monsters.Count; i++)
         {
             int r = Random.Range((int)Wave.Monsters[i].Amount.x, (int)Wave.Monsters[i].Amount.y+1);
@@ -97,10 +111,8 @@ public class MonsterSpawner : MonoBehaviour
             if (Levels.Count <= CurrentLevel+1)
             {               
                  Debug.Log("No More Levels");
-                 return;
             }
-            else
-            {             
+                       
                 GameManager.instance.AlreadyWon = true;
                 if (GameManager.instance.Player != null)
                 {
@@ -110,7 +122,7 @@ public class MonsterSpawner : MonoBehaviour
                 {
                     EndLevel();
                 }
-            }
+            
         }
         else
         {
@@ -128,6 +140,12 @@ public class MonsterSpawner : MonoBehaviour
         {
             Enemy.SetActive(false);
         }
+        foreach (GameObject ob in GameObject.FindGameObjectsWithTag("NeedsClean"))
+        {
+            ob.SetActive(false);
+        }
+        if (GameManager.instance.SoulSucker != null) 
+        Destroy(GameManager.instance.SoulSucker.gameObject);
     }
 
     void DuringWave()
@@ -137,7 +155,7 @@ public class MonsterSpawner : MonoBehaviour
             int r = Random.Range(0, MonstersLeftToSpawn.Count);
             int l = Random.Range(0, SpawningLocations.Count);
             if (MonstersLeftToSpawn[r].Amount > 0)
-            ObjectPooler.Instance.SpawnFromPool(MonstersLeftToSpawn[r].Name, SpawningLocations[l].position, SpawningLocations[l].rotation);
+                SpawnMonster(ObjectPooler.Instance.SpawnFromPool(MonstersLeftToSpawn[r].Name, SpawningLocations[l].position, SpawningLocations[l].rotation));
             MonstersLeftToSpawn[r].Amount--;
             if (MonstersLeftToSpawn[r].Amount <= 0) { MonstersLeftToSpawn.RemoveAt(r); }
             TimeLeftForNextEnemy = Random.Range(TimeBetweenEnemiesSpawn.x, TimeBetweenEnemiesSpawn.y+1);
@@ -167,10 +185,38 @@ public class MonsterSpawner : MonoBehaviour
             Player.GetComponent<ThirdPersonMovement>().PressE.SetActive(false);
             Player.SetActive(false);
 
-            GameManager.instance.GetComponent<TownManager>().TownCamera.gameObject.SetActive(true);
-            GameManager.instance.GetComponent<TownManager>().UpdateSoulCount();
+            TownManager TM = GameManager.instance.GetComponent<TownManager>();
+            TM.TownCamera.gameObject.SetActive(true);
+            TM.UpdateSoulCount();
             GameManager.instance.CantUseTown = false;
+
+            WallHealth WH = GameManager.instance.Wall.GetComponent<WallHealth>();
+            WH.Hp = WH.MaxHp;
+            foreach (GameObject ob in GameObject.FindGameObjectsWithTag("NeedsClean"))
+            {
+                ob.SetActive(false);
+            }
         }
         //StartWave();
+    }
+
+    public void SpawnMonster(GameObject Monster)
+    {
+        Enemy E = Monster.GetComponent<Enemy>();
+        if (E != null)
+        {
+            NavMeshAgent nav = Monster.transform.GetChild(0).GetComponent<NavMeshAgent>();
+            nav.enabled = false;
+            Monster.transform.GetChild(0).transform.position = Monster.transform.position;
+            nav.enabled = true;
+            E.anim.SetTrigger("Spawn");
+            EnemyAttackSystem EAS = Monster.transform.GetChild(0).GetComponent<EnemyAttackSystem>();
+            EAS.AttackCooldown = 4.5f;
+            EAS.DamageMultiplier = (Random.Range(DamageMultiplier.x, DamageMultiplier.y))*DifficultyMultiplier;
+            EnemyHealth EH = Monster.transform.GetChild(0).GetComponent<EnemyHealth>();
+            EH.MaxHp *= (Random.Range(HealthMultiplier.x, HealthMultiplier.y))*DifficultyMultiplier;
+            EH.Hp = EH.MaxHp;
+            E.ShowingData = 0;
+        }
     }
 }

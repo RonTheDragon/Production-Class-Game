@@ -22,11 +22,33 @@ public class GameManager : MonoBehaviour
     public        GameObject    CooldownCircleObject;
     [HideInInspector] public bool CantUseTown;
     public GameObject Upgrade;
-    public GameObject ShopItem;
-    public GameObject BaughtItem;
+    public GameObject WallShopItem;
+    public GameObject WallBaughtItem;
+    public GameObject ClassShopItem;
+    public GameObject ClassBaughtItem;
     [HideInInspector] public Transform SoulSucker;
     public int SoulEnergy;
     [HideInInspector] public bool AlreadyWon;
+
+    [HideInInspector] public float RogueDamageMultiplier = 1;
+    [HideInInspector] public float MageDamageMultiplier = 1;
+    [HideInInspector] public float WarriorDamageMultiplier = 1;
+
+    [HideInInspector] public float RogueHealthMultiplier = 1;
+    [HideInInspector] public float MageHealthMultiplier = 1;
+    [HideInInspector] public float WarriorHealthMultiplier = 1;
+
+    [HideInInspector] public float RogueStaminaMultiplier = 1;
+    [HideInInspector] public float MageStaminaMultiplier = 1;
+    [HideInInspector] public float WarriorStaminaMultiplier = 1;
+
+    [HideInInspector] public float RogueSpeedMultiplier = 1;
+    [HideInInspector] public float MageSpeedMultiplier = 1;
+    [HideInInspector] public float WarriorSpeedMultiplier = 1;
+
+    [HideInInspector] public float RogueReganMultiplier = 1;
+    [HideInInspector] public float MageReganMultiplier = 1;
+    [HideInInspector] public float WarriorReganMultiplier = 1;
 
     private void Awake()
     {
@@ -38,5 +60,23 @@ public class GameManager : MonoBehaviour
     public void Shopping(bool b)
     {
         CantUseTown = b;
+    }
+    public void Update()
+    {
+       if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            QuitGame();
+        }
+    }
+    public void QuitGame()
+    {
+        // save any game data here
+#if UNITY_EDITOR
+        // Application.Quit() does not work in the editor so
+        // UnityEditor.EditorApplication.isPlaying need to be set to false to end the game
+        UnityEditor.EditorApplication.isPaused = true;
+#else
+             Application.Quit();
+#endif
     }
 }

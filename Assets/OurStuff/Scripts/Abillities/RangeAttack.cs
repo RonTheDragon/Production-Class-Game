@@ -9,6 +9,7 @@ public class RangeAttack : Attack
     public string Bullet;
     [HideInInspector]
     public float ProjectileSpeed;
+    public float ExplosionRadius;
     bool _alreadyON;
     // Start is called before the first frame update
     void Start()
@@ -43,6 +44,12 @@ public class RangeAttack : Attack
             p.Attackable = Attackable;
             p.Speed = ProjectileSpeed*Charge;
             p.Attacker = Attacker;
+            if (p is ExplosiveProjectile)
+            {
+                ExplosiveProjectile E;
+                E = (ExplosiveProjectile)p;
+                E.ExplosionRadius = ExplosionRadius;
+            }
         }
     }
 }

@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4614994715249843032}
   - component: {fileID: 5281856811129974208}
   - component: {fileID: 7018422942621383687}
-  - component: {fileID: 9113556314122575967}
   - component: {fileID: 4573195961439601345}
+  - component: {fileID: 8881319076964511500}
   m_Layer: 0
   m_Name: GolemRock
   m_TagString: Untagged
@@ -98,27 +98,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &9113556314122575967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3191585019767905320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe143bdcf9bfd3241a16e1aa9e75c86a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Damage: 0
-  Knock: 0
-  Stagger: {x: 0, y: 0}
-  Attackable:
-    serializedVersion: 2
-    m_Bits: 0
-  Charge: 0
-  Attacker: {fileID: 0}
-  Speed: 10
 --- !u!54 &4573195961439601345
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -135,6 +114,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8881319076964511500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3191585019767905320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1f0de29dff9e084f94647caadc3a48d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 0
+  Knock: 0
+  Stagger: {x: 0, y: 0}
+  Attackable:
+    serializedVersion: 2
+    m_Bits: 0
+  Charge: 0
+  Attacker: {fileID: 0}
+  Speed: 10
+  ExplosionRadius: 0
+  Explosion: RockExplosion
 --- !u!1 &4101121491215986614
 GameObject:
   m_ObjectHideFlags: 0

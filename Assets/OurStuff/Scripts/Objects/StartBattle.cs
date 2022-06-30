@@ -4,6 +4,18 @@ using UnityEngine;
 
 public class StartBattle : MonoBehaviour , ItownClickable
 {
+    [SerializeField] GameObject ShowWhenUsed;
+    [SerializeField] string TextToShow;
+    float hovered;
+
+    void Update()
+    {
+        if (hovered > 0)
+        hovered -= Time.deltaTime;      
+        else
+        ShowWhenUsed.SetActive(false);
+    }
+
     public void OnClicked()
     {
         GameManager.instance.GetComponent<PlayerRespawnManager>().SpawnFirstCharacter();
@@ -17,4 +29,10 @@ public class StartBattle : MonoBehaviour , ItownClickable
         GameManager.instance.CantUseTown= true;
     }
 
+    public string OnHover()
+    {
+        ShowWhenUsed.SetActive(true);
+        hovered = 0.01f; 
+        return TextToShow;
+    }
 }

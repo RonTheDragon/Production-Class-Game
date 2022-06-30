@@ -4814,9 +4814,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1067460664617347167}
-  - component: {fileID: 1477292356277643117}
   - component: {fileID: 4441845803884995014}
   - component: {fileID: 5367369663241975145}
+  - component: {fileID: 6994231988306470236}
   m_Layer: 0
   m_Name: FIRE BALL
   m_TagString: Untagged
@@ -4839,27 +4839,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1477292356277643117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4866355416100459866}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe143bdcf9bfd3241a16e1aa9e75c86a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Damage: 0
-  Knock: 0
-  Stagger: {x: 0, y: 0}
-  Attackable:
-    serializedVersion: 2
-    m_Bits: 0
-  Charge: 0
-  Attacker: {fileID: 0}
-  Speed: 10
 --- !u!135 &4441845803884995014
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4871,8 +4850,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.4
+  m_Center: {x: 0, y: 0, z: 0.4}
 --- !u!54 &5367369663241975145
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4889,6 +4868,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6994231988306470236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4866355416100459866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1f0de29dff9e084f94647caadc3a48d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 0
+  Knock: 0
+  Stagger: {x: 0, y: 0}
+  Attackable:
+    serializedVersion: 2
+    m_Bits: 0
+  Charge: 0
+  Attacker: {fileID: 0}
+  Speed: 10
+  ExplosionRadius: 0
+  Explosion: Explosion
 --- !u!1 &6607194132348189893
 GameObject:
   m_ObjectHideFlags: 0

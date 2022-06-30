@@ -6,6 +6,7 @@ public abstract class AttackSystem : MonoBehaviour
 {
     protected Animator Anim;
     protected float Charge = 1;
+    protected float MinCharge;
     protected float MaxCharge;
     protected float ChargeSpeed;
     [HideInInspector] public float Stamina;
@@ -30,6 +31,7 @@ public abstract class AttackSystem : MonoBehaviour
     protected void Start()
     {
         Stamina = MaxStamina;
+        HoldingAnAttack= string.Empty;
     }
 
     protected void Update()
@@ -37,9 +39,18 @@ public abstract class AttackSystem : MonoBehaviour
         if (AttackCooldown > 0 && HoldingAnAttack == string.Empty)
             AttackCooldown -= Time.deltaTime;
 
+        if (HoldingAnAttack != string.Empty)
+        {
+            Stamina -= StaminaCost * Time.deltaTime;
+            if (Stamina <= 0)
+            {
+                CancelAttack();
+            }
+        }
+
         if (Stamina < MaxStamina)
         {
-            if (StaminaRegan > 0)
+            if (StaminaRegan > 0 && HoldingAnAttack == string.Empty)
                 Stamina += Time.deltaTime * StaminaRegan;
         }
         else
@@ -47,18 +58,25 @@ public abstract class AttackSystem : MonoBehaviour
             Stamina = MaxStamina;
         }
 
+        if (Stamina < 0) { Stamina = 0; }
+
         if (comboTimer > 0)
             comboTimer -= Time.deltaTime;
         else
             PreviousAttack = string.Empty;
-        if (ChargeSpeed>0 && MaxCharge > Charge)
+
+        // Charge Stuff 
+
+        if (ChargeSpeed>0 && MaxCharge+1+MinCharge > Charge)
         {
             Charge += Time.deltaTime * ChargeSpeed;
         }
-        if (Charge > MaxCharge + 1)
+
+        if (Charge > MaxCharge + 1 + MinCharge) 
         {
-            Charge = MaxCharge+1;
+            Charge = MaxCharge + 1 + MinCharge;
         }
+
         if (AttackMovementForce > 0)
         {
             AttackMovement();
@@ -99,6 +117,7 @@ public abstract class AttackSystem : MonoBehaviour
     protected void ResetCharge()
     {
         MaxCharge = 0;
+        MinCharge = 0;
         Charge = 1;
         ChargeSpeed = 0;
     }
@@ -106,6 +125,12 @@ public abstract class AttackSystem : MonoBehaviour
     protected void SetUpAttack(List<SOability> Attacks, int attackType)
     {
         AttackMovementForce = 0;
+
+        if (Charge < MinCharge + 1)
+        {
+            CancelAttack();
+            return;
+        }
 
         if (this is PlayerAttackSystem && Attacks[attackType].aiming)
         {
@@ -147,6 +172,14 @@ public abstract class AttackSystem : MonoBehaviour
                     setAttack(rangeAttack, SOR);
                     rangeAttack.Bullet = SOR.Projectile;
                     rangeAttack.ProjectileSpeed = SOR.ProjectileSpeed;
+
+                    if (Attacks[attackType] is SOexplosiveRange)
+                    {
+                        SOexplosiveRange SOE;
+                        SOE = (SOexplosiveRange)Attacks[attackType];
+
+                        rangeAttack.ExplosionRadius = SOE.ExplosionRadius;
+                    }
                 }
             }
             else if (Attacks[attackType] is SOparticleAttack)
@@ -193,6 +226,7 @@ public abstract class AttackSystem : MonoBehaviour
         {
             SOcharge SOD = (SOcharge)Attacks[attackType];
             MaxCharge = SOD.MaxCharge;
+            MinCharge = SOD.MinCharge;
             ChargeSpeed = SOD.ChargeSpeed;
         }
 
@@ -412,6 +446,14 @@ public abstract class AttackSystem : MonoBehaviour
     public virtual void Aiming(bool aim)
     {
 
+    }
+
+    public void CancelAttack()
+    {
+        Anim.SetTrigger("Release");
+        HoldingAnAttack = string.Empty;
+        AttackCooldown = 0;
+        ResetCharge();
     }
 
 }

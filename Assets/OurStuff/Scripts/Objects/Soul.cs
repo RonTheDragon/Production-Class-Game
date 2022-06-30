@@ -9,9 +9,11 @@ public class Soul : MonoBehaviour , IpooledObject
     [SerializeField] float rotationSpeed = 10;
     bool SoulAlreadyCollected;
     ParticleSystem particle;
+    float startingSpeed;
 
     void Start()
     {
+        startingSpeed = speed;
         particle = GetComponent<ParticleSystem>();
     }
 
@@ -22,6 +24,7 @@ public class Soul : MonoBehaviour , IpooledObject
         {
             if (GameManager.instance.SoulSucker.gameObject != null && !SoulAlreadyCollected)
             {
+                speed += Time.deltaTime*2;
                 float s = 1 + (0.1f * SoulEnergy);
                 transform.localScale = new Vector3(s, s, s);
                 float dist = Vector3.Distance(transform.position, GameManager.instance.SoulSucker.position);
@@ -45,6 +48,7 @@ public class Soul : MonoBehaviour , IpooledObject
 
     public void OnObjectSpawn()
     {
+        speed = startingSpeed;
         SoulAlreadyCollected = false;
     }
 

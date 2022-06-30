@@ -15,12 +15,12 @@ MonoBehaviour:
   Name: Rolling
   AnimationTrigger: Roll
   PreviousAttack: 
-  StaminaCost: 10
+  StaminaCost: 30
   AttackCooldown: 1
   AbilityCooldown: 0
   MinRange: 6
-  MaxRange: 12
-  Chance: 15
+  MaxRange: 100
+  Chance: 5
   attackType: 0
   aiming: 0
   Image: {fileID: 0}

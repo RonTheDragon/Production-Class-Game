@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7965fe841914e044a9353ee958b2f610, type: 3}
+  m_Name: Arbalist
+  m_EditorClassIdentifier: 
+  Name: Arbalist
+  Explanation: Using Rapid Fire Crossbow
+  LongExplanation: Left Click For Rapid Fire, Right Click For Strong Shot
+  Price: 5
+  Body: {fileID: 11400000, guid: 1f13ccb1a0716ee40a01d7b39ff3b5b1, type: 2}

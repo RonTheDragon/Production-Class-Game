@@ -15,7 +15,7 @@ MonoBehaviour:
   Name: FlameThrower
   AnimationTrigger: Fire
   PreviousAttack: 
-  StaminaCost: 50
+  StaminaCost: 15
   AttackCooldown: 1
   AbilityCooldown: 0
   MinRange: 0
@@ -24,10 +24,10 @@ MonoBehaviour:
   attackType: 1
   aiming: 1
   Image: {fileID: 0}
-  Damage: 10
+  Damage: 5
   Knockback: 0
   Stagger: {x: 0, y: 0}
   particleSystem: {fileID: 3026823772675770424, guid: 436f1ba17f919b24fb5a5c9ecced5700, type: 3}
   Emit: 1
   particleType: 1
-  DamagingCooldown: 0.2
+  DamagingCooldown: 0.1

@@ -16,4 +16,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1fbc624d20dd5d64d874c68d98dacc2f, type: 2}
   - {fileID: 11400000, guid: 9977ce8f39ddf4e48a980518eecd58bb, type: 2}
   - {fileID: 11400000, guid: cf2753f095d5fbe4384d60db34e90929, type: 2}
-  PlayerCharacterAmount: 3
+  PlayerCharacterAmount: 10
+  DifficultyMultiplier: 1

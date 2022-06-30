@@ -24,6 +24,7 @@ public class PlayerAttackSystem : AttackSystem
         SetLayersForAttacks(GameManager.instance.PlayerCanAttack);
         thirdPersonMovement = GetComponent<ThirdPersonMovement>();
         PlayerCooldownCircles = thirdPersonMovement.PlayerCooldowns;
+        EffectedByUpgrades();
     }
 
     new void Update()
@@ -88,6 +89,7 @@ public class PlayerAttackSystem : AttackSystem
         AttackMovementForce -= AttackMovementForce * Time.deltaTime;   
         Vector3 Knock = (transform.forward * AttackMovementDirection.x + transform.right * AttackMovementDirection.y).normalized * AttackMovementForce * Time.deltaTime;
         Knock.y = 0;
+        if (CC.enabled)
         CC.Move(Knock);
     }
 
@@ -121,4 +123,42 @@ public class PlayerAttackSystem : AttackSystem
         Circle.name = a.Name;
     }
 
+    public float ShowCharge()
+    {
+        float n;
+        n = (Charge - MinCharge - 1) / (MaxCharge);
+        return n;
+    }
+
+    void EffectedByUpgrades()
+    {
+        float m = 1;
+        float s = 1;
+        float r = 1;
+
+        switch (PlayerClass.classRole)
+        {
+            case PlayerParameters.ClassRole.Warrior:           
+                m = GameManager.instance.WarriorStaminaMultiplier;
+                s = GameManager.instance.WarriorSpeedMultiplier;
+                r = GameManager.instance.WarriorReganMultiplier;
+                break;
+            case PlayerParameters.ClassRole.Rogue:            
+                m = GameManager.instance.RogueStaminaMultiplier;
+                s = GameManager.instance.RogueSpeedMultiplier;
+                r = GameManager.instance.RogueReganMultiplier;
+                break;
+            case PlayerParameters.ClassRole.Mage:       
+                m = GameManager.instance.MageStaminaMultiplier;
+                s = GameManager.instance.MageSpeedMultiplier;
+                r = GameManager.instance.MageReganMultiplier;
+                break;
+        }
+        MaxStamina *= m;
+        Stamina = MaxStamina;
+        thirdPersonMovement.originalSpeed *= s;
+        thirdPersonMovement.SprintSpeed *= s;
+        PlayerHealth hp = GetComponent<PlayerHealth>();
+        hp.HpRegan *= r;
+    }
 }

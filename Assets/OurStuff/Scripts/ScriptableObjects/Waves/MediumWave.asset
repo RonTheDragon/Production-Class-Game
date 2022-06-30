@@ -20,3 +20,5 @@ MonoBehaviour:
   TimeBetweenSpawns: {x: 1, y: 3}
   TimeTillNextWave: {x: 30, y: 60}
   TooManyMonstersToStart: {x: 4, y: 5}
+  HealthMultiplier: {x: 1, y: 2}
+  DamageMultiplier: {x: 1, y: 2}

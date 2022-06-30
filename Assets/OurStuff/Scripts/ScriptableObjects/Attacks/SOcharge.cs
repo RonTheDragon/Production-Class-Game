@@ -6,5 +6,6 @@ using UnityEngine;
 public class SOcharge : SOability
 {
     public float MaxCharge = 1;
+    public float MinCharge = 0;
     public float ChargeSpeed = 1;
 }

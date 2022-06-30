@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ShieldBash
   m_EditorClassIdentifier: 
   Name: ShieldBash
-  AnimationTrigger: Release2
+  AnimationTrigger: Bash
   PreviousAttack: Block
   StaminaCost: 10
   AttackCooldown: 1
@@ -23,6 +23,7 @@ MonoBehaviour:
   Chance: 100
   attackType: 2
   aiming: 0
+  Image: {fileID: 0}
   Damage: 20
   Knockback: 20
   Stagger: {x: 50, y: 100}
