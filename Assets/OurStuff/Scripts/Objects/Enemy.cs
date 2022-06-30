@@ -294,7 +294,7 @@ public class Enemy : MonoBehaviour , IpooledObject
         //Audio.PlaySound(Sound.Activation.Custom, "Ah"); <-------RETURN LATER
         if (ByPlayer)
         alert += 2;
-        Particle.Emit((int)(Damage/5));
+        Particle.Emit((int)(Damage/7.5f));
         ShowingData = 5;
     }
 
