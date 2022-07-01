@@ -14,13 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Block
   AnimationTrigger: Attack5
-  StaminaCost: 10
+  PreviousAttack: 
+  StaminaCost: 5
   AttackCooldown: 0.1
+  AbilityCooldown: 0
   MinRange: 0
   MaxRange: 5
   Chance: 30
   attackType: 1
-  PreviousAttack: 
+  aiming: 0
+  Image: {fileID: 0}
   HpProtection: 0.1
   KnockProtection: 0.1
   ProtectionTime: 0.7
