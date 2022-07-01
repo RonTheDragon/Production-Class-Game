@@ -17,7 +17,7 @@ MonoBehaviour:
   PreviousAttack: 
   StaminaCost: 50
   AttackCooldown: 2.4
-  AbilityCooldown: 10
+  AbilityCooldown: 20
   MinRange: 0
   MaxRange: 3
   Chance: 100
