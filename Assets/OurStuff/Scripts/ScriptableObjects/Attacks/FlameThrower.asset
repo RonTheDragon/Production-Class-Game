@@ -27,6 +27,7 @@ MonoBehaviour:
   Damage: 5
   Knockback: 0
   Stagger: {x: 0, y: 0}
+  Temperature: 10
   particleSystem: {fileID: 3026823772675770424, guid: 436f1ba17f919b24fb5a5c9ecced5700, type: 3}
   Emit: 1
   particleType: 1

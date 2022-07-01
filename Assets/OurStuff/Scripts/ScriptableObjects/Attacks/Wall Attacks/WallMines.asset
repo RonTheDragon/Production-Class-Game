@@ -19,6 +19,7 @@ MonoBehaviour:
   Damage: 200
   Knockback: 20
   Stagger: {x: 0, y: 100}
+  Temperature: 100
   Projectile: Mine
   ProjectileSpeed: 20000
   AmountOfShoots: 7

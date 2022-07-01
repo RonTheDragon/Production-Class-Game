@@ -91,11 +91,11 @@ public class PlayerHealth : CharacterHealth
         PAS.Stagger();
     }
 
-    public override void TakeDamage(float Damage, float Knock, Vector2 Stagger, Vector3 ImpactLocation, GameObject Attacker)
+    public override void TakeDamage(float Damage, float Knock, Vector2 Stagger,  float Temperature , Vector3 ImpactLocation, GameObject Attacker)
     {
         if (!AlreadyDead)
         {
-            base.TakeDamage(Damage, Knock, Stagger, ImpactLocation, Attacker);
+            base.TakeDamage(Damage, Knock, Stagger, Temperature, ImpactLocation, Attacker);
         }
         //Anim.SetTrigger("Ouch");
         //audio.PlaySound(Sound.Activation.Custom, "Ouch");

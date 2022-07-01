@@ -15,7 +15,7 @@ MonoBehaviour:
   classRole: 1
   DownLeftClickAttacks: []
   DownRightClickAttacks:
-  - {fileID: 11400000, guid: 9cc53fbef91b8fe41a2d8d0048fcc247, type: 2}
+  - {fileID: 11400000, guid: 85cb463e9d704b0468efe6c9b8826733, type: 2}
   LeftClickAttacks:
   - {fileID: 11400000, guid: 1a3ec51985d4e704ca484f1777113ef6, type: 2}
   RightClickAttacks: []
@@ -23,4 +23,5 @@ MonoBehaviour:
   UpRightClickAttacks: []
   SpaceAbility:
   - {fileID: 11400000, guid: f92c306285687304b8b47559f9975e6e, type: 2}
-  F_Ability: []
+  F_Ability:
+  - {fileID: 11400000, guid: 94d71ae135ae14b47992665693a2e415, type: 2}

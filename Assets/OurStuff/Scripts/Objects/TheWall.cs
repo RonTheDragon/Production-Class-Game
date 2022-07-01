@@ -141,6 +141,7 @@ public class TheWall : MonoBehaviour
             pc.Damage = AP.Damage * DamageMultiplier;
             pc.Knock = AP.Knockback;
             pc.Stagger = AP.Stagger;
+            pc.Temperature = AP.Temperature;
         }
     }
 
@@ -256,6 +257,7 @@ public class TheWall : MonoBehaviour
                 p.Damage = a.Damage * DamageMultiplier;
                 p.Knock = a.Knockback;
                 p.Stagger = a.Stagger;
+                p.Temperature = a.Temperature;
             }
             p.Speed = ProjectileSpeed;
             p.Attackable = Attackable;

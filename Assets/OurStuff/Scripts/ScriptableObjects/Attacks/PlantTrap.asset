@@ -24,8 +24,9 @@ MonoBehaviour:
   attackType: 0
   aiming: 0
   Image: {fileID: 0}
-  Damage: 50
+  Damage: 200
   Knockback: 0
   Stagger: {x: 100, y: 200}
+  Temperature: 0
   Projectile: Trap
   ProjectileSpeed: 0

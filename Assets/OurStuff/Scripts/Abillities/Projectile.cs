@@ -5,15 +5,14 @@ using UnityEngine;
 public class Projectile : Attack
 {
     public float Speed = 10;
+    public float Gravity = 0;
 
-    // Start is called before the first frame update
-    void Start()
+    protected void Update()
     {
         
     }
 
-    // Update is called once per frame
-    protected void Update()
+    protected void FixedUpdate()
     {
         Movement();
     }
@@ -21,6 +20,10 @@ public class Projectile : Attack
     protected virtual void Movement()
     {
         transform.position += transform.forward * Speed * Time.deltaTime;
+        if (transform.rotation.x < 90)
+        {
+            transform.Rotate(Gravity * Time.deltaTime, 0, 0);
+        }
     }
 
     protected virtual void OnTriggerStay(Collider other)
@@ -32,7 +35,7 @@ public class Projectile : Attack
                 Health TargetHp = other.transform.GetComponent<Health>();
                 if (TargetHp != null)
                 {
-                    TargetHp.TakeDamage(Damage, Knock, Stagger, transform.position, Attacker);
+                    TargetHp.TakeDamage(Damage, Knock, Stagger,Temperature, transform.position, Attacker);
                     gameObject.SetActive(false);
                     //Destroy(gameObject);
                 }

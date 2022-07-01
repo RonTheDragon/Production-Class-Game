@@ -784,6 +784,38 @@ PrefabInstance:
       propertyPath: Wall
       value: 
       objectReference: {fileID: 1592667117}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[0].pools.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[2].pools.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[0].pools.Array.data[8].tag
+      value: RockSmash
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[2].pools.Array.data[5].tag
+      value: StoneSplash
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[0].pools.Array.data[8].size
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[2].pools.Array.data[5].size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[0].pools.Array.data[8].prefab
+      value: 
+      objectReference: {fileID: 4562430951675862319, guid: d9c86a77b18bfbc469ae45e0519cd3ee, type: 3}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[2].pools.Array.data[5].prefab
+      value: 
+      objectReference: {fileID: 8776062592319736021, guid: a712b93b1deace3498adce98170923ff, type: 3}
     - target: {fileID: 5310620670068136351, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
       propertyPath: m_Name
       value: GameManager

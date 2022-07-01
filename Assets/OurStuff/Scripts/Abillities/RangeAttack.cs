@@ -44,10 +44,17 @@ public class RangeAttack : Attack
             p.Attackable = Attackable;
             p.Speed = ProjectileSpeed*Charge;
             p.Attacker = Attacker;
+            p.Temperature = Temperature;
             if (p is ExplosiveProjectile)
             {
                 ExplosiveProjectile E;
                 E = (ExplosiveProjectile)p;
+                E.ExplosionRadius = ExplosionRadius;
+            }
+            if (p is Multishoot)
+            {
+                Multishoot E;
+                E = (Multishoot)p;
                 E.ExplosionRadius = ExplosionRadius;
             }
         }

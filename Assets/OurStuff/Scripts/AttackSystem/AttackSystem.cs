@@ -16,7 +16,8 @@ public abstract class AttackSystem : MonoBehaviour
     public                   float StaminaRegan    = 30;
     public                   float Tired           = 30;
     [SerializeField]         float StaggerDuration = 0.3f;
-    [SerializeField] List<Ability> abilities = new List<Ability>();
+    [SerializeField] List<GameObject> AbilityObjects = new List<GameObject>();
+    List<Ability> abilities = new List<Ability>();
     //public List<SOability> Attacks = new List<SOability>();
     public float DamageMultiplier  = 1;
     [SerializeField]  string HoldingAnAttack;
@@ -30,6 +31,7 @@ public abstract class AttackSystem : MonoBehaviour
 
     protected void Start()
     {
+        SetUpAbilities();
         Stamina = MaxStamina;
         HoldingAnAttack= string.Empty;
     }
@@ -258,6 +260,7 @@ public abstract class AttackSystem : MonoBehaviour
         TheAttack.Knock = TheSOattack.Knockback;
         TheAttack.Charge = Charge;
         TheAttack.Attacker = Attacker;
+        TheAttack.Temperature = TheSOattack.Temperature;
     }
 
     T AbilityGet<T>() where T : Ability
@@ -456,6 +459,16 @@ public abstract class AttackSystem : MonoBehaviour
         ResetCharge();
     }
 
+    void SetUpAbilities()
+    {
+        foreach(GameObject g in AbilityObjects)
+        {
+            foreach(Ability a in g.GetComponents<Ability>())
+            {
+                abilities.Add(a);
+            }
+        }
+    }
 }
 
 public class AbilityCoolDown

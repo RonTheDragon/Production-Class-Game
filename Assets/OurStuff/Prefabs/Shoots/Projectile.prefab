@@ -101,12 +101,14 @@ MonoBehaviour:
   Damage: 0
   Knock: 0
   Stagger: {x: 0, y: 0}
+  Temperature: 0
   Attackable:
     serializedVersion: 2
     m_Bits: 0
   Charge: 0
   Attacker: {fileID: 0}
   Speed: 10
+  Gravity: 5
 --- !u!54 &7356966153180958599
 Rigidbody:
   m_ObjectHideFlags: 0

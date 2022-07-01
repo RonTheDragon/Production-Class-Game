@@ -12,6 +12,7 @@ public class ParticleCollision : MonoBehaviour
     [HideInInspector] public float Damage;
     [HideInInspector] public float Knock;
     [HideInInspector] public Vector2 Stagger;
+    [HideInInspector] public float Temperature;
 
     private void OnParticleCollision(GameObject other)
     {
@@ -23,7 +24,7 @@ public class ParticleCollision : MonoBehaviour
                 if (TargetHp != null)
                 {
                     p.cooldown = p.AttackCooldown;
-                    TargetHp.TakeDamage(p.Damage * p.Charge, p.Knock * p.Charge, p.Stagger, transform.position, p.Attacker);
+                    TargetHp.TakeDamage(p.Damage * p.Charge, p.Knock * p.Charge, p.Stagger * p.Charge, p.Temperature * p.Charge, transform.position, p.Attacker);
                 }
             }
         }
@@ -34,7 +35,7 @@ public class ParticleCollision : MonoBehaviour
                 Health TargetHp = other.transform.GetComponent<Health>();
                 if (TargetHp != null)
                 {
-                    TargetHp.TakeDamage(Damage, Knock, Stagger, transform.position, w.gameObject);
+                    TargetHp.TakeDamage(Damage, Knock, Stagger, Temperature, transform.position, w.gameObject);
                 }
             }
         }

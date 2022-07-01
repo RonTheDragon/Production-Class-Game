@@ -9,23 +9,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5640c261f1e55fe449404fdbaf8911d7, type: 3}
-  m_Name: Crossbow Slow
+  m_Script: {fileID: 11500000, guid: dd68c2911c90097479f6d7f830328a8d, type: 3}
+  m_Name: MeteorStrike
   m_EditorClassIdentifier: 
-  Name: Crossbow Fast Attack
-  AnimationTrigger: Crossbow2
+  Name: Meteor Strike
+  AnimationTrigger: Meteor
   PreviousAttack: 
-  StaminaCost: 30
-  AttackCooldown: 1
-  AbilityCooldown: 0
+  StaminaCost: 40
+  AttackCooldown: 2.4
+  AbilityCooldown: 30
   MinRange: 0
   MaxRange: 3
   Chance: 100
   attackType: 0
   aiming: 1
   Image: {fileID: 0}
-  Damage: 30
-  Knockback: 20
+  Damage: 100
+  Knockback: 40
   Stagger: {x: 70, y: 100}
-  Projectile: Test
-  ProjectileSpeed: 60
+  Temperature: 100
+  Projectile: Meteor
+  ProjectileSpeed: 30
+  ExplosionRadius: 15

@@ -27,6 +27,7 @@ MonoBehaviour:
   Damage: 40
   Knockback: 20
   Stagger: {x: 70, y: 100}
+  Temperature: 100
   Projectile: FireBall
   ProjectileSpeed: 30
   ExplosionRadius: 10

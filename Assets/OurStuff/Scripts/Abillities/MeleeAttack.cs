@@ -53,7 +53,7 @@ public class MeleeAttack : Attack
                     if (TargetHp != null)
                     {
                         cooldown = AttackCooldown;
-                        TargetHp.TakeDamage(Damage*Charge, Knock*Charge, Stagger, transform.parent.position,Attacker);
+                        TargetHp.TakeDamage(Damage*Charge, Knock*Charge, Stagger*Charge, Temperature*Charge, transform.parent.position,Attacker);
                     }
                 }
             }

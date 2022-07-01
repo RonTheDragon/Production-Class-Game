@@ -6,7 +6,6 @@ using UnityEngine.AI;
 public class EnemyHealth : CharacterHealth , IpooledObject
 {
     Enemy enemy;
-    public GameObject DeadGhost;
     EnemyAttackSystem EAS;
     NavMeshAgent nav;
     Collider col;
@@ -27,6 +26,7 @@ public class EnemyHealth : CharacterHealth , IpooledObject
         enemy.anim.SetBool("Death", false);
         AlreadyDead = false;
         col.enabled = true;
+        Temperature = 0;
     }
 
     new void Update()
@@ -34,11 +34,11 @@ public class EnemyHealth : CharacterHealth , IpooledObject
         base.Update();
         TakeKnockback();
     }
-    public override void TakeDamage(float Damage, float Knock, Vector2 Stagger, Vector3 ImpactLocation, GameObject Attacker)
+    public override void TakeDamage(float Damage, float Knock, Vector2 Stagger, float Temperature, Vector3 ImpactLocation, GameObject Attacker)
     {
         if (!AlreadyDead)
         {
-            base.TakeDamage(Damage, Knock, Stagger, ImpactLocation, Attacker);
+            base.TakeDamage(Damage, Knock, Stagger, Temperature, ImpactLocation, Attacker);
             enemy.GotHit(Attacker == GameManager.instance.Player,Damage);
         }
     }

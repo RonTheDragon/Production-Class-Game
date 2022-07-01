@@ -12774,6 +12774,15 @@ MonoBehaviour:
     - tag: Trap
       prefab: {fileID: 7314162115414295912, guid: e2dec45e73c201242965314ac015631a, type: 3}
       size: 30
+    - tag: Penetrate
+      prefab: {fileID: 2027150163567156134, guid: 178c45c40f007084691a707b658d7a9a, type: 3}
+      size: 30
+    - tag: Meteor
+      prefab: {fileID: 7659995216936476081, guid: c82dab209691e1a4db744b29c68b2ce8, type: 3}
+      size: 30
+    - tag: Triple
+      prefab: {fileID: 2673861882952336688, guid: 959c66d58173b084499a1506411e25c7, type: 3}
+      size: 30
   - tag: Enemies
     pools:
     - tag: Enemy
@@ -12795,6 +12804,9 @@ MonoBehaviour:
       size: 10
     - tag: UsedTrap
       prefab: {fileID: 39965580145438263, guid: 8dc30ba0c1e9bfc438919f32ccd4a151, type: 3}
+      size: 10
+    - tag: BigExplosion
+      prefab: {fileID: 7345544838225731438, guid: d48a2caae80d70e44937d956999bd5a9, type: 3}
       size: 10
 --- !u!1 &9013158160471282744
 GameObject:

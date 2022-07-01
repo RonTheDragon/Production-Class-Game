@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f68ffa90c77ffd3418efdb956f5f9872, type: 3}
   m_Name: Class Knight
   m_EditorClassIdentifier: 
+  classRole: 0
   DownLeftClickAttacks:
   - {fileID: 11400000, guid: e5326967e6e62fd46babff5e31641b52, type: 2}
   - {fileID: 11400000, guid: 8d611f2509190b748a9001d6758befa9, type: 2}
@@ -26,4 +27,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 32243c880f256fd43bf8ec57da9062f3, type: 2}
   SpaceAbility:
   - {fileID: 11400000, guid: f92c306285687304b8b47559f9975e6e, type: 2}
-  F_Ability: []
+  F_Ability:
+  - {fileID: 11400000, guid: 49684353933f7464e9961e5cba2307a9, type: 2}

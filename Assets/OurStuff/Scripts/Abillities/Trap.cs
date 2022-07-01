@@ -40,7 +40,7 @@ public class Trap : Projectile, IpooledObject
                     if (TargetHp != null)
                     {
                        
-                        TargetHp.TakeDamage(Damage, Knock, Stagger, transform.position, Attacker);
+                        TargetHp.TakeDamage(Damage, Knock, Stagger,Temperature, transform.position, Attacker);
                     }
                 
             
