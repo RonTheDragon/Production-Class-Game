@@ -17168,6 +17168,7 @@ MonoBehaviour:
   TextToShow: Click To Open Warrior Shop
   Classes:
   - {fileID: 11400000, guid: 7ce6e90f2ec0bd248913483e04f66cfa, type: 2}
+  - {fileID: 11400000, guid: 814b1159030fbd94ebf1c5a7187b440b, type: 2}
 --- !u!65 &2084837816
 BoxCollider:
   m_ObjectHideFlags: 0

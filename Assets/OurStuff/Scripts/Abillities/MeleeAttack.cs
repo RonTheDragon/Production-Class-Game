@@ -30,7 +30,7 @@ public class MeleeAttack : Attack
         if (!_alreadyON && AnimationTrigger)
         {
             _alreadyON = true;
-            attackSystem.AttackMovementForce = AttackMovementForce;
+            attackSystem.AttackMovementForce = AttackMovementForce*Charge;
             attackSystem.AttackMovementDirection = AttackMovementDirection;
             attackSystem.AttackMovement();
         }

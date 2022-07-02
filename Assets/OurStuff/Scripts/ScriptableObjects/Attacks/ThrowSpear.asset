@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5640c261f1e55fe449404fdbaf8911d7, type: 3}
-  m_Name: Crossbow Spam
+  m_Name: ThrowSpear
   m_EditorClassIdentifier: 
-  Name: Crossbow Spam
-  AnimationTrigger: Crossbow3
-  PreviousAttack: 
-  StaminaCost: 50
-  AttackCooldown: 3.5
-  AbilityCooldown: 30
+  Name: Throw Spear
+  AnimationTrigger: Spear
+  PreviousAttack: Charge Spear
+  StaminaCost: 20
+  AttackCooldown: 1
+  AbilityCooldown: 0
   MinRange: 0
-  MaxRange: 3
-  Chance: 100
-  attackType: 0
+  MaxRange: 100
+  Chance: 10
+  attackType: 2
   aiming: 1
   Image: {fileID: 0}
-  Damage: 4
-  Knockback: 3
-  Stagger: {x: 0, y: 50}
+  Damage: 20
+  Knockback: 5
+  Stagger: {x: 70, y: 100}
   Temperature: 0
-  Projectile: Triple
-  ProjectileSpeed: 40
+  Projectile: Penetrate
+  ProjectileSpeed: 30

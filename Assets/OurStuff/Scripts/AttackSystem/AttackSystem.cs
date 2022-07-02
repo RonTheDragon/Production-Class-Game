@@ -12,6 +12,7 @@ public abstract class AttackSystem : MonoBehaviour
     [HideInInspector] public float Stamina;
     [HideInInspector] public float AttackCooldown;
     [HideInInspector] public float StaminaCost;
+    [HideInInspector] public float StaminaDrain;
     public                   float MaxStamina      = 100;
     public                   float StaminaRegan    = 30;
     public                   float Tired           = 30;
@@ -43,7 +44,7 @@ public abstract class AttackSystem : MonoBehaviour
 
         if (HoldingAnAttack != string.Empty)
         {
-            Stamina -= StaminaCost * Time.deltaTime;
+            Stamina -= StaminaDrain * Time.deltaTime;
             if (Stamina <= 0)
             {
                 CancelAttack();
@@ -373,6 +374,7 @@ public abstract class AttackSystem : MonoBehaviour
     {
         if (CanAttack())
         {
+            StaminaDrain = StaminaCost;
             SetUpAttack(Attacks, attackType);
             HoldingAnAttack = Attacks[attackType].Name;
         }

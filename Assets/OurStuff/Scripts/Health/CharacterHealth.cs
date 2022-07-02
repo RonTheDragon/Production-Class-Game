@@ -13,7 +13,7 @@ public abstract class CharacterHealth : Health
     [SerializeField] GameObject OnIce;
     GameObject Ice;
     [HideInInspector] public ParticleSystem IceParticles;
-    public bool Frozen;
+    [HideInInspector] public bool Frozen;
     bool ThereIsFire;
     bool ThereIsIce;
 
