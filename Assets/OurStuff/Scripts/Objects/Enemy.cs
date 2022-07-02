@@ -93,8 +93,11 @@ public class Enemy : MonoBehaviour , IpooledObject
         }
         //  HpBar.fillAmount = 0;
         //   StaminaBar.fillAmount = 0;
-        EnemyAI();
         PlayRandomSound();
+        if (!hp.Frozen)
+        {
+            EnemyAI();
+        }
         WalkingAnimation();
         if (GameManager.instance.Data != GameManager.ShowEnemyData.Never && GameManager.instance.Player!=null)
         {
@@ -112,6 +115,14 @@ public class Enemy : MonoBehaviour , IpooledObject
         {
             anim.SetInteger("Walk", 1);
             previousPos = TheEnemy.transform.position;
+        }
+        if (hp.Frozen)
+        {
+            anim.SetBool("Frozen", true);
+        }
+        else
+        {
+            anim.SetBool("Frozen", false);
         }
     }
 
@@ -140,7 +151,7 @@ public class Enemy : MonoBehaviour , IpooledObject
                 DetectionRange = OriginalDetectionRange * 1.5f;
                 if (eas.AttackCooldown <= 0)
                 {
-                    NMA.speed = OriginalSpeed * 1.5f;
+                    NMA.speed = GetSpeed() * 1.5f;
                     NMA.stoppingDistance = StoppingDistance;
                 }
                 else
@@ -163,7 +174,7 @@ public class Enemy : MonoBehaviour , IpooledObject
             DetectionRange = OriginalDetectionRange;
             if (eas.AttackCooldown <= 0)
             {
-                NMA.speed = OriginalSpeed;
+                NMA.speed = GetSpeed();
                 NMA.stoppingDistance = StoppingDistance - 2;
             }
             else
@@ -181,7 +192,7 @@ public class Enemy : MonoBehaviour , IpooledObject
             }
         }
 
-        if (eas.Stamina < eas.Tired) { NMA.speed = OriginalSpeed * 0.5f; }
+        if (eas.Stamina < eas.Tired) { NMA.speed = GetSpeed() * 0.5f; }
     }
 
     void PlayRandomSound()
@@ -294,7 +305,12 @@ public class Enemy : MonoBehaviour , IpooledObject
         //Audio.PlaySound(Sound.Activation.Custom, "Ah"); <-------RETURN LATER
         if (ByPlayer)
         alert += 2;
+        if (!hp.Frozen) 
         Particle.Emit((int)(Damage/7.5f));
+        else
+        {
+            hp.IceParticles.Emit((int)(Damage / 7.5f));
+        }
         ShowingData = 5;
     }
 
@@ -356,5 +372,13 @@ public class Enemy : MonoBehaviour , IpooledObject
             hpBar.fillAmount = hp.Hp / hp.MaxHp;
             staminaBar.fillAmount = eas.Stamina / eas.MaxStamina;
         }
+    }
+
+    float GetSpeed()
+    {
+        float speed = OriginalSpeed;
+        if (hp.Temperature < 0) { speed *= 0.01f * (hp.Temperature+100); }
+        if (hp.Frozen) speed = 0;
+        return speed;
     }
 }

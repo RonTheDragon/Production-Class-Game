@@ -57,8 +57,10 @@ public class EnemyHealth : CharacterHealth , IpooledObject
         if (!AlreadyDead)
         {
             AlreadyDead = true;
+            StopIce();
             //Instantiate(DeadGhost, transform.position, transform.rotation).GetComponent<ParticleSystemRenderer>().material = transform.GetChild(0).GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().materials[1];
             //GameManager.Player.GetComponent<PlayerControler>().KillAdded();
+            enemy.anim.SetBool("Frozen", false);
             enemy.anim.SetBool("Death",true);
             enemy.CanvasHolder.SetActive(false);
             enemy.enabled = false;

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49b199dadb0e8fa44812df8d4dc14b6f, type: 3}
+  m_Name: Cryomancer
+  m_EditorClassIdentifier: 
+  RoleName: Cryomancer
+  Image: {fileID: 21300000, guid: 3703494d59a648c469406e4c8576002a, type: 3}
+  Body: {fileID: 7602459157118490168, guid: 0a2c52ed28c9d034ea5a0289f6d8e2a0, type: 3}
+  role: {fileID: 11400000, guid: 6b7d2ebd4e004b445b36fcfbdfb552b4, type: 2}
+  damageMultiplier: {x: 1, y: 2}
+  health: {x: 30, y: 70}

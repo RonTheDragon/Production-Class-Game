@@ -786,22 +786,42 @@ PrefabInstance:
       objectReference: {fileID: 1592667117}
     - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
       propertyPath: Groups.Array.data[0].pools.Array.size
-      value: 9
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
       propertyPath: Groups.Array.data[2].pools.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
       propertyPath: Groups.Array.data[0].pools.Array.data[8].tag
       value: RockSmash
       objectReference: {fileID: 0}
     - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[0].pools.Array.data[9].tag
+      value: IceBall
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
       propertyPath: Groups.Array.data[2].pools.Array.data[5].tag
       value: StoneSplash
       objectReference: {fileID: 0}
     - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[2].pools.Array.data[6].tag
+      value: IceExplosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[0].pools.Array.data[10].tag
+      value: Spike
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[0].pools.Array.data[11].tag
+      value: IceTrap
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
       propertyPath: Groups.Array.data[0].pools.Array.data[8].size
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[0].pools.Array.data[9].size
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
@@ -809,13 +829,41 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[2].pools.Array.data[6].size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[0].pools.Array.data[10].size
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[0].pools.Array.data[11].size
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
       propertyPath: Groups.Array.data[0].pools.Array.data[8].prefab
       value: 
       objectReference: {fileID: 4562430951675862319, guid: d9c86a77b18bfbc469ae45e0519cd3ee, type: 3}
     - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[0].pools.Array.data[9].prefab
+      value: 
+      objectReference: {fileID: 5129424509652984273, guid: bef05196c9b13d9409bdfa517118f503, type: 3}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
       propertyPath: Groups.Array.data[2].pools.Array.data[5].prefab
       value: 
       objectReference: {fileID: 8776062592319736021, guid: a712b93b1deace3498adce98170923ff, type: 3}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[2].pools.Array.data[6].prefab
+      value: 
+      objectReference: {fileID: 2684114886331571335, guid: b571b32ca1a8f67418487d6824fe3544, type: 3}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[0].pools.Array.data[10].prefab
+      value: 
+      objectReference: {fileID: 28893353461833180, guid: 0399abbe910ad144a94c810690ebb163, type: 3}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[0].pools.Array.data[11].prefab
+      value: 
+      objectReference: {fileID: 7752236627628813921, guid: ff1a35b3de9f3644fa0ee9b54b16b1e6, type: 3}
     - target: {fileID: 5310620670068136351, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -6688,6 +6736,7 @@ MonoBehaviour:
   TextToShow: Click To Open Mage Shop
   Classes:
   - {fileID: 11400000, guid: 88776d999fa5b6f4b8f4c030724700bc, type: 2}
+  - {fileID: 11400000, guid: 78a75ff2ce9b87f468646361a96e79e5, type: 2}
 --- !u!65 &691746439
 BoxCollider:
   m_ObjectHideFlags: 0

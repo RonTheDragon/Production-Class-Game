@@ -7,10 +7,15 @@ public abstract class CharacterHealth : Health
     [SerializeField] float StaggerResistance;
     protected float TheKnockback;
     protected Vector3 TheImpactLocation;
-    protected float Temperature;
+    public float Temperature;
     [SerializeField] GameObject OnFire;
-    ParticleSystem onFire;
+    ParticleSystem FireParticles;
+    [SerializeField] GameObject OnIce;
+    GameObject Ice;
+    [HideInInspector] public ParticleSystem IceParticles;
+    public bool Frozen;
     bool ThereIsFire;
+    bool ThereIsIce;
 
     float TempHpProtection = 1;
     float TempKnockProtection = 1;
@@ -22,7 +27,13 @@ public abstract class CharacterHealth : Health
         if (OnFire != null)
         {
             ThereIsFire = true;
-            onFire = OnFire.GetComponent<ParticleSystem>();
+            FireParticles = OnFire.GetComponent<ParticleSystem>();
+        }
+        if (OnIce != null)
+        {
+            ThereIsIce = true;
+            IceParticles = OnIce.GetComponent<ParticleSystem>();
+            Ice = OnIce.transform.GetChild(0).gameObject;
         }
     }
 
@@ -59,18 +70,29 @@ public abstract class CharacterHealth : Health
 
     public override void TakeDamage(float Damage, float knock, Vector2 Stagger, float Temperature, Vector3 ImpactLocation,GameObject Attacker)
     {
-        if (TempTimeLeft > 0)
+        if (Frozen)
         {
-            Hp -= Damage * TempHpProtection;
-            TheKnockback = knock * TempKnockProtection;
+            Hp -= Damage * 2;
+            TheKnockback = knock /2;
+            if (Temperature > 0)
+            {
+                this.Temperature += Temperature;
+            }
         }
         else
         {
-            Hp -= Damage;
-            TheKnockback = knock;
-            TryStagger(Stagger.x, Stagger.y);
-            this.Temperature += Temperature;
-            
+            if (TempTimeLeft > 0)
+            {
+                Hp -= Damage * TempHpProtection;
+                TheKnockback = knock * TempKnockProtection;
+            }
+            else
+            {
+                Hp -= Damage;
+                TheKnockback = knock;
+                TryStagger(Stagger.x, Stagger.y);
+                this.Temperature += Temperature;
+            }
         }
         TheImpactLocation = ImpactLocation;
     }
@@ -104,20 +126,22 @@ public abstract class CharacterHealth : Health
         if (Temperature == 0)
         {
             StopFire();
+            StopIce();
         }
-        else if (Temperature > 0) 
+        else if (Temperature > 0)
         {
-            Temperature -= Time.deltaTime*20;
+            StopIce();
+            Temperature -= Time.deltaTime * 20;
             if (Temperature > 20)
             {
                 if (ThereIsFire)
                 {
-                    if (!OnFire.activeSelf) {
-                        
+                    if (!OnFire.activeSelf)
+                    {
                         OnFire.SetActive(true);
                     }
-                    var e = onFire.emission;
-                    e.rateOverTime = ((int)Temperature)-20;
+                    var e = FireParticles.emission;
+                    e.rateOverTime = ((int)Temperature) - 20;
                 }
                 Hp -= Time.deltaTime * Temperature * 0.1f;
                 if (Temperature > 100)
@@ -134,6 +158,20 @@ public abstract class CharacterHealth : Health
         {
             Temperature += Time.deltaTime * 20;
             StopFire();
+            if (Temperature < -20)
+            {
+                if (Temperature <= -100 && !AlreadyDead)
+                {
+                    Frozen = true;
+                    if (ThereIsIce)
+                    {
+                        if (!Ice.activeSelf)
+                        {
+                            Ice.SetActive(true);
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -141,5 +179,11 @@ public abstract class CharacterHealth : Health
     {
         if (ThereIsFire)
             if (OnFire.activeSelf) OnFire.SetActive(false);
+    }
+    protected void StopIce()
+    {
+        Frozen = false;
+        if (ThereIsIce)
+            if (Ice.activeSelf) { Ice.SetActive(false); IceParticles.Emit(50); }
     }
 }
