@@ -5,7 +5,8 @@ using UnityEngine;
 public class Trap : Projectile, IpooledObject
 {
     Rigidbody RB;
-    [SerializeField] string LeavesBehind; 
+    [SerializeField] string LeavesBehind;
+    bool WaitedFrame;
     // Start is called before the first frame update
     void Awake()
     {
@@ -21,33 +22,37 @@ public class Trap : Projectile, IpooledObject
     IEnumerator StartMove()
     {
         yield return null;
+        WaitedFrame = true;
         Movement();
     }
 
     public void OnObjectSpawn()
     {
+        WaitedFrame = false;
         StartCoroutine(StartMove());
     }
 
     protected override void OnTriggerStay(Collider other)
     {
-
-        if (Attackable == (Attackable | (1 << other.gameObject.layer)))
+        if (WaitedFrame)
         {
-            
-                
-                    Health TargetHp = other.transform.GetComponent<Health>();
-                    if (TargetHp != null)
-                    {
-                       
-                        TargetHp.TakeDamage(Damage, Knock, Stagger,Temperature, transform.position, Attacker);
-                    }
-                
-            
-            GameObject Boom = ObjectPooler.Instance.SpawnFromPool(LeavesBehind, transform.position, transform.rotation);
-            ParticleSystem P = Boom.GetComponent<ParticleSystem>();
-            if (P != null) P.Play();
-            gameObject.SetActive(false);
+            if (Attackable == (Attackable | (1 << other.gameObject.layer)))
+            {
+                WaitedFrame = false;
+
+                Health TargetHp = other.transform.GetComponent<Health>();
+                if (TargetHp != null)
+                {
+
+                    TargetHp.TakeDamage(Damage, Knock, Stagger, Temperature, transform.position, Attacker);
+                }
+
+
+                GameObject Boom = ObjectPooler.Instance.SpawnFromPool(LeavesBehind, transform.position, transform.rotation);
+                ParticleSystem P = Boom.GetComponent<ParticleSystem>();
+                if (P != null) P.Play();
+                gameObject.SetActive(false);
+            }
         }
 
     }

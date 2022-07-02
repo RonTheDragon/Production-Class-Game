@@ -100,7 +100,7 @@ public abstract class CharacterHealth : Health
     public void TryStagger(float minStagger, float maxStagger)
     {
         float S = Random.Range(minStagger, maxStagger);
-        if (S > StaggerResistance)
+        if (S > StaggerResistance && !AlreadyDead)
         {
             GetStaggered();
         }
