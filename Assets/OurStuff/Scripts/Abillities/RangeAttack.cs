@@ -58,5 +58,11 @@ public class RangeAttack : Attack
                 E.ExplosionRadius = ExplosionRadius;
             }
         }
+        AudioManager m = TheBullet.GetComponent<AudioManager>();
+        if (m != null)
+        {
+            m.CustomStart();
+            m.PlaySound(Sound.Activation.Custom, "spawn");
+        }
     }
 }

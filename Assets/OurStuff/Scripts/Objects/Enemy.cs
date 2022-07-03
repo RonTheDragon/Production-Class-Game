@@ -12,9 +12,9 @@ public class Enemy : MonoBehaviour , IpooledObject
     float OriginalSpeed;
     float OriginalDetectionRange;
     NavMeshAgent NMA;
-    GameObject Player;
-    Transform PlayerCam;
-    GameObject TheWall;
+    GameObject   Player;
+    Transform    PlayerCam;
+    GameObject   TheWall;
     float dist;
     [SerializeField] float DetectionRange;
     [SerializeField] float alert;
@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour , IpooledObject
     Image hpBar;
     Image staminaBar;
     [HideInInspector] public float ShowingData;
-    [SerializeField] Transform EnemyAnimationBody;
+    [SerializeField]  Transform EnemyAnimationBody;
     Vector3 startposforFix;
 
     //[SerializeField] float RandomSoundMaxCooldown = 5;
@@ -302,14 +302,17 @@ public class Enemy : MonoBehaviour , IpooledObject
 
     public void GotHit(bool ByPlayer, float Damage)
     {
-        //Audio.PlaySound(Sound.Activation.Custom, "Ah"); <-------RETURN LATER
         if (ByPlayer)
         alert += 2;
-        if (!hp.Frozen) 
-        Particle.Emit((int)(Damage/7.5f));
+        if (!hp.Frozen)
+        {
+            Particle.Emit((int)(Damage/7.5f));
+            Audio.PlaySound(Sound.Activation.Custom, "Ah");
+        } 
         else
         {
-            hp.IceParticles.Emit((int)(Damage / 7.5f));
+            hp.IceParticles.Emit((int)(Damage / 7.5f)); 
+            Audio.PlaySound(Sound.Activation.Custom, "Frozen Ah");
         }
         ShowingData = 5;
     }

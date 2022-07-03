@@ -178,6 +178,7 @@ public class MonsterSpawner : MonoBehaviour
         if (Player != null)
         {
             CurrentWave = 0;
+            GameManager.instance.SoulEnergy += Levels[CurrentLevel].soulReward;
             CurrentLevel++;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;

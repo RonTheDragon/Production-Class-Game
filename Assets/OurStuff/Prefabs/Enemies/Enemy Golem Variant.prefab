@@ -189,11 +189,11 @@ GameObject:
   - component: {fileID: 7246966230910348218}
   - component: {fileID: 7246966230910348219}
   - component: {fileID: 7246966230910348196}
-  - component: {fileID: 7246966231485022790}
   - component: {fileID: 7246966230609521961}
   - component: {fileID: 7246966230609521962}
   - component: {fileID: 5224088497716583681}
   - component: {fileID: 6827618818179065860}
+  - component: {fileID: 7916623218335066023}
   m_Layer: 7
   m_Name: EnemyBody
   m_TagString: Untagged
@@ -258,6 +258,7 @@ MonoBehaviour:
   Temperature: 0
   OnFire: {fileID: 5563843759031025457}
   OnIce: {fileID: 7133455910468642077}
+  IceParticles: {fileID: 0}
   Frozen: 0
 --- !u!114 &7246966230910348196
 MonoBehaviour:
@@ -274,6 +275,7 @@ MonoBehaviour:
   Stamina: 0
   AttackCooldown: 0
   StaminaCost: 30
+  StaminaDrain: 0
   MaxStamina: 100
   StaminaRegan: 10
   Tired: 30
@@ -293,19 +295,6 @@ MonoBehaviour:
   DefensiveAttacks:
   - {fileID: 11400000, guid: f92c306285687304b8b47559f9975e6e, type: 2}
   BraveEnoughToOffensive: 40
---- !u!114 &7246966231485022790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2960751188529522814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e5fb5e1755727d4a84bac2d86a63d7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Sounds: []
 --- !u!54 &7246966230609521961
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5166,6 +5155,41 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &7916623218335066023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2960751188529522814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e5fb5e1755727d4a84bac2d86a63d7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sounds:
+  - Name: Ah
+    activation: 0
+    Clip: {fileID: 8300000, guid: cffd993425552dc40a50d1a734c0d8ca, type: 3}
+    Loop: 0
+    HearEveryWhere: 0
+    MinRange: 5
+    MaxRange: 25
+    Volume: 0.6
+    Pitch: 1
+    RandomizedPitch: 0.2
+    source: {fileID: 0}
+  - Name: Frozen Ah
+    activation: 0
+    Clip: {fileID: 8300000, guid: b11108f5c65e4f64e9f3a9955cbf303f, type: 3}
+    Loop: 0
+    HearEveryWhere: 0
+    MinRange: 5
+    MaxRange: 15
+    Volume: 0.6
+    Pitch: 1
+    RandomizedPitch: 0.2
+    source: {fileID: 0}
 --- !u!1 &4626013883555717117
 GameObject:
   m_ObjectHideFlags: 0
@@ -6160,6 +6184,30 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 824961312375981840, guid: 28d582b27a21971489ed3b6f7c8f2fff, type: 3}
   m_PrefabInstance: {fileID: 5063285795470522401}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7693856226859795941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5563843759031025457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e5fb5e1755727d4a84bac2d86a63d7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sounds:
+  - Name: On Fire
+    activation: 3
+    Clip: {fileID: 8300000, guid: f57ac6cbe56b6484eafc5bc8e174ea09, type: 3}
+    Loop: 1
+    HearEveryWhere: 0
+    MinRange: 3
+    MaxRange: 14
+    Volume: 0.6
+    Pitch: 1
+    RandomizedPitch: 0.3
+    source: {fileID: 0}
 --- !u!1001 &8786410213875287367
 PrefabInstance:
   m_ObjectHideFlags: 0

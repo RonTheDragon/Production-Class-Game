@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 997827a301b5d824ea5f07905d878598, type: 3}
-  m_Name: HardWave
+  m_Name: Custom Wave 1
   m_EditorClassIdentifier: 
   Monsters:
   - Name: Enemy
-    Amount: {x: 5, y: 10}
+    Amount: {x: 12, y: 17}
   - Name: SuperEnemy
-    Amount: {x: 1, y: 3}
+    Amount: {x: 3, y: 5}
   TimeBetweenSpawns: {x: 1, y: 3}
   TimeTillNextWave: {x: 30, y: 60}
-  TooManyMonstersToStart: {x: 5, y: 10}
-  HealthMultiplier: {x: 1.5, y: 3}
-  DamageMultiplier: {x: 1.5, y: 3}
+  TooManyMonstersToStart: {x: 4, y: 5}
+  HealthMultiplier: {x: 1.2, y: 2}
+  DamageMultiplier: {x: 1.2, y: 2}

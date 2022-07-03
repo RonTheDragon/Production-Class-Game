@@ -24,9 +24,11 @@ MonoBehaviour:
   attackType: 2
   aiming: 0
   Image: {fileID: 0}
+  sound: Bash
   Damage: 20
   Knockback: 20
   Stagger: {x: 50, y: 100}
+  Temperature: 0
   DamagingCooldown: 1
   AttackMovementForce: 10
   AttackMovementDirection: {x: 1, y: 0}

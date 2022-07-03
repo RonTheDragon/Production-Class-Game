@@ -51,6 +51,12 @@ public class Trap : Projectile, IpooledObject
                 GameObject Boom = ObjectPooler.Instance.SpawnFromPool(LeavesBehind, transform.position, transform.rotation);
                 ParticleSystem P = Boom.GetComponent<ParticleSystem>();
                 if (P != null) P.Play();
+                AudioManager m = Boom.GetComponent<AudioManager>();
+                if (m != null)
+                {
+                    m.CustomStart();
+                    m.PlaySound(Sound.Activation.Custom, "spawn");
+                }
                 gameObject.SetActive(false);
             }
         }

@@ -15,5 +15,5 @@ MonoBehaviour:
   Name: Cryomancer
   Explanation: Ice Wizard
   LongExplanation: Left Click For Iceball, Right Click For Spikes, F for Ice Mine
-  Price: 5
+  Price: 45
   Body: {fileID: 11400000, guid: 71f547ee563122f4e9eecc0dd5d6390c, type: 2}

@@ -8965,7 +8965,7 @@ MonoBehaviour:
   ClassShopItem: {fileID: 3048677536125606005, guid: c82f1902235b3b04abd21212dfab688a, type: 3}
   ClassBaughtItem: {fileID: 3048677536125606005, guid: 70272852661b0d5478bb0b648cfa34c1, type: 3}
   SoulSucker: {fileID: 0}
-  SoulEnergy: 1000
+  SoulEnergy: 0
   AlreadyWon: 0
   RogueDamageMultiplier: 1
   MageDamageMultiplier: 1
@@ -12783,6 +12783,18 @@ MonoBehaviour:
     - tag: Triple
       prefab: {fileID: 2673861882952336688, guid: 959c66d58173b084499a1506411e25c7, type: 3}
       size: 30
+    - tag: RockSmash
+      prefab: {fileID: 4562430951675862319, guid: d9c86a77b18bfbc469ae45e0519cd3ee, type: 3}
+      size: 30
+    - tag: IceBall
+      prefab: {fileID: 5129424509652984273, guid: bef05196c9b13d9409bdfa517118f503, type: 3}
+      size: 30
+    - tag: Spike
+      prefab: {fileID: 28893353461833180, guid: 0399abbe910ad144a94c810690ebb163, type: 3}
+      size: 30
+    - tag: IceTrap
+      prefab: {fileID: 7752236627628813921, guid: ff1a35b3de9f3644fa0ee9b54b16b1e6, type: 3}
+      size: 30
   - tag: Enemies
     pools:
     - tag: Enemy
@@ -12807,6 +12819,12 @@ MonoBehaviour:
       size: 10
     - tag: BigExplosion
       prefab: {fileID: 7345544838225731438, guid: d48a2caae80d70e44937d956999bd5a9, type: 3}
+      size: 10
+    - tag: StoneSplash
+      prefab: {fileID: 8776062592319736021, guid: a712b93b1deace3498adce98170923ff, type: 3}
+      size: 10
+    - tag: IceExplosion
+      prefab: {fileID: 2684114886331571335, guid: b571b32ca1a8f67418487d6824fe3544, type: 3}
       size: 10
 --- !u!1 &9013158160471282744
 GameObject:
