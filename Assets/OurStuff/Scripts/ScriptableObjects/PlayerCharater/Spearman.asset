@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Spearman
   m_EditorClassIdentifier: 
   RoleName: Spearman
-  Image: {fileID: 21300000, guid: 93b74795a921977498ac9555cad2e068, type: 3}
+  Image: {fileID: 21300000, guid: 7fd5e22784affc24bac76a959c287230, type: 3}
   Body: {fileID: 501366084935326216, guid: f96c39e0931da084da1422739524cda5, type: 3}
   role: {fileID: 11400000, guid: baa44d1403c76ec4f89eb7aecbebb8af, type: 2}
   damageMultiplier: {x: 1, y: 2}

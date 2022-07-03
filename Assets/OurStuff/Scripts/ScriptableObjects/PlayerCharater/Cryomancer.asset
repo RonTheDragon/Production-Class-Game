@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cryomancer
   m_EditorClassIdentifier: 
   RoleName: Cryomancer
-  Image: {fileID: 21300000, guid: 3703494d59a648c469406e4c8576002a, type: 3}
+  Image: {fileID: 21300000, guid: 90eb09c052650794e9ab508ae86d1738, type: 3}
   Body: {fileID: 7602459157118490168, guid: 0a2c52ed28c9d034ea5a0289f6d8e2a0, type: 3}
   role: {fileID: 11400000, guid: 6b7d2ebd4e004b445b36fcfbdfb552b4, type: 2}
   damageMultiplier: {x: 1, y: 2}
