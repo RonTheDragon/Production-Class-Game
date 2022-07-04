@@ -26,6 +26,7 @@ public class Sound
 
     [HideInInspector]
     public AudioSource source;
+
 }
 
 public class AudioManager : MonoBehaviour
@@ -34,45 +35,28 @@ public class AudioManager : MonoBehaviour
 
     public Sound[] Sounds;
 
+    bool started;
+
     private void Awake()
     {
 
     }
 
-
-
     // Start is called before the first frame update
     void Start()
     {
-        //  AudioMixers = Settings.audiomixergroup;
+        CustomStart();
+    }
 
-        foreach (Sound s in Sounds)
+    public void CustomStart()
+    {
+        if (!started)
         {
-            s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip = s.Clip;
-            s.source.volume = s.Volume;
-            s.source.loop = s.Loop;
-            if (!s.HearEveryWhere)
-            {
-                s.source.spatialBlend = 1;
-                s.source.rolloffMode = AudioRolloffMode.Linear;
-                s.source.minDistance = s.MinRange;
-                s.source.maxDistance = s.MaxRange;
-            }
-            //     if (s.soundType == Sound.SoundType.Normal)
-            //   {
-            //       s.source.outputAudioMixerGroup = AudioMixers[0];
-            //   }
-            //   else if (s.soundType == Sound.SoundType.Music)
-            //   {
-            //      s.source.outputAudioMixerGroup = AudioMixers[1];
-            //    }
-            if (s.activation == Sound.Activation.PlayInstantly)
-            {
-                PlaySound(s);
-            }
+            started = true;
+            SetSounds();
         }
     }
+
     public void PlaySound(Sound.Activation A, string Name = "")
     {
         if (A == Sound.Activation.Custom)
@@ -120,9 +104,50 @@ public class AudioManager : MonoBehaviour
         else s.source.pitch = s.Pitch;
         s.source.Play();
     }
+
+    void SetSounds()
+    {
+        //  AudioMixers = Settings.audiomixergroup;
+
+        foreach (Sound s in Sounds)
+        {
+            s.source = gameObject.AddComponent<AudioSource>();
+            s.source.clip = s.Clip;
+            s.source.volume = s.Volume;
+            s.source.loop = s.Loop;
+            if (!s.HearEveryWhere)
+            {
+                s.source.spatialBlend = 1;
+                s.source.rolloffMode = AudioRolloffMode.Linear;
+                s.source.minDistance = s.MinRange;
+                s.source.maxDistance = s.MaxRange;
+            }
+            //     if (s.soundType == Sound.SoundType.Normal)
+            //   {
+            //       s.source.outputAudioMixerGroup = AudioMixers[0];
+            //   }
+            //   else if (s.soundType == Sound.SoundType.Music)
+            //   {
+            //      s.source.outputAudioMixerGroup = AudioMixers[1];
+            //    }
+            if (s.activation == Sound.Activation.PlayInstantly)
+            {
+                PlaySound(s);
+            }
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    public void StopAllSound()
+    {
+        foreach (Sound s in Sounds)
+        {
+            s.source.Stop();
+        }
     }
 }

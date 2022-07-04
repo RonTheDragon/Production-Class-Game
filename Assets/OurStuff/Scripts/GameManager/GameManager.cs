@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    private AudioListener listener;
     public enum ShowEnemyData {Never, Always, AfterBeingDamaged}
     [HideInInspector]
     public static GameManager   instance;
@@ -17,10 +18,10 @@ public class GameManager : MonoBehaviour
     public        LayerMask     enemiesCanAttack;
     public        LayerMask     PlayerCanAttack;
     public        LayerMask     LayerMaskOfEverything;
-    [HideInInspector] public bool WallFacingZ;
+    [HideInInspector] public bool  WallFacingZ;
     [HideInInspector] public float WallLength;
     public        GameObject    CooldownCircleObject;
-    [HideInInspector] public bool CantUseTown;
+    [HideInInspector] public bool  CantUseTown;
     public GameObject Upgrade;
     public GameObject WallShopItem;
     public GameObject WallBaughtItem;
@@ -55,6 +56,7 @@ public class GameManager : MonoBehaviour
         instance = this;
         WallFacingZ = Wall.GetComponent<TheWall>().WallFacingZ;
         WallLength = Wall.GetComponent<TheWall>().WallLength;
+        listener = GetComponent<AudioListener>();
     }
 
     public void Shopping(bool b)
@@ -64,8 +66,23 @@ public class GameManager : MonoBehaviour
     public void Update()
     {
        if (Input.GetKeyDown(KeyCode.Escape))
-        {
+       {
             QuitGame();
+       }
+
+        if (Player == null)
+        {
+            if (listener.enabled == false)
+            {
+                listener.enabled = true;
+            }
+        }
+        else
+        {
+            if (listener.enabled == true)
+            {
+                listener.enabled = false;
+            }
         }
     }
     public void QuitGame()

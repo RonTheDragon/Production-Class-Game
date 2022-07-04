@@ -15,5 +15,5 @@ MonoBehaviour:
   Name: Arbalist
   Explanation: Using Rapid Fire Crossbow
   LongExplanation: Left Click For Rapid Fire, Right Click For Strong Shot
-  Price: 5
+  Price: 35
   Body: {fileID: 11400000, guid: 1f13ccb1a0716ee40a01d7b39ff3b5b1, type: 2}

@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class ExplosiveProjectile : Projectile
 {
-    public float ExplosionRadius;
+    public float  ExplosionRadius;
     public string Explosion = "Explosion";
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     new void Update()
@@ -40,8 +36,13 @@ public class ExplosiveProjectile : Projectile
                 }
                 GameObject Boom = ObjectPooler.Instance.SpawnFromPool(Explosion, transform.position, transform.rotation);
                 Boom.GetComponent<ParticleSystem>().Play();
+                AudioManager m = Boom.GetComponent<AudioManager>();
+                if (m != null)
+                {
+                    m.CustomStart();
+                    m.PlaySound(Sound.Activation.Custom, "spawn");
+                }
                 gameObject.SetActive(false);
-            
         }
     }
 }

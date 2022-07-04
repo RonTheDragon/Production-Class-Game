@@ -614,7 +614,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4180089263100904882}
-  m_LocalRotation: {x: 0.088348486, y: 0.13610521, z: -0.012187119, w: 0.98667186}
+  m_LocalRotation: {x: 0.08737626, y: 0.19958074, z: -0.017870836, w: 0.97581434}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -814,7 +814,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4180089263403220925}
-  m_LocalRotation: {x: 0.101113066, y: 0.13523538, z: -0.013874652, w: 0.985543}
+  m_LocalRotation: {x: 0.10005571, y: 0.19620478, z: -0.020129886, w: 0.9752371}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -888,7 +888,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4180089263566330688}
-  m_LocalRotation: {x: 0.10738009, y: 0.13631126, z: -0.014864283, w: 0.98471713}
+  m_LocalRotation: {x: 0.10615877, y: 0.20127739, z: -0.02194862, w: 0.97351736}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1257,7 +1257,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4180089264151691875}
-  m_LocalRotation: {x: 0.101450756, y: 0.1362523, z: -0.014032174, w: 0.98536605}
+  m_LocalRotation: {x: 0.10030576, y: 0.20075572, z: -0.020686874, w: 0.9742731}
   m_LocalPosition: {x: -1.0012741, y: 1.4755925, z: -4.1255035}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1314,7 +1314,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4180089264151691875}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!114 &4180089264151691887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1794,6 +1794,7 @@ GameObject:
   - component: {fileID: 5533782428262834976}
   - component: {fileID: 5533782428262834977}
   - component: {fileID: 5533782428262834978}
+  - component: {fileID: 7349053482730429237}
   m_Layer: 3
   m_Name: Default Player
   m_TagString: Player
@@ -1884,7 +1885,11 @@ MonoBehaviour:
   HpRegan: 2
   AlreadyDead: 0
   StaggerResistance: 50
+  Temperature: 0
   OnFire: {fileID: 0}
+  OnIce: {fileID: 0}
+  IceParticles: {fileID: 0}
+  Frozen: 0
 --- !u!114 &5533782428262834977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1913,6 +1918,7 @@ MonoBehaviour:
   Stamina: 0
   AttackCooldown: 0
   StaminaCost: 30
+  StaminaDrain: 0
   MaxStamina: 100
   StaminaRegan: 15
   Tired: 30
@@ -1925,6 +1931,30 @@ MonoBehaviour:
   AttackMovementForce: 0
   AttackMovementDirection: {x: 0, y: 0}
   PlayerClass: {fileID: 11400000, guid: 926597246559e654ba8125c983fd5ec4, type: 2}
+--- !u!114 &7349053482730429237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5533782428262834980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e5fb5e1755727d4a84bac2d86a63d7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sounds:
+  - Name: Bash
+    activation: 0
+    Clip: {fileID: 8300000, guid: d5c1ea052f5496a4bb8a0046c8a4dccf, type: 3}
+    Loop: 0
+    HearEveryWhere: 0
+    MinRange: 10
+    MaxRange: 20
+    Volume: 0.6
+    Pitch: 1
+    RandomizedPitch: 0.3
+    source: {fileID: 0}
 --- !u!1 &5886574999764283857
 GameObject:
   m_ObjectHideFlags: 0

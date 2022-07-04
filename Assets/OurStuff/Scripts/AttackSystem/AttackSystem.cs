@@ -25,16 +25,18 @@ public abstract class AttackSystem : MonoBehaviour
     [SerializeField]  string PreviousAttack;
     [SerializeField]  float timeToComboReset = 1;
                       float comboTimer;
-    [HideInInspector] public float AttackMovementForce;
+    [HideInInspector] public float   AttackMovementForce;
     [HideInInspector] public Vector2 AttackMovementDirection;
-    protected List<AbilityCoolDown> abilityCoolDowns = new List<AbilityCoolDown>();
+    protected List<AbilityCoolDown>  abilityCoolDowns = new List<AbilityCoolDown>();
     protected GameObject Attacker;
+    AudioManager         audioManager;
 
     protected void Start()
     {
         SetUpAbilities();
         Stamina = MaxStamina;
         HoldingAnAttack= string.Empty;
+        audioManager = GetComponent<AudioManager>();
     }
 
     protected void Update()
@@ -138,6 +140,15 @@ public abstract class AttackSystem : MonoBehaviour
         if (this is PlayerAttackSystem && Attacks[attackType].aiming)
         {
             Aiming(true);
+        }
+
+        if (Attacks[attackType].sound != string.Empty)
+        {
+            if (audioManager != null)
+            {
+                audioManager.StopAllSound();
+                audioManager.PlaySound(Sound.Activation.Custom, Attacks[attackType].sound);
+            }
         }
 
         if (Attacks[attackType] is SOattack)
@@ -279,6 +290,11 @@ public abstract class AttackSystem : MonoBehaviour
 
     public void Stagger()
     {
+        if (audioManager != null)
+        {
+        audioManager.StopAllSound();
+            audioManager.PlaySound(Sound.Activation.Custom, "Ah");
+        }
         Anim.SetTrigger("Ouch");
         HoldingAnAttack = string.Empty;
         PreviousAttack = string.Empty;

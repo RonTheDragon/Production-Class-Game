@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class Projectile : Attack
 {
+    private AudioManager audioManager;
+
     public float Speed = 10;
     public float Gravity = 0;
+
+    private void Start()
+    {
+        audioManager = GetComponent<AudioManager>();
+    }
 
     protected void Update()
     {

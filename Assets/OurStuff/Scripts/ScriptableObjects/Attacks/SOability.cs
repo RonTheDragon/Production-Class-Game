@@ -17,4 +17,5 @@ public class SOability : ScriptableObject
     public      AttackType attackType = AttackType.Normal;
     public bool aiming;
     public Sprite Image;
+    public string sound;
 }

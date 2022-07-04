@@ -4817,6 +4817,7 @@ GameObject:
   - component: {fileID: 4441845803884995014}
   - component: {fileID: 5367369663241975145}
   - component: {fileID: 6994231988306470236}
+  - component: {fileID: -8102733288767055103}
   m_Layer: 0
   m_Name: FIRE BALL
   m_TagString: Untagged
@@ -4883,14 +4884,40 @@ MonoBehaviour:
   Damage: 0
   Knock: 0
   Stagger: {x: 0, y: 0}
+  Temperature: 0
   Attackable:
     serializedVersion: 2
     m_Bits: 0
   Charge: 0
   Attacker: {fileID: 0}
   Speed: 10
+  Gravity: 0
   ExplosionRadius: 0
   Explosion: Explosion
+--- !u!114 &-8102733288767055103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4866355416100459866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e5fb5e1755727d4a84bac2d86a63d7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sounds:
+  - Name: spawn
+    activation: 0
+    Clip: {fileID: 8300000, guid: de7db8283560bec48949083c702b10a1, type: 3}
+    Loop: 0
+    HearEveryWhere: 0
+    MinRange: 5
+    MaxRange: 20
+    Volume: 1
+    Pitch: 1
+    RandomizedPitch: 0
+    source: {fileID: 0}
 --- !u!1 &6607194132348189893
 GameObject:
   m_ObjectHideFlags: 0

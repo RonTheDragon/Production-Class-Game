@@ -16,5 +16,5 @@ MonoBehaviour:
   Explanation: Spear and Shield
   LongExplanation: Left click for Spear, Right Click for Shield, Bash with left click
     while blocking
-  Price: 5
+  Price: 120
   Body: {fileID: 11400000, guid: 97e6e50db04d2524a9af00b3a1657c7a, type: 2}
