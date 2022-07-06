@@ -792,6 +792,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6253043627097330725, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 61.45
+      objectReference: {fileID: 0}
     - target: {fileID: 7171943304287298665, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -3539,8 +3543,8 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0ff6dfd0c5083b34bb9cd3756387ced4, type: 3}
   m_PrefabInstance: {fileID: 1035952955}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &419339593
-CapsuleCollider:
+--- !u!65 &419339593
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3549,10 +3553,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.1589532
-  m_Height: 0.5052746
-  m_Direction: 1
-  m_Center: {x: 0.005845165, y: 0.13910869, z: -0.011918212}
+  serializedVersion: 2
+  m_Size: {x: 0.22650799, y: 0.23426229, z: 0.24569204}
+  m_Center: {x: 0.0026730816, y: 0.1171297, z: 0.0011683381}
 --- !u!1 &420331106 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 71fd183f0c2456b44a194de6fe076904, type: 3}
@@ -5081,8 +5084,8 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0ff6dfd0c5083b34bb9cd3756387ced4, type: 3}
   m_PrefabInstance: {fileID: 765258368}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &560932375
-CapsuleCollider:
+--- !u!65 &560932375
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5091,10 +5094,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.1589532
-  m_Height: 0.5052746
-  m_Direction: 1
-  m_Center: {x: 0.005845165, y: 0.13910869, z: -0.011918212}
+  serializedVersion: 2
+  m_Size: {x: 0.22650799, y: 0.23426229, z: 0.24569204}
+  m_Center: {x: 0.0026730816, y: 0.1171297, z: 0.0011683381}
 --- !u!1001 &569846033
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5713,8 +5715,8 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0ff6dfd0c5083b34bb9cd3756387ced4, type: 3}
   m_PrefabInstance: {fileID: 201282962}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &598992415
-CapsuleCollider:
+--- !u!65 &598992415
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5723,10 +5725,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.1589532
-  m_Height: 0.5052746
-  m_Direction: 1
-  m_Center: {x: 0.005845165, y: 0.13910869, z: -0.011918212}
+  serializedVersion: 2
+  m_Size: {x: 0.22650799, y: 0.23426229, z: 0.24569204}
+  m_Center: {x: 0.0026730816, y: 0.1171297, z: 0.0011683381}
 --- !u!1001 &602894179
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7943,8 +7944,8 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0ff6dfd0c5083b34bb9cd3756387ced4, type: 3}
   m_PrefabInstance: {fileID: 1994074456}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &860351448
-CapsuleCollider:
+--- !u!65 &860351448
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -7953,10 +7954,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.1589532
-  m_Height: 0.5052746
-  m_Direction: 1
-  m_Center: {x: 0.005845165, y: 0.13910869, z: -0.011918212}
+  serializedVersion: 2
+  m_Size: {x: 0.22650799, y: 0.23426229, z: 0.24569204}
+  m_Center: {x: 0.0026730816, y: 0.1171297, z: 0.0011683381}
 --- !u!1 &874008214
 GameObject:
   m_ObjectHideFlags: 0
@@ -15823,8 +15823,8 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0ff6dfd0c5083b34bb9cd3756387ced4, type: 3}
   m_PrefabInstance: {fileID: 2134332513}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &1941195848
-CapsuleCollider:
+--- !u!65 &1941195848
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -15833,10 +15833,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.1589532
-  m_Height: 0.5052746
-  m_Direction: 1
-  m_Center: {x: 0.005845165, y: 0.13910869, z: -0.011918212}
+  serializedVersion: 2
+  m_Size: {x: 0.22650799, y: 0.23426229, z: 0.24569204}
+  m_Center: {x: 0.0026730816, y: 0.1171297, z: 0.0011683381}
 --- !u!1001 &1956407535
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -24,6 +24,7 @@ MonoBehaviour:
   attackType: 0
   aiming: 0
   Image: {fileID: 0}
+  sound: Ground Smash
   Damage: 100
   Knockback: 20
   Stagger: {x: 70, y: 100}

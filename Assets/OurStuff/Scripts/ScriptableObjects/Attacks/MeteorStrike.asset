@@ -24,6 +24,7 @@ MonoBehaviour:
   attackType: 0
   aiming: 1
   Image: {fileID: 0}
+  sound: Meteor
   Damage: 100
   Knockback: 40
   Stagger: {x: 70, y: 100}

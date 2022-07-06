@@ -24,7 +24,7 @@ MonoBehaviour:
   attackType: 2
   aiming: 1
   Image: {fileID: 0}
-  sound: 
+  sound: 1st sword attack
   Damage: 10
   Knockback: 20
   Stagger: {x: 70, y: 100}

@@ -24,6 +24,7 @@ MonoBehaviour:
   attackType: 0
   aiming: 1
   Image: {fileID: 0}
+  sound: Crossbow fast
   Damage: 4
   Knockback: 3
   Stagger: {x: 0, y: 50}

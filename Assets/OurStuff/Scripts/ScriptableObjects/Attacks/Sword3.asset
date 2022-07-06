@@ -24,9 +24,11 @@ MonoBehaviour:
   attackType: 3
   aiming: 0
   Image: {fileID: 0}
+  sound: 3rd sword attack
   Damage: 20
   Knockback: 7
   Stagger: {x: 50, y: 100}
+  Temperature: 0
   DamagingCooldown: 0.4
   AttackMovementForce: 10
   AttackMovementDirection: {x: 1, y: 0}

@@ -24,8 +24,10 @@ MonoBehaviour:
   attackType: 0
   aiming: 1
   Image: {fileID: 0}
+  sound: Bow Release
   Damage: 20
   Knockback: 0
   Stagger: {x: 70, y: 100}
+  Temperature: 0
   Projectile: Penetrate
   ProjectileSpeed: 30

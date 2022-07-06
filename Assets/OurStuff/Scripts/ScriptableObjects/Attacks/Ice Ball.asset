@@ -24,6 +24,7 @@ MonoBehaviour:
   attackType: 0
   aiming: 1
   Image: {fileID: 0}
+  sound: Ice Ball
   Damage: 5
   Knockback: 5
   Stagger: {x: 70, y: 100}

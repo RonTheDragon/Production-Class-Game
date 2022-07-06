@@ -24,9 +24,11 @@ MonoBehaviour:
   attackType: 4
   aiming: 0
   Image: {fileID: 0}
+  sound: 1st sword attack
   Damage: 5
   Knockback: 2.5
   Stagger: {x: 0, y: 0}
+  Temperature: 0
   DamagingCooldown: 0.4
   AttackMovementForce: 2
   AttackMovementDirection: {x: 2, y: -1}

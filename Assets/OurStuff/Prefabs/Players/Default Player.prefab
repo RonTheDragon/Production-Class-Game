@@ -522,7 +522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 1.4755924, z: -4.245268}
+  m_FollowOffset: {x: 0, y: 3.294695, z: -2.8265824}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -542,7 +542,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 13.642135
+    Value: -128.58675
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -614,7 +614,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4180089263100904882}
-  m_LocalRotation: {x: 0.08737626, y: 0.19958074, z: -0.017870836, w: 0.97581434}
+  m_LocalRotation: {x: -0.17512998, y: 0.808989, z: -0.2979693, w: -0.47547933}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -722,7 +722,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 1.4755924, z: -4.245268}
+  m_FollowOffset: {x: 0, y: 3.294695, z: -2.8265824}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -742,7 +742,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 13.642135
+    Value: -128.58675
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -814,7 +814,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4180089263403220925}
-  m_LocalRotation: {x: 0.10005571, y: 0.19620478, z: -0.020129886, w: 0.9752371}
+  m_LocalRotation: {x: -0.18027495, y: 0.8065813, z: -0.30898824, w: -0.47058877}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -888,7 +888,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4180089263566330688}
-  m_LocalRotation: {x: 0.10615877, y: 0.20127739, z: -0.02194862, w: 0.97351736}
+  m_LocalRotation: {x: -0.18494904, y: 0.802074, z: -0.3131432, w: -0.47372204}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -964,7 +964,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4180089263669131157}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.0012741, y: 1.4755925, z: -4.1255035}
+  m_LocalPosition: {x: 2.2094383, y: 3.294695, z: 1.7629395}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4180089263100904892}
@@ -1009,7 +1009,7 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_YAxis:
-    Value: 0.6558739
+    Value: 0.9816862
     m_SpeedMode: 0
     m_MaxSpeed: 4
     m_AccelTime: 0.1
@@ -1033,7 +1033,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 13.642135
+    Value: -128.58675
     m_SpeedMode: 0
     m_MaxSpeed: 450
     m_AccelTime: 0.1
@@ -1162,7 +1162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 1.4755924, z: -4.245268}
+  m_FollowOffset: {x: 0, y: 3.294695, z: -2.8265824}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -1182,7 +1182,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 13.642135
+    Value: -128.58675
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -1257,8 +1257,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4180089264151691875}
-  m_LocalRotation: {x: 0.10030576, y: 0.20075572, z: -0.020686874, w: 0.9742731}
-  m_LocalPosition: {x: -1.0012741, y: 1.4755925, z: -4.1255035}
+  m_LocalRotation: {x: -0.17549208, y: 0.80874133, z: -0.2985265, w: -0.4754177}
+  m_LocalPosition: {x: 2.2094383, y: 3.294695, z: 1.7629395}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5533782428262834981}
@@ -1954,6 +1954,105 @@ MonoBehaviour:
     Volume: 0.6
     Pitch: 1
     RandomizedPitch: 0.3
+    source: {fileID: 0}
+  - Name: Bow Pull
+    activation: 0
+    Clip: {fileID: 8300000, guid: 091e0ecd6bff23d409c3ab44cdfe78a2, type: 3}
+    Loop: 0
+    HearEveryWhere: 0
+    MinRange: 10
+    MaxRange: 20
+    Volume: 0.6
+    Pitch: 1
+    RandomizedPitch: 0.3
+    source: {fileID: 0}
+  - Name: Bow Release
+    activation: 0
+    Clip: {fileID: 8300000, guid: 4ad93e2cbadb3cc4f8fa4e24c851aa42, type: 3}
+    Loop: 0
+    HearEveryWhere: 0
+    MinRange: 10
+    MaxRange: 20
+    Volume: 0.6
+    Pitch: 1
+    RandomizedPitch: 0.3
+    source: {fileID: 0}
+  - Name: 1st sword attack
+    activation: 0
+    Clip: {fileID: 8300000, guid: 2572412ba851aef49a2c3ffa0758d3c1, type: 3}
+    Loop: 0
+    HearEveryWhere: 0
+    MinRange: 10
+    MaxRange: 20
+    Volume: 0.6
+    Pitch: 1
+    RandomizedPitch: 0.3
+    source: {fileID: 0}
+  - Name: 2nd sword attack
+    activation: 0
+    Clip: {fileID: 8300000, guid: c20f0787a00268744a5a752888c3e0d2, type: 3}
+    Loop: 0
+    HearEveryWhere: 0
+    MinRange: 10
+    MaxRange: 20
+    Volume: 0.6
+    Pitch: 1
+    RandomizedPitch: 0.3
+    source: {fileID: 0}
+  - Name: 3rd sword attack
+    activation: 0
+    Clip: {fileID: 8300000, guid: cb5bc8648bfa9834daba23ca3582be31, type: 3}
+    Loop: 0
+    HearEveryWhere: 0
+    MinRange: 10
+    MaxRange: 20
+    Volume: 0.6
+    Pitch: 1
+    RandomizedPitch: 0.3
+    source: {fileID: 0}
+  - Name: Crossbow fast
+    activation: 0
+    Clip: {fileID: 8300000, guid: 1f711540005dc874390b0b2af104a480, type: 3}
+    Loop: 0
+    HearEveryWhere: 0
+    MinRange: 10
+    MaxRange: 20
+    Volume: 0.6
+    Pitch: 1
+    RandomizedPitch: 0.2
+    source: {fileID: 0}
+  - Name: Ground Smash
+    activation: 0
+    Clip: {fileID: 8300000, guid: 03b976ccc30b5aa4bb6d06e9e5dce94c, type: 3}
+    Loop: 0
+    HearEveryWhere: 0
+    MinRange: 10
+    MaxRange: 20
+    Volume: 0.6
+    Pitch: 1
+    RandomizedPitch: 0.2
+    source: {fileID: 0}
+  - Name: Ice Ball
+    activation: 0
+    Clip: {fileID: 8300000, guid: 3dcfa4e54f04aba4aa735b6406a5f117, type: 3}
+    Loop: 0
+    HearEveryWhere: 0
+    MinRange: 10
+    MaxRange: 20
+    Volume: 0.6
+    Pitch: 1
+    RandomizedPitch: 0.2
+    source: {fileID: 0}
+  - Name: Meteor
+    activation: 0
+    Clip: {fileID: 8300000, guid: b640f90e06b5fd042a19ea61ebb9dc2d, type: 3}
+    Loop: 0
+    HearEveryWhere: 0
+    MinRange: 10
+    MaxRange: 20
+    Volume: 0.6
+    Pitch: 1
+    RandomizedPitch: 0.2
     source: {fileID: 0}
 --- !u!1 &5886574999764283857
 GameObject:
