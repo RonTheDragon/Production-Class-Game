@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Waves:
   - {fileID: 11400000, guid: 1fbc624d20dd5d64d874c68d98dacc2f, type: 2}
+  - {fileID: 11400000, guid: 9b20b027fbe03d54da3bae25ba0584a6, type: 2}
   - {fileID: 11400000, guid: 9977ce8f39ddf4e48a980518eecd58bb, type: 2}
-  - {fileID: 11400000, guid: 9977ce8f39ddf4e48a980518eecd58bb, type: 2}
-  PlayerCharacterAmount: 10
+  PlayerCharacterAmount: 3
   DifficultyMultiplier: 1
   soulReward: 100

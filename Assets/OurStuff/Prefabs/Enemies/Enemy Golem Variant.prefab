@@ -5590,7 +5590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e812a70b6c7c20940806e74e8af4311d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SoulValue: {x: 5, y: 10}
+  SoulValue: {x: 5, y: 7}
   SoulWorth: 0
   DetectionRange: 10
   alert: 0

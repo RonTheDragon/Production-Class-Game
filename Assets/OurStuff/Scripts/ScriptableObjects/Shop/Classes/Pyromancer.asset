@@ -15,5 +15,5 @@ MonoBehaviour:
   Name: Pyromancer
   Explanation: Fire Wizard
   LongExplanation: Left Click For Fireball, Hold Right click for Flames
-  Price: 0
+  Price: 20
   Body: {fileID: 11400000, guid: 2ec64f7a79d54b847b421b794da9ed66, type: 2}

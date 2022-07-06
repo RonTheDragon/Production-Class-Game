@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Stoning
   m_EditorClassIdentifier: 
   Name: Stoning
-  Explanation: Throw Rocks for 20 Seconds
-  Price: 5
+  Explanation: Throw Stones for 20 Seconds
+  LongExplanation: 
+  Price: 25
   ability: {fileID: 11400000, guid: d613990230ec9514397085a5f4cd17d4, type: 2}

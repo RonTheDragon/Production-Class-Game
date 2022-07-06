@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Heal
   m_EditorClassIdentifier: 
   Name: Heal Wall
-  Explanation: Healing The Wall
-  Price: 5
+  Explanation: Heal The Wall
+  LongExplanation: 
+  Price: 35
   ability: {fileID: 11400000, guid: 40808a6ede6c1b541bb3ee5dcec5e9c7, type: 2}

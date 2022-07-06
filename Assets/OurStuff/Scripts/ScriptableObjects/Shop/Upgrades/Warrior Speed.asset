@@ -15,5 +15,5 @@ MonoBehaviour:
   Name: Warrior Speed
   Explanation: Move Faster As Warrior
   Icon: {fileID: 21300000, guid: 3e3814e04d49f6847b5d4c60b4b77540, type: 3}
-  Prices: 050000000a00000014000000
+  Prices: 140000002d0000003c000000500000006400000082000000
   Upgrading: 8

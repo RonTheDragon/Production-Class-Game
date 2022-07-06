@@ -17,4 +17,4 @@ MonoBehaviour:
   Body: {fileID: 3300724541483152604, guid: dd4cc8f4d1cd2c1459385d0e8391f47c, type: 3}
   role: {fileID: 11400000, guid: e126c1b55136a47498ea0743b94340a5, type: 2}
   damageMultiplier: {x: 1, y: 2}
-  health: {x: 100, y: 150}
+  health: {x: 200, y: 300}

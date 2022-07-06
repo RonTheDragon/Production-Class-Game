@@ -389,11 +389,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7246966231843312881, guid: 89ef136ead5e26a438b669df7c7d3931, type: 3}
       propertyPath: SoulValue.x
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7246966231843312881, guid: 89ef136ead5e26a438b669df7c7d3931, type: 3}
       propertyPath: SoulValue.y
-      value: 30
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 7246966231843312881, guid: 89ef136ead5e26a438b669df7c7d3931, type: 3}
       propertyPath: CanvasHolder

@@ -24,6 +24,7 @@ MonoBehaviour:
   attackType: 1
   aiming: 1
   Image: {fileID: 0}
+  sound: Bow Pull
   MaxCharge: 2
   MinCharge: 0.5
   ChargeSpeed: 1
