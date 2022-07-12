@@ -252,7 +252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHp: 100
   Hp: 0
-  HpRegan: 0
+  HpRegen: 0
   AlreadyDead: 0
   StaggerResistance: 50
   Temperature: 0
@@ -5592,7 +5592,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoulValue: {x: 5, y: 7}
   SoulWorth: 0
-  DetectionRange: 10
+  DetectionRange: 20
   alert: 0
   RoamCooldown: 10
   RoamRadius: 10

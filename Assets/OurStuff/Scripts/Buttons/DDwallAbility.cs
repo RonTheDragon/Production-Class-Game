@@ -23,9 +23,21 @@ public class DDwallAbility : DragAndDropItem
             InSlot = null;
         }
     }
-
-    void Start()
+    public void Baught()
     {
         canvas = transform.parent.parent.parent.parent.parent.parent.GetComponent<Canvas>();
+        Transform ItemSlots = transform.parent.parent.parent.GetChild(1);
+        int n = 0;
+        foreach(SOwall s in GameManager.instance.Wall.GetComponent<TheWall>().TheWallAttacks)
+        {
+            if (s == null)
+            {
+                WallAbilitySlot w = ItemSlots.GetChild(n).GetComponent<WallAbilitySlot>();
+                w.AutoSet(gameObject);
+                break;
+            }
+            n++;
+        }
+
     }
 }

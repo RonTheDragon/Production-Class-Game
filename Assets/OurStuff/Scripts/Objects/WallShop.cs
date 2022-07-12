@@ -58,6 +58,7 @@ public class WallShop : Shop
         DDwallAbility dd = i.GetComponent<DDwallAbility>();
         dd.shop = this;
         dd.ability = Up.TheAbility;
+        dd.Baught();
     }
 
     public void BuyWallAbility(WallAbility Up)

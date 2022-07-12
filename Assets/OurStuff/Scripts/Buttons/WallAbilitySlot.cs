@@ -50,4 +50,17 @@ public class WallAbilitySlot : MonoBehaviour , IDropHandler
             }
         }
     }
+
+    public void AutoSet(GameObject item)
+    {
+        DDwallAbility DD = item.GetComponent<DDwallAbility>();
+    
+                DD.InSlot = GetComponent<RectTransform>(); //Telling The Item I hold it
+                DD.Lost = false;
+                DD.transform.SetParent(transform);
+                DD.PreviousLocation = new Vector2(50,50);
+                HeldItem = item.GetComponent<RectTransform>(); //Telling myself what I hold
+                HeldItem.anchoredPosition = new Vector2(50, 50);
+                GameManager.instance.Wall.GetComponent<TheWall>().TheWallAttacks[SlotNum] = DD.ability;
+    }
 }

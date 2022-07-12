@@ -865,65 +865,9 @@ PrefabInstance:
       propertyPath: Wall
       value: 
       objectReference: {fileID: 1592667117}
-    - target: {fileID: 1783876122695431559, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: SoulEnergy
-      value: 1000008
-      objectReference: {fileID: 0}
-    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: Groups.Array.data[0].pools.Array.size
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: Groups.Array.data[2].pools.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: Groups.Array.data[0].pools.Array.data[8].tag
-      value: IceBall
-      objectReference: {fileID: 0}
-    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: Groups.Array.data[0].pools.Array.data[9].tag
-      value: Spike
-      objectReference: {fileID: 0}
-    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: Groups.Array.data[2].pools.Array.data[7].tag
-      value: RemnantExplosion
-      objectReference: {fileID: 0}
-    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: Groups.Array.data[0].pools.Array.data[10].tag
-      value: IceTrap
-      objectReference: {fileID: 0}
-    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: Groups.Array.data[2].pools.Array.data[7].size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: Groups.Array.data[0].pools.Array.data[8].prefab
-      value: 
-      objectReference: {fileID: 5129424509652984273, guid: bef05196c9b13d9409bdfa517118f503, type: 3}
-    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: Groups.Array.data[0].pools.Array.data[9].prefab
-      value: 
-      objectReference: {fileID: 28893353461833180, guid: 0399abbe910ad144a94c810690ebb163, type: 3}
-    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: Groups.Array.data[2].pools.Array.data[7].prefab
-      value: 
-      objectReference: {fileID: 7975407063811130715, guid: f9c5aae5b4e4a9740a3c8ab79472b848, type: 3}
-    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: Groups.Array.data[0].pools.Array.data[10].prefab
-      value: 
-      objectReference: {fileID: 7752236627628813921, guid: ff1a35b3de9f3644fa0ee9b54b16b1e6, type: 3}
-    - target: {fileID: 3767866639054373804, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: m_text
-      value: Remnant Shop
-      objectReference: {fileID: 0}
     - target: {fileID: 5310620670068136351, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
       propertyPath: m_Name
       value: GameManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 6253043627097330725, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 61.45
       objectReference: {fileID: 0}
     - target: {fileID: 7171943304287298665, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
       propertyPath: m_RootOrder
@@ -968,26 +912,6 @@ PrefabInstance:
     - target: {fileID: 7171943304287298665, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7755125097887981338, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 1028.1816
-      objectReference: {fileID: 0}
-    - target: {fileID: 7755125097887981338, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 42.7585
-      objectReference: {fileID: 0}
-    - target: {fileID: 7755125097887981338, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7755125097887981338, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 524.8547
-      objectReference: {fileID: 0}
-    - target: {fileID: 7755125097887981338, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -29
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
@@ -4852,8 +4776,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 10, y: 7.1459427, z: 10}
+  m_Center: {x: 0, y: -1.4270287, z: 0}
 --- !u!4 &511964433
 Transform:
   m_ObjectHideFlags: 0
@@ -10723,7 +10647,7 @@ Transform:
   m_GameObject: {fileID: 1256745344}
   m_LocalRotation: {x: 0, y: -0.17364825, z: 0, w: 0.9848078}
   m_LocalPosition: {x: -1.56, y: -2.48, z: 0.22}
-  m_LocalScale: {x: 3, y: 10, z: 3}
+  m_LocalScale: {x: 2.49189, y: 10, z: 2.64909}
   m_Children: []
   m_Father: {fileID: 691746440}
   m_RootOrder: 0

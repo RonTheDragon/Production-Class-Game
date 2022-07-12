@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4611652992584206309}
   - component: {fileID: 7819718271994797491}
+  - component: {fileID: 5361710624169425756}
   m_Layer: 0
   m_Name: TripleShoot
   m_TagString: Untagged
@@ -58,6 +59,30 @@ MonoBehaviour:
   Speed: 10
   Gravity: 0
   ExplosionRadius: 0
+--- !u!114 &5361710624169425756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2673861882952336688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e5fb5e1755727d4a84bac2d86a63d7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sounds:
+  - Name: spawn
+    activation: 0
+    Clip: {fileID: 8300000, guid: 1f711540005dc874390b0b2af104a480, type: 3}
+    Loop: 0
+    HearEveryWhere: 0
+    MinRange: 5
+    MaxRange: 20
+    Volume: 1
+    Pitch: 1
+    RandomizedPitch: 0
+    source: {fileID: 0}
 --- !u!1001 &1287659636078365527
 PrefabInstance:
   m_ObjectHideFlags: 0

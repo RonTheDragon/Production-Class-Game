@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2816909126859025689}
   - component: {fileID: 7356966153180958599}
   - component: {fileID: 8665443848735161660}
+  - component: {fileID: -8365950904235345869}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
@@ -138,6 +139,30 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.2, z: 0.7}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-8365950904235345869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8441075466056421742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e5fb5e1755727d4a84bac2d86a63d7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sounds:
+  - Name: spawn
+    activation: 0
+    Clip: {fileID: 8300000, guid: 4ad93e2cbadb3cc4f8fa4e24c851aa42, type: 3}
+    Loop: 0
+    HearEveryWhere: 0
+    MinRange: 5
+    MaxRange: 20
+    Volume: 1
+    Pitch: 1
+    RandomizedPitch: 0
+    source: {fileID: 0}
 --- !u!1 &8614974145444387387
 GameObject:
   m_ObjectHideFlags: 0
