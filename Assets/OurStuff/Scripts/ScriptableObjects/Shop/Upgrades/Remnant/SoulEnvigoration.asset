@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06382e833ea9f1f42b6c159e7206f8bc, type: 3}
-  m_Name: Wall Damage
+  m_Name: SoulEnvigoration
   m_EditorClassIdentifier: 
-  Name: Offense
-  Explanation: Makes The Wall Abillities More Deadly
-  Icon: {fileID: 21300000, guid: 6747ba2ec8c1fe841abe9f7b3ba7adef, type: 3}
-  Prices: 140000003200000050000000640000008c000000aa000000
-  Upgrading: 2
+  Name: Soul Envigoration
+  Explanation: Enemy souls restore stamina when absorbed
+  Icon: {fileID: 21300000, guid: 5c295ad6d8197b045849e728584ee05d, type: 3}
+  Prices: 32000000500000007800000096000000c8000000fa0000002c01000090010000
+  Upgrading: 25

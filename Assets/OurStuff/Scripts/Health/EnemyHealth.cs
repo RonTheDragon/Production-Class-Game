@@ -5,10 +5,10 @@ using UnityEngine.AI;
 
 public class EnemyHealth : CharacterHealth , IpooledObject
 {
-    Enemy enemy;
+    Enemy             enemy;
     EnemyAttackSystem EAS;
-    NavMeshAgent nav;
-    Collider col;
+    NavMeshAgent      nav;
+    Collider          col;
 
     new void Start()
     {
@@ -34,7 +34,8 @@ public class EnemyHealth : CharacterHealth , IpooledObject
         base.Update();
         TakeKnockback();
     }
-    public override void TakeDamage(float Damage, float Knock, Vector2 Stagger, float Temperature, Vector3 ImpactLocation, GameObject Attacker)
+    public override void TakeDamage(float Damage, float Knock, Vector2 Stagger, float Temperature,
+        Vector3 ImpactLocation, GameObject Attacker)
     {
         if (!AlreadyDead)
         {
@@ -45,10 +46,17 @@ public class EnemyHealth : CharacterHealth , IpooledObject
 
     void TakeKnockback()
     {
-        if (TheKnockback > 0 && !AlreadyDead)
+        if (!Frozen)
         {
-            TheKnockback -= TheKnockback * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, TheImpactLocation, -TheKnockback * Time.deltaTime);
+            if (TheKnockback > 0 && !AlreadyDead)
+            {
+                TheKnockback -= TheKnockback * Time.deltaTime;
+                transform.position = Vector3.MoveTowards(transform.position, TheImpactLocation, - TheKnockback * Time.deltaTime);
+            }
+        }
+        else
+        {
+            TheKnockback = 0;
         }
     }
 
@@ -58,16 +66,20 @@ public class EnemyHealth : CharacterHealth , IpooledObject
         {
             AlreadyDead = true;
             StopIce();
-            //Instantiate(DeadGhost, transform.position, transform.rotation).GetComponent<ParticleSystemRenderer>().material = transform.GetChild(0).GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().materials[1];
-            //GameManager.Player.GetComponent<PlayerControler>().KillAdded();
             enemy.anim.SetBool("Frozen", false);
             enemy.anim.SetBool("Death",true);
             enemy.CanvasHolder.SetActive(false);
-            enemy.enabled = false;
+            enemy.enabled   = false;
             nav.SetDestination(transform.position);
-            GameObject soul =ObjectPooler.Instance.SpawnFromPool("Soul", transform.position+Vector3.up, Random.rotation);
+            GameObject soul = ObjectPooler.Instance.SpawnFromPool("Soul", transform.position+Vector3.up, Random.rotation);
             soul.GetComponent<Soul>().SoulEnergy = enemy.SoulWorth;
-            col.enabled = false;
+            int r = Random.Range(0, 100);
+            if (r < GameManager.instance.TwinSouls)
+            {
+                soul = ObjectPooler.Instance.SpawnFromPool("Soul", transform.position + Vector3.up, Random.rotation);
+                soul.GetComponent<Soul>().SoulEnergy = enemy.SoulWorth;
+            }
+            col.enabled     = false;
             StartCoroutine(DisposeOfBody());
         }
     }

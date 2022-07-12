@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06382e833ea9f1f42b6c159e7206f8bc, type: 3}
-  m_Name: Warrior Regan
+  m_Name: Wall Damage
   m_EditorClassIdentifier: 
-  Name: Warrior Regan
-  Explanation: Heal Faster As Warrior
-  Icon: {fileID: 21300000, guid: b7d4f179ba8a6c643be8d7f1ca62b023, type: 3}
-  Prices: 140000002d0000003c000000500000006400000082000000
-  Upgrading: 9
+  Name: Offense
+  Explanation: Makes The Wall Abillities More Deadly
+  Icon: {fileID: 21300000, guid: 6747ba2ec8c1fe841abe9f7b3ba7adef, type: 3}
+  Prices: 1e0000003c00000050000000640000008c000000aa000000
+  Upgrading: 2

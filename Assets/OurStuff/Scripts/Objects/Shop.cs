@@ -6,10 +6,12 @@ using UnityEngine.UI;
 
 public abstract class Shop : MonoBehaviour, ItownClickable
 {
-    [HideInInspector] public enum UpgradesList { SelectUpgradeHere , WallHp , WallDamage, WallHealing, WallCooldowns,
-        WarriorHp , WarriorDamage , WarriorStamina , WarriorSpeed , WarriorRegan,
-        RogueHp , RogueDamage , RogueStamina , RogueSpeed, RogueRegan,
-        MageHp, MageDamage, MageStamina , MageSpeed, MageRegan}
+    [HideInInspector] public enum UpgradesList { SelectUpgradeHere, WallHp, WallDamage, WallHealing, WallCooldowns, //Wall
+        WarriorHp, WarriorDamage, WarriorStamina, WarriorSpeed, WarriorRegen,                                         //Warrior
+        RogueHp, RogueDamage, RogueStamina, RogueSpeed, RogueRegen,                                                   //Rogue
+        MageHp, MageDamage, MageStamina, MageSpeed, MageRegen,                                                        //Mage
+        RemnantMagnet, RemnantBlast, SoulWorth, TwinSouls, SoulHeal, SoulEnvigoration, ElementEfficiency              //Remnant
+    }
     public GameObject OwningShop;
     protected GameObject UpgradeContext;
     protected GameObject ShopContext;
@@ -19,12 +21,11 @@ public abstract class Shop : MonoBehaviour, ItownClickable
     protected List<Upgrade> _upgrades = new List<Upgrade>();
 
 
-
-
     [SerializeField] GameObject ShowWhenUsed;
     [SerializeField] string TextToShow;
     float hovered;
 
+    [SerializeField] float mult = 0.3f;
 
 
     //public List<>
@@ -72,7 +73,7 @@ public abstract class Shop : MonoBehaviour, ItownClickable
         ClearChilds(UpgradeContext.transform);
         foreach (SOupgrade u in Upgrades)
         {
-            Upgrade Up = new Upgrade(u.name,u.Explanation,u.Icon,u.Prices,u.Upgrading);
+            Upgrade Up = new Upgrade(u.Name,u.Explanation,u.Icon,u.Prices,u.Upgrading);
             _upgrades.Add(Up);
             MakeUpgrade(Up);
         }
@@ -117,7 +118,6 @@ public abstract class Shop : MonoBehaviour, ItownClickable
             Up.lvl++;
             RefreshUprades();
             GameManager.instance.GetComponent<TownManager>().UpdateSoulCount();
-            float mult = 0.3f;
             switch (Up.Upgrading)
             {
                 case UpgradesList.WallHp:
@@ -133,49 +133,72 @@ public abstract class Shop : MonoBehaviour, ItownClickable
                     GameManager.instance.Wall.GetComponent<TheWall>().CooldownMultiplier -= 0.15f;
                     break;
                 case UpgradesList.WarriorHp:
-                    GameManager.instance.WarriorHealthMultiplier += mult;
+                    GameManager.instance.WarriorHealthMultiplier  += mult;
                     break;
                 case UpgradesList.WarriorDamage:
-                    GameManager.instance.WarriorDamageMultiplier += mult;
+                    GameManager.instance.WarriorDamageMultiplier  += mult;
                     break;
                 case UpgradesList.WarriorStamina:
                     GameManager.instance.WarriorStaminaMultiplier += mult;
                     break;
                 case UpgradesList.WarriorSpeed:
-                    GameManager.instance.WarriorSpeedMultiplier += mult/2;
+                    GameManager.instance.WarriorSpeedMultiplier   += mult/2;
                     break;
-                case UpgradesList.WarriorRegan:
-                    GameManager.instance.WarriorReganMultiplier += mult;
+                case UpgradesList.WarriorRegen:
+                    GameManager.instance.WarriorRegenMultiplier   += mult;
                     break;
                 case UpgradesList.RogueHp:
-                    GameManager.instance.RogueHealthMultiplier += mult;
+                    GameManager.instance.RogueHealthMultiplier    += mult;
                     break;
                 case UpgradesList.RogueDamage:
-                    GameManager.instance.RogueDamageMultiplier += mult;
+                    GameManager.instance.RogueDamageMultiplier    += mult;
                     break;
                 case UpgradesList.RogueStamina:
-                    GameManager.instance.RogueStaminaMultiplier += mult;
+                    GameManager.instance.RogueStaminaMultiplier   += mult;
                     break;
                 case UpgradesList.RogueSpeed:
-                    GameManager.instance.RogueSpeedMultiplier += mult / 2;
+                    GameManager.instance.RogueSpeedMultiplier     += mult / 2;
                     break;
-                case UpgradesList.RogueRegan:
-                    GameManager.instance.RogueReganMultiplier += mult;
+                case UpgradesList.RogueRegen:
+                    GameManager.instance.RogueRegenMultiplier     += mult;
                     break;
                 case UpgradesList.MageHp:
-                    GameManager.instance.MageHealthMultiplier += mult;
+                    GameManager.instance.MageHealthMultiplier     += mult;
                     break;
                 case UpgradesList.MageDamage:
-                    GameManager.instance.MageDamageMultiplier += mult;
+                    GameManager.instance.MageDamageMultiplier     += mult;
                     break;
                 case UpgradesList.MageStamina:
-                    GameManager.instance.MageStaminaMultiplier += mult;
+                    GameManager.instance.MageStaminaMultiplier    += mult;
                     break;
                 case UpgradesList.MageSpeed:
-                    GameManager.instance.MageSpeedMultiplier += mult / 2;
+                    GameManager.instance.MageSpeedMultiplier      += mult / 2;
                     break;
-                case UpgradesList.MageRegan:
-                    GameManager.instance.MageReganMultiplier += mult;
+                case UpgradesList.MageRegen:
+                    GameManager.instance.MageRegenMultiplier      += mult;
+                    break;
+                case UpgradesList.ElementEfficiency:
+                    GameManager.instance.ElementEfficiency        += mult;
+                    GameManager.instance.ElementRecovery          -= mult / 2;
+                    break;
+                case UpgradesList.RemnantBlast:
+                    GameManager.instance.RemnantBlastRadius       += 2;
+                    GameManager.instance.RemnantBlastDamage       += mult * 150;
+                    break;
+                case UpgradesList.RemnantMagnet:
+                    GameManager.instance.RemnantMagnet            += mult * 2;
+                    break;
+                case UpgradesList.SoulEnvigoration:
+                    GameManager.instance.SoulEnvigoration         += 5;
+                    break;
+                case UpgradesList.SoulHeal:
+                    GameManager.instance.SoulHeal                 += 3;
+                    break;
+                case UpgradesList.SoulWorth:
+                    GameManager.instance.SoulWorth                += mult;
+                    break;
+                case UpgradesList.TwinSouls:
+                    GameManager.instance.TwinSouls                += 8;
                     break;
             }
         }

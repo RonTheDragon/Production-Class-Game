@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06382e833ea9f1f42b6c159e7206f8bc, type: 3}
-  m_Name: Rogue Stamina
+  m_Name: SoulWorth
   m_EditorClassIdentifier: 
-  Name: Rogue Stamina
-  Explanation: More Stamina As Rogue
-  Icon: {fileID: 21300000, guid: 5d47b54d6e262e048b43392792021733, type: 3}
-  Prices: 140000002d0000003c000000500000006400000082000000
-  Upgrading: 12
+  Name: Soul Worth
+  Explanation: Enemy souls are worth more
+  Icon: {fileID: 21300000, guid: 5c295ad6d8197b045849e728584ee05d, type: 3}
+  Prices: 32000000500000007800000096000000c8000000fa0000002c01000090010000
+  Upgrading: 22

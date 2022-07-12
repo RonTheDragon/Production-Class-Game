@@ -141,17 +141,17 @@ public class PlayerAttackSystem : AttackSystem
             case PlayerParameters.ClassRole.Warrior:           
                 m = GameManager.instance.WarriorStaminaMultiplier;
                 s = GameManager.instance.WarriorSpeedMultiplier;
-                r = GameManager.instance.WarriorReganMultiplier;
+                r = GameManager.instance.WarriorRegenMultiplier;
                 break;
             case PlayerParameters.ClassRole.Rogue:            
                 m = GameManager.instance.RogueStaminaMultiplier;
                 s = GameManager.instance.RogueSpeedMultiplier;
-                r = GameManager.instance.RogueReganMultiplier;
+                r = GameManager.instance.RogueRegenMultiplier;
                 break;
             case PlayerParameters.ClassRole.Mage:       
                 m = GameManager.instance.MageStaminaMultiplier;
                 s = GameManager.instance.MageSpeedMultiplier;
-                r = GameManager.instance.MageReganMultiplier;
+                r = GameManager.instance.MageRegenMultiplier;
                 break;
         }
         MaxStamina *= m;
@@ -159,6 +159,6 @@ public class PlayerAttackSystem : AttackSystem
         thirdPersonMovement.originalSpeed *= s;
         thirdPersonMovement.SprintSpeed *= s;
         PlayerHealth hp = GetComponent<PlayerHealth>();
-        hp.HpRegan *= r;
+        hp.HpRegen *= r;
     }
 }

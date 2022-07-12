@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : CharacterHealth
 {
     CharacterController CC;
-    Rigidbody RB;
-    PlayerAttackSystem PAS;
-    Animator anim;
+    Rigidbody           RB;
+    PlayerAttackSystem  PAS;
+    Animator            anim;
     //PlayerControler PC;
     //Animator Anim;
     //AudioManager audio;
@@ -20,14 +20,14 @@ public class PlayerHealth : CharacterHealth
     new void Start()
     {
         base.Start();
-        CC = GetComponent<CharacterController>();
-        RB = GetComponent<Rigidbody>();
-        PAS = GetComponent<PlayerAttackSystem>();
-        anim = GetComponent<ThirdPersonMovement>().animator;
+        CC          = GetComponent<CharacterController>();
+        RB          = GetComponent<Rigidbody>();
+        PAS         = GetComponent<PlayerAttackSystem>();
+        anim        = GetComponent<ThirdPersonMovement>().animator;
         CanKillSelf = GameManager.instance.PlayerKillingShortCut;
-        //Anim = transform.GetChild(0).GetComponent<Animator>();
-        //audio = GetComponent<AudioManager>();
-        //PC = transform.parent.GetComponent<PlayerControler>();
+        //Anim      = transform.GetChild(0).GetComponent<Animator>();
+        //audio     = GetComponent<AudioManager>();
+        //PC        = transform.parent.GetComponent<PlayerControler>();
     }
 
     // Update is called once per frame
@@ -126,6 +126,15 @@ public class PlayerHealth : CharacterHealth
         {
             GameManager.instance.GetComponent<PlayerRespawnManager>().OpenRespawnMenu();
             Destroy(gameObject);
+        }
+    }
+
+    public void GainSoul()
+    {
+        if (iGotThePower && !AlreadyDead)
+        {
+            PAS.Stamina += GameManager.instance.SoulEnvigoration;
+            Hp          += GameManager.instance.SoulHeal;
         }
     }
 }

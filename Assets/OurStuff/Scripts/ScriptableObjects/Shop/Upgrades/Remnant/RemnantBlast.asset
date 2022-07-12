@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06382e833ea9f1f42b6c159e7206f8bc, type: 3}
-  m_Name: Rogue Regan
+  m_Name: RemnantBlast
   m_EditorClassIdentifier: 
-  Name: Rogue Regan
-  Explanation: Heal Faster As Rogue
-  Icon: {fileID: 21300000, guid: fb31608b706f7ca44a691ef0f9cedc15, type: 3}
-  Prices: 140000002d0000003c000000500000006400000082000000
-  Upgrading: 14
+  Name: Remnant Blast
+  Explanation: Sacrifice the hero for large areal damage around them
+  Icon: {fileID: 21300000, guid: 5c295ad6d8197b045849e728584ee05d, type: 3}
+  Prices: 32000000500000007800000096000000c8000000fa0000002c01000090010000
+  Upgrading: 21

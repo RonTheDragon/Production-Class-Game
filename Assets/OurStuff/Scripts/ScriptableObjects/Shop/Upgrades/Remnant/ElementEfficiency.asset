@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06382e833ea9f1f42b6c159e7206f8bc, type: 3}
-  m_Name: Mage Regan
+  m_Name: ElementEfficiency
   m_EditorClassIdentifier: 
-  Name: Mage Regan
-  Explanation: Heal Faster As Mage
-  Icon: {fileID: 21300000, guid: b4f994bbf24aaf14c85e42c45687709e, type: 3}
-  Prices: 140000002d0000003c000000550000006400000082000000
-  Upgrading: 19
+  Name: Element Efficiency
+  Explanation: Increases the efficiency of elemental attacks
+  Icon: {fileID: 21300000, guid: 5c295ad6d8197b045849e728584ee05d, type: 3}
+  Prices: 32000000500000007800000096000000c8000000fa0000002c01000090010000
+  Upgrading: 26

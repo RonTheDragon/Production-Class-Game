@@ -4,10 +4,10 @@ using UnityEngine;
 
 public abstract class Health : MonoBehaviour
 {
-    public float MaxHp = 100;
-    public float Hp;
-    public float HpRegan;
-    [HideInInspector] public bool AlreadyDead;
+                      public float MaxHp = 100;
+                      public float Hp;
+                      public float HpRegen;
+    [HideInInspector] public bool  AlreadyDead;
 
     // Start is called before the first frame update
     protected void Start()
@@ -25,8 +25,8 @@ public abstract class Health : MonoBehaviour
 
         if (Hp < MaxHp)
         {
-            if (HpRegan > 0)
-                Hp += Time.deltaTime * HpRegan;
+            if (HpRegen > 0)
+                Hp += Time.deltaTime * HpRegen;
         }
         else
         {

@@ -4,32 +4,32 @@ using UnityEngine;
 
 public abstract class AttackSystem : MonoBehaviour
 {
-    protected Animator Anim;
-    protected float Charge = 1;
-    protected float MinCharge;
-    protected float MaxCharge;
-    protected float ChargeSpeed;
-    [HideInInspector] public float Stamina;
-    [HideInInspector] public float AttackCooldown;
-    [HideInInspector] public float StaminaCost;
-    [HideInInspector] public float StaminaDrain;
-    public                   float MaxStamina      = 100;
-    public                   float StaminaRegan    = 30;
-    public                   float Tired           = 30;
-    [SerializeField]         float StaggerDuration = 0.3f;
-    [SerializeField] List<GameObject> AbilityObjects = new List<GameObject>();
-    List<Ability> abilities = new List<Ability>();
+                      protected Animator              Anim;
+                      protected float                 Charge          = 1;
+                      protected float                 MinCharge;
+                      protected float                 MaxCharge;
+                      protected float                 ChargeSpeed;
+    [HideInInspector] public float                    Stamina;
+    [HideInInspector] public float                    AttackCooldown;
+    [HideInInspector] public float                    StaminaCost;
+    [HideInInspector] public float                    StaminaDrain;
+                      public float                    MaxStamina        = 100;
+                      public float                    StaminaRegan      = 30;
+                      public float                    Tired             = 30;
+    [SerializeField]         float                    StaggerDuration   = 0.3f;
+    [SerializeField]         List<GameObject>         AbilityObjects    = new List<GameObject>();
+                             List<Ability>            abilities         = new List<Ability>();
     //public List<SOability> Attacks = new List<SOability>();
-    public float DamageMultiplier  = 1;
-    [SerializeField]  string HoldingAnAttack;
-    [SerializeField]  string PreviousAttack;
-    [SerializeField]  float timeToComboReset = 1;
-                      float comboTimer;
-    [HideInInspector] public float   AttackMovementForce;
-    [HideInInspector] public Vector2 AttackMovementDirection;
-    protected List<AbilityCoolDown>  abilityCoolDowns = new List<AbilityCoolDown>();
-    protected GameObject Attacker;
-    AudioManager         audioManager;
+                      public float                    DamageMultiplier  = 1;
+    [SerializeField]  string                          HoldingAnAttack;
+    [SerializeField]  string                          PreviousAttack;
+    [SerializeField]  float                           timeToComboReset  = 1;
+                      float                           comboTimer;
+    [HideInInspector] public float                    AttackMovementForce;
+    [HideInInspector] public Vector2                  AttackMovementDirection;
+                      protected List<AbilityCoolDown> abilityCoolDowns  = new List<AbilityCoolDown>();
+                      protected GameObject            Attacker;
+                                AudioManager          audioManager;
 
     protected void Start()
     {

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public abstract class CharacterHealth : Health
 {
-    [SerializeField] float StaggerResistance;
-    protected float TheKnockback;
-    protected Vector3 TheImpactLocation;
-    public float Temperature;
+    [SerializeField]           float StaggerResistance;
+                     protected float TheKnockback;
+                     protected Vector3 TheImpactLocation;
+                     public float Temperature;
     [SerializeField] GameObject OnFire;
-    ParticleSystem FireParticles;
+                     ParticleSystem FireParticles;
     [SerializeField] GameObject OnIce;
     GameObject Ice;
     [HideInInspector] public ParticleSystem IceParticles;
@@ -49,8 +49,8 @@ public abstract class CharacterHealth : Health
 
         if (Hp < MaxHp)
         {
-            if (HpRegan > 0)
-                Hp += Time.deltaTime * HpRegan;
+            if (HpRegen > 0)
+                Hp += Time.deltaTime * HpRegen;
         }
         else
         {
@@ -68,12 +68,17 @@ public abstract class CharacterHealth : Health
         }
     }
 
-    public override void TakeDamage(float Damage, float knock, Vector2 Stagger, float Temperature, Vector3 ImpactLocation,GameObject Attacker)
+    public override void TakeDamage(float Damage, float knock, Vector2 Stagger, float Temperature,
+        Vector3 ImpactLocation,GameObject Attacker)
     {
         if (Frozen)
         {
-            Hp -= Damage * 2;
-            TheKnockback = knock /2;
+            float elementalEfficiency = 1;
+            if (this is EnemyHealth)
+            {
+                elementalEfficiency = GameManager.instance.ElementEfficiency;
+            }
+                Hp -= Damage * (2 * elementalEfficiency);
             if (Temperature > 0)
             {
                 this.Temperature += Temperature;
@@ -111,9 +116,9 @@ public abstract class CharacterHealth : Health
 
     public void GainTempProtection(float hp, float knock, float time)
     {
-        TempHpProtection = hp;
+        TempHpProtection    = hp;
         TempKnockProtection = knock;
-        TempTimeLeft = time;
+        TempTimeLeft        = time;
     }
     public bool isDead()
     {
@@ -123,6 +128,13 @@ public abstract class CharacterHealth : Health
 
     void TemperatureManagement()
     {
+        float elementalRecovery   = 1;
+        float elementalEfficiency = 1;
+        if (this is EnemyHealth)
+        {
+            elementalRecovery   = GameManager.instance.ElementRecovery;
+            elementalEfficiency = GameManager.instance.ElementEfficiency;
+        }
         if (Temperature == 0)
         {
             StopFire();
@@ -131,7 +143,7 @@ public abstract class CharacterHealth : Health
         else if (Temperature > 0)
         {
             StopIce();
-            Temperature -= Time.deltaTime * 20;
+            Temperature -= Time.deltaTime * (20 * elementalRecovery);
             if (Temperature > 20)
             {
                 if (ThereIsFire)
@@ -143,7 +155,7 @@ public abstract class CharacterHealth : Health
                     var e = FireParticles.emission;
                     e.rateOverTime = ((int)Temperature) - 20;
                 }
-                Hp -= Time.deltaTime * Temperature * 0.1f;
+                Hp -= Time.deltaTime * Temperature * (0.1f * elementalEfficiency);
                 if (Temperature > 100)
                 {
                     Temperature = 100;

@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class Soul : MonoBehaviour , IpooledObject
 {
-    [HideInInspector] public int SoulEnergy;
-    [SerializeField] float speed = 10;
-    [SerializeField] float rotationSpeed = 10;
-    bool SoulAlreadyCollected;
-    ParticleSystem particle;
-    float startingSpeed;
+    [HideInInspector] public int            SoulEnergy;
+    [SerializeField]         float          speed = 10;
+    [SerializeField]         float          rotationSpeed = 10;
+                             bool           SoulAlreadyCollected;
+                             ParticleSystem particle;
+                             float          startingSpeed;
 
     void Start()
     {
         startingSpeed = speed;
-        particle = GetComponent<ParticleSystem>();
+        particle      = GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -42,7 +42,12 @@ public class Soul : MonoBehaviour , IpooledObject
     void SoulCollected()
     {
         SoulAlreadyCollected = true;
-        GameManager.instance.SoulEnergy += SoulEnergy;
+        GameManager.instance.SoulEnergy += (int)(SoulEnergy * GameManager.instance.SoulWorth);
+        PlayerHealth hp = GameManager.instance.Player.GetComponent<PlayerHealth>();
+        if (hp != null)
+        {
+            hp.GainSoul();
+        }
         StartCoroutine(SoulDisappear());
     }
 

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06382e833ea9f1f42b6c159e7206f8bc, type: 3}
-  m_Name: Wall Cooldowns
+  m_Name: Wall Health
   m_EditorClassIdentifier: 
-  Name: Recharging
-  Explanation: Abilities Recharge Faster
-  Icon: {fileID: 21300000, guid: 752273b6e73de04429fa584b2e83556f, type: 3}
-  Prices: 14000000320000005000000078000000a0000000be000000
-  Upgrading: 4
+  Name: Stability
+  Explanation: Makes The Wall Have More Hp
+  Icon: {fileID: 21300000, guid: 147b3990f1a15074a820b207f1b73118, type: 3}
+  Prices: 1e0000003c000000500000006e0000008c000000aa000000c8000000f00000002c01000090010000
+  Upgrading: 1

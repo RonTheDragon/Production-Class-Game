@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06382e833ea9f1f42b6c159e7206f8bc, type: 3}
-  m_Name: Mage Damage
+  m_Name: SoulHeal
   m_EditorClassIdentifier: 
-  Name: Mage Damage
-  Explanation: More Damage As Mage
-  Icon: {fileID: 21300000, guid: def5cf161ee70e4418deb47e2e7b166e, type: 3}
-  Prices: 140000002d0000003c000000550000006400000082000000
-  Upgrading: 16
+  Name: Soul Heal
+  Explanation: Enemy souls heal you when absorbed
+  Icon: {fileID: 21300000, guid: 5c295ad6d8197b045849e728584ee05d, type: 3}
+  Prices: 32000000500000007800000096000000c8000000fa0000002c01000090010000
+  Upgrading: 24

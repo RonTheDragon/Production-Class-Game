@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06382e833ea9f1f42b6c159e7206f8bc, type: 3}
-  m_Name: Wall Health
+  m_Name: RemnantMagnet
   m_EditorClassIdentifier: 
-  Name: Stability
-  Explanation: Makes The Wall Have More Hp
-  Icon: {fileID: 21300000, guid: 147b3990f1a15074a820b207f1b73118, type: 3}
-  Prices: 1400000032000000500000006e0000008c000000aa000000c8000000f00000002c01000090010000
-  Upgrading: 1
+  Name: Remnant Magnet
+  Explanation: Pulls the Remnant towards you
+  Icon: {fileID: 21300000, guid: 5c295ad6d8197b045849e728584ee05d, type: 3}
+  Prices: 1e00000032000000460000006400000082000000a0000000be000000f0000000
+  Upgrading: 20

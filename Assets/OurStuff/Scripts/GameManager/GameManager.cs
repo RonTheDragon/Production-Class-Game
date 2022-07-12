@@ -6,50 +6,60 @@ public class GameManager : MonoBehaviour
 {
     private AudioListener listener;
     public enum ShowEnemyData {Never, Always, AfterBeingDamaged}
-    [HideInInspector]
-    public static GameManager   instance;
+    [HideInInspector] public static GameManager   instance;
     [HideInInspector] public        GameObject    Player;
-    public        GameObject    Wall;
-    public        GameObject    PowerStone;
-    public        float         EnemeiesTryToAttackEvery = 0.1f;
-    public        ShowEnemyData Data                     = ShowEnemyData.Never;
-    public        bool          PlayerKillingShortCut    = false;
-    public        LayerMask     enemiesCanSee;
-    public        LayerMask     enemiesCanAttack;
-    public        LayerMask     PlayerCanAttack;
-    public        LayerMask     LayerMaskOfEverything;
-    [HideInInspector] public bool  WallFacingZ;
-    [HideInInspector] public float WallLength;
-    public        GameObject    CooldownCircleObject;
-    [HideInInspector] public bool  CantUseTown;
-    public GameObject Upgrade;
-    public GameObject WallShopItem;
-    public GameObject WallBaughtItem;
-    public GameObject ClassShopItem;
-    public GameObject ClassBaughtItem;
-    [HideInInspector] public Transform SoulSucker;
-    public int SoulEnergy;
-    [HideInInspector] public bool AlreadyWon;
+                      public        GameObject    Wall;
+                      public        GameObject    PowerStone;
+                      public        float         EnemeiesTryToAttackEvery = 0.1f;
+                      public        ShowEnemyData Data                     = ShowEnemyData.Never;
+                      public        bool          PlayerKillingShortCut    = false;
+                      public        LayerMask     enemiesCanSee;
+                      public        LayerMask     enemiesCanAttack;
+                      public        LayerMask     PlayerCanAttack;
+                      public        LayerMask     LayerMaskOfEverything;
+    [HideInInspector] public        bool          WallFacingZ;
+    [HideInInspector] public        float         WallLength;
+                      public        GameObject    CooldownCircleObject;
+    [HideInInspector] public        bool          CantUseTown;
+                      public        GameObject    Upgrade;
+                      public        GameObject    WallShopItem;
+                      public        GameObject    WallBaughtItem;
+                      public        GameObject    ClassShopItem;
+                      public        GameObject    ClassBaughtItem;
+    [HideInInspector] public        Transform     SoulSucker;
+                      public        int           SoulEnergy;
+    [HideInInspector] public        bool          AlreadyWon;
 
-    [HideInInspector] public float RogueDamageMultiplier = 1;
-    [HideInInspector] public float MageDamageMultiplier = 1;
-    [HideInInspector] public float WarriorDamageMultiplier = 1;
 
-    [HideInInspector] public float RogueHealthMultiplier = 1;
-    [HideInInspector] public float MageHealthMultiplier = 1;
-    [HideInInspector] public float WarriorHealthMultiplier = 1;
+    [HideInInspector] public        float         RogueDamageMultiplier    = 1;
+    [HideInInspector] public        float         MageDamageMultiplier     = 1;
+    [HideInInspector] public        float         WarriorDamageMultiplier  = 1;
 
-    [HideInInspector] public float RogueStaminaMultiplier = 1;
-    [HideInInspector] public float MageStaminaMultiplier = 1;
-    [HideInInspector] public float WarriorStaminaMultiplier = 1;
+    [HideInInspector] public        float         RogueHealthMultiplier    = 1;
+    [HideInInspector] public        float         MageHealthMultiplier     = 1;
+    [HideInInspector] public        float         WarriorHealthMultiplier  = 1;
 
-    [HideInInspector] public float RogueSpeedMultiplier = 1;
-    [HideInInspector] public float MageSpeedMultiplier = 1;
-    [HideInInspector] public float WarriorSpeedMultiplier = 1;
+    [HideInInspector] public        float         RogueStaminaMultiplier   = 1;
+    [HideInInspector] public        float         MageStaminaMultiplier    = 1;
+    [HideInInspector] public        float         WarriorStaminaMultiplier = 1;
 
-    [HideInInspector] public float RogueReganMultiplier = 1;
-    [HideInInspector] public float MageReganMultiplier = 1;
-    [HideInInspector] public float WarriorReganMultiplier = 1;
+    [HideInInspector] public        float         RogueSpeedMultiplier     = 1;
+    [HideInInspector] public        float         MageSpeedMultiplier      = 1;
+    [HideInInspector] public        float         WarriorSpeedMultiplier   = 1;
+
+    [HideInInspector] public        float         RogueRegenMultiplier     = 1;
+    [HideInInspector] public        float         MageRegenMultiplier      = 1;
+    [HideInInspector] public        float         WarriorRegenMultiplier   = 1;
+
+    [HideInInspector] public        float         ElementRecovery          = 1;
+    [HideInInspector] public        float         ElementEfficiency        = 1;
+    [HideInInspector] public        float         RemnantBlastDamage       = 0;
+    [HideInInspector] public        float         RemnantBlastRadius       = 0;
+    [HideInInspector] public        float         RemnantMagnet            = 1;
+    [HideInInspector] public        float         SoulEnvigoration         = 0;
+    [HideInInspector] public        float         SoulHeal                 = 0;
+    [HideInInspector] public        float         SoulWorth                = 1;
+    [HideInInspector] public        float         TwinSouls                = 0;
 
     private void Awake()
     {
