@@ -71,12 +71,12 @@ public class EnemyHealth : CharacterHealth , IpooledObject
             enemy.CanvasHolder.SetActive(false);
             enemy.enabled   = false;
             nav.SetDestination(transform.position);
-            GameObject soul = ObjectPooler.Instance.SpawnFromPool("Soul", transform.position+Vector3.up, Random.rotation);
+            GameObject soul = ObjectPooler.Instance.SpawnFromPool("Soul", transform.position+Vector3.up, transform.rotation);
             soul.GetComponent<Soul>().SoulEnergy = enemy.SoulWorth;
             int r = Random.Range(0, 100);
             if (r < GameManager.instance.TwinSouls)
             {
-                soul = ObjectPooler.Instance.SpawnFromPool("Soul", transform.position + Vector3.up, Random.rotation);
+                soul = ObjectPooler.Instance.SpawnFromPool("Soul", transform.position + Vector3.up, transform.rotation);
                 soul.GetComponent<Soul>().SoulEnergy = enemy.SoulWorth;
             }
             col.enabled     = false;
@@ -86,6 +86,7 @@ public class EnemyHealth : CharacterHealth , IpooledObject
 
     protected override void GetStaggered()
     {
+        enemy.anim.Rebind();
         EAS.Stagger();
     }
 

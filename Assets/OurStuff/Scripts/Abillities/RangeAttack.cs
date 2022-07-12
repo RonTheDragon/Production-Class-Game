@@ -38,11 +38,11 @@ public class RangeAttack : Attack
         Projectile p = TheBullet.GetComponent<Projectile>();
         if (p != null)
         {
-            p.Damage = Damage*Charge;
-            p.Knock = Knock*Charge;
+            p.Damage = Damage * Charge;
+            p.Knock = Knock * Charge;
             p.Stagger = Stagger;
             p.Attackable = Attackable;
-            p.Speed = ProjectileSpeed*Charge;
+            p.Speed = ProjectileSpeed * Charge;
             p.Attacker = Attacker;
             p.Temperature = Temperature;
             if (p is ExplosiveProjectile)
@@ -57,6 +57,20 @@ public class RangeAttack : Attack
                 E = (Multishoot)p;
                 E.ExplosionRadius = ExplosionRadius;
             }
+        }
+        else 
+        {
+            InstantExplosion X = TheBullet.GetComponent<InstantExplosion>();
+            if (X != null)
+            {
+                X.Damage = Damage * Charge;
+                X.Knock = Knock * Charge;
+                X.Stagger = Stagger;
+                X.Attackable = Attackable;
+                X.Attacker = Attacker;
+                X.Temperature = Temperature;
+                X.ExplosionRadius = ExplosionRadius;
+            } 
         }
         AudioManager m = TheBullet.GetComponent<AudioManager>();
         if (m != null)

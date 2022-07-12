@@ -29,6 +29,6 @@ MonoBehaviour:
   Knockback: 20
   Stagger: {x: 70, y: 100}
   Temperature: 0
-  Projectile: RockSmash
+  Projectile: StoneSplash
   ProjectileSpeed: 0
   ExplosionRadius: 10

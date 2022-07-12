@@ -10,10 +10,12 @@ public class Soul : MonoBehaviour , IpooledObject
                              bool           SoulAlreadyCollected;
                              ParticleSystem particle;
                              float          startingSpeed;
+                             float          startingRotation;
 
-    void Start()
+    void Awake()
     {
         startingSpeed = speed;
+        startingRotation = rotationSpeed;
         particle      = GetComponent<ParticleSystem>();
     }
 
@@ -25,6 +27,7 @@ public class Soul : MonoBehaviour , IpooledObject
             if (GameManager.instance.SoulSucker.gameObject != null && !SoulAlreadyCollected)
             {
                 speed += Time.deltaTime*2;
+                rotationSpeed += Time.deltaTime*4;
                 float s = 1 + (0.1f * SoulEnergy);
                 transform.localScale = new Vector3(s, s, s);
                 float dist = Vector3.Distance(transform.position, GameManager.instance.SoulSucker.position);
@@ -43,10 +46,13 @@ public class Soul : MonoBehaviour , IpooledObject
     {
         SoulAlreadyCollected = true;
         GameManager.instance.SoulEnergy += (int)(SoulEnergy * GameManager.instance.SoulWorth);
-        PlayerHealth hp = GameManager.instance.Player.GetComponent<PlayerHealth>();
-        if (hp != null)
+        if (GameManager.instance.Player != null)
         {
-            hp.GainSoul();
+            PlayerHealth hp = GameManager.instance.Player.GetComponent<PlayerHealth>();
+            if (hp != null)
+            {
+                hp.GainSoul();
+            }
         }
         StartCoroutine(SoulDisappear());
     }
@@ -54,7 +60,9 @@ public class Soul : MonoBehaviour , IpooledObject
     public void OnObjectSpawn()
     {
         speed = startingSpeed;
+        rotationSpeed = startingRotation;
         SoulAlreadyCollected = false;
+        RotateToRandom();
     }
 
     IEnumerator SoulDisappear()
@@ -62,5 +70,10 @@ public class Soul : MonoBehaviour , IpooledObject
         particle.Stop();
         yield return new WaitForSeconds(1);    
         gameObject.SetActive(false);
+    }
+
+    void RotateToRandom()
+    {
+        transform.rotation = Quaternion.Euler(-Random.Range(0,180), Random.rotation.y, 0);
     }
 }

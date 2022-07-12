@@ -869,6 +869,50 @@ PrefabInstance:
       propertyPath: SoulEnergy
       value: 1000008
       objectReference: {fileID: 0}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[0].pools.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[2].pools.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[0].pools.Array.data[8].tag
+      value: IceBall
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[0].pools.Array.data[9].tag
+      value: Spike
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[2].pools.Array.data[7].tag
+      value: RemnantExplosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[0].pools.Array.data[10].tag
+      value: IceTrap
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[2].pools.Array.data[7].size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[0].pools.Array.data[8].prefab
+      value: 
+      objectReference: {fileID: 5129424509652984273, guid: bef05196c9b13d9409bdfa517118f503, type: 3}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[0].pools.Array.data[9].prefab
+      value: 
+      objectReference: {fileID: 28893353461833180, guid: 0399abbe910ad144a94c810690ebb163, type: 3}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[2].pools.Array.data[7].prefab
+      value: 
+      objectReference: {fileID: 7975407063811130715, guid: f9c5aae5b4e4a9740a3c8ab79472b848, type: 3}
+    - target: {fileID: 3490371703351010182, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: Groups.Array.data[0].pools.Array.data[10].prefab
+      value: 
+      objectReference: {fileID: 7752236627628813921, guid: ff1a35b3de9f3644fa0ee9b54b16b1e6, type: 3}
     - target: {fileID: 3767866639054373804, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
       propertyPath: m_text
       value: Remnant Shop
@@ -924,6 +968,26 @@ PrefabInstance:
     - target: {fileID: 7171943304287298665, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7755125097887981338, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1028.1816
+      objectReference: {fileID: 0}
+    - target: {fileID: 7755125097887981338, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 42.7585
+      objectReference: {fileID: 0}
+    - target: {fileID: 7755125097887981338, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7755125097887981338, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 524.8547
+      objectReference: {fileID: 0}
+    - target: {fileID: 7755125097887981338, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -29
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
@@ -2789,7 +2853,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3034806045d504d40bc813f601e433b7, type: 2}
+  - {fileID: 2100000, guid: 073f483f3952e4a4da60556332367dd8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

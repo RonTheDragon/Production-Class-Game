@@ -117,6 +117,19 @@ public class PlayerHealth : CharacterHealth
         MaxHp /= 2;
         Hp = MaxHp;
         transform.localScale -= new Vector3(0.3f, 0.3f, 0.3f);
+        if (GameManager.instance.RemnantBlastDamage != 0)
+        {
+            GameObject Boom = ObjectPooler.Instance.SpawnFromPool("RemnantExplosion", transform.position, transform.rotation);
+            InstantExplosion i = Boom.GetComponent<InstantExplosion>();
+            if (i != null)
+            {
+                i.Damage = GameManager.instance.RemnantBlastDamage;
+                i.ExplosionRadius = GameManager.instance.RemnantBlastRadius;
+                i.Stagger = new Vector2(100,200);
+                i.Attackable = GameManager.instance.PlayerCanAttack;
+                i.Attacker = gameObject;
+            }
+        }
     }
 
     protected override IEnumerator DisposeOfBody()
