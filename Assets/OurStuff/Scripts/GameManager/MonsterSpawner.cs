@@ -211,7 +211,7 @@ public class MonsterSpawner : MonoBehaviour
             Monster.transform.GetChild(0).transform.position = Monster.transform.position;
             nav.enabled = true;
             E.anim.SetTrigger("Spawn");
-            EnemyAttackSystem EAS = Monster.transform.GetChild(0).GetComponent<EnemyAttackSystem>();
+            AIAttackSystem EAS = Monster.transform.GetChild(0).GetComponent<AIAttackSystem>();
             EAS.AttackCooldown = 4.5f;
             EAS.DamageMultiplier = (Random.Range(DamageMultiplier.x, DamageMultiplier.y))*DifficultyMultiplier;
             EnemyHealth EH = Monster.transform.GetChild(0).GetComponent<EnemyHealth>();

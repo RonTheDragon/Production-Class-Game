@@ -46,10 +46,14 @@ public class ThirdPersonMovement : MonoBehaviour
         player = transform;
         PAS = GetComponent<PlayerAttackSystem>();
         controller = GetComponent<CharacterController>();
-        if (GameManager.instance.Wall != null)
+        try
         {
-            WallHp = GameManager.instance.Wall.GetComponent<WallHealth>();
+            if (GameManager.instance.Wall != null)
+            {
+                WallHp = GameManager.instance.Wall.GetComponent<WallHealth>();
+            }
         }
+        catch (System.Exception) { }
         Hp = GetComponent<PlayerHealth>();
     }
 

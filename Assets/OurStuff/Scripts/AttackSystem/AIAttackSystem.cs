@@ -2,23 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAttackSystem : AttackSystem
+public class AIAttackSystem : AttackSystem
 {
     [SerializeField] List<SOability> OffensiveAttacks = new List<SOability>();
     [SerializeField] List<SOability> DefensiveAttacks = new List<SOability>();
     [SerializeField] float BraveEnoughToOffensive = 70;
     AudioManager Audio;
     float TryAttack;
-    Enemy enemy;
+    CharacterAI enemy;
 
     new void Start()
     {
         base.Start();
-        Attacker = transform.parent.gameObject;
-        enemy = transform.parent.GetComponent<Enemy>();
+        if (transform.parent != null)
+        {
+            Attacker = transform.parent.gameObject;
+            enemy = transform.parent.GetComponent<CharacterAI>();
+            SetLayersForAttacks(GameManager.instance.enemiesCanAttack);
+        }
+        else
+        {
+            enemy = transform.GetComponent<CharacterAI>();
+            Attacker = gameObject;
+            SetLayersForAttacks(GameManager.instance.PlayerCanAttack);
+        }
+ 
+       
+       
+        
         Audio = GetComponent<AudioManager>();
         Anim = enemy.anim;
-        SetLayersForAttacks(GameManager.instance.enemiesCanAttack);
     }
 
     new void Update()

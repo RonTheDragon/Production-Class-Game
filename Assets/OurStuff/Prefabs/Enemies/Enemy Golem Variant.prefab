@@ -269,15 +269,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2960751188529522814}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 004dcb9a7b488564ba128bcd0a4a6fd2, type: 3}
+  m_Script: {fileID: 11500000, guid: fb18cd97fb79d274a9132d26abd31196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Stamina: 0
   AttackCooldown: 0
-  StaminaCost: 30
+  StaminaCost: 0
   StaminaDrain: 0
   MaxStamina: 100
-  StaminaRegan: 10
+  StaminaRegan: 5
   Tired: 30
   StaggerDuration: 0.3
   AbilityObjects:
@@ -286,15 +286,14 @@ MonoBehaviour:
   DamageMultiplier: 1
   HoldingAnAttack: 
   PreviousAttack: 
-  timeToComboReset: 1.5
+  timeToComboReset: 1
   AttackMovementForce: 0
   AttackMovementDirection: {x: 0, y: 0}
   OffensiveAttacks:
   - {fileID: 11400000, guid: 567de1d183ef6464ca817f5cde21648d, type: 2}
   - {fileID: 11400000, guid: d0cb891d226932447b0058eb437244cc, type: 2}
-  DefensiveAttacks:
-  - {fileID: 11400000, guid: f92c306285687304b8b47559f9975e6e, type: 2}
-  BraveEnoughToOffensive: 40
+  DefensiveAttacks: []
+  BraveEnoughToOffensive: 70
 --- !u!54 &7246966230609521961
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5593,7 +5592,6 @@ MonoBehaviour:
   SoulValue: {x: 5, y: 7}
   SoulWorth: 0
   DetectionRange: 20
-  alert: 0
   RoamCooldown: 10
   RoamRadius: 10
   BraveEnoughToFight: 20

@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class EnemyHealth : CharacterHealth , IpooledObject
 {
     Enemy             enemy;
-    EnemyAttackSystem EAS;
+    AIAttackSystem EAS;
     NavMeshAgent      nav;
     Collider          col;
 
@@ -14,7 +14,7 @@ public class EnemyHealth : CharacterHealth , IpooledObject
     {
         base.Start();
         enemy = transform.parent.GetComponent<Enemy>();
-        EAS = GetComponent<EnemyAttackSystem>();
+        EAS = GetComponent<AIAttackSystem>();
         nav = GetComponent<NavMeshAgent>();
         col = GetComponent<Collider>();
         

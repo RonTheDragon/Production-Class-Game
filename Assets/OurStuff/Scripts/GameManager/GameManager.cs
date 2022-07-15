@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
                       public        ShowEnemyData Data                     = ShowEnemyData.Never;
                       public        bool          PlayerKillingShortCut    = false;
                       public        LayerMask     enemiesCanSee;
+                      public        LayerMask     AlliesCanSee;
                       public        LayerMask     enemiesCanAttack;
                       public        LayerMask     PlayerCanAttack;
                       public        LayerMask     LayerMaskOfEverything;

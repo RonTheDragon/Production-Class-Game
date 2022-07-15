@@ -360,6 +360,18 @@ PrefabInstance:
       value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7246966230910348196, guid: 89ef136ead5e26a438b669df7c7d3931, type: 3}
+      propertyPath: Tired
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7246966230910348196, guid: 89ef136ead5e26a438b669df7c7d3931, type: 3}
+      propertyPath: MaxStamina
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 7246966230910348196, guid: 89ef136ead5e26a438b669df7c7d3931, type: 3}
+      propertyPath: DamageMultiplier
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7246966230910348196, guid: 89ef136ead5e26a438b669df7c7d3931, type: 3}
       propertyPath: BraveEnoughToOffensive
       value: 30
       objectReference: {fileID: 0}
