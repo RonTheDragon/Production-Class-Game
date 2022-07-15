@@ -15,5 +15,5 @@ MonoBehaviour:
   Name: Human Ally
   Explanation: Calls a Random Fighter To Help
   LongExplanation: Calls a Random Fighter To Help
-  Price: 25
+  Price: 70
   ability: {fileID: 11400000, guid: 4957afd2b1f4fed4aae886aab3356078, type: 2}

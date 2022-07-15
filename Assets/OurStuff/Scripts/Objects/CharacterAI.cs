@@ -163,7 +163,10 @@ public abstract class CharacterAI : MonoBehaviour , IpooledObject
 
     protected void RunningAway()
     {
-        NMA.SetDestination(TheBody.position + ((TheBody.position - Target.transform.position).normalized * 5));
+        if (Target != null)
+        {
+            NMA.SetDestination(TheBody.position + ((TheBody.position - Target.transform.position).normalized * 5));
+        }
     }
 
     protected void ChaseTarget()

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: PlayerAlly
   m_EditorClassIdentifier: 
   Name: Summon Ally
-  AbilityCooldown: 10
+  AbilityCooldown: 120
   Image: {fileID: 21300000, guid: 32ef667b4406e1e44b37af02adc564f8, type: 3}
   wallAttack: 4

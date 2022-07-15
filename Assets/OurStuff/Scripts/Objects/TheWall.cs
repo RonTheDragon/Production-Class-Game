@@ -161,34 +161,45 @@ public class TheWall : MonoBehaviour
 
     public void HumanAlly(SOwall attack)
     {
-        PlayerRespawnManager PRM = GameManager.instance.GetComponent<PlayerRespawnManager>();
-        int r = Random.Range(0, PRM.PlayerBodies.Count);
-        GameObject Ally = Instantiate(PRM.PlayerBodies[r].Body, PRM.PlayerRespawnLocation.position, PRM.PlayerRespawnLocation.rotation);
-        ThirdPersonMovement TPM = Ally.GetComponent<ThirdPersonMovement>();
-        TPM.enabled = false;
-        Ally.GetComponent<PlayerHealth>().enabled = false;
-        Ally.GetComponent<CapsuleCollider>().enabled = true;
-        Ally.GetComponent<NavMeshAgent>().enabled = true;
-        Ally.GetComponent<CharacterAI>().enabled = true;
-        AllyHealth hp = Ally.GetComponent<AllyHealth>();
-        PlayerAttackSystem PAS = Ally.GetComponent<PlayerAttackSystem>();
-        AIAttackSystem AAS = Ally.GetComponent<AIAttackSystem>();
-        Ally ally = Ally.GetComponent<Ally>();
-        ally.anim = TPM.animator;
-        ally.EnemyAnimationBody = TPM.animator.transform;
-        ally.enabled = true;
-        PAS.enabled = false;
-        AAS.AbilityObjects = PAS.AbilityObjects;
-        hp.MaxHp = PRM.PlayerBodies[r].health.x;
-        AAS.DamageMultiplier = PRM.PlayerBodies[r].damageMultiplier.x * DamageMultiplier;
-        TransferAttacks(AAS.OffensiveAttacks, PRM.PlayerBodies[r].role);
-        hp.enabled = true;
-        AAS.enabled = true;
-        Ally.transform.GetChild(1).gameObject.SetActive(false);
-        Ally.transform.GetChild(2).gameObject.SetActive(false);
-        Ally.transform.GetChild(3).gameObject.SetActive(false);
-        Ally.GetComponent<CharacterController>().enabled = false;
+        int countAllies = 0;
+        GameObject[] players = GameObject.FindGameObjectsWithTag("NeedsClean");
+        foreach(GameObject p in players)
+        {
+            Ally a = p.GetComponent<Ally>();
+            if (a != null) countAllies++; 
+        }
 
+        if (countAllies < 20)
+        {
+            PlayerRespawnManager PRM = GameManager.instance.GetComponent<PlayerRespawnManager>();
+            int r = Random.Range(0, PRM.PlayerBodies.Count);
+            GameObject Ally = Instantiate(PRM.PlayerBodies[r].Body, PRM.PlayerRespawnLocation.position, PRM.PlayerRespawnLocation.rotation);
+            ThirdPersonMovement TPM = Ally.GetComponent<ThirdPersonMovement>();
+            TPM.enabled = false;
+            Ally.GetComponent<PlayerHealth>().enabled = false;
+            Ally.GetComponent<CapsuleCollider>().enabled = true;
+            Ally.GetComponent<NavMeshAgent>().enabled = true;
+            Ally.GetComponent<CharacterAI>().enabled = true;
+            Ally.tag = "NeedsClean";
+            AllyHealth hp = Ally.GetComponent<AllyHealth>();
+            PlayerAttackSystem PAS = Ally.GetComponent<PlayerAttackSystem>();
+            AIAttackSystem AAS = Ally.GetComponent<AIAttackSystem>();
+            Ally ally = Ally.GetComponent<Ally>();
+            ally.anim = TPM.animator;
+            ally.EnemyAnimationBody = TPM.animator.transform;
+            ally.enabled = true;
+            PAS.enabled = false;
+            AAS.AbilityObjects = PAS.AbilityObjects;
+            hp.MaxHp = PRM.PlayerBodies[r].health.x;
+            AAS.DamageMultiplier = PRM.PlayerBodies[r].damageMultiplier.x * DamageMultiplier;
+            TransferAttacks(AAS.OffensiveAttacks, PRM.PlayerBodies[r].role);
+            hp.enabled = true;
+            AAS.enabled = true;
+            Ally.transform.GetChild(1).gameObject.SetActive(false);
+            Ally.transform.GetChild(2).gameObject.SetActive(false);
+            Ally.transform.GetChild(3).gameObject.SetActive(false);
+            Ally.GetComponent<CharacterController>().enabled = false;
+        }
     }
 
     void TransferAttacks(List<SOability> attacklist, SOclass role )
