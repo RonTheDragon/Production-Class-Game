@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class AIAttackSystem : AttackSystem
 {
-    [SerializeField] List<SOability> OffensiveAttacks = new List<SOability>();
-    [SerializeField] List<SOability> DefensiveAttacks = new List<SOability>();
+    public List<SOability> OffensiveAttacks = new List<SOability>();
+    public List<SOability> DefensiveAttacks = new List<SOability>();
     [SerializeField] float BraveEnoughToOffensive = 70;
     AudioManager Audio;
     float TryAttack;

@@ -888,7 +888,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4180089263566330688}
-  m_LocalRotation: {x: -0.16910505, y: 0.824697, z: -0.3219756, w: -0.4331398}
+  m_LocalRotation: {x: -0.16910508, y: 0.824697, z: -0.32197556, w: -0.4331399}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1257,7 +1257,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4180089264151691875}
-  m_LocalRotation: {x: -0.16075431, y: 0.83092, z: -0.30671412, w: -0.4354958}
+  m_LocalRotation: {x: -0.16075431, y: 0.8309199, z: -0.3067141, w: -0.4354958}
   m_LocalPosition: {x: 2.2094383, y: 3.294695, z: 1.7629395}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2089,7 +2089,7 @@ MonoBehaviour:
   AttackMovementDirection: {x: 0, y: 0}
   OffensiveAttacks: []
   DefensiveAttacks: []
-  BraveEnoughToOffensive: 70
+  BraveEnoughToOffensive: 0
 --- !u!114 &3844214997930972944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2104,10 +2104,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoulValue: {x: 5, y: 10}
   SoulWorth: 0
-  DetectionRange: 0
+  DetectionRange: 20
   RoamCooldown: 10
   RoamRadius: 10
-  BraveEnoughToFight: 50
+  BraveEnoughToFight: 0
   timeToAlert: 0.5
   CanvasHolder: {fileID: 0}
   CanvasHolderHeight: 0
@@ -2163,7 +2163,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0
+  m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &184183408813977239

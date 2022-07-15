@@ -11,7 +11,7 @@ public class PlayerRespawnManager : MonoBehaviour
     [SerializeField] GameObject Content;
     [SerializeField] GameObject ChooseHeroButton;
     [SerializeField] List<string> CharacterNames = new List<string>();
-    [SerializeField] Transform PlayerRespawnLocation;
+    public Transform PlayerRespawnLocation;
     void Start()
     {
         //SpawnFirstCharacter();

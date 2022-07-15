@@ -83,14 +83,14 @@ public class GameManager : MonoBehaviour
 
         if (Player == null)
         {
-            if (listener.enabled == false)
+          //  if (listener.enabled == false)
             {
                 listener.enabled = true;
             }
         }
         else
         {
-            if (listener.enabled == true)
+         //   if (listener.enabled == true)
             {
                 listener.enabled = false;
             }

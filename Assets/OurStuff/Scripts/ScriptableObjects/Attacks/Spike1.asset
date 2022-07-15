@@ -19,11 +19,12 @@ MonoBehaviour:
   AttackCooldown: 0.6
   AbilityCooldown: 0
   MinRange: 0
-  MaxRange: 3
+  MaxRange: 20
   Chance: 100
   attackType: 4
   aiming: 1
   Image: {fileID: 0}
+  sound: 
   Damage: 10
   Knockback: 0
   Stagger: {x: 70, y: 100}

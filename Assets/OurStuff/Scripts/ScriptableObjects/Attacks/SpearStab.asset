@@ -19,8 +19,8 @@ MonoBehaviour:
   AttackCooldown: 1
   AbilityCooldown: 0
   MinRange: 0
-  MaxRange: 3
-  Chance: 100
+  MaxRange: 7
+  Chance: 50
   attackType: 2
   aiming: 1
   Image: {fileID: 0}

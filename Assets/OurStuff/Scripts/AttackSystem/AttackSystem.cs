@@ -17,7 +17,7 @@ public abstract class AttackSystem : MonoBehaviour
                       public float                    StaminaRegan      = 30;
                       public float                    Tired             = 30;
     [SerializeField]         float                    StaggerDuration   = 0.3f;
-    [SerializeField]         List<GameObject>         AbilityObjects    = new List<GameObject>();
+    public          List<GameObject>         AbilityObjects    = new List<GameObject>();
                              List<Ability>            abilities         = new List<Ability>();
     //public List<SOability> Attacks = new List<SOability>();
                       public float                    DamageMultiplier  = 1;

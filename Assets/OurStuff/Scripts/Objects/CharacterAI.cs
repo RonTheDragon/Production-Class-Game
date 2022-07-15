@@ -35,7 +35,7 @@ public abstract class CharacterAI : MonoBehaviour , IpooledObject
     protected Image hpBar;
     protected Image staminaBar;
     [HideInInspector] public float ShowingData;
-    [SerializeField]  Transform EnemyAnimationBody;
+    public  Transform EnemyAnimationBody;
     protected Vector3 startposforFix;
 
     //[SerializeField] float RandomSoundMaxCooldown = 5;

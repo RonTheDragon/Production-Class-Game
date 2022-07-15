@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 public class TheWall : MonoBehaviour
 {
-    public enum WallAttacks { None, Mines , Particle , Healing}
+    public enum WallAttacks { None, Mines , Particle , Healing , HumanAlly}
     public SOwall[] TheWallAttacks = new SOwall[4];
     public float WallLength = 90;
     public float Wallheight = 10;
@@ -98,6 +99,9 @@ public class TheWall : MonoBehaviour
             case WallAttacks.Healing:
                 Heal(attack);
                 break;
+            case WallAttacks.HumanAlly:
+                HumanAlly(attack);
+                break;
 
                 
 
@@ -152,6 +156,74 @@ public class TheWall : MonoBehaviour
             SOwallHeal H = (SOwallHeal)attack;
             WallHealth hp = GetComponent<WallHealth>();
             hp.Hp += hp.MaxHp * 0.01f * (H.Heal*HealingMultiplier);
+        }
+    }
+
+    public void HumanAlly(SOwall attack)
+    {
+        PlayerRespawnManager PRM = GameManager.instance.GetComponent<PlayerRespawnManager>();
+        int r = Random.Range(0, PRM.PlayerBodies.Count);
+        GameObject Ally = Instantiate(PRM.PlayerBodies[r].Body, PRM.PlayerRespawnLocation.position, PRM.PlayerRespawnLocation.rotation);
+        ThirdPersonMovement TPM = Ally.GetComponent<ThirdPersonMovement>();
+        TPM.enabled = false;
+        Ally.GetComponent<PlayerHealth>().enabled = false;
+        Ally.GetComponent<CapsuleCollider>().enabled = true;
+        Ally.GetComponent<NavMeshAgent>().enabled = true;
+        Ally.GetComponent<CharacterAI>().enabled = true;
+        AllyHealth hp = Ally.GetComponent<AllyHealth>();
+        PlayerAttackSystem PAS = Ally.GetComponent<PlayerAttackSystem>();
+        AIAttackSystem AAS = Ally.GetComponent<AIAttackSystem>();
+        Ally ally = Ally.GetComponent<Ally>();
+        ally.anim = TPM.animator;
+        ally.EnemyAnimationBody = TPM.animator.transform;
+        ally.enabled = true;
+        PAS.enabled = false;
+        AAS.AbilityObjects = PAS.AbilityObjects;
+        hp.MaxHp = PRM.PlayerBodies[r].health.x;
+        AAS.DamageMultiplier = PRM.PlayerBodies[r].damageMultiplier.x * DamageMultiplier;
+        TransferAttacks(AAS.OffensiveAttacks, PRM.PlayerBodies[r].role);
+        hp.enabled = true;
+        AAS.enabled = true;
+        Ally.transform.GetChild(1).gameObject.SetActive(false);
+        Ally.transform.GetChild(2).gameObject.SetActive(false);
+        Ally.transform.GetChild(3).gameObject.SetActive(false);
+        Ally.GetComponent<CharacterController>().enabled = false;
+
+    }
+
+    void TransferAttacks(List<SOability> attacklist, SOclass role )
+    {
+        foreach(SOability s in role.DownLeftClickAttacks)
+        {
+            attacklist.Add(s);
+        }
+        foreach (SOability s in role.UpLeftClickAttacks)
+        {
+            attacklist.Add(s);
+        }
+        foreach (SOability s in role.DownRightClickAttacks)
+        {
+            attacklist.Add(s);
+        }
+        foreach (SOability s in role.UpRightClickAttacks)
+        {
+            attacklist.Add(s);
+        }
+        foreach (SOability s in role.LeftClickAttacks)
+        {
+            attacklist.Add(s);
+        }
+        foreach (SOability s in role.RightClickAttacks)
+        {
+            attacklist.Add(s);
+        }
+        foreach (SOability s in role.SpaceAbility)
+        {
+            attacklist.Add(s);
+        }
+        foreach (SOability s in role.F_Ability)
+        {
+            attacklist.Add(s);
         }
     }
 

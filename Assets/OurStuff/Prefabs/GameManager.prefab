@@ -10716,6 +10716,9 @@ MonoBehaviour:
   enemiesCanSee:
     serializedVersion: 2
     m_Bits: 127
+  AlliesCanSee:
+    serializedVersion: 2
+    m_Bits: 247
   enemiesCanAttack:
     serializedVersion: 2
     m_Bits: 264
@@ -10735,7 +10738,7 @@ MonoBehaviour:
   ClassShopItem: {fileID: 3048677536125606005, guid: c82f1902235b3b04abd21212dfab688a, type: 3}
   ClassBaughtItem: {fileID: 3048677536125606005, guid: 70272852661b0d5478bb0b648cfa34c1, type: 3}
   SoulSucker: {fileID: 0}
-  SoulEnergy: 70
+  SoulEnergy: 5000
   AlreadyWon: 0
   RogueDamageMultiplier: 1
   MageDamageMultiplier: 1
