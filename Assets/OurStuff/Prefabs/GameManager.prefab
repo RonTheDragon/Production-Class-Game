@@ -10738,7 +10738,7 @@ MonoBehaviour:
   ClassShopItem: {fileID: 3048677536125606005, guid: c82f1902235b3b04abd21212dfab688a, type: 3}
   ClassBaughtItem: {fileID: 3048677536125606005, guid: 70272852661b0d5478bb0b648cfa34c1, type: 3}
   SoulSucker: {fileID: 0}
-  SoulEnergy: 5000
+  SoulEnergy: 100
   AlreadyWon: 0
   RogueDamageMultiplier: 1
   MageDamageMultiplier: 1
@@ -10778,7 +10778,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Levels:
   - {fileID: 11400000, guid: 86121bbfef664f241a70473c5cd09671, type: 2}
-  - {fileID: 11400000, guid: 86121bbfef664f241a70473c5cd09671, type: 2}
+  - {fileID: 11400000, guid: d4e2302a1ed325443b3e2b8e3e036a00, type: 2}
+  - {fileID: 11400000, guid: 36fb3b5a44d56464a9c9012692512d24, type: 2}
   MonsterCounterCooldown: 2
   TimeLeftForWave: 0
   TooManyToStartNextWave: 0

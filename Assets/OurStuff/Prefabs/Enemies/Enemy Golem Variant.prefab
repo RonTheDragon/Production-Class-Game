@@ -292,7 +292,8 @@ MonoBehaviour:
   OffensiveAttacks:
   - {fileID: 11400000, guid: 567de1d183ef6464ca817f5cde21648d, type: 2}
   - {fileID: 11400000, guid: d0cb891d226932447b0058eb437244cc, type: 2}
-  DefensiveAttacks: []
+  DefensiveAttacks:
+  - {fileID: 11400000, guid: f92c306285687304b8b47559f9975e6e, type: 2}
   BraveEnoughToOffensive: 70
 --- !u!54 &7246966230609521961
 Rigidbody:

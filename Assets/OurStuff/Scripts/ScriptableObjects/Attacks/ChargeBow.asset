@@ -18,9 +18,9 @@ MonoBehaviour:
   StaminaCost: 5
   AttackCooldown: 1
   AbilityCooldown: 0
-  MinRange: 3
-  MaxRange: 20
-  Chance: 10
+  MinRange: 0
+  MaxRange: 100
+  Chance: 100
   attackType: 1
   aiming: 1
   Image: {fileID: 0}

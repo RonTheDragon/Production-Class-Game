@@ -15,30 +15,47 @@ public class Ally : CharacterAI
         Targetable = GameManager.instance.PlayerCanAttack;
         CanSee = GameManager.instance.AlliesCanSee;
     }
+    new void Update()
+    {
+        base.Update();
+    }
     protected override void AttackAI()
     {
         if (Target != null)
         {
-            if (canSeeTarget())
+            if (TargetHealth != null)
             {
-                alert += Time.deltaTime;
-            }
-            else if (alert > 0)
-            {
-                alert -= Time.deltaTime;
-            }
+                if (TargetHealth.Hp<=0)
+                {
+                    ForgetTarget();
+                }
+                else
+                {
+                    if (canSeeTarget())
+                    {
+                        alert += Time.deltaTime;
+                    }
+                    else if (alert > 0)
+                    {
+                        alert -= Time.deltaTime;
+                    }
 
-            if (alert > timeToAlert)
-            {
-                chasingTarget = true;
+                    if (alert > timeToAlert)
+                    {
+                        chasingTarget = true;
+                    }
+                    else
+                    {
+                        ForgetTarget();
+                    }
+                }
             }
-            else
+            else 
             {
-                chasingTarget = false;
-                Target = null;
+                ForgetTarget();
             }
         }
-        else { SearchForTarget(); }
+        else {  SearchForTarget(); }
 
         if (chasingTarget)
         {
@@ -60,6 +77,7 @@ public class Ally : CharacterAI
             else
             {
                 RunningAway();
+                eas.CancelAttack();
             }
         }
 
@@ -78,7 +96,8 @@ public class Ally : CharacterAI
 
             
                 Wander();
-            
+            eas.CancelAttack();
+
         }
 
         if (eas.Stamina < eas.Tired) { NMA.speed = GetSpeed() * 0.5f; }

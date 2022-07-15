@@ -46,6 +46,7 @@ public abstract class AttackSystem : MonoBehaviour
 
         if (HoldingAnAttack != string.Empty)
         {
+            AttackCooldown = 1;
             Stamina -= StaminaDrain * Time.deltaTime;
             if (Stamina <= 0)
             {
@@ -471,7 +472,10 @@ public abstract class AttackSystem : MonoBehaviour
 
     public void CancelAttack()
     {
-        Anim.SetTrigger("Release");
+        if (AttackCooldown > 0)
+        {
+            Anim.SetTrigger("Release");
+        }
         HoldingAnAttack = string.Empty;
         AttackCooldown = 0;
         ResetCharge();

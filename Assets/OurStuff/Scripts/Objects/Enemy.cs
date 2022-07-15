@@ -17,26 +17,43 @@ public class Enemy : CharacterAI , IpooledObject
         Targetable = GameManager.instance.enemiesCanAttack;
         CanSee = GameManager.instance.enemiesCanSee;
     }
+    new void Update()
+    {
+        base.Update();
+    }
 
     protected override void AttackAI()
     {
         if (Target != null)
         {
-            if (canSeeTarget())
+            if (TargetHealth != null)
             {
-                alert += Time.deltaTime;
-            }
-            else if (alert > 0)
-            {
-                alert -= Time.deltaTime;
-            }
+                if (TargetHealth.Hp<=0)
+                {
+                    ForgetTarget();
+                }
+                else
+                {
+                    if (canSeeTarget())
+                    {
+                        alert += Time.deltaTime;
+                    }
+                    else if (alert > 0)
+                    {
+                        alert -= Time.deltaTime;
+                    }
 
-            if (alert > timeToAlert)
-                chasingTarget = true;
+                    if (alert > timeToAlert)
+                        chasingTarget = true;
+                    else
+                    {
+                        ForgetTarget();
+                    }
+                }
+            }
             else
             {
-                chasingTarget = false;
-                Target = null;
+                ForgetTarget();
             }
         }
         else { SearchForTarget(); }
@@ -61,6 +78,7 @@ public class Enemy : CharacterAI , IpooledObject
             else
             {
                 RunningAway();
+                eas.CancelAttack();
             }
         }
 
@@ -80,6 +98,7 @@ public class Enemy : CharacterAI , IpooledObject
             if (TheWall == null)
             {
                 Wander();
+                eas.CancelAttack();
             }
             else
             {

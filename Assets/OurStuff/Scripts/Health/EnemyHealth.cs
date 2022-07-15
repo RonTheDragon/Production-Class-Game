@@ -94,6 +94,7 @@ public class EnemyHealth : CharacterHealth , IpooledObject
     {
         yield return new WaitForSeconds(5);
         enemy.anim.Rebind();
+        enemy.ForgetTarget();
         transform.parent.gameObject.SetActive(false);
     }
 }

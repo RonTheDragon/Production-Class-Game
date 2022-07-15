@@ -13,7 +13,8 @@ public abstract class CharacterAI : MonoBehaviour , IpooledObject
     protected float OriginalDetectionRange;
     protected NavMeshAgent NMA;
     protected GameObject Player;
-    protected GameObject Target;
+    public GameObject Target;
+    protected Health TargetHealth;
     protected Transform PlayerCam;
     protected GameObject TheWall;
 
@@ -88,7 +89,7 @@ public abstract class CharacterAI : MonoBehaviour , IpooledObject
         StoppingDistance = NMA.stoppingDistance;
     }
 
-    void Update()
+    protected void Update()
     {
         if (Player == null)
         {
@@ -135,7 +136,12 @@ public abstract class CharacterAI : MonoBehaviour , IpooledObject
 
     protected abstract void AttackAI();
     
-
+    public void ForgetTarget()
+    {
+        chasingTarget = false;
+        Target = null;
+        eas.CancelAttack();
+    }
     protected void PlayRandomSound()
     {
         if (SoundCoolDown <= 0)
@@ -244,13 +250,22 @@ public abstract class CharacterAI : MonoBehaviour , IpooledObject
                         ClosestDist = dist;
                         ClosestTarget = c.gameObject;
                     }
-                    if (ClosestTarget != null)
-                    {
-                        Target = ClosestTarget;
-                        alert = 0.5f;
-                    }
                 }
             }
+            if (ClosestTarget != null)
+            {
+                        Target = ClosestTarget;
+                        TargetHealth = Target.GetComponent<Health>();
+                if (TargetHealth != null)
+                {
+                    if (TargetHealth.enabled == false)
+                    {
+                        TargetHealth = Target.GetComponent<AllyHealth>();
+                    }
+                    alert = 0.5f;
+                }
+            }
+            
         } 
     }
 

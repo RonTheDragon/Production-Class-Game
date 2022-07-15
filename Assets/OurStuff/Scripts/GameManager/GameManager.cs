@@ -88,6 +88,13 @@ public class GameManager : MonoBehaviour
                 listener.enabled = true;
             }
         }
+        else if (!Player.activeSelf)
+        {
+            //  if (listener.enabled == false)
+            {
+                listener.enabled = true;
+            }
+        }
         else
         {
          //   if (listener.enabled == true)

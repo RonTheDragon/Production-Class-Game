@@ -522,7 +522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 3.294695, z: -2.8265824}
+  m_FollowOffset: {x: 0, y: -0.45, z: -2.85}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -542,7 +542,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: -128.58675
+    Value: -40.010174
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -614,8 +614,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4180089263100904882}
-  m_LocalRotation: {x: -0.16043513, y: 0.83115077, z: -0.306132, w: -0.4355826}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.14856093, y: -0.2941957, z: -0.046348285, w: 0.9429901}
+  m_LocalPosition: {x: 1.8323326, y: 0, z: 0.667099}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4180089262851713986}
@@ -722,7 +722,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 3.294695, z: -2.8265824}
+  m_FollowOffset: {x: 0, y: -0.45, z: -2.85}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -742,7 +742,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: -128.58675
+    Value: -40.010174
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -814,7 +814,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4180089263403220925}
-  m_LocalRotation: {x: -0.16563086, y: 0.82770187, z: -0.31707916, w: -0.432362}
+  m_LocalRotation: {x: -0.1426891, y: 0.04443181, z: 0.0064120763, w: 0.98874897}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -888,8 +888,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4180089263566330688}
-  m_LocalRotation: {x: -0.16910508, y: 0.824697, z: -0.32197556, w: -0.4331399}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.13037132, y: -0.29387954, z: -0.04049863, w: 0.9460434}
+  m_LocalPosition: {x: 1.8323326, y: 0, z: 0.667099}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4180089263139085851}
@@ -964,7 +964,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4180089263669131157}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.2094383, y: 3.294695, z: 1.7629395}
+  m_LocalPosition: {x: 0, y: -0.45, z: -2.8499985}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4180089263100904892}
@@ -1009,7 +1009,7 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_YAxis:
-    Value: 0.9816862
+    Value: 0
     m_SpeedMode: 0
     m_MaxSpeed: 4
     m_AccelTime: 0.1
@@ -1033,7 +1033,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: -128.58675
+    Value: -40.010174
     m_SpeedMode: 0
     m_MaxSpeed: 450
     m_AccelTime: 0.1
@@ -1162,7 +1162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 3.294695, z: -2.8265824}
+  m_FollowOffset: {x: 0, y: -0.45, z: -2.85}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -1182,7 +1182,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: -128.58675
+    Value: -40.010174
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -1257,8 +1257,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4180089264151691875}
-  m_LocalRotation: {x: -0.16075431, y: 0.8309199, z: -0.3067141, w: -0.4354958}
-  m_LocalPosition: {x: 2.2094383, y: 3.294695, z: 1.7629395}
+  m_LocalRotation: {x: -0.1426891, y: 0.044431817, z: 0.006412074, w: 0.98874897}
+  m_LocalPosition: {x: 0, y: -0.45, z: -2.8499985}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5533782428262834981}
@@ -2077,7 +2077,7 @@ MonoBehaviour:
   StaminaCost: 0
   StaminaDrain: 0
   MaxStamina: 100
-  StaminaRegan: 30
+  StaminaRegan: 15
   Tired: 30
   StaggerDuration: 0.3
   AbilityObjects: []
@@ -2104,7 +2104,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoulValue: {x: 5, y: 10}
   SoulWorth: 0
-  DetectionRange: 20
+  Target: {fileID: 0}
+  DetectionRange: 30
   RoamCooldown: 10
   RoamRadius: 10
   BraveEnoughToFight: 0
@@ -2163,7 +2164,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 1
+  m_BaseOffset: 0.9
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &184183408813977239
