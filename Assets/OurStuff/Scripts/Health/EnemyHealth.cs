@@ -5,10 +5,16 @@ using UnityEngine.AI;
 
 public class EnemyHealth : CharacterHealth , IpooledObject
 {
+    [HideInInspector] public float StartMaxHp;
     Enemy             enemy;
     AIAttackSystem EAS;
     NavMeshAgent      nav;
     Collider          col;
+
+    void Awake()
+    {
+        StartMaxHp = MaxHp;
+    }
 
     new void Start()
     {

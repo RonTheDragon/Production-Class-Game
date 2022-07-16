@@ -215,7 +215,7 @@ public class MonsterSpawner : MonoBehaviour
             EAS.AttackCooldown = 4.5f;
             EAS.DamageMultiplier = (Random.Range(DamageMultiplier.x, DamageMultiplier.y))*DifficultyMultiplier;
             EnemyHealth EH = Monster.transform.GetChild(0).GetComponent<EnemyHealth>();
-            EH.MaxHp *= (Random.Range(HealthMultiplier.x, HealthMultiplier.y))*DifficultyMultiplier;
+            EH.MaxHp = EH.StartMaxHp*(Random.Range(HealthMultiplier.x, HealthMultiplier.y))*DifficultyMultiplier;
             EH.Hp = EH.MaxHp;
             E.ShowingData = 0;
         }
