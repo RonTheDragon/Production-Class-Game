@@ -1,28 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
-using UnityEngine.UI;
 
-public class Enemy : CharacterAI , IpooledObject
+public class Ally : CharacterAI
 {
     new void Awake()
     {
-        TheBody = transform.GetChild(0);
+        TheBody = transform;
         base.Awake();
     }
     new void Start()
     {
         base.Start();
-        Targetable = GameManager.instance.enemiesCanAttack;
-        CanSee = GameManager.instance.enemiesCanSee;
+        Targetable = GameManager.instance.PlayerCanAttack;
+        CanSee = GameManager.instance.AlliesCanSee;
     }
     new void Update()
     {
         base.Update();
     }
-
-    protected override void AttackAI()
+    protected override void Behaviour()
     {
         if (Target != null)
         {
@@ -44,19 +41,21 @@ public class Enemy : CharacterAI , IpooledObject
                     }
 
                     if (alert > timeToAlert)
+                    {
                         chasingTarget = true;
+                    }
                     else
                     {
                         ForgetTarget();
                     }
                 }
             }
-            else
+            else 
             {
                 ForgetTarget();
             }
         }
-        else { SearchForTarget(); }
+        else {  SearchForTarget(); }
 
         if (chasingTarget)
         {
@@ -95,17 +94,13 @@ public class Enemy : CharacterAI , IpooledObject
                 NMA.speed = 0;
             }
 
-            if (TheWall == null)
-            {
+            
                 Wander();
-                eas.CancelAttack();
-            }
-            else
-            {
-                AttackWall();
-            }
+            eas.CancelAttack();
+
         }
 
         if (eas.Stamina < eas.Tired) { NMA.speed = GetSpeed() * 0.5f; }
     }
+
 }

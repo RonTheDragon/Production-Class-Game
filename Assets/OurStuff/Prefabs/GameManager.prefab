@@ -10759,7 +10759,7 @@ MonoBehaviour:
   ElementEfficiency: 1
   RemnantBlastDamage: 0
   RemnantBlastRadius: 0
-  RemnantMagnet: 1
+  RemnantMagnet: 0
   SoulEnvigoration: 0
   SoulHeal: 0
   SoulWorth: 1
@@ -15354,6 +15354,9 @@ MonoBehaviour:
       size: 40
     - tag: SuperEnemy
       prefab: {fileID: 7279148891320323637, guid: 8339445f9512bbc4194c3611e9e54ba4, type: 3}
+      size: 20
+    - tag: Carriage
+      prefab: {fileID: 3630812552575502660, guid: 313a607b2b962d94e91402696b87be6d, type: 3}
       size: 20
   - tag: Effects
     pools:

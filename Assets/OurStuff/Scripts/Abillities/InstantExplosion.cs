@@ -28,7 +28,7 @@ public class InstantExplosion : Attack , IpooledObject
                 Health TargetHp = c.transform.GetComponent<Health>();
                 if (TargetHp != null)
                 {
-                    float distance = Vector3.Distance(transform.position, c.transform.position);
+                    float distance = Vector3.Distance(transform.position, c.ClosestPoint(transform.position));
                     float Effect = (ExplosionRadius - distance) / ExplosionRadius;
                     if (Effect < 0) { Effect = 0; }
                     TargetHp.TakeDamage(Damage * Effect, Knock * Effect, Stagger * Effect, Temperature * Effect, transform.position, Attacker);

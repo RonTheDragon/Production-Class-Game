@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "WallRangeAttack", menuName = "Combat/Attacks/Wall/Ranged")]
+[CreateAssetMenu(fileName = "WallRangeAttack", menuName = "Combat/Wall/Ranged")]
 public class SOwallRanged : SOwallAttack
 {
     public string Projectile;

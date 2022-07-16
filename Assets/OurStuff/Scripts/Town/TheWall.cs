@@ -169,37 +169,54 @@ public class TheWall : MonoBehaviour
             if (a != null) countAllies++; 
         }
 
-        if (countAllies < 20)
+        int n = 1;
+        if (attack is SOwallSpawn)
         {
-            PlayerRespawnManager PRM = GameManager.instance.GetComponent<PlayerRespawnManager>();
-            int r = Random.Range(0, PRM.PlayerBodies.Count);
-            GameObject Ally = Instantiate(PRM.PlayerBodies[r].Body, PRM.PlayerRespawnLocation.position, PRM.PlayerRespawnLocation.rotation);
-            ThirdPersonMovement TPM = Ally.GetComponent<ThirdPersonMovement>();
-            TPM.enabled = false;
-            Ally.GetComponent<PlayerHealth>().enabled = false;
-            Ally.GetComponent<CapsuleCollider>().enabled = true;
-            Ally.GetComponent<NavMeshAgent>().enabled = true;
-            Ally.GetComponent<CharacterAI>().enabled = true;
-            Ally.tag = "NeedsClean";
-            AllyHealth hp = Ally.GetComponent<AllyHealth>();
-            PlayerAttackSystem PAS = Ally.GetComponent<PlayerAttackSystem>();
-            AIAttackSystem AAS = Ally.GetComponent<AIAttackSystem>();
-            Ally ally = Ally.GetComponent<Ally>();
-            ally.anim = TPM.animator;
-            ally.EnemyAnimationBody = TPM.animator.transform;
-            ally.enabled = true;
-            PAS.enabled = false;
-            AAS.AbilityObjects = PAS.AbilityObjects;
-            hp.MaxHp = PRM.PlayerBodies[r].health.x;
-            AAS.DamageMultiplier = PRM.PlayerBodies[r].damageMultiplier.x * DamageMultiplier;
-            TransferAttacks(AAS.OffensiveAttacks, PRM.PlayerBodies[r].role);
-            hp.enabled = true;
-            AAS.enabled = true;
-            Ally.transform.GetChild(1).gameObject.SetActive(false);
-            Ally.transform.GetChild(2).gameObject.SetActive(false);
-            Ally.transform.GetChild(3).gameObject.SetActive(false);
-            Ally.GetComponent<CharacterController>().enabled = false;
+            SOwallSpawn s = (SOwallSpawn)attack;
+            n = s.HowMany;
         }
+
+        for (int i = 0; i < n; i++)
+        {
+          if (countAllies < 20)
+          {
+            SummonHumanAlly();
+          }
+        }
+    }
+
+    void SummonHumanAlly()
+    {
+        float X = Random.Range(-WallLength / 2, WallLength / 2);
+        Vector3 SpawnPoint = transform.position + (transform.forward * WallThickness) + transform.up * -5 + transform.right * X;
+        PlayerRespawnManager PRM = GameManager.instance.GetComponent<PlayerRespawnManager>();
+        int r = Random.Range(0, PRM.PlayerBodies.Count);
+        GameObject Ally = Instantiate(PRM.PlayerBodies[r].Body, SpawnPoint, PRM.PlayerRespawnLocation.rotation);
+        ThirdPersonMovement TPM = Ally.GetComponent<ThirdPersonMovement>();
+        TPM.enabled = false;
+        Destroy(Ally.GetComponent<PlayerHealth>());
+        Ally.GetComponent<CapsuleCollider>().enabled = true;
+        Ally.GetComponent<NavMeshAgent>().enabled = true;
+        Ally.GetComponent<CharacterAI>().enabled = true;
+        Ally.tag = "NeedsClean";
+        AllyHealth hp = Ally.GetComponent<AllyHealth>();
+        PlayerAttackSystem PAS = Ally.GetComponent<PlayerAttackSystem>();
+        AIAttackSystem AAS = Ally.GetComponent<AIAttackSystem>();
+        Ally ally = Ally.GetComponent<Ally>();
+        ally.anim = TPM.animator;
+        ally.CharacterAnimationBody = TPM.animator.transform;
+        ally.enabled = true;
+        PAS.enabled = false;
+        AAS.AbilityObjects = PAS.AbilityObjects;
+        hp.MaxHp = PRM.PlayerBodies[r].health.x;
+        AAS.DamageMultiplier = PRM.PlayerBodies[r].damageMultiplier.x * DamageMultiplier;
+        TransferAttacks(AAS.OffensiveAttacks, PRM.PlayerBodies[r].role);
+        hp.enabled = true;
+        AAS.enabled = true;
+        Ally.transform.GetChild(1).gameObject.SetActive(false);
+        Ally.transform.GetChild(2).gameObject.SetActive(false);
+        Ally.transform.GetChild(3).gameObject.SetActive(false);
+        Ally.GetComponent<CharacterController>().enabled = false;
     }
 
     void TransferAttacks(List<SOability> attacklist, SOclass role )

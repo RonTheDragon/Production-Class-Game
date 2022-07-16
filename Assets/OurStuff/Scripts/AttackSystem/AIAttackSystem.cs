@@ -14,18 +14,19 @@ public class AIAttackSystem : AttackSystem
     new void Start()
     {
         base.Start();
-        if (transform.parent != null)
+
+
+            enemy = transform.GetComponent<CharacterAI>();
+            Attacker = gameObject;
+        if (enemy is Enemy)
         {
-            Attacker = transform.parent.gameObject;
-            enemy = transform.parent.GetComponent<CharacterAI>();
             SetLayersForAttacks(GameManager.instance.enemiesCanAttack);
         }
         else
         {
-            enemy = transform.GetComponent<CharacterAI>();
-            Attacker = gameObject;
             SetLayersForAttacks(GameManager.instance.PlayerCanAttack);
         }
+
  
        
        

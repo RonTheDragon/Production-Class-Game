@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7fd2c1947d5477b47ad66441a9715abe, type: 3}
-  m_Name: HumanAlly
+  m_Name: reinforcement
   m_EditorClassIdentifier: 
-  Name: Human Ally
-  Explanation: Calls a Random Fighter To Help
-  LongExplanation: Calls a Random Fighter To Help
+  Name: Reinforcements
+  Explanation: Calling Reinforcements From Town
+  LongExplanation: Calls 3 Fighters To Come and Help
   Price: 70
-  ability: {fileID: 11400000, guid: 4957afd2b1f4fed4aae886aab3356078, type: 2}
+  ability: {fileID: 11400000, guid: 8d03b014dc7ae8c44b2970ed8415ed41, type: 2}

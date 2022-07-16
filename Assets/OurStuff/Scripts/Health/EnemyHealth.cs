@@ -19,7 +19,7 @@ public class EnemyHealth : CharacterHealth , IpooledObject
     new void Start()
     {
         base.Start();
-        enemy = transform.parent.GetComponent<Enemy>();
+        enemy = GetComponent<Enemy>();
         EAS = GetComponent<AIAttackSystem>();
         nav = GetComponent<NavMeshAgent>();
         col = GetComponent<Collider>();

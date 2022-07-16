@@ -203,21 +203,34 @@ public class MonsterSpawner : MonoBehaviour
 
     public void SpawnMonster(GameObject Monster)
     {
-        Enemy E = Monster.GetComponent<Enemy>();
+        Transform MonsterBody = Monster.transform.GetChild(0);
+        Enemy E = MonsterBody.GetComponent<Enemy>();     
+        NavMeshAgent nav = MonsterBody.GetComponent<NavMeshAgent>();
+        nav.enabled = false;
+        MonsterBody.position = Monster.transform.position;
+        nav.enabled = true;
+
         if (E != null)
         {
-            NavMeshAgent nav = Monster.transform.GetChild(0).GetComponent<NavMeshAgent>();
-            nav.enabled = false;
-            Monster.transform.GetChild(0).transform.position = Monster.transform.position;
-            nav.enabled = true;
+            
             E.anim.SetTrigger("Spawn");
-            AIAttackSystem EAS = Monster.transform.GetChild(0).GetComponent<AIAttackSystem>();
+            AIAttackSystem EAS = MonsterBody.GetComponent<AIAttackSystem>();
             EAS.AttackCooldown = 4.5f;
             EAS.DamageMultiplier = (Random.Range(DamageMultiplier.x, DamageMultiplier.y))*DifficultyMultiplier;
-            EnemyHealth EH = Monster.transform.GetChild(0).GetComponent<EnemyHealth>();
-            EH.MaxHp = EH.StartMaxHp*(Random.Range(HealthMultiplier.x, HealthMultiplier.y))*DifficultyMultiplier;
-            EH.Hp = EH.MaxHp;
+            EnemyHealth EH = MonsterBody.GetComponent<EnemyHealth>();           
+            EH.MaxHp = EH.StartMaxHp * (Random.Range(HealthMultiplier.x, HealthMultiplier.y)) * DifficultyMultiplier;
+            EH.Hp = EH.MaxHp;          
             E.ShowingData = 0;
+        }
+        else
+        {
+            Carriage C = MonsterBody.GetComponent<Carriage>();
+            if (C != null)
+            {             
+                Health health = MonsterBody.GetComponent<Health>();
+                health.Hp = health.MaxHp;
+                C.ShowingData = 0;
+            }
         }
     }
 }

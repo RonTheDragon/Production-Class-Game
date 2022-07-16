@@ -99,6 +99,7 @@ public abstract class CharacterHealth : Health
                 this.Temperature += Temperature;
             }
         }
+        GetComponent<CharacterAI>().ShowingData = 5;
         TheImpactLocation = ImpactLocation;
     }
 

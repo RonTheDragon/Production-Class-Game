@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public        float         ElementEfficiency        = 1;
     [HideInInspector] public        float         RemnantBlastDamage       = 0;
     [HideInInspector] public        float         RemnantBlastRadius       = 0;
-    [HideInInspector] public        float         RemnantMagnet            = 1;
+    [HideInInspector] public        float         RemnantMagnet            = 0;
     [HideInInspector] public        float         SoulEnvigoration         = 0;
     [HideInInspector] public        float         SoulHeal                 = 0;
     [HideInInspector] public        float         SoulWorth                = 1;

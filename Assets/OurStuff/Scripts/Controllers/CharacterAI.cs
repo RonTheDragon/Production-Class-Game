@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public abstract class CharacterAI : MonoBehaviour , IpooledObject
 {
-    [SerializeField] Vector2 SoulValue = new Vector2(5, 10);
+    public Vector2 SoulValue = new Vector2(5, 10);
     [HideInInspector] public int SoulWorth;
     protected Vector3 previousPos;
     protected float OriginalSpeed;
@@ -36,7 +36,7 @@ public abstract class CharacterAI : MonoBehaviour , IpooledObject
     protected Image hpBar;
     protected Image staminaBar;
     [HideInInspector] public float ShowingData;
-    public  Transform EnemyAnimationBody;
+    public  Transform CharacterAnimationBody;
     protected Vector3 startposforFix;
 
     //[SerializeField] float RandomSoundMaxCooldown = 5;
@@ -77,13 +77,16 @@ public abstract class CharacterAI : MonoBehaviour , IpooledObject
 
     protected void Start()
     {
-        startposforFix = EnemyAnimationBody.position;
+        TheWall = GameManager.instance.Wall;
+        if (CharacterAnimationBody != null)
+        {
+            startposforFix = CharacterAnimationBody.position;
+        }
         Player =GameManager.instance.Player;
         if (Player != null)
         {
             PlayerCam = GameManager.instance.Player?.GetComponent<ThirdPersonMovement>().cam;
         }
-        TheWall = GameManager.instance.Wall;
         OriginalSpeed = NMA.speed;
         OriginalDetectionRange = DetectionRange;
         StoppingDistance = NMA.stoppingDistance;
@@ -104,9 +107,12 @@ public abstract class CharacterAI : MonoBehaviour , IpooledObject
         PlayRandomSound();
         if (!hp.Frozen)
         {
-            AttackAI();
+            Behaviour();
         }
-        WalkingAnimation();
+        if (anim != null)
+        {
+            WalkingAnimation();
+        }
         if (GameManager.instance.Data != GameManager.ShowEnemyData.Never && GameManager.instance.Player!=null)
         {
             ShowData();
@@ -134,7 +140,7 @@ public abstract class CharacterAI : MonoBehaviour , IpooledObject
         }
     }
 
-    protected abstract void AttackAI();
+    protected abstract void Behaviour();
     
     public void ForgetTarget()
     {
@@ -206,7 +212,7 @@ public abstract class CharacterAI : MonoBehaviour , IpooledObject
         }
 
         NMA.SetDestination(MoveTo);
-        float distance = Vector3.Distance(TheBody.transform.position, MoveTo);
+        float distance = Vector3.Distance(TheBody.position, MoveTo);
         if (distance <= NMA.stoppingDistance + 1 || NMA.speed == 0)
         {
             RotateTowards(MoveTo);
@@ -256,14 +262,9 @@ public abstract class CharacterAI : MonoBehaviour , IpooledObject
             {
                         Target = ClosestTarget;
                         TargetHealth = Target.GetComponent<Health>();
-                if (TargetHealth != null)
-                {
-                    if (TargetHealth.enabled == false)
-                    {
-                        TargetHealth = Target.GetComponent<AllyHealth>();
-                    }
-                    alert = 0.5f;
-                }
+                
+                        alert = 0.5f;
+                
             }
             
         } 
@@ -313,7 +314,6 @@ public abstract class CharacterAI : MonoBehaviour , IpooledObject
             hp.IceParticles.Emit((int)(Damage / 7.5f)); 
             Audio.PlaySound(Sound.Activation.Custom, "Frozen Ah");
         }
-        ShowingData = 5;
     }
 
     protected void RotateTowards(Vector3 target)
@@ -329,7 +329,7 @@ public abstract class CharacterAI : MonoBehaviour , IpooledObject
 
     public void OnObjectSpawn()
     {
-        EnemyAnimationBody.position = startposforFix;
+        CharacterAnimationBody.position = startposforFix;
         TheBody.transform.position = transform.position;
         TheBody.GetComponent<NavMeshAgent>().enabled = true;
         SoulWorth = (int)Random.Range(SoulValue.x, SoulValue.y);
@@ -379,7 +379,14 @@ public abstract class CharacterAI : MonoBehaviour , IpooledObject
                 staminaBar = CanvasHolder.transform.GetChild(0).GetChild(1).GetComponent<Image>();
             }
             hpBar.fillAmount = hp.Hp / hp.MaxHp;
-            staminaBar.fillAmount = eas.Stamina / eas.MaxStamina;
+            if (eas != null)
+            {
+                staminaBar.fillAmount = eas.Stamina / eas.MaxStamina;
+            }
+            else
+            {
+                staminaBar.fillAmount = 0;
+            }
         }
     }
 

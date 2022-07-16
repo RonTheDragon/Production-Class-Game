@@ -186,6 +186,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2725953478423437769}
+  - component: {fileID: 1874608925337704553}
   - component: {fileID: 7246966230910348218}
   - component: {fileID: 7246966230910348219}
   - component: {fileID: 7246966230910348196}
@@ -216,6 +217,31 @@ Transform:
   m_Father: {fileID: 9220806171759854007}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1874608925337704553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2960751188529522814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e812a70b6c7c20940806e74e8af4311d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoulValue: {x: 5, y: 7}
+  SoulWorth: 0
+  Target: {fileID: 0}
+  DetectionRange: 20
+  RoamCooldown: 10
+  RoamRadius: 10
+  BraveEnoughToFight: 20
+  timeToAlert: 0.5
+  CanvasHolder: {fileID: 4626013883555717117}
+  CanvasHolderHeight: 0.5
+  ShowingData: 0
+  CharacterAnimationBody: {fileID: 0}
+  anim: {fileID: 7691940457263069742}
 --- !u!195 &7246966230910348218
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -223,7 +249,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2960751188529522814}
-  m_Enabled: 0
+  m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 2
@@ -260,6 +286,7 @@ MonoBehaviour:
   OnIce: {fileID: 7133455910468642077}
   IceParticles: {fileID: 0}
   Frozen: 0
+  StartMaxHp: 0
 --- !u!114 &7246966230910348196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5554,7 +5581,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9220806171759854007}
-  - component: {fileID: 7246966231843312881}
   m_Layer: 7
   m_Name: Enemy Golem Variant
   m_TagString: Enemy
@@ -5570,7 +5596,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9220806171759854006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.903326, y: 1.2708051, z: 97.1381}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2725953478423437769}
@@ -5578,30 +5604,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7246966231843312881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9220806171759854006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e812a70b6c7c20940806e74e8af4311d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SoulValue: {x: 5, y: 7}
-  SoulWorth: 0
-  DetectionRange: 20
-  RoamCooldown: 10
-  RoamRadius: 10
-  BraveEnoughToFight: 20
-  timeToAlert: 0.5
-  CanvasHolder: {fileID: 4626013883555717117}
-  CanvasHolderHeight: 0.5
-  ShowingData: 0
-  EnemyAnimationBody: {fileID: 5181490786915597731}
-  anim: {fileID: 7691940457263069742}
 --- !u!1001 &878960430446492380
 PrefabInstance:
   m_ObjectHideFlags: 0
