@@ -37,6 +37,7 @@ public abstract class AttackSystem : MonoBehaviour
         Stamina = MaxStamina;
         HoldingAnAttack= string.Empty;
         audioManager = GetComponent<AudioManager>();
+        CreateAlwaysShownAbilities();
     }
 
     protected void Update()
@@ -128,6 +129,8 @@ public abstract class AttackSystem : MonoBehaviour
         ChargeSpeed = 0;
     }
 
+    protected abstract void CreateAlwaysShownAbilities();
+    
     protected void SetUpAttack(List<SOability> Attacks, int attackType)
     {
         AttackMovementForce = 0;

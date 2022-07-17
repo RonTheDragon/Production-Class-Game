@@ -80,7 +80,7 @@ public abstract class CharacterAI : MonoBehaviour , IpooledObject
         TheWall = GameManager.instance.Wall;
         if (CharacterAnimationBody != null)
         {
-            startposforFix = CharacterAnimationBody.position;
+            startposforFix = CharacterAnimationBody.localPosition;
         }
         Player =GameManager.instance.Player;
         if (Player != null)
@@ -329,8 +329,8 @@ public abstract class CharacterAI : MonoBehaviour , IpooledObject
 
     public void OnObjectSpawn()
     {
-        CharacterAnimationBody.position = startposforFix;
-        TheBody.transform.position = transform.position;
+        CharacterAnimationBody.localPosition = startposforFix;
+        TheBody.transform.position = transform.parent.position;
         TheBody.GetComponent<NavMeshAgent>().enabled = true;
         SoulWorth = (int)Random.Range(SoulValue.x, SoulValue.y);
         if (hp is EnemyHealth)
@@ -394,7 +394,7 @@ public abstract class CharacterAI : MonoBehaviour , IpooledObject
     {
         float speed = OriginalSpeed;
         if (hp.Temperature < 0) { speed *= 0.01f * (hp.Temperature+100); }
-        if (hp.Frozen) speed = 0;
+        if (hp.Frozen) { speed = 0; NMA.SetDestination(transform.position); }
         return speed;
     }
 }

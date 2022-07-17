@@ -221,6 +221,7 @@ public class MonsterSpawner : MonoBehaviour
             EH.MaxHp = EH.StartMaxHp * (Random.Range(HealthMultiplier.x, HealthMultiplier.y)) * DifficultyMultiplier;
             EH.Hp = EH.MaxHp;          
             E.ShowingData = 0;
+            E.OnObjectSpawn();
         }
         else
         {

@@ -240,7 +240,7 @@ MonoBehaviour:
   CanvasHolder: {fileID: 4626013883555717117}
   CanvasHolderHeight: 0.5
   ShowingData: 0
-  CharacterAnimationBody: {fileID: 0}
+  CharacterAnimationBody: {fileID: 844434446619663671}
   anim: {fileID: 7691940457263069742}
 --- !u!195 &7246966230910348218
 NavMeshAgent:
@@ -6180,7 +6180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7013666398872175901, guid: 28d582b27a21971489ed3b6f7c8f2fff, type: 3}
       propertyPath: playOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28d582b27a21971489ed3b6f7c8f2fff, type: 3}

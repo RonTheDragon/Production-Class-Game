@@ -26,8 +26,9 @@ public class Soul : MonoBehaviour , IpooledObject
         {
             if (GameManager.instance.SoulSucker.gameObject != null && !SoulAlreadyCollected)
             {
+                if (speed<30)
                 speed += Time.deltaTime*2;
-                rotationSpeed += Time.deltaTime*4;
+                rotationSpeed += Time.deltaTime*5;
                 float s = 1 + (0.1f * SoulEnergy);
                 transform.localScale = new Vector3(s, s, s);
                 float dist = Vector3.Distance(transform.position, GameManager.instance.SoulSucker.position);

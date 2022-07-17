@@ -15,7 +15,6 @@ public class PlayerAttackSystem : AttackSystem
 
     new void Start()
     {
-        base.Start();
         Attacker = gameObject;
         Health = GetComponent<PlayerHealth>();
         CC = GetComponent<CharacterController>();
@@ -26,8 +25,8 @@ public class PlayerAttackSystem : AttackSystem
         SetLayersForAttacks(GameManager.instance.PlayerCanAttack);
         thirdPersonMovement = GetComponent<ThirdPersonMovement>();
         PlayerCooldownCircles = thirdPersonMovement.PlayerCooldowns;
-        CreateAlwaysShownAbilities();
         EffectedByUpgrades();
+        base.Start();
     }
 
     new void Update()
@@ -148,7 +147,7 @@ public class PlayerAttackSystem : AttackSystem
         return n;
     }
 
-    void CreateAlwaysShownAbilities()
+    protected override void CreateAlwaysShownAbilities()
     {
         List<SOability> abs = new List<SOability>();
         GameManager.instance.TurnSOclassToAttackList(abs,PlayerClass);
@@ -157,16 +156,17 @@ public class PlayerAttackSystem : AttackSystem
             if (a.AlwaysShow)
             {
                 abilityCoolDowns.Add(new AbilityCoolDown(a.Name, a.AbilityCooldown, a.AlwaysShow));
-                GameObject Circle = Instantiate(GameManager.instance.CooldownCircleObject, transform.position, PlayerCooldownCircles.transform.rotation, PlayerCooldownCircles.transform);
-
-                if (a.Image != null)
-                {
-                    foreach (Transform c in Circle.transform)
+                
+                    GameObject Circle = Instantiate(GameManager.instance.CooldownCircleObject, transform.position, PlayerCooldownCircles.transform.rotation, PlayerCooldownCircles.transform);
+                    if (a.Image != null)
                     {
-                        c.GetComponent<Image>().sprite = a.Image;
+                        foreach (Transform c in Circle.transform)
+                        {
+                            c.GetComponent<Image>().sprite = a.Image;
+                        }
                     }
-                }
-                Circle.name = a.Name;
+                    Circle.name = a.Name;
+                
             }
         }
     }

@@ -65,8 +65,8 @@ public class ThirdPersonMovement : MonoBehaviour
             Attack();
             CameraController();
             Gravity();
-            WalkingAnimation();
         }
+        WalkingAnimation();
         UpdateUI();
     }
 
@@ -86,6 +86,14 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             animator.SetInteger("Walk", 1);
             previousPos = player.transform.position;
+        }
+        if (Hp.Frozen)
+        {
+            animator.SetBool("Frozen", true);
+        }
+        else
+        {
+            animator.SetBool("Frozen", false);
         }
 
     }
