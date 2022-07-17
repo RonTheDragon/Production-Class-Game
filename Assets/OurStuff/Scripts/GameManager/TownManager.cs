@@ -8,6 +8,7 @@ public class TownManager : MonoBehaviour
     public Camera TownCamera;
     [SerializeField] TMP_Text Souls;
     [SerializeField] TMP_Text HelpfulText;
+    [SerializeField] GameObject ExitGameMenu;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,9 +18,14 @@ public class TownManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameManager.instance.CantUseTown)
+        if (!GameManager.instance.Shopping)
         {
-            
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                ExitGameMenu.SetActive(true);
+                GameManager.instance.Shopping = true;
+            }
+
             Ray ray = TownCamera.ScreenPointToRay(Input.mousePosition);
             RaycastHit raycastHit;
             if (Physics.Raycast(ray, out raycastHit))

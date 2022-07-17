@@ -33,6 +33,7 @@ public class ThirdPersonMovement : MonoBehaviour
     [SerializeField] Image ChargeBar;
     [SerializeField] Image WallHpBar;
     [SerializeField] TMP_Text SoulAmount;
+    [SerializeField] GameObject ExitGameMenu;
     public GameObject PlayerCooldowns;
     public GameObject WallCooldowns;
 
@@ -59,10 +60,13 @@ public class ThirdPersonMovement : MonoBehaviour
 
     void Update()
     {
-        Attack();
-        CameraController();
-        Gravity();
-        WalkingAnimation();
+        if (!Hp.Frozen)
+        {
+            Attack();
+            CameraController();
+            Gravity();
+            WalkingAnimation();
+        }
         UpdateUI();
     }
 
@@ -172,6 +176,14 @@ public class ThirdPersonMovement : MonoBehaviour
 
     void UpdateUI()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ExitGameMenu.SetActive(true);
+            Time.timeScale = 0;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+
         GameObject C = ChargeBar.gameObject;
         if (!Hp.isDead())
         {

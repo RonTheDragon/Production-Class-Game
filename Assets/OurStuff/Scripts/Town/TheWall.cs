@@ -16,7 +16,7 @@ public class TheWall : MonoBehaviour
     [HideInInspector] public float HealingMultiplier = 1;
     [HideInInspector] public float CooldownMultiplier = 1;
     LayerMask Attackable;
-    List<AbilityCoolDown> abilityCoolDowns = new List<AbilityCoolDown>();
+    List<WallAbilityCoolDown> abilityCoolDowns = new List<WallAbilityCoolDown>();
     GameObject WallCooldowns;
     GameObject UsedParticle;
 
@@ -210,7 +210,7 @@ public class TheWall : MonoBehaviour
         AAS.AbilityObjects = PAS.AbilityObjects;
         hp.MaxHp = PRM.PlayerBodies[r].health.x;
         AAS.DamageMultiplier = PRM.PlayerBodies[r].damageMultiplier.x * DamageMultiplier;
-        TransferAttacks(AAS.OffensiveAttacks, PRM.PlayerBodies[r].role);
+        GameManager.instance.TurnSOclassToAttackList(AAS.OffensiveAttacks, PRM.PlayerBodies[r].role);
         hp.enabled = true;
         AAS.enabled = true;
         Ally.transform.GetChild(1).gameObject.SetActive(false);
@@ -219,41 +219,7 @@ public class TheWall : MonoBehaviour
         Ally.GetComponent<CharacterController>().enabled = false;
     }
 
-    void TransferAttacks(List<SOability> attacklist, SOclass role )
-    {
-        foreach(SOability s in role.DownLeftClickAttacks)
-        {
-            attacklist.Add(s);
-        }
-        foreach (SOability s in role.UpLeftClickAttacks)
-        {
-            attacklist.Add(s);
-        }
-        foreach (SOability s in role.DownRightClickAttacks)
-        {
-            attacklist.Add(s);
-        }
-        foreach (SOability s in role.UpRightClickAttacks)
-        {
-            attacklist.Add(s);
-        }
-        foreach (SOability s in role.LeftClickAttacks)
-        {
-            attacklist.Add(s);
-        }
-        foreach (SOability s in role.RightClickAttacks)
-        {
-            attacklist.Add(s);
-        }
-        foreach (SOability s in role.SpaceAbility)
-        {
-            attacklist.Add(s);
-        }
-        foreach (SOability s in role.F_Ability)
-        {
-            attacklist.Add(s);
-        }
-    }
+    
 
     public void AttemptToWallAttack(SOwall attack)
     {
@@ -270,7 +236,7 @@ public class TheWall : MonoBehaviour
 
     void StartCooldown(SOwall attack)
     {
-        foreach (AbilityCoolDown c in abilityCoolDowns)
+        foreach (WallAbilityCoolDown c in abilityCoolDowns)
         {
             if (c.AbilityName == attack.Name)
             {
@@ -287,7 +253,7 @@ public class TheWall : MonoBehaviour
         }
         if (Reset)
         {
-            abilityCoolDowns = new List<AbilityCoolDown>();
+            abilityCoolDowns = new List<WallAbilityCoolDown>();
             foreach (Transform t in WallCooldowns.transform)
             {
                 Destroy(t.gameObject);
@@ -301,7 +267,7 @@ public class TheWall : MonoBehaviour
             {
                 if (Reset)
                 {
-                    AbilityCoolDown ac = new AbilityCoolDown(attack.Name, attack.AbilityCooldown);
+                    WallAbilityCoolDown ac = new WallAbilityCoolDown(attack.Name, attack.AbilityCooldown);
                     ac.Cooldown = 0;
                     abilityCoolDowns.Add(ac);
                 }
@@ -319,7 +285,7 @@ public class TheWall : MonoBehaviour
             {
                 if (Reset)
                 {
-                    abilityCoolDowns.Add(new AbilityCoolDown($"Empty Slot {count}", 0));
+                    abilityCoolDowns.Add(new WallAbilityCoolDown($"Empty Slot {count}", 0));
                 }
                 GameObject Circle = Instantiate(GameManager.instance.CooldownCircleObject, transform.position, WallCooldowns.transform.rotation, WallCooldowns.transform);
                 Circle.name = $"Empty Slot {count}";
@@ -371,7 +337,7 @@ public class TheWall : MonoBehaviour
     }
     bool CheckAbilityCooldown(string Name)
     {
-        foreach (AbilityCoolDown a in abilityCoolDowns)
+        foreach (WallAbilityCoolDown a in abilityCoolDowns)
         {
             if (a.AbilityName == Name)
             {
@@ -383,5 +349,19 @@ public class TheWall : MonoBehaviour
             }
         }
         return false;
+    }
+}
+public class WallAbilityCoolDown
+{
+    public string AbilityName;
+    public float Cooldown;
+    public float MaxCooldown;
+   
+    public WallAbilityCoolDown(string AbilityName, float Cooldown)
+    {
+        this.AbilityName = AbilityName;
+        this.Cooldown = Cooldown;
+        this.MaxCooldown = Cooldown;
+        
     }
 }

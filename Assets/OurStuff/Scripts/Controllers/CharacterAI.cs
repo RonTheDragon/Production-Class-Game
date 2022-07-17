@@ -113,7 +113,7 @@ public abstract class CharacterAI : MonoBehaviour , IpooledObject
         {
             WalkingAnimation();
         }
-        if (GameManager.instance.Data != GameManager.ShowEnemyData.Never && GameManager.instance.Player!=null)
+        if (GameManager.instance.Data != GameManager.ShowEnemyData.Never && GameManager.instance.Player!=null && CanvasHolder!=null)
         {
             ShowData();
         }

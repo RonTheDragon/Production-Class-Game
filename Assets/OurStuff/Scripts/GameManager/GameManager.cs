@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public        bool          WallFacingZ;
     [HideInInspector] public        float         WallLength;
                       public        GameObject    CooldownCircleObject;
-    [HideInInspector] public        bool          CantUseTown;
+    [HideInInspector] public        bool          Shopping;
                       public        GameObject    Upgrade;
                       public        GameObject    WallShopItem;
                       public        GameObject    WallBaughtItem;
@@ -70,16 +70,8 @@ public class GameManager : MonoBehaviour
         listener = GetComponent<AudioListener>();
     }
 
-    public void Shopping(bool b)
-    {
-        CantUseTown = b;
-    }
     public void Update()
     {
-       if (Input.GetKeyDown(KeyCode.Escape))
-       {
-            QuitGame();
-       }
 
         if (Player == null)
         {
@@ -109,9 +101,46 @@ public class GameManager : MonoBehaviour
 #if UNITY_EDITOR
         // Application.Quit() does not work in the editor so
         // UnityEditor.EditorApplication.isPlaying need to be set to false to end the game
-        UnityEditor.EditorApplication.isPaused = true;
+        //UnityEditor.EditorApplication.isPaused = true;
+        UnityEditor.EditorApplication.isPlaying = false;
 #else
              Application.Quit();
 #endif
+    }
+
+    public void TurnSOclassToAttackList(List<SOability> attacklist, SOclass role)
+    {
+        foreach (SOability s in role.DownLeftClickAttacks)
+        {
+            attacklist.Add(s);
+        }
+        foreach (SOability s in role.UpLeftClickAttacks)
+        {
+            attacklist.Add(s);
+        }
+        foreach (SOability s in role.DownRightClickAttacks)
+        {
+            attacklist.Add(s);
+        }
+        foreach (SOability s in role.UpRightClickAttacks)
+        {
+            attacklist.Add(s);
+        }
+        foreach (SOability s in role.LeftClickAttacks)
+        {
+            attacklist.Add(s);
+        }
+        foreach (SOability s in role.RightClickAttacks)
+        {
+            attacklist.Add(s);
+        }
+        foreach (SOability s in role.SpaceAbility)
+        {
+            attacklist.Add(s);
+        }
+        foreach (SOability s in role.F_Ability)
+        {
+            attacklist.Add(s);
+        }
     }
 }

@@ -35,7 +35,7 @@ public abstract class Shop : MonoBehaviour, ItownClickable
         if (OwningShop != null)
         {
             OwningShop.SetActive(true);
-            GameManager.instance.Shopping(true);
+            GameManager.instance.Shopping=true;
         }
         else { Debug.Log("Missing a Shop"); }
     }

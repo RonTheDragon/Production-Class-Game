@@ -263,7 +263,7 @@ public abstract class AttackSystem : MonoBehaviour
 
     protected virtual void AddCooldown(SOability a)
     {
-        abilityCoolDowns.Add(new AbilityCoolDown(a.Name, a.AbilityCooldown));
+        abilityCoolDowns.Add(new AbilityCoolDown(a.Name, a.AbilityCooldown, a.AlwaysShow));
     }
 
     void setAttack(Attack TheAttack,SOattack TheSOattack)
@@ -455,11 +455,14 @@ public abstract class AttackSystem : MonoBehaviour
         {
             if (a.AbilityName == Name)
             {
-                if (this is PlayerAttackSystem)
+                if (a.Cooldown > 0)
                 {
-                    Debug.Log($"{Name} is in Cooldown ({(int)a.Cooldown}s)");
+                    if (this is PlayerAttackSystem)
+                    {
+                        Debug.Log($"{Name} is in Cooldown ({(int)a.Cooldown}s)");
+                    }
+                    return true;
                 }
-                return true;
             }
         }
         return false;
@@ -498,10 +501,13 @@ public class AbilityCoolDown
     public string AbilityName;
     public float Cooldown;
     public float MaxCooldown;
-    public AbilityCoolDown(string AbilityName, float Cooldown)
+    public bool AlwaysShow;
+    public AbilityCoolDown(string AbilityName, float Cooldown, bool AlwaysShow)
     {
         this.AbilityName = AbilityName;
+        if (!AlwaysShow)
         this.Cooldown = Cooldown;
         this.MaxCooldown = Cooldown;
-    }
+        this.AlwaysShow = AlwaysShow;
+}
 }

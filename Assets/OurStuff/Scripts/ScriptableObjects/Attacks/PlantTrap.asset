@@ -18,6 +18,7 @@ MonoBehaviour:
   StaminaCost: 50
   AttackCooldown: 1.6
   AbilityCooldown: 10
+  AlwaysShow: 1
   MinRange: 0
   MaxRange: 100
   Chance: 100

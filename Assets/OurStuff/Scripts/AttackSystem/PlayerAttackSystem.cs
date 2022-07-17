@@ -9,6 +9,7 @@ public class PlayerAttackSystem : AttackSystem
     AudioManager Audio;
     public SOclass PlayerClass;
     ThirdPersonMovement thirdPersonMovement;
+    PlayerHealth Health;
     GameObject PlayerCooldownCircles;
     //public LayerMask OnlyFloor;
 
@@ -16,6 +17,7 @@ public class PlayerAttackSystem : AttackSystem
     {
         base.Start();
         Attacker = gameObject;
+        Health = GetComponent<PlayerHealth>();
         CC = GetComponent<CharacterController>();
         Audio = GetComponent<AudioManager>();
         Anim = GetComponent<ThirdPersonMovement>().animator;
@@ -24,12 +26,14 @@ public class PlayerAttackSystem : AttackSystem
         SetLayersForAttacks(GameManager.instance.PlayerCanAttack);
         thirdPersonMovement = GetComponent<ThirdPersonMovement>();
         PlayerCooldownCircles = thirdPersonMovement.PlayerCooldowns;
+        CreateAlwaysShownAbilities();
         EffectedByUpgrades();
     }
 
     new void Update()
     {
         base.Update();
+        if (!Health.Frozen)
         Attacking();
     }
     public void Attack(List<SOability> Attacks, int attackType)
@@ -104,23 +108,37 @@ public class PlayerAttackSystem : AttackSystem
         {
             abilityCoolDowns[i].Cooldown -= Time.deltaTime;
             PlayerCooldownCircles.transform.GetChild(i).GetChild(1).GetComponent<Image>().fillAmount = -(abilityCoolDowns[i].Cooldown / abilityCoolDowns[i].MaxCooldown) + 1;
-            if (abilityCoolDowns[i].Cooldown <= 0) { abilityCoolDowns.Remove(abilityCoolDowns[i]); Destroy(PlayerCooldownCircles.transform.GetChild(i).gameObject); break; }
+            if (abilityCoolDowns[i].Cooldown <= 0 && !abilityCoolDowns[i].AlwaysShow) { abilityCoolDowns.Remove(abilityCoolDowns[i]); Destroy(PlayerCooldownCircles.transform.GetChild(i).gameObject); break; }
 
         }
     }
 
     protected override void AddCooldown(SOability a)
     {
-        abilityCoolDowns.Add(new AbilityCoolDown(a.Name, a.AbilityCooldown));
-        GameObject Circle = Instantiate(GameManager.instance.CooldownCircleObject, transform.position, PlayerCooldownCircles.transform.rotation, PlayerCooldownCircles.transform);
-        if (a.Image != null)
+        if (a.AlwaysShow)
         {
-            foreach (Transform c in Circle.transform)
+            for (int i = 0; i < abilityCoolDowns.Count; i++)
             {
-                c.GetComponent<Image>().sprite = a.Image;
+                if (abilityCoolDowns[i].AbilityName == a.Name)
+                {
+                    abilityCoolDowns[i].Cooldown = abilityCoolDowns[i].MaxCooldown;
+                }
             }
         }
-        Circle.name = a.Name;
+        else
+        {
+            abilityCoolDowns.Add(new AbilityCoolDown(a.Name, a.AbilityCooldown, a.AlwaysShow));
+            GameObject Circle = Instantiate(GameManager.instance.CooldownCircleObject, transform.position, PlayerCooldownCircles.transform.rotation, PlayerCooldownCircles.transform);
+
+            if (a.Image != null)
+            {
+                foreach (Transform c in Circle.transform)
+                {
+                    c.GetComponent<Image>().sprite = a.Image;
+                }
+            }
+            Circle.name = a.Name;
+        }
     }
 
     public float ShowCharge()
@@ -128,6 +146,29 @@ public class PlayerAttackSystem : AttackSystem
         float n;
         n = (Charge - MinCharge - 1) / (MaxCharge);
         return n;
+    }
+
+    void CreateAlwaysShownAbilities()
+    {
+        List<SOability> abs = new List<SOability>();
+        GameManager.instance.TurnSOclassToAttackList(abs,PlayerClass);
+        foreach(SOability a in abs)
+        {
+            if (a.AlwaysShow)
+            {
+                abilityCoolDowns.Add(new AbilityCoolDown(a.Name, a.AbilityCooldown, a.AlwaysShow));
+                GameObject Circle = Instantiate(GameManager.instance.CooldownCircleObject, transform.position, PlayerCooldownCircles.transform.rotation, PlayerCooldownCircles.transform);
+
+                if (a.Image != null)
+                {
+                    foreach (Transform c in Circle.transform)
+                    {
+                        c.GetComponent<Image>().sprite = a.Image;
+                    }
+                }
+                Circle.name = a.Name;
+            }
+        }
     }
 
     void EffectedByUpgrades()

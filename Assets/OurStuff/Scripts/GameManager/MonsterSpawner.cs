@@ -189,7 +189,7 @@ public class MonsterSpawner : MonoBehaviour
             TownManager TM = GameManager.instance.GetComponent<TownManager>();
             TM.TownCamera.gameObject.SetActive(true);
             TM.UpdateSoulCount();
-            GameManager.instance.CantUseTown = false;
+            GameManager.instance.Shopping = false;
 
             WallHealth WH = GameManager.instance.Wall.GetComponent<WallHealth>();
             WH.Hp = WH.MaxHp;

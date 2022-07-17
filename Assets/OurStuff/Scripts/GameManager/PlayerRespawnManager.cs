@@ -169,7 +169,7 @@ public class PlayerRespawnManager : MonoBehaviour
         GameManager.instance.GetComponent<MonsterSpawner>().WaveLost();
         GameManager.instance.GetComponent<TownManager>().TownCamera.gameObject.SetActive(true);
         GameManager.instance.GetComponent<TownManager>().UpdateSoulCount();
-        GameManager.instance.CantUseTown = false;
+        GameManager.instance.Shopping = false;
     }
 
     public void RemoveCard(int Remove)
