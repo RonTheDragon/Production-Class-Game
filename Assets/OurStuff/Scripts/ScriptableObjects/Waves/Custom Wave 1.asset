@@ -19,6 +19,12 @@ MonoBehaviour:
     Amount: {x: 3, y: 5}
   - Name: Carriage
     Amount: {x: 0, y: 2}
+  - Name: SmallEnemy
+    Amount: {x: 10, y: 20}
+  - Name: FireEnemy
+    Amount: {x: 0, y: 3}
+  - Name: IceEnemy
+    Amount: {x: 0, y: 3}
   TimeBetweenSpawns: {x: 1, y: 3}
   TimeTillNextWave: {x: 30, y: 60}
   TooManyMonstersToStart: {x: 4, y: 5}

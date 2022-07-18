@@ -17,6 +17,14 @@ MonoBehaviour:
     Amount: {x: 15, y: 23}
   - Name: SuperEnemy
     Amount: {x: 4, y: 6}
+  - Name: FireEnemy
+    Amount: {x: 4, y: 6}
+  - Name: IceEnemy
+    Amount: {x: 4, y: 6}
+  - Name: SmallEnemy
+    Amount: {x: 10, y: 20}
+  - Name: Carriage
+    Amount: {x: 1, y: 2}
   TimeBetweenSpawns: {x: 0.5, y: 1}
   TimeTillNextWave: {x: 30, y: 60}
   TooManyMonstersToStart: {x: 5, y: 10}

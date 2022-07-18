@@ -67,7 +67,7 @@ public class Ally : CharacterAI
             }
             else
             {
-                NMA.speed = 0;
+                NMA.speed = 0; NMA.SetDestination(transform.position);
             }
 
             if (CheckBravery(BraveEnoughToFight))
@@ -91,7 +91,7 @@ public class Ally : CharacterAI
             }
             else
             {
-                NMA.speed = 0;
+                NMA.speed = 0; NMA.SetDestination(transform.position);
             }
 
             

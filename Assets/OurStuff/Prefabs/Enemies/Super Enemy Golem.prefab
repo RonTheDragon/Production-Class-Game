@@ -81,11 +81,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1874608925337704553, guid: 89ef136ead5e26a438b669df7c7d3931, type: 3}
       propertyPath: SoulValue.x
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1874608925337704553, guid: 89ef136ead5e26a438b669df7c7d3931, type: 3}
       propertyPath: SoulValue.y
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2061839181176888024, guid: 89ef136ead5e26a438b669df7c7d3931, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

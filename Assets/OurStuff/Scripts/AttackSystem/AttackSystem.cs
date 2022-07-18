@@ -30,6 +30,7 @@ public abstract class AttackSystem : MonoBehaviour
                       protected List<AbilityCoolDown> abilityCoolDowns  = new List<AbilityCoolDown>();
                       protected GameObject            Attacker;
                                 AudioManager          audioManager;
+    [HideInInspector] public bool Unstopable;
 
     protected void Start()
     {
@@ -53,6 +54,11 @@ public abstract class AttackSystem : MonoBehaviour
             {
                 CancelAttack();
             }
+        }
+
+        if (AttackCooldown<=0 && Unstopable)
+        {
+            Unstopable = false;
         }
 
         if (Stamina < MaxStamina)
@@ -236,7 +242,6 @@ public abstract class AttackSystem : MonoBehaviour
             if (Shield != null)
             {         
                 Shield.HpProtection = SOD.HpProtection;
-                Shield.KnockProtection = SOD.KnockProtection;
                 Shield.ProtectionTime = SOD.ProtectionTime;
             }
         }
@@ -257,6 +262,7 @@ public abstract class AttackSystem : MonoBehaviour
         Anim.SetTrigger(Attacks[attackType].AnimationTrigger);
         PreviousAttack = Attacks[attackType].Name;
         comboTimer = timeToComboReset + AttackCooldown;
+        Unstopable = Attacks[attackType].UnStopable;
         if (Attacks[attackType].AbilityCooldown != 0)
         {
             AddCooldown(Attacks[attackType]);
@@ -484,6 +490,7 @@ public abstract class AttackSystem : MonoBehaviour
         }
         HoldingAnAttack = string.Empty;
         AttackCooldown = 0;
+        Unstopable = false;
         ResetCharge();
     }
 

@@ -14,16 +14,23 @@ public abstract class CharacterHealth : Health
     GameObject Ice;
     [HideInInspector] public ParticleSystem IceParticles;
     [HideInInspector] public bool Frozen;
+    AttackSystem attackSystem;
+    protected AudioManager Audio;
     bool ThereIsFire;
     bool ThereIsIce;
+    [SerializeField] bool ImmuneToFire;
+    [SerializeField] bool ImmuneToIce;
 
     float TempHpProtection = 1;
-    float TempKnockProtection = 1;
     float TempTimeLeft;
+
+    public float TemperatureBalancer = 1;
 
     new protected void Start()
     {
         base.Start();
+        Audio = GetComponent<AudioManager>();
+        attackSystem = GetComponent<AttackSystem>();
         if (OnFire != null)
         {
             ThereIsFire = true;
@@ -79,6 +86,9 @@ public abstract class CharacterHealth : Health
                 elementalEfficiency = GameManager.instance.ElementEfficiency;
             }
                 Hp -= Damage * (2 * elementalEfficiency);
+                IceParticles.Emit((int)(Damage * (2 * elementalEfficiency) / 7.5f));
+            if (Audio!=null)
+            Audio.PlaySound(Sound.Activation.Custom, "Frozen Ah");
             if (Temperature > 0)
             {
                 this.Temperature += Temperature;
@@ -86,10 +96,14 @@ public abstract class CharacterHealth : Health
         }
         else
         {
-            if (TempTimeLeft > 0)
+            bool Unstopable = false;
+            if (attackSystem != null)
+            {
+                Unstopable = attackSystem.Unstopable;
+            }
+            if (TempTimeLeft > 0 || Unstopable)
             {
                 Hp -= Damage * TempHpProtection;
-                TheKnockback = knock * TempKnockProtection;
             }
             else
             {
@@ -115,10 +129,9 @@ public abstract class CharacterHealth : Health
     protected abstract void GetStaggered();
 
 
-    public void GainTempProtection(float hp, float knock, float time)
+    public void GainTempProtection(float hp, float time)
     {
         TempHpProtection    = hp;
-        TempKnockProtection = knock;
         TempTimeLeft        = time;
     }
     public bool isDead()
@@ -144,46 +157,66 @@ public abstract class CharacterHealth : Health
         else if (Temperature > 0)
         {
             StopIce();
-            Temperature -= Time.deltaTime * (20 * elementalRecovery);
-            if (Temperature > 20)
-            {
-                if (ThereIsFire)
-                {
-                    if (!OnFire.activeSelf)
-                    {
-                        OnFire.SetActive(true);
-                    }
-                    var e = FireParticles.emission;
-                    e.rateOverTime = ((int)Temperature) - 20;
-                }
-                Hp -= Time.deltaTime * Temperature * (0.1f * elementalEfficiency);
-                if (Temperature > 100)
-                {
-                    Temperature = 100;
-                }
-            }
+            if (ImmuneToFire) Temperature = 0;
             else
             {
-                StopFire();
+                Temperature -= Time.deltaTime * (20 * elementalRecovery);
+                if (Temperature > 20)
+                {
+                    if (ThereIsFire)
+                    {
+                        if (!OnFire.activeSelf)
+                        {
+                            OnFire.SetActive(true);
+                        }
+                        var e = FireParticles.emission;
+                        e.rateOverTime = ((int)Temperature) - 20;
+                    }
+                    Hp -= Time.deltaTime * Temperature * (0.1f * elementalEfficiency);
+                    if (Temperature > 100)
+                    {
+                        Temperature = 100;
+                    }
+                }
+                else
+                {
+                    StopFire();
+                }
             }
         }
         else
         {
-            Temperature += Time.deltaTime * 20;
-            StopFire();
-            if (Temperature < -20)
+                StopFire();
+            if (ImmuneToIce) Temperature = 0;
+            else
             {
-                if (Temperature <= -100 && !AlreadyDead)
+                Temperature += Time.deltaTime * 20;
+                if (Temperature < -20)
                 {
-                    Frozen = true;
-                    if (ThereIsIce)
+                    if (Temperature <= -100 && !AlreadyDead)
                     {
-                        if (!Ice.activeSelf)
+                        Frozen = true;
+                        if (ThereIsIce)
                         {
-                            Ice.SetActive(true);
+                            if (!Ice.activeSelf)
+                            {
+                                Ice.SetActive(true);
+                            }
                         }
                     }
                 }
+            }
+        }
+        if (!ImmuneToFire && !ImmuneToIce)
+        {
+            if (Temperature < 5 && Temperature > -5 && TemperatureBalancer > 0 && Temperature != 0)
+            {
+                TemperatureBalancer -= Time.deltaTime;
+            }
+            if (TemperatureBalancer <= 0)
+            {
+                Temperature = 0;
+                TemperatureBalancer = 1;
             }
         }
     }

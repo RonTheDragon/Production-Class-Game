@@ -1173,7 +1173,7 @@ MonoBehaviour:
   TownCamera: {fileID: 2995170906540537325}
   Souls: {fileID: 5373625984613670555}
   HelpfulText: {fileID: 1266392578}
-  ExitGameMenu: {fileID: 0}
+  ExitGameMenu: {fileID: 6009307242178873118}
 --- !u!82 &998420710
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1641,10 +1641,19 @@ MonoBehaviour:
   - tag: Enemies
     pools:
     - tag: Enemy
-      prefab: {fileID: 9220806171759854006, guid: 89ef136ead5e26a438b669df7c7d3931, type: 3}
+      prefab: {fileID: 5422662658257941451, guid: 211a69e9493024f489b68a39ecf2cfd7, type: 3}
       size: 40
     - tag: SuperEnemy
       prefab: {fileID: 7279148891320323637, guid: 8339445f9512bbc4194c3611e9e54ba4, type: 3}
+      size: 20
+    - tag: FireEnemy
+      prefab: {fileID: 5124814382175059792, guid: 7082ab5ca4fc9fb45b1483571da00586, type: 3}
+      size: 20
+    - tag: SmallEnemy
+      prefab: {fileID: 5337506383697174721, guid: 018d7fbf49c42a644bec755596618fb0, type: 3}
+      size: 100
+    - tag: IceEnemy
+      prefab: {fileID: 2865237535287115578, guid: 4515b0525aa1d08429c7e29863cf7c83, type: 3}
       size: 20
     - tag: Carriage
       prefab: {fileID: 3630812552575502660, guid: 313a607b2b962d94e91402696b87be6d, type: 3}
@@ -1675,6 +1684,9 @@ MonoBehaviour:
     - tag: RemnantExplosion
       prefab: {fileID: 7975407063811130715, guid: f9c5aae5b4e4a9740a3c8ab79472b848, type: 3}
       size: 1
+    - tag: FireGolemBlowUp
+      prefab: {fileID: 2834652857967149758, guid: 696ea4506e42a0a4fb8309098caaa990, type: 3}
+      size: 10
 --- !u!1 &9013158160471282744
 GameObject:
   m_ObjectHideFlags: 0
@@ -1712,6 +1724,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5202665225232464578}
     m_Modifications:
+    - target: {fileID: 347690378532690756, guid: 7fe91072a0d81fc4bb3b60d9e5ee8bb3, type: 3}
+      propertyPath: m_text
+      value: Rogue Tavern
+      objectReference: {fileID: 0}
     - target: {fileID: 461677547017349310, guid: 7fe91072a0d81fc4bb3b60d9e5ee8bb3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -1932,6 +1948,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5202665225232464578}
     m_Modifications:
+    - target: {fileID: 347690378532690756, guid: 7fe91072a0d81fc4bb3b60d9e5ee8bb3, type: 3}
+      propertyPath: m_text
+      value: Wall
+      objectReference: {fileID: 0}
     - target: {fileID: 461677547017349310, guid: 7fe91072a0d81fc4bb3b60d9e5ee8bb3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -2046,6 +2066,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5202665225232464578}
     m_Modifications:
+    - target: {fileID: 347690378532690756, guid: 7fe91072a0d81fc4bb3b60d9e5ee8bb3, type: 3}
+      propertyPath: m_text
+      value: Remnant Alter
+      objectReference: {fileID: 0}
     - target: {fileID: 461677547017349310, guid: 7fe91072a0d81fc4bb3b60d9e5ee8bb3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -2170,27 +2194,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5512486447107853209, guid: 3141719e927b81549bfd5ddfd22fad6b, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5512486447107853209, guid: 3141719e927b81549bfd5ddfd22fad6b, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5512486447107853209, guid: 3141719e927b81549bfd5ddfd22fad6b, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5512486447107853209, guid: 3141719e927b81549bfd5ddfd22fad6b, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5512486447107853209, guid: 3141719e927b81549bfd5ddfd22fad6b, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -400
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 5512486447107853209, guid: 3141719e927b81549bfd5ddfd22fad6b, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -400
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 5512486447107853209, guid: 3141719e927b81549bfd5ddfd22fad6b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2202,7 +2226,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5512486447107853209, guid: 3141719e927b81549bfd5ddfd22fad6b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 93.04649
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5512486447107853209, guid: 3141719e927b81549bfd5ddfd22fad6b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2244,8 +2268,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExitGameUI
       objectReference: {fileID: 0}
+    - target: {fileID: 8993776618224645219, guid: 3141719e927b81549bfd5ddfd22fad6b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3141719e927b81549bfd5ddfd22fad6b, type: 3}
+--- !u!1 &6009307242178873118 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8993776618224645219, guid: 3141719e927b81549bfd5ddfd22fad6b, type: 3}
+  m_PrefabInstance: {fileID: 3437664026593555325}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &7148690353996675300 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5512486447107853209, guid: 3141719e927b81549bfd5ddfd22fad6b, type: 3}
@@ -2258,6 +2291,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5202665225232464578}
     m_Modifications:
+    - target: {fileID: 347690378532690756, guid: 7fe91072a0d81fc4bb3b60d9e5ee8bb3, type: 3}
+      propertyPath: m_text
+      value: Wizard Tower
+      objectReference: {fileID: 0}
     - target: {fileID: 461677547017349310, guid: 7fe91072a0d81fc4bb3b60d9e5ee8bb3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 

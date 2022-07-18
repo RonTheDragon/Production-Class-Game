@@ -861,65 +861,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1882099585, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: ExitGameMenu
-      value: 
-      objectReference: {fileID: 719398336}
-    - target: {fileID: 1144013862829487608, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: m_text
-      value: Rogue Tavern
-      objectReference: {fileID: 0}
-    - target: {fileID: 1393378073483549041, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: m_text
-      value: Wall
-      objectReference: {fileID: 0}
     - target: {fileID: 1783876122695431559, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
       propertyPath: Wall
       value: 
       objectReference: {fileID: 1592667117}
-    - target: {fileID: 2167608797332289002, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: m_text
-      value: Remnant Alter
-      objectReference: {fileID: 0}
-    - target: {fileID: 3791630779519585075, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: m_text
-      value: Wizard Tower
-      objectReference: {fileID: 0}
     - target: {fileID: 5310620670068136351, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
       propertyPath: m_Name
       value: GameManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 6009307242178873118, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7148690353996675300, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7148690353996675300, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7148690353996675300, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7148690353996675300, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7148690353996675300, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 800
-      objectReference: {fileID: 0}
-    - target: {fileID: 7148690353996675300, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 7148690353996675300, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7171943304287298665, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
       propertyPath: m_RootOrder
@@ -7209,11 +7157,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 24fc1e09905350c49a9a17bebaf51f1c, type: 3}
   m_PrefabInstance: {fileID: 707734991}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &719398336 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6009307242178873118, guid: 91be8ef407a190e47b3223820f3b7cba, type: 3}
-  m_PrefabInstance: {fileID: 115125543}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &719573212 stripped
 GameObject:

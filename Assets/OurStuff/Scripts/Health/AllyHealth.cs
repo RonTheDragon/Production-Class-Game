@@ -14,21 +14,42 @@ public class AllyHealth : CharacterHealth
 
     new void Update()
     {
-        base.Update();
+        base.Update();  
+        TakeKnockback();
+        
     }
     protected override void Death()
     {
         if (!AlreadyDead)
         {
             AlreadyDead = true;
-            if (anim!=null)
-            anim.SetBool("Death", true);
+                StopIce();
+            if (anim != null)
+            {
+                anim.SetBool("Frozen", false);
+                anim.SetBool("Death", true);
+            }
             CharacterAI c = GetComponent<CharacterAI>();
             c.ShowingData = 0;
             c.enabled = false;
             GetComponent<NavMeshAgent>().SetDestination(transform.position);
             StartCoroutine(DisposeOfBody());
 
+        }
+    }
+    void TakeKnockback()
+    {
+        if (!Frozen)
+        {
+            if (TheKnockback > 0 && !AlreadyDead)
+            {
+                TheKnockback -= TheKnockback * Time.deltaTime;
+                transform.position = Vector3.MoveTowards(transform.position, TheImpactLocation, -TheKnockback * Time.deltaTime);
+            }
+        }
+        else
+        {
+            TheKnockback = 0;
         }
     }
     protected override IEnumerator DisposeOfBody()
@@ -41,6 +62,7 @@ public class AllyHealth : CharacterHealth
         }
         else
         {
+            if (transform.parent!=null)
             transform.parent.gameObject.SetActive(false);
         }
     }

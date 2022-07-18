@@ -205,6 +205,7 @@ public class TheWall : MonoBehaviour
         Ally ally = Ally.GetComponent<Ally>();
         ally.anim = TPM.animator;
         ally.CharacterAnimationBody = TPM.animator.transform;
+        Destroy(Ally.GetComponent<ThirdPersonMovement>());
         ally.enabled = true;
         PAS.enabled = false;
         AAS.AbilityObjects = PAS.AbilityObjects;
@@ -217,9 +218,11 @@ public class TheWall : MonoBehaviour
         Ally.transform.GetChild(2).gameObject.SetActive(false);
         Ally.transform.GetChild(3).gameObject.SetActive(false);
         Ally.GetComponent<CharacterController>().enabled = false;
+        Destroy(Ally.GetComponent<CharacterController>());
+        Destroy(Ally.GetComponent<PlayerAttackSystem>());
     }
 
-    
+
 
     public void AttemptToWallAttack(SOwall attack)
     {

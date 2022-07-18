@@ -15,9 +15,11 @@ MonoBehaviour:
   Name: TripleShootArrow
   AnimationTrigger: Attack3
   PreviousAttack: ChargeBow
-  StaminaCost: 30
+  StaminaCost: 25
   AttackCooldown: 0.5
   AbilityCooldown: 0
+  AlwaysShow: 0
+  UnStopable: 0
   MinRange: 0
   MaxRange: 100
   Chance: 10

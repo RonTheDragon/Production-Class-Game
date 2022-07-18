@@ -39,5 +39,12 @@ public class InstantExplosion : Attack , IpooledObject
         {
            p.Play();
         }
+        LastEffect();
+
+    }
+
+    public virtual void LastEffect()
+    {
+        //Empty for Overriding.
     }
 }

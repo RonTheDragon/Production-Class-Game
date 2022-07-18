@@ -6,6 +6,5 @@ using UnityEngine;
 public class SOdefence : SOability
 {
     public float HpProtection;
-    public float KnockProtection;
     public float ProtectionTime;
 }

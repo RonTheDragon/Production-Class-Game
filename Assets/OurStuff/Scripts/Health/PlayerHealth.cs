@@ -15,6 +15,7 @@ public class PlayerHealth : CharacterHealth
 
     bool iGotThePower;
     bool CanKillSelf;
+    [SerializeField] GameObject MashToBreakFree;
 
     // Start is called before the first frame update
     new void Start()
@@ -46,6 +47,23 @@ public class PlayerHealth : CharacterHealth
                 GameManager.instance.Wall.GetComponent<WallHealth>().Hp = -1;
             }
         }
+        if (Frozen)
+        {
+            if (!MashToBreakFree.activeSelf)
+            MashToBreakFree.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Temperature += 5;
+                IceParticles.Emit(10);
+                if (Audio != null)
+                    Audio.PlaySound(Sound.Activation.Custom, "Frozen Ah");
+            }
+        }
+        else
+        {
+            if (MashToBreakFree.activeSelf)
+                MashToBreakFree.SetActive(false);
+        }
     }
     void TakeKnockback()
     {
@@ -75,6 +93,8 @@ public class PlayerHealth : CharacterHealth
                     GameManager.instance.SoulSucker = Instantiate(GameManager.instance.PowerStone, transform.position, transform.rotation).transform;
                 }
                 //GameManager.instance.Player = Instantiate(GameManager.instance.Player, GetComponent<RespawmIfFallsOffMap>().startPos, transform.rotation/* FIX LATER*/);
+                StopIce();
+                anim.SetBool("Frozen", false);
                 anim.SetBool("Death", true);
                 CC.enabled = false;
                 PAS.enabled = false;

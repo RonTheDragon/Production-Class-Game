@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0b3ac95e465fd04f8ad6fe51096e1be, type: 3}
+  m_Name: Combo MeleeAttack Frost
+  m_EditorClassIdentifier: 
+  Name: SwordAttack Combo
+  AnimationTrigger: Attack2
+  PreviousAttack: SwordAttack
+  StaminaCost: 10
+  AttackCooldown: 0.4
+  AbilityCooldown: 0
+  AlwaysShow: 0
+  UnStopable: 0
+  MinRange: 0
+  MaxRange: 5
+  Chance: 100
+  attackType: 3
+  aiming: 0
+  Image: {fileID: 0}
+  sound: 2nd sword attack
+  Damage: 20
+  Knockback: 10
+  Stagger: {x: 40, y: 100}
+  Temperature: -30
+  DamagingCooldown: 0.4
+  AttackMovementForce: 4
+  AttackMovementDirection: {x: 2, y: 1}

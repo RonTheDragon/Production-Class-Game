@@ -63,9 +63,9 @@ public class ThirdPersonMovement : MonoBehaviour
         if (!Hp.Frozen)
         {
             Attack();
-            CameraController();
-            Gravity();
         }
+        CameraController();
+        Gravity();
         WalkingAnimation();
         UpdateUI();
     }
@@ -153,7 +153,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
             if (aim)
             {
-                if (!Hp.isDead())
+                if (!Hp.isDead() && !Hp.Frozen)
                     transform.rotation = Quaternion.Euler(0f, targetAngleAim, 0f);
                 moveDir = transform.forward * vertical + transform.right * horizontal;
 
@@ -172,13 +172,14 @@ public class ThirdPersonMovement : MonoBehaviour
             }
             else
             {
-                if (!Hp.isDead())
+                if (!Hp.isDead() && !Hp.Frozen)              
                     transform.rotation = Quaternion.Euler(0f, angle, 0f);
-                moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+                    moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+                
             }
 
             if (!Hp.isDead())
-            controller.Move(moveDir.normalized * speed * Time.deltaTime);
+            controller.Move(moveDir.normalized * GetSpeed() * Time.deltaTime);
         }
     }
 
@@ -215,5 +216,12 @@ public class ThirdPersonMovement : MonoBehaviour
         }
         WallHpBar.fillAmount = WallHp.Hp / WallHp.MaxHp;
         SoulAmount.text = $"Souls: {GameManager.instance.SoulEnergy}";
+    }
+    float GetSpeed()
+    {
+        float Speed = speed;
+        if (Hp.Temperature < 0) { Speed *= 0.01f * (Hp.Temperature + 100); }
+        if (Hp.Frozen) { Speed = 0; }
+        return Speed;
     }
 }

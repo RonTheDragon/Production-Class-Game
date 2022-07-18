@@ -5,7 +5,6 @@ using UnityEngine;
 public class DefensiveAbility : Ability
 {
     public float HpProtection;
-    public float KnockProtection;
     public float ProtectionTime;
 
     public bool AnimationTrigger;
@@ -33,6 +32,6 @@ public class DefensiveAbility : Ability
 
     void sendProtection()
     {
-        EffectedHealth.GainTempProtection(HpProtection, KnockProtection, ProtectionTime);
+        EffectedHealth.GainTempProtection(HpProtection, ProtectionTime);
     }
 }

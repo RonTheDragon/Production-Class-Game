@@ -94,6 +94,10 @@ public abstract class CharacterAI : MonoBehaviour , IpooledObject
 
     protected void Update()
     {
+        if (hp == null)
+        {
+            hp = TheBody.GetComponent<CharacterHealth>();
+        }
         if (Player == null)
         {
             Player = GameManager.instance.Player;
@@ -309,11 +313,7 @@ public abstract class CharacterAI : MonoBehaviour , IpooledObject
             Particle.Emit((int)(Damage/7.5f));
             Audio.PlaySound(Sound.Activation.Custom, "Ah");
         } 
-        else
-        {
-            hp.IceParticles.Emit((int)(Damage / 7.5f)); 
-            Audio.PlaySound(Sound.Activation.Custom, "Frozen Ah");
-        }
+       
     }
 
     protected void RotateTowards(Vector3 target)
