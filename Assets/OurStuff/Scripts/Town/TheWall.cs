@@ -205,7 +205,7 @@ public class TheWall : MonoBehaviour
         Ally ally = Ally.GetComponent<Ally>();
         ally.anim = TPM.animator;
         ally.CharacterAnimationBody = TPM.animator.transform;
-        Destroy(Ally.GetComponent<ThirdPersonMovement>());
+       // Destroy(Ally.GetComponent<ThirdPersonMovement>());
         ally.enabled = true;
         PAS.enabled = false;
         AAS.AbilityObjects = PAS.AbilityObjects;
