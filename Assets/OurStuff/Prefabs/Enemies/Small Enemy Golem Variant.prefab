@@ -33,7 +33,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1874608925337704553, guid: 89ef136ead5e26a438b669df7c7d3931, type: 3}
       propertyPath: CanvasHolderHeight
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 2151462503110022874, guid: 89ef136ead5e26a438b669df7c7d3931, type: 3}
       propertyPath: m_Materials.Array.data[0]

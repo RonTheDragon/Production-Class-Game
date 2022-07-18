@@ -38,7 +38,6 @@ public abstract class AttackSystem : MonoBehaviour
         Stamina = MaxStamina;
         HoldingAnAttack= string.Empty;
         audioManager = GetComponent<AudioManager>();
-        CreateAlwaysShownAbilities();
     }
 
     protected void Update()
@@ -134,8 +133,6 @@ public abstract class AttackSystem : MonoBehaviour
         Charge = 1;
         ChargeSpeed = 0;
     }
-
-    protected abstract void CreateAlwaysShownAbilities();
     
     protected void SetUpAttack(List<SOability> Attacks, int attackType)
     {
@@ -272,7 +269,7 @@ public abstract class AttackSystem : MonoBehaviour
 
     protected virtual void AddCooldown(SOability a)
     {
-        abilityCoolDowns.Add(new AbilityCoolDown(a.Name, a.AbilityCooldown, a.AlwaysShow));
+        abilityCoolDowns.Add(new AbilityCoolDown(a.Name, a.AbilityCooldown, false));
     }
 
     void setAttack(Attack TheAttack,SOattack TheSOattack)
@@ -460,21 +457,21 @@ public abstract class AttackSystem : MonoBehaviour
 
     bool CheckAbilityCooldown(string Name)
     {
-        foreach(AbilityCoolDown a in abilityCoolDowns)
-        {
-            if (a.AbilityName == Name)
+            foreach (AbilityCoolDown a in abilityCoolDowns)
             {
-                if (a.Cooldown > 0)
+                if (a.AbilityName == Name)
                 {
-                    if (this is PlayerAttackSystem)
+                    if (a.Cooldown > 0)
                     {
-                        Debug.Log($"{Name} is in Cooldown ({(int)a.Cooldown}s)");
+                        if (this is PlayerAttackSystem)
+                        { 
+                            Debug.Log($"{Name} is in Cooldown ({(int)a.Cooldown}s)");
+                        }
+                        return true;
                     }
-                    return true;
                 }
             }
-        }
-        return false;
+            return false;      
     }
 
     public virtual void Aiming(bool aim)

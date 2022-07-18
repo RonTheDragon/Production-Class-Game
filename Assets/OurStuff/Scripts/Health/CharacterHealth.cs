@@ -101,6 +101,14 @@ public abstract class CharacterHealth : Health
             {
                 Unstopable = attackSystem.Unstopable;
             }
+            else
+            {
+                attackSystem = GetComponent<AttackSystem>();
+                if (attackSystem != null)
+                {
+                    Unstopable = attackSystem.Unstopable;
+                }
+            }
             if (TempTimeLeft > 0 || Unstopable)
             {
                 Hp -= Damage * TempHpProtection;

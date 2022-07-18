@@ -26,6 +26,7 @@ public class PlayerAttackSystem : AttackSystem
         thirdPersonMovement = GetComponent<ThirdPersonMovement>();
         PlayerCooldownCircles = thirdPersonMovement.PlayerCooldowns;
         EffectedByUpgrades();
+        CreateAlwaysShownAbilities();
         base.Start();
     }
 
@@ -147,7 +148,7 @@ public class PlayerAttackSystem : AttackSystem
         return n;
     }
 
-    protected override void CreateAlwaysShownAbilities()
+    void CreateAlwaysShownAbilities()
     {
         List<SOability> abs = new List<SOability>();
         GameManager.instance.TurnSOclassToAttackList(abs,PlayerClass);

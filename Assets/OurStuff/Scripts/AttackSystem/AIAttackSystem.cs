@@ -90,23 +90,7 @@ public class AIAttackSystem : AttackSystem
             TryAttack -= Time.deltaTime;
         }
     }
-    protected override void CreateAlwaysShownAbilities()
-    {
-        foreach (SOability a in OffensiveAttacks)
-        {
-            if (a.AlwaysShow)
-            {
-                abilityCoolDowns.Add(new AbilityCoolDown(a.Name, a.AbilityCooldown, a.AlwaysShow));
-            }
-        }
-        foreach (SOability a in DefensiveAttacks)
-        {
-            if (a.AlwaysShow)
-            {
-                abilityCoolDowns.Add(new AbilityCoolDown(a.Name, a.AbilityCooldown, a.AlwaysShow));
-            }
-        }
-    }
+    
     public override void AttackMovement()
     {
         AttackMovementForce -= AttackMovementForce * Time.deltaTime;

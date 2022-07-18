@@ -97,7 +97,7 @@ public abstract class CharacterAI : MonoBehaviour , IpooledObject
         if (hp == null)
         {
             hp = TheBody.GetComponent<CharacterHealth>();
-        }
+        }  
         if (Player == null)
         {
             Player = GameManager.instance.Player;
@@ -189,7 +189,10 @@ public abstract class CharacterAI : MonoBehaviour , IpooledObject
     {
         if (Target != null)
         {
-            NMA.SetDestination(Target.transform.position);
+            if (eas.AttackCooldown <= 0)
+            {
+                NMA.SetDestination(Target.transform.position);
+            }
             if (dist <= NMA.stoppingDistance || NMA.speed == 0)
             {
                 RotateTowards(Target.transform.position);
@@ -226,6 +229,7 @@ public abstract class CharacterAI : MonoBehaviour , IpooledObject
 
     protected void Wander()
     {
+        eas.CancelAttack();
         if (roamCooldown > 0) { roamCooldown -= Time.deltaTime; }
         else
         {
