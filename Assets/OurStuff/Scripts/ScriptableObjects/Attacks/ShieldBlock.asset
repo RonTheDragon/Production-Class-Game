@@ -15,15 +15,17 @@ MonoBehaviour:
   Name: Block
   AnimationTrigger: Attack5
   PreviousAttack: 
-  StaminaCost: 5
+  StaminaCost: 2
   AttackCooldown: 0.1
   AbilityCooldown: 0
+  AlwaysShow: 0
+  UnStopable: 0
   MinRange: 0
   MaxRange: 5
   Chance: 30
   attackType: 1
   aiming: 0
   Image: {fileID: 0}
+  sound: 
   HpProtection: 0.1
-  KnockProtection: 0.1
   ProtectionTime: 0.7

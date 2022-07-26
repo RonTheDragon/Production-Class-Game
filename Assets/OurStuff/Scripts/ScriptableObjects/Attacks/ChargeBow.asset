@@ -15,7 +15,7 @@ MonoBehaviour:
   Name: ChargeBow
   AnimationTrigger: Charge
   PreviousAttack: 
-  StaminaCost: 3
+  StaminaCost: 2
   AttackCooldown: 1
   AbilityCooldown: 0
   AlwaysShow: 0

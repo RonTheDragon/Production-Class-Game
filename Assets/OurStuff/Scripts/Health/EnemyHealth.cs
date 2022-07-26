@@ -54,7 +54,7 @@ public class EnemyHealth : CharacterHealth , IpooledObject
     {
         if (!Frozen)
         {
-            if (TheKnockback > 0 && !AlreadyDead)
+            if (TheKnockback > 0)
             {
                 TheKnockback -= TheKnockback * Time.deltaTime;
                 transform.position = Vector3.MoveTowards(transform.position, TheImpactLocation, - TheKnockback * Time.deltaTime);
@@ -74,9 +74,11 @@ public class EnemyHealth : CharacterHealth , IpooledObject
             StopIce();
             enemy.anim.SetBool("Frozen", false);
             enemy.anim.SetBool("Death",true);
+            TheKnockback = 10;
             enemy.CanvasHolder.SetActive(false);
             enemy.enabled   = false;
-            nav.SetDestination(transform.position);
+            nav.isStopped = true;
+            nav.speed = 0;
             GameObject soul = ObjectPooler.Instance.SpawnFromPool("Soul", transform.position+Vector3.up, transform.rotation);
             soul.GetComponent<Soul>().SoulEnergy = enemy.SoulWorth;
             int r = Random.Range(0, 100);

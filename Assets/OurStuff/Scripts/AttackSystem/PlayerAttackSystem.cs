@@ -92,7 +92,7 @@ public class PlayerAttackSystem : AttackSystem
     {
         AttackMovementForce -= AttackMovementForce * Time.deltaTime;   
         Vector3 Knock = (transform.forward * AttackMovementDirection.x + transform.right * AttackMovementDirection.y).normalized * AttackMovementForce * Time.deltaTime;
-        Knock.y = 0;
+        Knock.y = 0.001f;
         if (CC.enabled)
         CC.Move(Knock);
     }

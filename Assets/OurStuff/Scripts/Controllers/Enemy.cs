@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Enemy : CharacterAI , IpooledObject
 {
+    float FixStuck = 5;
     new void Awake()
     {
         TheBody = transform;
@@ -107,5 +108,19 @@ public class Enemy : CharacterAI , IpooledObject
         }
 
         if (eas.Stamina < eas.Tired) { NMA.speed = GetSpeed() * 0.5f; }
+
+        if (eas.AttackCooldown <= 0 && eas.Stamina == eas.MaxStamina && anim.GetInteger("Walk")==0)
+        {
+            FixStuck -= Time.deltaTime;
+            if (FixStuck < 0)
+            {
+                Debug.Log("Stuck!!!!");
+                NMA.SetDestination(GameManager.instance.Player.transform.position);
+            }
+        }
+        else
+        {
+            FixStuck = 5;
+        }
     }
 }

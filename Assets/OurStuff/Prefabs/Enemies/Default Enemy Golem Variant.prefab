@@ -286,6 +286,9 @@ MonoBehaviour:
   OnIce: {fileID: 7133455910468642077}
   IceParticles: {fileID: 0}
   Frozen: 0
+  ImmuneToFire: 0
+  ImmuneToIce: 0
+  TemperatureBalancer: 1
   StartMaxHp: 0
 --- !u!114 &7246966230910348196
 MonoBehaviour:
@@ -316,6 +319,7 @@ MonoBehaviour:
   timeToComboReset: 1
   AttackMovementForce: 0
   AttackMovementDirection: {x: 0, y: 0}
+  Unstopable: 0
   OffensiveAttacks:
   - {fileID: 11400000, guid: 567de1d183ef6464ca817f5cde21648d, type: 2}
   - {fileID: 11400000, guid: d0cb891d226932447b0058eb437244cc, type: 2}
@@ -5217,6 +5221,28 @@ MonoBehaviour:
     Pitch: 1
     RandomizedPitch: 0.2
     source: {fileID: 0}
+  - Name: 1st sword attack
+    activation: 0
+    Clip: {fileID: 8300000, guid: 2572412ba851aef49a2c3ffa0758d3c1, type: 3}
+    Loop: 0
+    HearEveryWhere: 0
+    MinRange: 10
+    MaxRange: 20
+    Volume: 0.6
+    Pitch: 0.4
+    RandomizedPitch: 0.1
+    source: {fileID: 0}
+  - Name: 2nd sword attack
+    activation: 0
+    Clip: {fileID: 8300000, guid: c20f0787a00268744a5a752888c3e0d2, type: 3}
+    Loop: 0
+    HearEveryWhere: 0
+    MinRange: 10
+    MaxRange: 20
+    Volume: 0.6
+    Pitch: 0.4
+    RandomizedPitch: 0.1
+    source: {fileID: 0}
 --- !u!1 &4626013883555717117
 GameObject:
   m_ObjectHideFlags: 0
@@ -5493,7 +5519,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HpProtection: 0
-  KnockProtection: 0
   ProtectionTime: 0
   AnimationTrigger: 0
   EffectedHealth: {fileID: 7246966230910348219}

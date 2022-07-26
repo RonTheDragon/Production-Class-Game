@@ -43,7 +43,7 @@ public class Carriage : CharacterAI
 
         NMA.SetDestination(MoveTo);
         float distance = Vector3.Distance(TheBody.position, MoveTo);
-        if (distance <= NMA.stoppingDistance + 1)
+        if (distance <= NMA.stoppingDistance + 2)
         {
             int r = (int)Random.Range(SoulsContained.x,SoulsContained.y);
             for (int i = 0; i < r; i++)
