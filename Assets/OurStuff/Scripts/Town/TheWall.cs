@@ -20,6 +20,8 @@ public class TheWall : MonoBehaviour
     GameObject WallCooldowns;
     GameObject UsedParticle;
 
+   // public GameObject Turret; // Future Feature
+
     // Start is called before the first frame update
     void Start()
     {
@@ -82,8 +84,7 @@ public class TheWall : MonoBehaviour
                     abilityCoolDowns[i].Cooldown -= Time.deltaTime;               
                 }
             }
-        }
-       
+        }    
     }
 
     public void WallAttack(SOwall attack)
@@ -296,6 +297,8 @@ public class TheWall : MonoBehaviour
             count++;
         }
     }
+
+
 
     public void Shoot(SOwall attack, Vector3 ShootFrom, Quaternion ShootDirection)
     {
