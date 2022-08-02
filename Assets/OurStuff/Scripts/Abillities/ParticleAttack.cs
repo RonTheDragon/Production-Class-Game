@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class ParticleAttack : Attack
 {
-    [HideInInspector]
-    public ParticleSystem particle;
+    [HideInInspector] public ThirdPersonMovement PlayerAimer;
+
+    [HideInInspector] public ParticleSystem particle;
     public bool AnimationTrigger;
     public enum ParticleType { Single , Spam , Play}
     public ParticleType particleType;
@@ -60,6 +61,10 @@ public class ParticleAttack : Attack
 
     public void Shoot()
     {
+        if (PlayerAimer != null)
+        {
+            PlayerAimer.RayCastToTarget();
+        }
         particle.Emit(ParticleAmount);
     }
 

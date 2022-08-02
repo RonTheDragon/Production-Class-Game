@@ -163,19 +163,6 @@ public class ThirdPersonMovement : MonoBehaviour
                 if (!Hp.isDead() && !Hp.Frozen)
                     transform.rotation = Quaternion.Euler(0f, targetAngleAim, 0f);
                 moveDir = transform.forward * vertical + transform.right * horizontal;
-
-                Vector3 target = new Vector3();
-                RaycastHit hit;
-                if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, Mathf.Infinity, GameManager.instance.enemiesCanSee, QueryTriggerInteraction.Ignore))
-                {                  
-                        target = hit.point;
-                }
-                else
-                {
-                    target = cam.transform.forward * 9999;
-                }
-
-                Gun.transform.LookAt(target);
             }
             else
             {
@@ -189,6 +176,23 @@ public class ThirdPersonMovement : MonoBehaviour
             controller.Move(moveDir.normalized * GetSpeed() * Time.deltaTime);
         }
     }
+
+    public void RayCastToTarget()
+    {
+        Vector3 target = new Vector3();
+        RaycastHit hit;
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, Mathf.Infinity, GameManager.instance.enemiesCanSee, QueryTriggerInteraction.Ignore))
+        {
+            target = hit.point;
+        }
+        else
+        {
+            target = cam.transform.forward * 9999;
+        }
+
+        Gun.transform.LookAt(target);
+    }
+
 
     void UpdateUI()
     {

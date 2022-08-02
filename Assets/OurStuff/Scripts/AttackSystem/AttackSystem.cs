@@ -282,7 +282,7 @@ public abstract class AttackSystem : MonoBehaviour
         TheAttack.Temperature = TheSOattack.Temperature;
     }
 
-    T AbilityGet<T>() where T : Ability
+    protected T AbilityGet<T>() where T : Ability
     {
         foreach (Ability a in abilities)
         {

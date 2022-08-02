@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RangeAttack : Attack
 {
+    [HideInInspector] public ThirdPersonMovement PlayerAimer;
+
     public bool AnimationTrigger;
     [HideInInspector]
     public string Bullet;
@@ -33,6 +35,10 @@ public class RangeAttack : Attack
 
     public void Shoot()
     {
+        if (PlayerAimer != null)
+        {
+            PlayerAimer.RayCastToTarget();
+        }
         //GameObject TheBullet = Instantiate(Bullet, transform.position, transform.rotation);
         GameObject TheBullet = ObjectPooler.Instance.SpawnFromPool(Bullet, transform.position, transform.rotation);
         Projectile p = TheBullet.GetComponent<Projectile>();

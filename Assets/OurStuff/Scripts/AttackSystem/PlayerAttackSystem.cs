@@ -28,6 +28,7 @@ public class PlayerAttackSystem : AttackSystem
         EffectedByUpgrades();
         CreateAlwaysShownAbilities();
         base.Start();
+        SetAimings();
     }
 
     new void Update()
@@ -101,6 +102,13 @@ public class PlayerAttackSystem : AttackSystem
     {
         thirdPersonMovement.aim = aim;
     }
+
+    public void SetAimings()
+    {
+        AbilityGet<RangeAttack>().PlayerAimer = thirdPersonMovement;
+        AbilityGet<ParticleAttack>().PlayerAimer = thirdPersonMovement;
+    }
+
 
     protected override void DrainCooldowns()
     {
