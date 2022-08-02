@@ -13243,7 +13243,6 @@ MonoBehaviour:
   DamageMultiplier: 1
   HealingMultiplier: 1
   CooldownMultiplier: 1
-  Turret: {fileID: 0}
 --- !u!114 &1592667120
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -34,10 +34,13 @@ public class Soul : MonoBehaviour , IpooledObject
                 float dist = Vector3.Distance(transform.position, GameManager.instance.SoulSucker.position);
                 transform.position += transform.forward * (speed) * Time.deltaTime;
                 Vector3 newDirection = Vector3.RotateTowards(transform.forward, GameManager.instance.SoulSucker.position - transform.position, rotationSpeed * Time.deltaTime, 0.0f);
-                transform.rotation = Quaternion.LookRotation(newDirection);
                 if (dist < 1 && !SoulAlreadyCollected)
                 {
                     transform.LookAt(GameManager.instance.SoulSucker.position);
+                }
+                else
+                {
+                    transform.rotation = Quaternion.LookRotation(newDirection);
                 }
                 if (dist < 0.1f && !SoulAlreadyCollected)
                 {

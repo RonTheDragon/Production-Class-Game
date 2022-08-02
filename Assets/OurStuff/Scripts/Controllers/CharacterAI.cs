@@ -235,15 +235,18 @@ public abstract class CharacterAI : MonoBehaviour , IpooledObject
 
     protected void Wander()
     {
-        eas.CancelAttack();
-        if (roamCooldown > 0) { roamCooldown -= Time.deltaTime; }
-        else
+            eas.CancelAttack();
+        if (!hp.Frozen)
         {
-            roamCooldown = Random.Range(0, RoamCooldown);
-            float x = Random.Range(-RoamRadius, RoamRadius);
-            float z = Random.Range(-RoamRadius + 0.1f, RoamRadius);
-            Vector3 MoveTo = new Vector3(TheBody.position.x + x, TheBody.position.y, TheBody.position.z + z);
-            NMA.SetDestination(MoveTo);
+            if (roamCooldown > 0) { roamCooldown -= Time.deltaTime; }
+            else
+            {
+                roamCooldown = Random.Range(0, RoamCooldown);
+                float x = Random.Range(-RoamRadius, RoamRadius);
+                float z = Random.Range(-RoamRadius + 0.1f, RoamRadius);
+                Vector3 MoveTo = new Vector3(TheBody.position.x + x, TheBody.position.y, TheBody.position.z + z);
+                NMA.SetDestination(MoveTo);
+            }
         }
     }
 
@@ -404,7 +407,7 @@ public abstract class CharacterAI : MonoBehaviour , IpooledObject
     {
         float speed = OriginalSpeed;
         if (hp.Temperature < 0) { speed *= 0.01f * (hp.Temperature+100); }
-        if (hp.Frozen) { speed = 0; NMA.SetDestination(transform.position); }
+        if (hp.Frozen) { speed = 0; NMA.SetDestination(transform.position); NMA.isStopped=true; }
         return speed;
     }
 }
