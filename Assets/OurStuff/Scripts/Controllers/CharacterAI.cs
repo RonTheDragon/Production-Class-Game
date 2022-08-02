@@ -134,13 +134,16 @@ public abstract class CharacterAI : MonoBehaviour , IpooledObject
             anim.SetInteger("Walk", 1);
             previousPos = TheBody.transform.position;
         }
-        if (hp.Frozen)
+        if (!hp.ImmuneToIce)
         {
-            anim.SetBool("Frozen", true);
-        }
-        else
-        {
-            anim.SetBool("Frozen", false);
+            if (hp.Frozen)
+            {
+                anim.SetBool("Frozen", true);
+            }
+            else if (anim.GetBool("Frozen"))
+            {
+                anim.SetBool("Frozen", false);
+            }
         }
     }
 

@@ -18,13 +18,14 @@ public abstract class CharacterHealth : Health
     protected AudioManager Audio;
     bool ThereIsFire;
     bool ThereIsIce;
-    [SerializeField] bool ImmuneToFire;
-    [SerializeField] bool ImmuneToIce;
+    public bool ImmuneToFire;
+    public bool ImmuneToIce;
+    public bool ImmuneToStuns;
 
     float TempHpProtection = 1;
     float TempTimeLeft;
 
-    public float TemperatureBalancer = 1;
+    float TemperatureBalancer = 1;
 
     new protected void Start()
     {
@@ -109,7 +110,7 @@ public abstract class CharacterHealth : Health
                     Unstopable = attackSystem.Unstopable;
                 }
             }
-            if (TempTimeLeft > 0 || Unstopable)
+            if (TempTimeLeft > 0 || Unstopable || ImmuneToStuns)
             {
                 Hp -= Damage * TempHpProtection;
             }

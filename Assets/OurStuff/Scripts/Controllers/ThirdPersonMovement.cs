@@ -104,9 +104,16 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             speed = 0;
         }
-        else if (Sprint && PAS.Stamina > (PAS.MaxStamina/2))
+        else if (Sprint)
         {
-            speed = SprintSpeed;
+            if (PAS.Stamina > (PAS.MaxStamina / 2))
+            {
+                speed = SprintSpeed;
+            }
+            else
+            {
+                speed = Mathf.Lerp(originalSpeed, SprintSpeed, PAS.Stamina / (PAS.MaxStamina / 2));
+            }
         }
         else
         {
