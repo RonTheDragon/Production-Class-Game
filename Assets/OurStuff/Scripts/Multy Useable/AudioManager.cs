@@ -115,6 +115,7 @@ public class AudioManager : MonoBehaviour
             s.source.clip = s.Clip;
             s.source.volume = s.Volume;
             s.source.loop = s.Loop;
+            s.source.playOnAwake = false;
             if (!s.HearEveryWhere)
             {
                 s.source.spatialBlend = 1;

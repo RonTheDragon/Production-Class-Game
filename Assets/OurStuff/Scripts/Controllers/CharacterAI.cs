@@ -113,6 +113,10 @@ public abstract class CharacterAI : MonoBehaviour , IpooledObject
         {
             Behaviour();
         }
+        else
+        {
+            GetSpeed();
+        }
         if (anim != null)
         {
             WalkingAnimation();
