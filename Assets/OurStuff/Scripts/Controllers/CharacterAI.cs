@@ -230,7 +230,8 @@ public abstract class CharacterAI : MonoBehaviour , IpooledObject
                 RotateTowards(MoveTo);
             }
             eas.Attack(MoveTo, false);
-        }else NMA.SetDestination(transform.position);
+        }
+        else { GetSpeed(); }
     }
 
     protected void Wander()

@@ -37,6 +37,8 @@ public class Soul : MonoBehaviour , IpooledObject
                 if (dist < 1 && !SoulAlreadyCollected)
                 {
                     transform.LookAt(GameManager.instance.SoulSucker.position);
+                    speed += Time.deltaTime * 2;
+                    rotationSpeed = 10;
                 }
                 else
                 {

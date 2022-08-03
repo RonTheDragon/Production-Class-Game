@@ -229,6 +229,8 @@ public class MonsterSpawner : MonoBehaviour
             if (C != null)
             {             
                 Health health = MonsterBody.GetComponent<Health>();
+                health.AlreadyDead = false;
+                C.anim.SetBool("Death",false);
                 health.Hp = health.MaxHp;
                 C.ShowingData = 0;
             }
