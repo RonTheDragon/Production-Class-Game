@@ -43,7 +43,7 @@ public class Soul : MonoBehaviour , IpooledObject
                 {
                     transform.rotation = Quaternion.LookRotation(newDirection);
                 }
-                if (dist < 0.1f && !SoulAlreadyCollected)
+                if (dist < 0.2f && !SoulAlreadyCollected)
                 {
                     SoulCollected();
                 }
