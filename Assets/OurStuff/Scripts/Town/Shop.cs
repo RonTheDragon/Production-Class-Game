@@ -183,7 +183,7 @@ public abstract class Shop : MonoBehaviour, ItownClickable
                     break;
                 case UpgradesList.RemnantBlast:
                     GameManager.instance.RemnantBlastRadius       += 2;
-                    GameManager.instance.RemnantBlastDamage       += mult * 150;
+                    GameManager.instance.RemnantBlastDamage       += 200;
                     break;
                 case UpgradesList.RemnantMagnet:
                     GameManager.instance.RemnantMagnet            += mult * 2;
