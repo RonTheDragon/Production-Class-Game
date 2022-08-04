@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4225261752451617285}
   - component: {fileID: 1420084836815676162}
   - component: {fileID: 2684410567390021424}
+  - component: {fileID: 8975709030089311708}
   m_Layer: 0
   m_Name: BigExplosion
   m_TagString: Untagged
@@ -4863,3 +4864,27 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &8975709030089311708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7345544838225731438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e5fb5e1755727d4a84bac2d86a63d7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sounds:
+  - Name: spawn
+    activation: 0
+    Clip: {fileID: 8300000, guid: ea19dfe4a8020ff45840a1a09cd8bdec, type: 3}
+    Loop: 0
+    HearEveryWhere: 0
+    MinRange: 20
+    MaxRange: 90
+    Volume: 0.4
+    Pitch: 1
+    RandomizedPitch: 0.2
+    source: {fileID: 0}

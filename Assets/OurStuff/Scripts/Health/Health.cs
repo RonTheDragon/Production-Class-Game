@@ -41,7 +41,13 @@ public abstract class Health : MonoBehaviour
 
     public virtual void TakeDamage(float Damage, float knock, Vector2 Stagger, float Temperature, Vector3 ImpactLocation, GameObject Attacker)
     {
-            Hp -= Damage;
+        Hp -= Damage;
+        WallSound();
+    }
+
+    protected virtual void WallSound()
+    {
+
     }
 
     protected abstract void Death();

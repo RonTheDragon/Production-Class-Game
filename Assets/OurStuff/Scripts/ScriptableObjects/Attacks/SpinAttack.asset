@@ -26,7 +26,7 @@ MonoBehaviour:
   attackType: 0
   aiming: 0
   Image: {fileID: 0}
-  sound: 
+  sound: Spear Ult Whoosh
   Damage: 15
   Knockback: 0
   Stagger: {x: 0, y: 100}

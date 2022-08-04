@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class WallHealth : Health
 {
+
+    [SerializeField] AudioSource audioSource;
+
     protected override void Death()
     {
         if (!AlreadyDead)
@@ -25,4 +28,10 @@ public class WallHealth : Health
     {
         base.Update();
     }
+
+    protected override void WallSound()
+    {
+        audioSource.Play();
+    }
+
 }
