@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class WallHealth : Health
 {
 
-    [SerializeField] AudioSource audioSource;
+    AudioManager audioManager;
 
     protected override void Death()
     {
@@ -20,6 +20,7 @@ public class WallHealth : Health
     // Start is called before the first frame update
     new void Start()
     {
+        audioManager = GetComponent<AudioManager>();
         base.Start();
     }
 
@@ -31,7 +32,7 @@ public class WallHealth : Health
 
     protected override void WallSound()
     {
-        audioSource.Play();
+        audioManager.PlaySound(Sound.Activation.Custom,"WallDamage");
     }
 
 }

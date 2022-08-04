@@ -49,6 +49,12 @@ public class Mine : ExplosiveProjectile, IpooledObject
             }
             GameObject Boom = ObjectPooler.Instance.SpawnFromPool(Explosion, transform.position, transform.rotation);
             Boom.GetComponent<ParticleSystem>().Play();
+            AudioManager m = Boom.GetComponent<AudioManager>();
+            if (m != null)
+            {
+                m.CustomStart();
+                m.PlaySound(Sound.Activation.Custom, "spawn");
+            }
             gameObject.SetActive(false);
         }
         
