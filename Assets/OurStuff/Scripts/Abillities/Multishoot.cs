@@ -57,6 +57,7 @@ public class Multishoot : Projectile , IpooledObject
             p.Charge = Charge;
             p.Attackable = Attackable;
             p.Attacker = Attacker;
+            p.Gravity = Gravity;
             if (p is ExplosiveProjectile)
             {
                 ExplosiveProjectile E = (ExplosiveProjectile)p;

@@ -193,6 +193,7 @@ public abstract class AttackSystem : MonoBehaviour
                     setAttack(rangeAttack, SOR);
                     rangeAttack.Bullet = SOR.Projectile;
                     rangeAttack.ProjectileSpeed = SOR.ProjectileSpeed;
+                    rangeAttack.Gravity = SOR.Gravity;
 
                     if (Attacks[attackType] is SOexplosiveRange)
                     {

@@ -33,3 +33,4 @@ MonoBehaviour:
   Temperature: 0
   Projectile: Penetrate
   ProjectileSpeed: 30
+  Gravity: 3

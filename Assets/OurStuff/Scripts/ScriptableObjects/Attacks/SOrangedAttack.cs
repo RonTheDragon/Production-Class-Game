@@ -7,5 +7,6 @@ public class SOrangedAttack : SOattack
 {
     public string Projectile;
     public float ProjectileSpeed;
+    public float Gravity;
 }
 

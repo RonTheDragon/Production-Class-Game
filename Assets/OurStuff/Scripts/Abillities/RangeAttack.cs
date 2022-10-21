@@ -7,12 +7,17 @@ public class RangeAttack : Attack
     [HideInInspector] public ThirdPersonMovement PlayerAimer;
 
     public bool AnimationTrigger;
+    public bool RecoilTrigger;
     [HideInInspector]
     public string Bullet;
     [HideInInspector]
     public float ProjectileSpeed;
+    public float Gravity;
     public float ExplosionRadius;
+    public float RecoilStrength;
     bool _alreadyON;
+    bool _RalreadyON;
+    float _recoilingtime;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +35,22 @@ public class RangeAttack : Attack
         else if (_alreadyON && !AnimationTrigger)
         {
             _alreadyON = false;
+        }
+
+        if (!_RalreadyON && RecoilTrigger)
+        {
+            _RalreadyON = true;
+            Recoil();
+        }
+        else if (_RalreadyON && !RecoilTrigger)
+        {
+            _RalreadyON = false;
+        }
+
+        if (_recoilingtime > 0)
+        {
+            _recoilingtime -= Time.deltaTime;
+            Recoiling();
         }
     }
 
@@ -51,6 +72,7 @@ public class RangeAttack : Attack
             p.Speed = ProjectileSpeed * Charge;
             p.Attacker = Attacker;
             p.Temperature = Temperature;
+            p.Gravity = Gravity;
             if (p is ExplosiveProjectile)
             {
                 ExplosiveProjectile E;
@@ -84,5 +106,15 @@ public class RangeAttack : Attack
             m.CustomStart();
             m.PlaySound(Sound.Activation.Custom, "spawn");
         }
+    }
+
+    public void Recoil()
+    {
+        _recoilingtime = 1;
+    }
+
+    void Recoiling()
+    {
+        PlayerAimer.GetComponent<CharacterController>().Move(PlayerAimer.transform.forward * -RecoilStrength  * _recoilingtime * Time.deltaTime);
     }
 }

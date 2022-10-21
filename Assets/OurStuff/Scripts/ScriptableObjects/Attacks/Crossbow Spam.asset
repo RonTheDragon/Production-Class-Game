@@ -27,9 +27,10 @@ MonoBehaviour:
   aiming: 1
   Image: {fileID: 0}
   sound: Crossbow fast
-  Damage: 4
+  Damage: 7
   Knockback: 3
   Stagger: {x: 0, y: 50}
   Temperature: 0
   Projectile: Triple
-  ProjectileSpeed: 40
+  ProjectileSpeed: 50
+  Gravity: 3

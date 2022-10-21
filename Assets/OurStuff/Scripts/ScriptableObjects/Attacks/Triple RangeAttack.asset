@@ -33,3 +33,4 @@ MonoBehaviour:
   Temperature: 0
   Projectile: Triple
   ProjectileSpeed: 30
+  Gravity: 5
