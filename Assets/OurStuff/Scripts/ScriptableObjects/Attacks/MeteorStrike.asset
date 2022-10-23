@@ -25,7 +25,7 @@ MonoBehaviour:
   Chance: 100
   attackType: 0
   aiming: 1
-  Image: {fileID: 0}
+  Image: {fileID: 21300000, guid: 267c8c820ab5a784a8afa6be13a36152, type: 3}
   sound: Meteor
   Damage: 100
   Knockback: 40
@@ -33,4 +33,5 @@ MonoBehaviour:
   Temperature: 100
   Projectile: Meteor
   ProjectileSpeed: 30
+  Gravity: 0
   ExplosionRadius: 15

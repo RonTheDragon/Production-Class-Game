@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Twin Souls
   Explanation: Increases the chance to get 2 souls from a foe
-  Icon: {fileID: 21300000, guid: 5c295ad6d8197b045849e728584ee05d, type: 3}
+  Icon: {fileID: 21300000, guid: 6aef4b3a22a9515479e8bf3cef26e3bc, type: 3}
   Prices: 32000000500000007800000096000000c8000000fa0000002c01000090010000
   Upgrading: 23

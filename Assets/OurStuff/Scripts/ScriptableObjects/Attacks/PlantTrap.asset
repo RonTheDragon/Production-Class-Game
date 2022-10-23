@@ -25,7 +25,7 @@ MonoBehaviour:
   Chance: 100
   attackType: 0
   aiming: 0
-  Image: {fileID: 0}
+  Image: {fileID: 21300000, guid: 2b3ecb6e6af277d4cbea93462cbf67cf, type: 3}
   sound: 
   Damage: 200
   Knockback: 0
@@ -33,3 +33,4 @@ MonoBehaviour:
   Temperature: 0
   Projectile: Trap
   ProjectileSpeed: 0
+  Gravity: 0

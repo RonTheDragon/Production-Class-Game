@@ -25,7 +25,7 @@ MonoBehaviour:
   Chance: 100
   attackType: 0
   aiming: 1
-  Image: {fileID: 0}
+  Image: {fileID: 21300000, guid: 3356ccbe34a0e3b49a3f06749b3393b2, type: 3}
   sound: Crossbow fast
   Damage: 7
   Knockback: 3

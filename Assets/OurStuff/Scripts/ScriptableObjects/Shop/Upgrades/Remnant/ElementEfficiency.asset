@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Element Efficiency
   Explanation: Increases the efficiency of elemental attacks
-  Icon: {fileID: 21300000, guid: 5c295ad6d8197b045849e728584ee05d, type: 3}
+  Icon: {fileID: 21300000, guid: c8bb179549b778747b940a83a2f7eeb1, type: 3}
   Prices: 32000000500000007800000096000000c8000000fa0000002c01000090010000
   Upgrading: 26

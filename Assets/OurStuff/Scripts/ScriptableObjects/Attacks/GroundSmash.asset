@@ -25,7 +25,7 @@ MonoBehaviour:
   Chance: 100
   attackType: 0
   aiming: 0
-  Image: {fileID: 0}
+  Image: {fileID: 21300000, guid: 3556437796164474f96a40ef0b5e1860, type: 3}
   sound: Ground Smash
   Damage: 100
   Knockback: 20
@@ -33,4 +33,5 @@ MonoBehaviour:
   Temperature: 0
   Projectile: StoneSplash
   ProjectileSpeed: 0
+  Gravity: 0
   ExplosionRadius: 10

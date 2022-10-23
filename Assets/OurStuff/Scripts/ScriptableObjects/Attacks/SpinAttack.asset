@@ -25,7 +25,7 @@ MonoBehaviour:
   Chance: 100
   attackType: 0
   aiming: 0
-  Image: {fileID: 0}
+  Image: {fileID: 21300000, guid: a35181e4e34f1e14a961374a05244c2c, type: 3}
   sound: Spear Ult Whoosh
   Damage: 15
   Knockback: 0

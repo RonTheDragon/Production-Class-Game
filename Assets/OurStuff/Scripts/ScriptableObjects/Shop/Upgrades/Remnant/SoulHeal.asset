@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Soul Heal
   Explanation: Enemy souls heal you when absorbed
-  Icon: {fileID: 21300000, guid: 5c295ad6d8197b045849e728584ee05d, type: 3}
+  Icon: {fileID: 21300000, guid: b821dcfc14c1ecb4ca4d84139dadb70c, type: 3}
   Prices: 32000000500000007800000096000000c8000000fa0000002c01000090010000
   Upgrading: 24

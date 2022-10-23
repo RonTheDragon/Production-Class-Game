@@ -25,7 +25,7 @@ MonoBehaviour:
   Chance: 100
   attackType: 0
   aiming: 0
-  Image: {fileID: 0}
+  Image: {fileID: 21300000, guid: b61ee740f80455f4ba4dcfb344be47dc, type: 3}
   sound: 
   Damage: 5
   Knockback: 0
@@ -33,4 +33,5 @@ MonoBehaviour:
   Temperature: -300
   Projectile: IceTrap
   ProjectileSpeed: 0
+  Gravity: 0
   ExplosionRadius: 15
